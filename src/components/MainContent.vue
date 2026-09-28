@@ -1,91 +1,149 @@
 <template>
-  <div class="main-content">
-    <div v-if="menuStore.selectedItem" class="item-container">
-      <h1 class="item-title">{{ menuStore.selectedItem.name }}</h1>
+  <main class="main-content">
+    <div
+      v-if="currentTopic"
+      class="content"
+    >
+      <h1 class="item-title">
+        {{ currentTopic.title }}
+      </h1>
 
       <div class="grade-legend">
-        <span class="legend-badge junior">Junior</span>
-        <span class="legend-badge middle">Middle</span>
-      </div>
+        <div class="grade-legend-item">
+          <span
+            class="legend-badge junior"
+          >
+            Junior
+          </span>
+        </div>
 
-      <div class="sections-wrapper">
-        <div
-          v-for="section in allSections"
-          :key="section"
-          class="section-block"
-        >
-          <h2 v-if="section !== 'Общее'" class="section-title">
-            {{ section }}
-          </h2>
-          <div class="section-grid">
-            <JuniorInfo
-              :info="menuStore.selectedItem.juniorInfo[section] || 'Нет информации'"
-              :section-name="section"
-            />
-            <MiddleInfo
-              :info="menuStore.selectedItem.middleInfo[section] || 'Нет информации'"
-              :section-name="section"
-            />
-          </div>
+        <div class="grade-legend-item">
+          <span
+            class="legend-badge middle"
+          >
+            Middle
+          </span>
         </div>
       </div>
+
+      <div class="questions-grid">
+
+        <QuestionColumn
+          grade="middle"
+          :sections="
+            currentTopic.middle.sections
+          "
+          @select-question="
+            openQuestion
+          "
+        />
+      </div>
+
+      <QuestionModal
+        :is-open="
+          isQuestionModalOpen
+        "
+        :question="
+          selectedQuestion
+        "
+        @close="
+          closeQuestion
+        "
+      />
     </div>
 
-    <div v-else class="empty-state">
-      <h2>Выберите пункт меню</h2>
-      <p>Нажмите на любой пункт в левой панели, чтобы увидеть подробную информацию</p>
+    <div
+      v-else
+      class="empty-state"
+    >
+      <h2>
+        Выберите тему
+      </h2>
+
+      <p>
+        Нажмите на тему в левой панели,
+        чтобы увидеть вопросы.
+      </p>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import {
+  computed,
+  ref,
+  watch,
+} from 'vue'
+
 import { useMenuStore } from '../stores/menu'
-import JuniorInfo from './JuniorInfo.vue'
-import MiddleInfo from './MiddleInfo.vue'
+
+import QuestionColumn from './QuestionColumn.vue'
+
+import {
+  getTopicQuestions,
+} from '../data/questions'
+
+import type {
+  Question,
+} from '../types/question'
 
 const menuStore = useMenuStore()
 
-const allSections = computed<string[]>(() => {
-  const item = menuStore.selectedItem
-  if (!item) return []
+const selectedQuestion =
+  ref<Question | null>(null)
 
-  const juniorKeys = Object.keys(item.juniorInfo)
-  const middleKeys = Object.keys(item.middleInfo)
+/**
+ * Получаем данные текущей темы.
+ */
+const currentTopic = computed(() => {
+  const id =
+    menuStore.selectedItemId
 
-  const uniqueKeys = [...new Set([...juniorKeys, ...middleKeys])]
+  if (id === null) {
+    return null
+  }
 
-  const priorityOrder = [
-    'HTML', 'CSS', 'JavaScript', 'HTML & CSS',
-    'Vue 2', 'Vue 3',
-    'Основы', 'Webpack', 'Vite', 'Сравнение и оптимизация',
-    'Методологии', 'Jest / Vitest', 'Vue Test Utils', 'Playwright', 'Бэкенд (Java/Python)', 'Общие темы',
-    'Java Core', 'Spring Core', 'Spring MVC', 'JPA / Hibernate', 'Spring Security', 'Spring Cloud'
-  ]
+  return getTopicQuestions(id)
+})
 
-  const sorted = uniqueKeys.sort((a, b) => {
-    const indexA = priorityOrder.indexOf(a)
-    const indexB = priorityOrder.indexOf(b)
-
-    if (indexA !== -1 && indexB !== -1) return indexA - indexB
-    if (indexA !== -1) return -1
-    if (indexB !== -1) return 1
-    return a.localeCompare(b)
+const isQuestionModalOpen =
+  computed(() => {
+    return selectedQuestion.value !== null
   })
 
-  return sorted
-})
+const openQuestion = (
+  question: Question,
+) => {
+  selectedQuestion.value = question
+}
+
+const closeQuestion = () => {
+  selectedQuestion.value = null
+}
+
+/**
+ * При переключении темы закрываем
+ * предыдущий вопрос.
+ */
+watch(
+  () => menuStore.selectedItemId,
+  () => {
+    selectedQuestion.value = null
+  },
+)
 </script>
 
 
 <style scoped>
 .main-content {
-  width: 80%;
+  flex: 1;
+  min-width: 0;
   height: 100%;
   background-color: #f7fdff;
   padding: 32px;
   margin: 0;
   overflow-y: auto;
+
   display: flex;
   flex-direction: column;
 }
@@ -135,8 +193,9 @@ const allSections = computed<string[]>(() => {
 }
 
 .grade-legend {
-  display: flex;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
   margin-bottom: 24px;
 }
 
@@ -155,7 +214,6 @@ const allSections = computed<string[]>(() => {
 }
 
 .legend-badge.middle {
-  margin-left: 640px;
   background-color: #2196f3;
 }
 
@@ -184,5 +242,11 @@ const allSections = computed<string[]>(() => {
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   align-items: start;
+}
+
+.new-questions-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
 }
 </style>

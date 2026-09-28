@@ -1,0 +1,3404 @@
+{
+  "totalTopics": 23,
+  "totalQuestions": 505,
+  "missingFull": [
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Как работает реактивность внутри Pinia?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Как реализовать персистентность state (pinia-plugin-persistedstate)?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Как написать собственный Pinia plugin?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Как использовать Pinia вне компонента и работать с SSR?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Что такое acceptHMRUpdate?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Как организовать структуру сторов в большом проекте (feature-based)?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Как реализовать «глобальные» getters и обрабатывать ошибки в actions?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Что такое $dispose() и как тестировать Pinia stores (createTestingPinia)?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Как интегрировать Pinia с Vue Devtools и реализовать shared state между micro-frontends?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-10",
+      "question": "Как мигрировать с Vuex на Pinia? Сравнение производительности."
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-11",
+      "question": "Как работать с rootState, rootGetters и динамической регистрацией модулей в Vuex?"
+    },
+    {
+      "topicId": 11,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "Query-параметры и body parser."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "Индексы: плюсы и минусы."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-8",
+      "question": "Транзакции: BEGIN, COMMIT, ROLLBACK."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-9",
+      "question": "Нормализация: 1NF, 2NF, 3NF."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-10",
+      "question": "DDL, DML, DCL. DELETE vs TRUNCATE vs DROP."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-11",
+      "question": "VIEW, CASE, COALESCE, EXISTS, IN vs EXISTS, window functions."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "ACID и уровни изоляции транзакций."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Аномалии: Dirty Read, Non-repeatable Read, Phantom Read."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "MVCC, EXPLAIN ANALYZE, чтение плана запроса."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Seq Scan vs Index Scan."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Партиционирование, шардирование, репликация (Master-Slave, Master-Master)."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Материализованные представления, CTE (Common Table Expressions), рекурсивные CTE."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Lateral join, full-text search, JSON/JSONB типы."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Триггеры, stored procedures, курсоры."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Deadlock: что это и как бороться."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-10",
+      "question": "Connection pooling, query optimization."
+    },
+    {
+      "topicId": 13,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "Пользователи, права: GRANT, REVOKE."
+    },
+    {
+      "topicId": 13,
+      "grade": "junior",
+      "key": "Общее-8",
+      "question": "Schema, tablespace, sequence, materialized view, enum."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Индексы в PostgreSQL: B-Tree, Hash, GiN, GiST. Когда какой применять?"
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Partial index, composite index, covering index, index-only scan."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "CONCURRENTLY при создании индекса."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "VACUUM, AUTOVACUUM, dead tuples, table bloat."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Connection pooling (PgBouncer)."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Репликация: logical, physical, streaming, failover, Patroni."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Мониторинг: pg_stat_statements, pgBadger."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Partitioning strategies: range, list, hash."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Политики вытеснения памяти (eviction policies): LRU, LFU, random, ttl."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Персистентность: RDB vs AOF (плюсы и минусы)."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Redis Sentinel и Redis Cluster."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Шардирование в Redis: hash slots."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Distributed lock и Redlock."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Redis Streams и consumer groups."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Транзакции (MULTI/EXEC) и Lua scripts."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Оптимизация: pipeline, memory optimization, maxmemory."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Мониторинг: RedisInsight, Redis Modules (RedisJSON, RediSearch, RedisTimeSeries, RedisGraph)."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "ClickHouse: партиционирование, сортировка (ORDER BY), primary key, sampling, TTL."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Dictionary joins, distributed queries, оптимизация запросов."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Elasticsearch: шарды и реплики, распределение данных."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Refresh interval, translog, segment merging, fielddata, doc values."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Оптимизация индексации: bulk API, reindex API."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Index lifecycle management (ILM), index templates, ingest pipelines."
+    },
+    {
+      "topicId": 16,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "Circuit breaker, retry."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Когда переходить на микросервисы?"
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Saga pattern: Choreography vs Orchestration."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Eventual Consistency."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Уровни зрелости REST (Richardson Maturity Model), HATEOAS, версионирование API."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Kafka: Topic, Partition, Consumer Group, порядок сообщений, Offset, Exactly-once semantics."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Паттерны отказоустойчивости: Retry, Bulkhead, Fallback."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Идемпотентность, idempotency keys, outbox pattern, transactional outbox."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Distributed tracing, OpenTelemetry, service mesh, Istio."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Backward compatibility, CQRS."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Multi-stage build и уменьшение размера образа."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Docker networks: Bridge, Host, Overlay. Общение контейнеров."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Volumes vs Bind mounts."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Docker secrets, Docker Swarm, Kubernetes (container orchestration)."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Docker Hub, private registry, Docker Compose profiles."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Healthcheck, restart policies, resource limits."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Security: non-root user, image scanning, Docker BuildKit, cache, .dockerignore."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Docker contexts, Desktop, rootless Docker, Docker in Docker (DinD)."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Кэширование зависимостей."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Стратегии деплоя: Rolling, Blue-Green, Canary."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Хранение секретов, GitOps, ArgoCD, Flux."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Infrastructure as Code (IaC): Terraform, Ansible, Helm, Kubernetes manifests."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Deployment strategies, feature flags (LaunchDarkly), progressive delivery, automated rollback."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Pipeline optimization: parallel execution, conditional execution, approval gates, manual/scheduled triggers."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Pipeline templates, shared libraries, pipeline security."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Metrics vs Logs vs Traces."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Архитектура Prometheus + Grafana, Pull-модель."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Какие метрики мониторить для Java?"
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "SLI, SLO, SLA, observability."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Distributed tracing: Jaeger, Zipkin, OpenTelemetry."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Structured logging, ELK stack, Loki, log aggregation, log rotation."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Alert routing, grouping, silencing, on-call rotation."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Incident management, post-mortem, error budget."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Availability monitoring, synthetic monitoring."
+    },
+    {
+      "topicId": 20,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "tag, branch, remote, origin."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "merge vs rebase: разница и когда использовать."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "cherry-pick, разрешение сложных конфликтов."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Git Flow vs Trunk-Based Development."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Git hooks, pre-commit hooks, conventional commits, semantic versioning."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "git bisect, reflog, stash pop, worktree."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "submodule, subtree, lfs, sparse checkout, shallow clone."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "blame, log --graph, diff, show, clean, gc, fsck."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Как поступить при несогласии с замечаниями? Constructive feedback."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Автоматизация рутины: SonarQube, Checkstyle, ESLint, Prettier."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Метрики: code complexity, cyclomatic complexity, code coverage."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Виды ревью: security, performance, accessibility, test coverage, documentation, API design, database schema, infrastructure."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Security best practices, OWASP Top 10."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Code review anti-patterns, review fatigue, turnaround time."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Egoless programming, growth mindset."
+    },
+    {
+      "topicId": 22,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "3-way handshake, алгоритм Нейгла, TCP_NODELAY."
+    },
+    {
+      "topicId": 22,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Управление перегрузками: window size, slow start, congestion avoidance, fast retransmit, fast recovery."
+    },
+    {
+      "topicId": 22,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "MTU, fragmentation, TTL, ARP, ICMP, DHCP, BOOTP."
+    },
+    {
+      "topicId": 22,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "TCP keep-alive, half-open, reset, FIN, state machine."
+    },
+    {
+      "topicId": 22,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "TIME_WAIT, CLOSE_WAIT, SYN flood, DDoS."
+    },
+    {
+      "topicId": 23,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "HTTPS, CORS, REST."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "CORS Preflight (OPTIONS)."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Кэширование: Cache-Control, ETag, Last-Modified."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Атрибуты Cookie: HttpOnly, Secure, SameSite."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Защита от XSS и CSRF."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "HTTPS: TLS handshake, симметричное и асимметричное шифрование, сертификаты, Let's Encrypt, HSTS."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "HTTP/2 и HTTP/3 (QUIC): server push, multiplexing, header compression."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "WebSocket, Server-Sent Events (SSE), long polling."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "GraphQL, gRPC, сравнение REST vs GraphQL vs gRPC."
+    }
+  ],
+  "missingShort": [
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-1",
+      "question": "Что такое Vue.js? Основные особенности фреймворка."
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-2",
+      "question": "Что такое однофайловый компонент (SFC)? Из каких секций состоит?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-3",
+      "question": "Что такое реактивность? Как она работает?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-4",
+      "question": "Основные директивы: v-if, v-show, v-for, v-bind, v-on, v-model."
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-5",
+      "question": "В чём разница между v-if и v-show? Зачем нужен :key в v-for?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-6",
+      "question": "Как передавать данные через props и $emit?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-7",
+      "question": "Что такое Options API? Секции: data, methods, computed, watch."
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-8",
+      "question": "Чем computed отличается от methods? Как работает watch (deep, immediate)?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-9",
+      "question": "Что такое v-model и его модификаторы (.lazy, .number, .trim)?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-10",
+      "question": "Модификаторы событий: .stop, .prevent, .once."
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-11",
+      "question": "Как работает :class и :style?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-12",
+      "question": "Что такое слоты (<slot>)? Именованные слоты."
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-13",
+      "question": "Жизненный цикл компонента: основные хуки (created, mounted, updated, destroyed)."
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-14",
+      "question": "Как вызвать API при загрузке компонента?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-15",
+      "question": "Что такое $refs и $nextTick?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-16",
+      "question": "Что такое Vue Router? Динамические маршруты, навигационные гарды."
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 2-17",
+      "question": "Что такое Vuex / Pinia? state, getters, mutations, actions."
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 3-1",
+      "question": "Что такое <script setup> во Vue 3?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 3-2",
+      "question": "Что такое ref и reactive? В чём разница?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 3-3",
+      "question": "Что такое Composition API?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 3-4",
+      "question": "Что такое Teleport и Suspense?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 3-5",
+      "question": "Что такое Fragments (несколько корневых элементов)?"
+    },
+    {
+      "topicId": 2,
+      "grade": "junior",
+      "key": "Vue 3-6",
+      "question": "Что нового в Vue 3 по сравнению с Vue 2?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 2-1",
+      "question": "Как работает реактивность в Vue 2 (Object.defineProperty)?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 2-2",
+      "question": "Почему во Vue 2 нельзя отслеживать добавление свойств объекта напрямую?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-1",
+      "question": "Options API vs Composition API: преимущества Composition API."
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-2",
+      "question": "Как работает реактивность в Vue 3 через Proxy?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-3",
+      "question": "Чем watch отличается от watchEffect?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-4",
+      "question": "Как работают defineProps, defineEmits, defineExpose, defineModel?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-5",
+      "question": "Что такое toRef, toRefs, shallowRef, shallowReactive, customRef?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-6",
+      "question": "Как работает система зависимостей (deps tracking) и effectScope?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-7",
+      "question": "Что такое композаблы (composables)? Как их проектировать и переиспользовать?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-8",
+      "question": "Что такое provide / inject? Как написать кастомную директиву?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-9",
+      "question": "Что такое v-memo, v-bind в <style>, defineSlots, generic-компоненты?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-10",
+      "question": "Что такое useTemplateRef, useId для accessibility?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-11",
+      "question": "Как работает Suspense, async компоненты, KeepAlive (onActivated, onDeactivated)?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-12",
+      "question": "Как работают Transition и TransitionGroup?"
+    },
+    {
+      "topicId": 2,
+      "grade": "middle",
+      "key": "Vue 3-13",
+      "question": "Как работает SSR во Vue 3 и что такое гидратация (hydration mismatch)?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Что такое TypeScript? Зачем он нужен?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Основные типы: string, number, boolean, array, object, any, unknown."
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Чем any отличается от unknown?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Что такое интерфейсы (interface) и типы (type)? Чем они отличаются?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Что такое дженерики (<T>)? Приведите пример."
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "Что такое enum, tuple, literal types?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "Что такое union types (|) и intersection types (&)?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-8",
+      "question": "Что такое type guards (typeof, in, instanceof)?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-9",
+      "question": "Что такое type assertion (as, <>), non-null assertion (!)?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-10",
+      "question": "Что такое optional chaining (?.) и nullish coalescing (??)?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-11",
+      "question": "Как типизировать функции и классы?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-12",
+      "question": "Что такое readonly модификатор?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-13",
+      "question": "Что такое Partial, Required, Pick, Omit, Record?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-14",
+      "question": "Как настроить tsconfig.json и strict mode?"
+    },
+    {
+      "topicId": 3,
+      "grade": "junior",
+      "key": "Общее-15",
+      "question": "Что такое declaration files (.d.ts) и модули?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Как работают utility types: Exclude, Extract, ReturnType, Parameters?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Что такое conditional types (T extends U ? X : Y) и mapped types?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Что такое template literal types?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Как работать с keyof, typeof и infer keyword?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Как создавать кастомные utility types?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Что такое declaration merging?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Как типизировать события DOM и this в функциях?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Что такое satisfies оператор и const assertions (as const)?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Как типизировать async функции, Promise и overloads (перегрузку функций)?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-10",
+      "question": "Что такое ambient declarations (declare) и как типизировать JSON-импорты?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-11",
+      "question": "Что такое isolatedModules и verbatimModuleSyntax?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-12",
+      "question": "Как типизировать React/Vue компоненты, API-ответы и event emitters?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-13",
+      "question": "Что такое branded types (nominal types) и never тип?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-14",
+      "question": "Что такое exhaustiveness checking и type narrowing?"
+    },
+    {
+      "topicId": 3,
+      "grade": "middle",
+      "key": "Общее-15",
+      "question": "Как работать с discriminated unions и TypeScript Compiler API?"
+    },
+    {
+      "topicId": 4,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Что такое state management? Зачем он нужен?"
+    },
+    {
+      "topicId": 4,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Что такое Vuex и Pinia? Почему Pinia стала стандартом для Vue?"
+    },
+    {
+      "topicId": 4,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Как создать store в Pinia? Что такое state, getters, actions?"
+    },
+    {
+      "topicId": 4,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Как получить доступ к store в компоненте? Как изменить state?"
+    },
+    {
+      "topicId": 4,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Что такое $patch, $reset, $subscribe, $onAction?"
+    },
+    {
+      "topicId": 4,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "Что такое modules и namespacing в Vuex?"
+    },
+    {
+      "topicId": 4,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "Чем mutation отличается от action? Что такое mapState, mapGetters, mapActions?"
+    },
+    {
+      "topicId": 4,
+      "grade": "junior",
+      "key": "Общее-8",
+      "question": "Два синтаксиса Pinia: Options vs Setup style."
+    },
+    {
+      "topicId": 4,
+      "grade": "junior",
+      "key": "Общее-9",
+      "question": "Как типизировать Pinia store? Что такое storeToRefs?"
+    },
+    {
+      "topicId": 4,
+      "grade": "junior",
+      "key": "Общее-10",
+      "question": "Как работать с асинхронностью в actions и персистить state (localStorage)?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Как работает реактивность внутри Pinia?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Как реализовать персистентность state (pinia-plugin-persistedstate)?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Как написать собственный Pinia plugin?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Как использовать Pinia вне компонента и работать с SSR?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Что такое acceptHMRUpdate?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Как организовать структуру сторов в большом проекте (feature-based)?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Как реализовать «глобальные» getters и обрабатывать ошибки в actions?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Что такое $dispose() и как тестировать Pinia stores (createTestingPinia)?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Как интегрировать Pinia с Vue Devtools и реализовать shared state между micro-frontends?"
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-10",
+      "question": "Как мигрировать с Vuex на Pinia? Сравнение производительности."
+    },
+    {
+      "topicId": 4,
+      "grade": "middle",
+      "key": "Общее-11",
+      "question": "Как работать с rootState, rootGetters и динамической регистрацией модулей в Vuex?"
+    },
+    {
+      "topicId": 5,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Что такое Nuxt? Чем отличается от Vue? Что такое SSR, CSR, SSG, ISR?"
+    },
+    {
+      "topicId": 5,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Что такое автоимпорты в Nuxt?"
+    },
+    {
+      "topicId": 5,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Как создать страницу, вложенный или динамический маршрут (File-based routing)?"
+    },
+    {
+      "topicId": 5,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Что такое useAsyncData и useFetch? В чём разница?"
+    },
+    {
+      "topicId": 5,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Что такое <NuxtLink>, <NuxtPage> и <NuxtLayout>?"
+    },
+    {
+      "topicId": 5,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "Как создать layout и middleware?"
+    },
+    {
+      "topicId": 5,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "Что такое серверные маршруты и nuxt.config.ts?"
+    },
+    {
+      "topicId": 5,
+      "grade": "junior",
+      "key": "Общее-8",
+      "question": "Что такое useHead и useSeoMeta?"
+    },
+    {
+      "topicId": 5,
+      "grade": "junior",
+      "key": "Общее-9",
+      "question": "Как работать с переменными окружения и useRuntimeConfig?"
+    },
+    {
+      "topicId": 5,
+      "grade": "junior",
+      "key": "Общее-10",
+      "question": "Как обрабатывать ошибки? Что такое useRouter, useRoute и navigateTo?"
+    },
+    {
+      "topicId": 5,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Что такое гидратация и hydration mismatch? Как избежать (<ClientOnly>, <ServerOnly>)?"
+    },
+    {
+      "topicId": 5,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Как работает useAsyncData под капотом? Опции (server, lazy, transform, pick)."
+    },
+    {
+      "topicId": 5,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Чем useFetch отличается от useAsyncData? Что такое useLazyFetch и refreshNuxtData?"
+    },
+    {
+      "topicId": 5,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Что такое $fetch и useRequestFetch? Как работать с куками (useCookie)?"
+    },
+    {
+      "topicId": 5,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Что такое Nitro и серверное хранилище (useStorage)?"
+    },
+    {
+      "topicId": 5,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Что такое серверные middleware и Nuxt plugins?"
+    },
+    {
+      "topicId": 5,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Как реализовать аутентификацию и работать с хуками жизненного цикла Nuxt?"
+    },
+    {
+      "topicId": 5,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Как оптимизировать изображения, кэширование маршрутов и prerendering?"
+    },
+    {
+      "topicId": 5,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Что такое hybrid rendering, i18n, Nuxt Layers и extends?"
+    },
+    {
+      "topicId": 5,
+      "grade": "middle",
+      "key": "Общее-10",
+      "question": "Как оптимизировать Core Web Vitals и обрабатывать CORS в серверных маршрутах?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Основы-1",
+      "question": "Что такое бандлер? Зачем он нужен?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Основы-2",
+      "question": "Что такое npm / yarn / pnpm и package.json?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Основы-3",
+      "question": "Чем dependencies отличаются от devDependencies?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Основы-4",
+      "question": "Что такое node_modules и lock-файлы? Почему их не коммитят?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Основы-5",
+      "question": "Что такое npm run build и npm run dev?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Основы-6",
+      "question": "Что такое транспиляция (Babel), минификация и source maps?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Основы-7",
+      "question": "Что такое ESLint и Prettier? Как их настроить вместе?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Основы-8",
+      "question": "Что такое tsconfig.json и .env файлы?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Webpack-1",
+      "question": "Что такое Webpack? Для каких задач используется?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Webpack-2",
+      "question": "Что такое webpack.config.js, entry и output?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Webpack-3",
+      "question": "Что такое loaders (babel-loader, css-loader, sass-loader)?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Webpack-4",
+      "question": "Что такое plugins (HtmlWebpackPlugin)?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Webpack-5",
+      "question": "Что такое devServer и hot reload?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Vite-1",
+      "question": "Что такое Vite? Кто его создал?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Vite-2",
+      "question": "Почему Vite быстрее Webpack на этапе разработки?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Vite-3",
+      "question": "Что такое vite.config.js?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Vite-4",
+      "question": "Как работать с переменными окружения (import.meta.env)?"
+    },
+    {
+      "topicId": 6,
+      "grade": "junior",
+      "key": "Vite-5",
+      "question": "Как подключить CSS/SCSS и плагины в Vite?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Webpack-1",
+      "question": "Как работает модульная система (CommonJS, ESM)?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Webpack-2",
+      "question": "Что такое resolve.extensions, resolve.alias, externals?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Webpack-3",
+      "question": "Как работает Hot Module Replacement (HMR)?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Webpack-4",
+      "question": "Что такое code splitting, SplitChunksPlugin, динамические импорты?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Webpack-5",
+      "question": "Что такое Tree-shaking? Почему он может не сработать?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Webpack-6",
+      "question": "Что такое long-term caching (contenthash) и runtime chunk?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Webpack-7",
+      "question": "Что такое DefinePlugin, ProvidePlugin, MiniCssExtractPlugin?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Webpack-8",
+      "question": "Что такое Module Federation и кэширование в Webpack 5?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Vite-1",
+      "question": "Почему Vite использует esbuild для dev и Rollup для prod?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Vite-2",
+      "question": "Что такое dependency pre-bundling?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Vite-3",
+      "question": "Как написать кастомный плагин для Vite (хуки: config, transform, resolveId)?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Vite-4",
+      "question": "Что такое import.meta.glob и import.meta.globEager?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Vite-5",
+      "question": "Как настроить SSR, Library Mode, multi-page app и optimizeDeps?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Vite-6",
+      "question": "Как работать с Web Workers (?worker), ?raw, ?url и server.proxy?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Сравнение и оптимизация-1",
+      "question": "Vite vs Webpack: сравнение по скорости и экосистеме."
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Сравнение и оптимизация-2",
+      "question": "Что такое Turbopack, esbuild, Rollup, SWC?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Сравнение и оптимизация-3",
+      "question": "Как оптимизировать размер бандла (code splitting, tree-shaking, lazy loading)?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Сравнение и оптимизация-4",
+      "question": "Что такое Critical Rendering Path и Core Web Vitals?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Сравнение и оптимизация-5",
+      "question": "Что такое HTTP/2 и HTTP/3? Как они влияют на стратегию бандлинга?"
+    },
+    {
+      "topicId": 6,
+      "grade": "middle",
+      "key": "Сравнение и оптимизация-6",
+      "question": "Что такое preload, prefetch, preconnect и immutable cache?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Основы-1",
+      "question": "Что такое Unit, Integration, E2E тестирование?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Основы-2",
+      "question": "Что такое тестовая пирамида?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Основы-3",
+      "question": "Что такое mock, stub, spy, fixture, assertion?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Основы-4",
+      "question": "Что такое test coverage? Почему 100% — не всегда хорошо?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Основы-5",
+      "question": "Что такое Arrange-Act-Assert (AAA) и Red-Green-Refactor?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Jest / Vitest-1",
+      "question": "Что такое Jest и Vitest? Почему Vitest стал стандартом для Vite?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Jest / Vitest-2",
+      "question": "Что такое describe, it/test, expect и matcher'ы (toBe, toEqual, toThrow)?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Jest / Vitest-3",
+      "question": "Что такое beforeEach, afterEach, beforeAll, afterAll?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Jest / Vitest-4",
+      "question": "Как тестировать асинхронный код и Promise?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Jest / Vitest-5",
+      "question": "Что такое snapshot testing?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Playwright-1",
+      "question": "Что такое Playwright? Чем отличается от Cypress и Selenium?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Playwright-2",
+      "question": "Какие браузеры поддерживает? Как написать первый E2E тест?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Playwright-3",
+      "question": "Что такое page, browser, context?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Playwright-4",
+      "question": "Как найти элемент (locator, getByRole, getByTestId)?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Playwright-5",
+      "question": "Что такое auto-waiting? Как кликнуть, ввести текст, проверить видимость?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Методологии-1",
+      "question": "Что такое TDD и BDD?"
+    },
+    {
+      "topicId": 7,
+      "grade": "junior",
+      "key": "Методологии-2",
+      "question": "Что такое flaky tests и как с ними бороться?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Jest / Vitest-1",
+      "question": "Как работает mock (jest.fn, vi.fn, mockReturnValue, mockImplementation)?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Jest / Vitest-2",
+      "question": "Как мокнуть модуль целиком (vi.mock) и использовать vi.importActual?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Jest / Vitest-3",
+      "question": "Как мокнуть таймеры и ES-модули?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Jest / Vitest-4",
+      "question": "Как тестировать fetch/axios запросы с помощью MSW (Mock Service Worker)?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Jest / Vitest-5",
+      "question": "Как настроить Jest/Vitest для TypeScript, path aliases и global setup?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Vue Test Utils-1",
+      "question": "Чем mount отличается от shallowMount?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Vue Test Utils-2",
+      "question": "Как тестировать props, emits, слоты, computed и watch?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Vue Test Utils-3",
+      "question": "Как тестировать компоненты с Vue Router и Pinia (createTestingPinia)?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Vue Test Utils-4",
+      "question": "Как тестировать provide/inject, Teleport, async компоненты и composables?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Vue Test Utils-5",
+      "question": "Что такое Testing Library (@testing-library/vue) и принцип «тестировать как пользователь»?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Playwright-1",
+      "question": "Что такое Browser Context и fixtures в Playwright?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Playwright-2",
+      "question": "Что такое Page Object Model (POM) и Screenplay Pattern?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Playwright-3",
+      "question": "Как работать с iframe, диалоговыми окнами, загрузкой файлов и моком сетей (page.route)?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Playwright-4",
+      "question": "Как тестировать аутентификацию (storage state) и responsive design?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Playwright-5",
+      "question": "Что такое trace viewer, reporter'ы, параллельный запуск и retry для flaky tests?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Playwright-6",
+      "question": "Что такое visual regression testing (toHaveScreenshot) и playwright-ct?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Бэкенд (Java/Python)-1",
+      "question": "(Java) Что такое @SpringBootTest, @WebMvcTest, @DataJpaTest?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Бэкенд (Java/Python)-2",
+      "question": "(Java) Что такое MockMvc, @MockBean, Testcontainers?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Бэкенд (Java/Python)-3",
+      "question": "(Python) Что такое pytest, fixtures, @pytest.mark.parametrize?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Бэкенд (Java/Python)-4",
+      "question": "(Python) Как тестировать FastAPI (TestClient) и Django (TestCase)?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Общие темы-1",
+      "question": "Что такое mutation testing и TestOps?"
+    },
+    {
+      "topicId": 7,
+      "grade": "middle",
+      "key": "Общие темы-2",
+      "question": "Как организовать тестовые данные и обеспечить test isolation?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Java Core-1",
+      "question": "Что такое JVM, JRE, JDK?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Java Core-2",
+      "question": "Примитивные типы данных и объекты-обёртки."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Java Core-3",
+      "question": "Что такое String? Почему неизменяемый? String Pool."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Java Core-4",
+      "question": "Что такое ООП? 4 принципа."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Java Core-5",
+      "question": "Класс, объект, конструктор. abstract class vs interface."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Java Core-6",
+      "question": "static, final, модификаторы доступа."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Java Core-7",
+      "question": "Исключения: Checked vs Unchecked, try-catch-finally."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Java Core-8",
+      "question": "equals() и hashCode(). == vs .equals()."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Java Core-9",
+      "question": "Коллекции: List vs Set, ArrayList vs LinkedList."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Java Core-10",
+      "question": "Как работает HashMap? Что такое Generics и Optional?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Spring Core-1",
+      "question": "Что такое Spring Framework и Spring Boot?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Spring Core-2",
+      "question": "Что такое IoC и DI? Способы внедрения зависимостей."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Spring Core-3",
+      "question": "Аннотации: @Component, @Service, @Repository, @Controller, @Bean, @Configuration."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Spring Core-4",
+      "question": "Что такое Spring Bean и application.properties/yml?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Spring MVC-1",
+      "question": "Что такое @RestController?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Spring MVC-2",
+      "question": "Аннотации маппинга: @GetMapping, @PostMapping и др."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Spring MVC-3",
+      "question": "Как получить данные из запроса (@PathVariable, @RequestParam, @RequestBody)?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Spring MVC-4",
+      "question": "Что такое ResponseEntity?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "JPA / Hibernate-1",
+      "question": "Что такое ORM и JPA? Чем JPA отличается от Hibernate?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "JPA / Hibernate-2",
+      "question": "Как создать сущность (@Entity, @Id, @GeneratedValue)?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "JPA / Hibernate-3",
+      "question": "Что такое JpaRepository и его методы?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "JPA / Hibernate-4",
+      "question": "Типы связей: @OneToOne, @OneToMany, @ManyToOne, @ManyToMany."
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Spring Security-1",
+      "question": "Что такое аутентификация и авторизация?"
+    },
+    {
+      "topicId": 8,
+      "grade": "junior",
+      "key": "Spring Security-2",
+      "question": "Как подключить Spring Security? Базовая аутентификация."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Java Core-1",
+      "question": "Новые фичи Java 9-17 (Records, Sealed classes, Pattern matching)."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Java Core-2",
+      "question": "Память в Java (Heap, Stack, Metaspace) и Garbage Collection (G1, ZGC)."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Java Core-3",
+      "question": "HashMap под капотом: коллизии, ConcurrentHashMap."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Java Core-4",
+      "question": "Java Memory Model: happens-before, volatile."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Java Core-5",
+      "question": "CompletableFuture: компоновка асинхронных задач."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring Core-1",
+      "question": "Жизненный цикл бина, BeanPostProcessor, BeanFactoryPostProcessor."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring Core-2",
+      "question": "Scope'ы бинов (request, session)."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring Core-3",
+      "question": "Как Spring Boot понимает автоконфигурации (@EnableAutoConfiguration)?"
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring Core-4",
+      "question": "Как решить циклические зависимости?"
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring MVC-1",
+      "question": "Filter vs HandlerInterceptor."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring MVC-2",
+      "question": "@ExceptionHandler и @ControllerAdvice."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring MVC-3",
+      "question": "Кастомная сериализация/десериализация JSON (Jackson)."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "JPA / Hibernate-1",
+      "question": "Проблема N+1: диагностика и решение (@EntityGraph, JOIN FETCH, @BatchSize)."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "JPA / Hibernate-2",
+      "question": "Lazy vs Eager загрузка, FetchType."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "JPA / Hibernate-3",
+      "question": "Уровни кэширования (L1, L2) и инвалидация."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "JPA / Hibernate-4",
+      "question": "Жизненный цикл сущности."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "JPA / Hibernate-5",
+      "question": "Транзакции (@Transactional): propagation, isolation levels, проблема проксирования."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring Security-1",
+      "question": "Как работает SecurityFilterChain?"
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring Security-2",
+      "question": "JWT vs Сессионная аутентификация."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring Security-3",
+      "question": "Гранты OAuth2 (Authorization Code, PKCE)."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring Security-4",
+      "question": "Resource Server и OAuth2 Client."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring Cloud-1",
+      "question": "Компоненты Spring Cloud (Gateway, Config, Discovery)."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring Cloud-2",
+      "question": "API Gateway: маршрутизация, фильтры, rate limiting."
+    },
+    {
+      "topicId": 8,
+      "grade": "middle",
+      "key": "Spring Cloud-3",
+      "question": "Circuit Breaker (Resilience4j): Closed, Open, Half-Open."
+    },
+    {
+      "topicId": 9,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Что такое FastAPI? Отличия от Flask/Django."
+    },
+    {
+      "topicId": 9,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Создание эндпоинтов, автоматическая документация (Swagger)."
+    },
+    {
+      "topicId": 9,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Pydantic-модели и валидация данных."
+    },
+    {
+      "topicId": 9,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Dependency Injection, async/await."
+    },
+    {
+      "topicId": 9,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "@app.get, @app.post, query/path-параметры, тело запроса."
+    },
+    {
+      "topicId": 9,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "ResponseModel, кастомные статус-коды, middleware, HTTPException."
+    },
+    {
+      "topicId": 9,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "CORS, background tasks, тестирование."
+    },
+    {
+      "topicId": 9,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "GIL и его влияние на многопоточность."
+    },
+    {
+      "topicId": 9,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "asyncio, корутины и event loop."
+    },
+    {
+      "topicId": 9,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Dependency Injection под капотом: Depends, yield, кастомные зависимости."
+    },
+    {
+      "topicId": 9,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "SQLAlchemy в FastAPI (включая async)."
+    },
+    {
+      "topicId": 9,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Аутентификация (JWT, OAuth2 with Password Flow)."
+    },
+    {
+      "topicId": 9,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "WebSocket, BackgroundTasks, uvicorn/gunicorn."
+    },
+    {
+      "topicId": 9,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "pydantic-settings, APIRouter, структура проекта."
+    },
+    {
+      "topicId": 9,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Request объект, заголовки, cookies, StreamingResponse, rate limiting, lifespan events."
+    },
+    {
+      "topicId": 10,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Django и паттерн MTV."
+    },
+    {
+      "topicId": 10,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Модели, миграции, Django Admin."
+    },
+    {
+      "topicId": 10,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Django ORM: .all(), .filter(), .get()."
+    },
+    {
+      "topicId": 10,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Views, Templates, URL routing (urls.py)."
+    },
+    {
+      "topicId": 10,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Context processor, middleware, формы, ModelForm."
+    },
+    {
+      "topicId": 10,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "Django REST Framework (DRF): Serializer, ViewSet, Router, аутентификация."
+    },
+    {
+      "topicId": 10,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "select_related vs prefetch_related."
+    },
+    {
+      "topicId": 10,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Django Signals и их минусы."
+    },
+    {
+      "topicId": 10,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Оптимизация запросов: annotate, aggregate, F() выражения, Q() объекты."
+    },
+    {
+      "topicId": 10,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Транзакции: transaction.atomic, database routers."
+    },
+    {
+      "topicId": 10,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Custom model fields, managers, middleware, class-based views, mixins."
+    },
+    {
+      "topicId": 10,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Кэширование (cache_page), Celery, task routing, Redis."
+    },
+    {
+      "topicId": 10,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Django Channels, WebSocket, Django Ninja, TestCase vs TransactionTestCase."
+    },
+    {
+      "topicId": 11,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Node.js: отличия от браузерного JS."
+    },
+    {
+      "topicId": 11,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "npm, package.json, Express.js, базовые маршруты."
+    },
+    {
+      "topicId": 11,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "module.exports/require vs import/export (ESM)."
+    },
+    {
+      "topicId": 11,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Callback, «callback hell», Promise, async/await."
+    },
+    {
+      "topicId": 11,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Модули: fs, path, http. HTTP-запросы."
+    },
+    {
+      "topicId": 11,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "Middleware в Express, обработка ошибок, next()."
+    },
+    {
+      "topicId": 11,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "Query-параметры и body parser."
+    },
+    {
+      "topicId": 11,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Event Loop в Node.js."
+    },
+    {
+      "topicId": 11,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Streams и Buffers: когда использовать."
+    },
+    {
+      "topicId": 11,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Масштабирование: Cluster module, Worker threads, child_process."
+    },
+    {
+      "topicId": 11,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "ORM (Sequelize, TypeORM, Prisma)."
+    },
+    {
+      "topicId": 11,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Аутентификация (JWT, Passport.js), WebSocket (Socket.io)."
+    },
+    {
+      "topicId": 11,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "PM2, process manager, деплой, dotenv."
+    },
+    {
+      "topicId": 11,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Логирование (Winston, Pino), тестирование (Jest)."
+    },
+    {
+      "topicId": 11,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Redis, Kafka, Bull/BullMQ, rate limiting, helmet.js."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Реляционная БД: таблица, строка, столбец, PK, FK."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "SELECT, INSERT, UPDATE, DELETE."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "WHERE, ORDER BY, LIMIT, GROUP BY, HAVING."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "JOIN: INNER, LEFT, RIGHT, FULL. Подзапросы."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Агрегатные функции: COUNT, SUM, AVG, MIN, MAX."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "DISTINCT, UNION, NULL."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "Индексы: плюсы и минусы."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-8",
+      "question": "Транзакции: BEGIN, COMMIT, ROLLBACK."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-9",
+      "question": "Нормализация: 1NF, 2NF, 3NF."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-10",
+      "question": "DDL, DML, DCL. DELETE vs TRUNCATE vs DROP."
+    },
+    {
+      "topicId": 12,
+      "grade": "junior",
+      "key": "Общее-11",
+      "question": "VIEW, CASE, COALESCE, EXISTS, IN vs EXISTS, window functions."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "ACID и уровни изоляции транзакций."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Аномалии: Dirty Read, Non-repeatable Read, Phantom Read."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "MVCC, EXPLAIN ANALYZE, чтение плана запроса."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Seq Scan vs Index Scan."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Партиционирование, шардирование, репликация (Master-Slave, Master-Master)."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Материализованные представления, CTE (Common Table Expressions), рекурсивные CTE."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Lateral join, full-text search, JSON/JSONB типы."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Триггеры, stored procedures, курсоры."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Deadlock: что это и как бороться."
+    },
+    {
+      "topicId": 12,
+      "grade": "middle",
+      "key": "Общее-10",
+      "question": "Connection pooling, query optimization."
+    },
+    {
+      "topicId": 13,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Отличия PostgreSQL от MySQL."
+    },
+    {
+      "topicId": 13,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "SERIAL / AUTO_INCREMENT."
+    },
+    {
+      "topicId": 13,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Типы данных: VARCHAR, TEXT, INTEGER, BOOLEAN, TIMESTAMP, JSONB."
+    },
+    {
+      "topicId": 13,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Бэкапы: pg_dump, mysqldump. CLI: psql / mysql."
+    },
+    {
+      "topicId": 13,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Создание индексов, UNIQUE, CHECK, DEFAULT."
+    },
+    {
+      "topicId": 13,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "ON DELETE CASCADE, ON UPDATE CASCADE."
+    },
+    {
+      "topicId": 13,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "Пользователи, права: GRANT, REVOKE."
+    },
+    {
+      "topicId": 13,
+      "grade": "junior",
+      "key": "Общее-8",
+      "question": "Schema, tablespace, sequence, materialized view, enum."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Индексы в PostgreSQL: B-Tree, Hash, GiN, GiST. Когда какой применять?"
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Partial index, composite index, covering index, index-only scan."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "CONCURRENTLY при создании индекса."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "VACUUM, AUTOVACUUM, dead tuples, table bloat."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Connection pooling (PgBouncer)."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Репликация: logical, physical, streaming, failover, Patroni."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Мониторинг: pg_stat_statements, pgBadger."
+    },
+    {
+      "topicId": 13,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Partitioning strategies: range, list, hash."
+    },
+    {
+      "topicId": 14,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Что такое Redis? Отличия от PostgreSQL. «In-memory»."
+    },
+    {
+      "topicId": 14,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Команды: SET, GET, DEL, EXPIRE, TTL."
+    },
+    {
+      "topicId": 14,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Применение: кэш, сессии, очереди."
+    },
+    {
+      "topicId": 14,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Типы данных: строки, хеши, списки, множества, sorted sets."
+    },
+    {
+      "topicId": 14,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Операции: INCR/DECR, HSET/HGET, LPUSH/RPUSH, SADD/SMEMBERS, ZADD/ZRANGE."
+    },
+    {
+      "topicId": 14,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "PUBLISH/SUBSCRIBE, Redis CLI, KEYS vs SCAN, FLUSHDB/FLUSHALL, INFO."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Политики вытеснения памяти (eviction policies): LRU, LFU, random, ttl."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Персистентность: RDB vs AOF (плюсы и минусы)."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Redis Sentinel и Redis Cluster."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Шардирование в Redis: hash slots."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Distributed lock и Redlock."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Redis Streams и consumer groups."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Транзакции (MULTI/EXEC) и Lua scripts."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Оптимизация: pipeline, memory optimization, maxmemory."
+    },
+    {
+      "topicId": 14,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Мониторинг: RedisInsight, Redis Modules (RedisJSON, RediSearch, RedisTimeSeries, RedisGraph)."
+    },
+    {
+      "topicId": 15,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "ClickHouse: что это и для каких задач? Колоночная vs строковая СУБД."
+    },
+    {
+      "topicId": 15,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Elasticsearch: полнотекстовый поиск, inverted index."
+    },
+    {
+      "topicId": 15,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Document, index, mapping, query DSL."
+    },
+    {
+      "topicId": 15,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Queries: match, term, range. Aggregation."
+    },
+    {
+      "topicId": 15,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Экосистема ELK: Kibana, Logstash, Beats."
+    },
+    {
+      "topicId": 15,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "ClickHouse: MergeTree, ReplicatedMergeTree, Distributed engine, Materialized View, dictionary."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "ClickHouse: партиционирование, сортировка (ORDER BY), primary key, sampling, TTL."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Dictionary joins, distributed queries, оптимизация запросов."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Elasticsearch: шарды и реплики, распределение данных."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Refresh interval, translog, segment merging, fielddata, doc values."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Оптимизация индексации: bulk API, reindex API."
+    },
+    {
+      "topicId": 15,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Index lifecycle management (ILM), index templates, ingest pipelines."
+    },
+    {
+      "topicId": 16,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Клиент-серверная архитектура, API, REST API, JSON, эндпоинт."
+    },
+    {
+      "topicId": 16,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Монолит vs микросервисы: плюсы и минусы."
+    },
+    {
+      "topicId": 16,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Синхронное vs асинхронное взаимодействие."
+    },
+    {
+      "topicId": 16,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Очереди сообщений, кэширование, балансировщик нагрузки."
+    },
+    {
+      "topicId": 16,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Горизонтальное и вертикальное масштабирование."
+    },
+    {
+      "topicId": 16,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "API Gateway, service discovery, load balancing."
+    },
+    {
+      "topicId": 16,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "Circuit breaker, retry."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Когда переходить на микросервисы?"
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Saga pattern: Choreography vs Orchestration."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Eventual Consistency."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Уровни зрелости REST (Richardson Maturity Model), HATEOAS, версионирование API."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Kafka: Topic, Partition, Consumer Group, порядок сообщений, Offset, Exactly-once semantics."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Паттерны отказоустойчивости: Retry, Bulkhead, Fallback."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Идемпотентность, idempotency keys, outbox pattern, transactional outbox."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Distributed tracing, OpenTelemetry, service mesh, Istio."
+    },
+    {
+      "topicId": 16,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Backward compatibility, CQRS."
+    },
+    {
+      "topicId": 17,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Что такое Docker, Image, Container, Dockerfile?"
+    },
+    {
+      "topicId": 17,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Команды: build, run, ps, stop, rm."
+    },
+    {
+      "topicId": 17,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "docker-compose и docker-compose.yml."
+    },
+    {
+      "topicId": 17,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Проброс портов, volume, network."
+    },
+    {
+      "topicId": 17,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Инструкции Dockerfile: FROM, RUN, COPY, CMD, ENTRYPOINT, WORKDIR, EXPOSE, ENV, ARG, LABEL, USER, VOLUME."
+    },
+    {
+      "topicId": 17,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "ADD vs COPY, CMD vs ENTRYPOINT."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Multi-stage build и уменьшение размера образа."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Docker networks: Bridge, Host, Overlay. Общение контейнеров."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Volumes vs Bind mounts."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Docker secrets, Docker Swarm, Kubernetes (container orchestration)."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Docker Hub, private registry, Docker Compose profiles."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Healthcheck, restart policies, resource limits."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Security: non-root user, image scanning, Docker BuildKit, cache, .dockerignore."
+    },
+    {
+      "topicId": 17,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Docker contexts, Desktop, rootless Docker, Docker in Docker (DinD)."
+    },
+    {
+      "topicId": 18,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "CI (Continuous Integration) и CD (Continuous Delivery/Deployment)."
+    },
+    {
+      "topicId": 18,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Что такое пайплайн и из каких шагов он состоит?"
+    },
+    {
+      "topicId": 18,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Jenkins, GitHub Actions."
+    },
+    {
+      "topicId": 18,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Артефакт сборки, runner/agent, workflow/job/step."
+    },
+    {
+      "topicId": 18,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Trigger, matrix build, environment, secrets, artifact, cache, workspace."
+    },
+    {
+      "topicId": 18,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "Pipeline as code, Jenkinsfile, GitHub Actions YAML."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Кэширование зависимостей."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Стратегии деплоя: Rolling, Blue-Green, Canary."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Хранение секретов, GitOps, ArgoCD, Flux."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Infrastructure as Code (IaC): Terraform, Ansible, Helm, Kubernetes manifests."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Deployment strategies, feature flags (LaunchDarkly), progressive delivery, automated rollback."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Pipeline optimization: parallel execution, conditional execution, approval gates, manual/scheduled triggers."
+    },
+    {
+      "topicId": 18,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Pipeline templates, shared libraries, pipeline security."
+    },
+    {
+      "topicId": 19,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Зачем нужен мониторинг? Что можно мониторить?"
+    },
+    {
+      "topicId": 19,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Логирование и уровни: DEBUG, INFO, WARN, ERROR."
+    },
+    {
+      "topicId": 19,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Grafana, Zabbix, метрики, алерты, дашборд."
+    },
+    {
+      "topicId": 19,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Prometheus: time series, label, metric name."
+    },
+    {
+      "topicId": 19,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Типы метрик: counter, gauge, histogram, summary."
+    },
+    {
+      "topicId": 19,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "PromQL, alertmanager, exporter."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Metrics vs Logs vs Traces."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Архитектура Prometheus + Grafana, Pull-модель."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Какие метрики мониторить для Java?"
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "SLI, SLO, SLA, observability."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Distributed tracing: Jaeger, Zipkin, OpenTelemetry."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Structured logging, ELK stack, Loki, log aggregation, log rotation."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Alert routing, grouping, silencing, on-call rotation."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "Incident management, post-mortem, error budget."
+    },
+    {
+      "topicId": 19,
+      "grade": "middle",
+      "key": "Общее-9",
+      "question": "Availability monitoring, synthetic monitoring."
+    },
+    {
+      "topicId": 20,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Git vs GitHub. Репозиторий."
+    },
+    {
+      "topicId": 20,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Команды: init, clone, add, commit, status, log."
+    },
+    {
+      "topicId": 20,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Ветки: создание, переключение, push, pull, fetch."
+    },
+    {
+      "topicId": 20,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": ".gitignore, stash, merge-конфликт."
+    },
+    {
+      "topicId": 20,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Pull Request / Merge Request."
+    },
+    {
+      "topicId": 20,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "checkout, switch, restore, reset, revert."
+    },
+    {
+      "topicId": 20,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "tag, branch, remote, origin."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "merge vs rebase: разница и когда использовать."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "cherry-pick, разрешение сложных конфликтов."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Git Flow vs Trunk-Based Development."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Git hooks, pre-commit hooks, conventional commits, semantic versioning."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "git bisect, reflog, stash pop, worktree."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "submodule, subtree, lfs, sparse checkout, shallow clone."
+    },
+    {
+      "topicId": 20,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "blame, log --graph, diff, show, clean, gc, fsck."
+    },
+    {
+      "topicId": 21,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "Что такое код-ревью и зачем нужно?"
+    },
+    {
+      "topicId": 21,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Commit-сообщения, читаемость кода, именование переменных, комментарии."
+    },
+    {
+      "topicId": 21,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Принципы: DRY, KISS, SOLID."
+    },
+    {
+      "topicId": 21,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Code style, linting, formatting, code smells."
+    },
+    {
+      "topicId": 21,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "Technical debt, refactoring."
+    },
+    {
+      "topicId": 21,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "Pair programming, mob programming, code ownership, CODEOWNERS, approval rules."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "Как поступить при несогласии с замечаниями? Constructive feedback."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Автоматизация рутины: SonarQube, Checkstyle, ESLint, Prettier."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Метрики: code complexity, cyclomatic complexity, code coverage."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Виды ревью: security, performance, accessibility, test coverage, documentation, API design, database schema, infrastructure."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "Security best practices, OWASP Top 10."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "Code review anti-patterns, review fatigue, turnaround time."
+    },
+    {
+      "topicId": 21,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "Egoless programming, growth mindset."
+    },
+    {
+      "topicId": 22,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "IP-адрес, порт, DNS, localhost."
+    },
+    {
+      "topicId": 22,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "Клиент и сервер, протокол, стек TCP/IP, OSI модель."
+    },
+    {
+      "topicId": 22,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "TCP и UDP, IPv4 vs IPv6."
+    },
+    {
+      "topicId": 22,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "Subnet mask, gateway, router, switch, firewall."
+    },
+    {
+      "topicId": 22,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "NAT, VPN, proxy, CDN, HTTP."
+    },
+    {
+      "topicId": 22,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "3-way handshake, алгоритм Нейгла, TCP_NODELAY."
+    },
+    {
+      "topicId": 22,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Управление перегрузками: window size, slow start, congestion avoidance, fast retransmit, fast recovery."
+    },
+    {
+      "topicId": 22,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "MTU, fragmentation, TTL, ARP, ICMP, DHCP, BOOTP."
+    },
+    {
+      "topicId": 22,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "TCP keep-alive, half-open, reset, FIN, state machine."
+    },
+    {
+      "topicId": 22,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "TIME_WAIT, CLOSE_WAIT, SYN flood, DDoS."
+    },
+    {
+      "topicId": 23,
+      "grade": "junior",
+      "key": "Общее-1",
+      "question": "HTTP-запрос и ответ: из чего состоят."
+    },
+    {
+      "topicId": 23,
+      "grade": "junior",
+      "key": "Общее-2",
+      "question": "HTTP-методы."
+    },
+    {
+      "topicId": 23,
+      "grade": "junior",
+      "key": "Общее-3",
+      "question": "Группы кодов ответа: 2xx, 3xx, 4xx, 5xx."
+    },
+    {
+      "topicId": 23,
+      "grade": "junior",
+      "key": "Общее-4",
+      "question": "200 OK, 201 Created, 204 No Content, 400, 401, 403, 404, 500."
+    },
+    {
+      "topicId": 23,
+      "grade": "junior",
+      "key": "Общее-5",
+      "question": "URL, заголовки HTTP, Content-Type, Accept, Authorization."
+    },
+    {
+      "topicId": 23,
+      "grade": "junior",
+      "key": "Общее-6",
+      "question": "Cookie, LocalStorage, SessionStorage, сессия."
+    },
+    {
+      "topicId": 23,
+      "grade": "junior",
+      "key": "Общее-7",
+      "question": "HTTPS, CORS, REST."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-1",
+      "question": "CORS Preflight (OPTIONS)."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-2",
+      "question": "Кэширование: Cache-Control, ETag, Last-Modified."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-3",
+      "question": "Атрибуты Cookie: HttpOnly, Secure, SameSite."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-4",
+      "question": "Защита от XSS и CSRF."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-5",
+      "question": "HTTPS: TLS handshake, симметричное и асимметричное шифрование, сертификаты, Let's Encrypt, HSTS."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-6",
+      "question": "HTTP/2 и HTTP/3 (QUIC): server push, multiplexing, header compression."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-7",
+      "question": "WebSocket, Server-Sent Events (SSE), long polling."
+    },
+    {
+      "topicId": 23,
+      "grade": "middle",
+      "key": "Общее-8",
+      "question": "GraphQL, gRPC, сравнение REST vs GraphQL vs gRPC."
+    }
+  ]
+}

@@ -1,48 +1,99 @@
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="isOpen" class="modal-overlay" @click="handleBackdropClick">
+      <div
+        v-if="isOpen"
+        class="modal-overlay"
+        @click="handleBackdropClick"
+      >
         <div class="modal-content" @click.stop>
           <div class="modal-header">
-            <button class="modal-short-btn" @click="openShortModal">
-              Кратко
-            </button>
-            <button class="modal-close" @click="close">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
+            <div class="answer-tabs">
+              <button
+                class="answer-tab"
+                :class="{ active: answerMode === 'full' }"
+                @click="answerMode = 'full'"
+              >
+                Подробно
+              </button>
+
+              <button
+                class="answer-tab"
+                :class="{ active: answerMode === 'short' }"
+                @click="answerMode = 'short'"
+              >
+                Кратко
+              </button>
+            </div>
+
+            <button
+              class="modal-close"
+              @click="close"
+              aria-label="Закрыть"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line
+                  x1="18"
+                  y1="6"
+                  x2="6"
+                  y2="18"
+                />
+                <line
+                  x1="6"
+                  y1="6"
+                  x2="18"
+                  y2="18"
+                />
               </svg>
             </button>
           </div>
+
           <div class="modal-body">
-            <h3 class="modal-title">{{ question }}</h3>
-            <div class="modal-answer" v-html="formattedAnswer"></div>
+            <h3 class="modal-title">
+              {{ question?.title }}
+            </h3>
+
+            <div
+              v-if="answerMode === 'full'"
+              class="modal-answer"
+              v-html="formattedAnswer"
+            />
+
+            <div
+              v-else-if="question"
+              class="short-answer"
+            >
+              <h4>
+                Как можно ответить на собеседовании
+              </h4>
+
+              <p>
+                {{ question.shortAnswer }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </Transition>
   </Teleport>
-
-  <ShortAnswerModal
-    :is-open="isShortModalOpen"
-    :question="question"
-    :answer="shortAnswer"
-    @close="closeShortModal"
-  />
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useMenuStore } from '../stores/menu'
-import ShortAnswerModal from './ShortAnswerModal.vue'
+import type { Question } from '@/types/question'
 
 const props = defineProps<{
   isOpen: boolean
-  question: string
+  question: Question | null
   answer: string
-  grade: 'junior' | 'middle'
-  sectionName: string
-  questionIndex: number
 }>()
 
 const emit = defineEmits<{
@@ -50,7 +101,10 @@ const emit = defineEmits<{
 }>()
 
 const menuStore = useMenuStore()
-const isShortModalOpen = ref(false)
+
+type AnswerMode = 'full' | 'short'
+
+const answerMode = ref<AnswerMode>('full')
 
 const close = () => {
   emit('close')
@@ -62,65 +116,83 @@ const handleBackdropClick = (event: MouseEvent) => {
   }
 }
 
-const openShortModal = () => {
-  isShortModalOpen.value = true
-}
-
-const closeShortModal = () => {
-  isShortModalOpen.value = false
-}
-
-const shortAnswer = computed(() => {
-  const answer = menuStore.getShortAnswer(
-    props.grade,
-    props.sectionName,
-    props.questionIndex
-  )
-  return answer || 'Краткий ответ пока не добавлен.'
-})
-
 const formattedAnswer = computed(() => {
-  if (!props.answer) return ''
+  if (!props.question) {
+    return ''
+  }
 
-  let html = props.answer
+  let html = props.question.fullAnswer
 
-  // Блоки кода
-  html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (match, lang, code) => {
-    const escapedCode = code
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .trim()
-    return `<pre class="code-block"><code class="code-language-${lang || 'text'}">${escapedCode}</code></pre>`
-  })
+  html = html.replace(
+    /```(\w*)\n([\s\S]*?)```/g,
+    (match, lang, code) => {
+      const escapedCode = code
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .trim()
 
-  // Инлайн код
+      return `<pre class="code-block"><code class="code-language-${
+        lang || 'text'
+      }">${escapedCode}</code></pre>`
+    },
+  )
+
   html = html.replace(/`([^`]+)`/g, (match, code) => {
     const escapedCode = code
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
+
     return `<code class="inline-code">${escapedCode}</code>`
   })
 
-  // Жирный текст
-  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+  html = html.replace(
+    /\*\*([^*]+)\*\*/g,
+    '<strong>$1</strong>',
+  )
 
-  // Курсив
-  html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>')
+  html = html.replace(
+    /\*([^*]+)\*/g,
+    '<em>$1</em>',
+  )
 
-  // Заголовки
-  html = html.replace(/^### (.+)$/gm, '<h4 class="answer-section">$1</h4>')
-  html = html.replace(/^## (.+)$/gm, '<h4 class="answer-section">$1</h4>')
+  html = html.replace(
+    /^### (.+)$/gm,
+    '<h4 class="answer-section">$1</h4>',
+  )
 
-  // Списки
-  html = html.replace(/^- (.+)$/gm, '<li class="answer-list-item">$1</li>')
-  html = html.replace(/^\d+\. (.+)$/gm, '<p class="answer-item">$1</p>')
+  html = html.replace(
+    /^## (.+)$/gm,
+    '<h4 class="answer-section">$1</h4>',
+  )
 
-  // Переносы строк
-  html = html.replace(/\n\n/g, '</p><p class="answer-paragraph">')
+  html = html.replace(
+    /^- (.+)$/gm,
+    '<li class="answer-list-item">$1</li>',
+  )
+
+  html = html.replace(
+    /^\d+\. (.+)$/gm,
+    '<p class="answer-item">$1</p>',
+  )
+
+  html = html.replace(
+    /\n\n/g,
+    '</p><p class="answer-paragraph">',
+  )
+
   html = html.replace(/\n/g, '<br>')
 
-  return `<p class="answer-paragraph">${html}</p>`
+  return html
 })
+
+watch(
+  () => props.isOpen,
+  (isOpen) => {
+    if (isOpen) {
+      answerMode.value = 'full'
+    }
+  },
+)
 </script>
 
 <style scoped>
@@ -312,5 +384,46 @@ const formattedAnswer = computed(() => {
 .modal-leave-to .modal-content {
   transform: scale(0.9) translateY(20px);
   opacity: 0;
+}
+
+.answer-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.answer-tab {
+  border: 1px solid #d5d5d5;
+  background: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.answer-tab:hover {
+  background-color: #f3f3f3;
+}
+
+.answer-tab.active {
+  background-color: #1a1a2e;
+  color: white;
+  border-color: #1a1a2e;
+}
+
+.short-answer {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.short-answer h4 {
+  margin-bottom: 16px;
+  color: #1a1a2e;
+}
+
+.short-answer p {
+  padding: 20px;
+  background-color: #f5f8ff;
+  border-radius: 10px;
 }
 </style>

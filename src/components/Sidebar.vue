@@ -25,12 +25,15 @@ const menuStore = useMenuStore()
 
 <style scoped>
 .sidebar {
-  width: 20%;
+  width: clamp(220px, 20vw, 300px);
+  flex-shrink: 0;
+
   height: 100%;
   background-color: #ffe3e8;
   padding: 20px;
   margin: 0;
   overflow-y: auto;
+
   display: flex;
   flex-direction: column;
   gap: 20px;
