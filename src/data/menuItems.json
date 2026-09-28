@@ -9,7 +9,6 @@
       }
     ]
   },
-
   {
     "id": "vue",
     "title": "Vue.js",
@@ -29,6 +28,120 @@
       {
         "id": 5,
         "name": "Nuxt 4"
+      }
+    ]
+  },
+  {
+    "id": "build-test",
+    "title": "Сборка и Тестирование",
+    "items": [
+      {
+        "id": 6,
+        "name": "Vite / Webpack"
+      },
+      {
+        "id": 7,
+        "name": "Тестирование (Jest, Vitest, Playwright)"
+      }
+    ]
+  },
+  {
+    "id": "backend",
+    "title": "Бэкенд",
+    "items": [
+      {
+        "id": 8,
+        "name": "Java & Spring"
+      },
+      {
+        "id": 9,
+        "name": "Python FastAPI"
+      },
+      {
+        "id": 10,
+        "name": "Python Django"
+      },
+      {
+        "id": 11,
+        "name": "Node.js"
+      }
+    ]
+  },
+  {
+    "id": "database",
+    "title": "БД",
+    "items": [
+      {
+        "id": 12,
+        "name": "SQL"
+      },
+      {
+        "id": 13,
+        "name": "PostgreSQL / MySQL"
+      },
+      {
+        "id": 14,
+        "name": "Redis"
+      },
+      {
+        "id": 15,
+        "name": "ClickHouse / Elasticsearch"
+      }
+    ]
+  },
+  {
+    "id": "architecture",
+    "title": "Архитектура",
+    "items": [
+      {
+        "id": 16,
+        "name": "Микросервисы, REST, Kafka, Отказоустойчивость"
+      }
+    ]
+  },
+  {
+    "id": "infra-cicd",
+    "title": "Инфраструктура и CI/CD",
+    "items": [
+      {
+        "id": 17,
+        "name": "Docker"
+      },
+      {
+        "id": 18,
+        "name": "CI/CD"
+      },
+      {
+        "id": 19,
+        "name": "Мониторинг"
+      },
+      {
+        "id": 20,
+        "name": "Git"
+      },
+      {
+        "id": 21,
+        "name": "Код-ревью"
+      }
+    ]
+  },
+  {
+    "id": "networks",
+    "title": "Сети",
+    "items": [
+      {
+        "id": 22,
+        "name": "Сети"
+      }
+    ]
+  },
+  {
+    "id": "http",
+    "title": "HTTP",
+    "items": [
+      {
+        "id": 23,
+        "name": "HTTP"
       }
     ]
   }

@@ -87,20 +87,16 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { useMenuStore } from '../stores/menu'
 import type { Question } from '@/types/question'
 
 const props = defineProps<{
   isOpen: boolean
   question: Question | null
-  answer: string
 }>()
 
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
-
-const menuStore = useMenuStore()
 
 type AnswerMode = 'full' | 'short'
 

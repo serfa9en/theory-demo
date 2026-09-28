@@ -27,16 +27,21 @@
       </div>
 
       <div class="questions-grid">
+        <div class="questions-column">
+          <QuestionColumn
+            grade="junior"
+            :sections="currentTopic.junior.sections"
+            @select-question="openQuestion"
+          />
+        </div>
 
-        <QuestionColumn
-          grade="middle"
-          :sections="
-            currentTopic.middle.sections
-          "
-          @select-question="
-            openQuestion
-          "
-        />
+        <div class="questions-column">
+          <QuestionColumn
+            grade="middle"
+            :sections="currentTopic.middle.sections"
+            @select-question="openQuestion"
+          />
+        </div>
       </div>
 
       <QuestionModal
@@ -78,6 +83,7 @@ import {
 import { useMenuStore } from '../stores/menu'
 
 import QuestionColumn from './QuestionColumn.vue'
+import QuestionModal from './QuestionModal.vue'
 
 import {
   getTopicQuestions,
@@ -248,5 +254,19 @@ watch(
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
+}
+
+.questions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+
+  width: 100%;
+  align-items: start;
+}
+
+.questions-column {
+  min-width: 0;
+  width: 100%;
 }
 </style>
