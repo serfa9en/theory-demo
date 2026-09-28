@@ -1,0 +1,6 @@
+{
+    "HTML-1": {
+    "question": "Что такое HTML? Какова структура базового HTML-документа?",
+    "answer": "**HTML (HyperText Markup Language)** — это язык разметки для создания веб-страниц. Он описывает структуру контента с помощью тегов.\n\n**Базовая структура:**\n```html\n<!DOCTYPE html>\n<html lang=\"ru\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Заголовок страницы</title>\n</head>\n<body>\n  <!-- Контент страницы -->\n</body>\n</html>\n```\n\n**Ключевые моменты:**\n- `&lt;!DOCTYPE html&gt;` — объявление типа документа (HTML5)\n- `&lt;html&gt;` — корневой элемент\n- `&lt;head&gt;` — метаданные (заголовок, кодировка, подключение скриптов)\n- `&lt;body&gt;` — видимый контент страницы"
+  }
+}
