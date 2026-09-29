@@ -10,17 +10,13 @@
 
       <div class="grade-legend">
         <div class="grade-legend-item">
-          <span
-            class="legend-badge junior"
-          >
+          <span class="legend-badge junior">
             Junior
           </span>
         </div>
 
         <div class="grade-legend-item">
-          <span
-            class="legend-badge middle"
-          >
+          <span class="legend-badge middle">
             Middle
           </span>
         </div>
@@ -31,7 +27,13 @@
           <QuestionColumn
             grade="junior"
             :sections="currentTopic.junior.sections"
-            @select-question="openQuestion"
+            @select-question="
+              question =>
+                emit(
+                  'selectQuestion',
+                  question,
+                )
+            "
           />
         </div>
 
@@ -39,22 +41,16 @@
           <QuestionColumn
             grade="middle"
             :sections="currentTopic.middle.sections"
-            @select-question="openQuestion"
+            @select-question="
+              question =>
+                emit(
+                  'selectQuestion',
+                  question,
+                )
+            "
           />
         </div>
       </div>
-
-      <QuestionModal
-        :is-open="
-          isQuestionModalOpen
-        "
-        :question="
-          selectedQuestion
-        "
-        @close="
-          closeQuestion
-        "
-      />
     </div>
 
     <div
@@ -76,14 +72,13 @@
 <script setup lang="ts">
 import {
   computed,
-  ref,
-  watch,
 } from 'vue'
 
-import { useMenuStore } from '../stores/menu'
+import {
+  useMenuStore,
+} from '../stores/menu'
 
 import QuestionColumn from './QuestionColumn.vue'
-import QuestionModal from './QuestionModal.vue'
 
 import {
   getTopicQuestions,
@@ -93,14 +88,14 @@ import type {
   Question,
 } from '../types/question'
 
+const emit = defineEmits<{
+  selectQuestion: [
+    question: Question,
+  ]
+}>()
+
 const menuStore = useMenuStore()
 
-const selectedQuestion =
-  ref<Question | null>(null)
-
-/**
- * Получаем данные текущей темы.
- */
 const currentTopic = computed(() => {
   const id =
     menuStore.selectedItemId
@@ -111,40 +106,13 @@ const currentTopic = computed(() => {
 
   return getTopicQuestions(id)
 })
-
-const isQuestionModalOpen =
-  computed(() => {
-    return selectedQuestion.value !== null
-  })
-
-const openQuestion = (
-  question: Question,
-) => {
-  selectedQuestion.value = question
-}
-
-const closeQuestion = () => {
-  selectedQuestion.value = null
-}
-
-/**
- * При переключении темы закрываем
- * предыдущий вопрос.
- */
-watch(
-  () => menuStore.selectedItemId,
-  () => {
-    selectedQuestion.value = null
-  },
-)
 </script>
-
 
 <style scoped>
 .main-content {
   flex: 1;
   min-width: 0;
-  height: 100%;
+  min-height: 0;
   background-color: #f7fdff;
   padding: 32px;
   margin: 0;
@@ -172,23 +140,6 @@ watch(
 .empty-state p {
   font-size: 18px;
   color: #555;
-}
-
-.item-container {
-  display: flex;
-  flex-direction: column;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .item-title {
@@ -223,42 +174,13 @@ watch(
   background-color: #2196f3;
 }
 
-.sections-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.section-block {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.section-title {
-  font-size: 22px;
-  color: #1a1a2e;
-  font-weight: 700;
-  padding-bottom: 6px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.section-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  align-items: start;
-}
-
-.new-questions-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 16px;
-}
-
 .questions-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
   gap: 24px;
 
   width: 100%;
@@ -268,5 +190,16 @@ watch(
 .questions-column {
   min-width: 0;
   width: 100%;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    padding: 22px;
+  }
+
+  .questions-grid,
+  .grade-legend {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
