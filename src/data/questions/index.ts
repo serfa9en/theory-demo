@@ -21,39 +21,50 @@ import { topic20Questions } from './topic-20'
 import { topic21Questions } from './topic-21'
 import { topic22Questions } from './topic-22'
 import { topic23Questions } from './topic-23'
+import { topic24Questions } from './topic-24'
 
-import type { TopicQuestions } from '../../types/question'
+import type {
+  TopicQuestions,
+} from '../../types/question'
 
-export const questionsByTopic: Record<number, TopicQuestions> = {
-  1: topic1Questions,
-  2: topic2Questions,
-  3: topic3Questions,
-  4: topic4Questions,
-  5: topic5Questions,
-  6: topic6Questions,
-  7: topic7Questions,
-  8: topic8Questions,
-  9: topic9Questions,
-  10: topic10Questions,
-  11: topic11Questions,
-  12: topic12Questions,
-  13: topic13Questions,
-  14: topic14Questions,
-  15: topic15Questions,
-  16: topic16Questions,
-  17: topic17Questions,
-  18: topic18Questions,
-  19: topic19Questions,
-  20: topic20Questions,
-  21: topic21Questions,
-  22: topic22Questions,
-  23: topic23Questions,
-}
+export const questionsByTopic:
+  Record<number, TopicQuestions> = {
+    1: topic1Questions,
+    2: topic2Questions,
+    3: topic3Questions,
+    4: topic4Questions,
+    5: topic5Questions,
+    6: topic6Questions,
+    7: topic7Questions,
+    8: topic8Questions,
+    9: topic9Questions,
+    10: topic10Questions,
+    11: topic11Questions,
+    12: topic12Questions,
+    13: topic13Questions,
+    14: topic14Questions,
+    15: topic15Questions,
+    16: topic16Questions,
+    17: topic17Questions,
+    18: topic18Questions,
+    19: topic19Questions,
+    20: topic20Questions,
+    21: topic21Questions,
+    22: topic22Questions,
+    23: topic23Questions,
+    24: topic24Questions,
+  }
 
-export const allTopics = Object.values(questionsByTopic)
+export const allTopics =
+  Object.values(
+    questionsByTopic,
+  )
 
 export function getTopicQuestions(
   topicId: number,
 ): TopicQuestions | null {
-  return questionsByTopic[topicId] ?? null
+  return (
+    questionsByTopic[topicId]
+    ?? null
+  )
 }

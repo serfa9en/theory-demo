@@ -8,22 +8,14 @@
         {{ currentTopic.title }}
       </h1>
 
-      <div class="grade-legend">
-        <div class="grade-legend-item">
-          <span class="legend-badge junior">
-            Junior
-          </span>
-        </div>
-
-        <div class="grade-legend-item">
-          <span class="legend-badge middle">
-            Middle
-          </span>
-        </div>
-      </div>
-
-      <div class="questions-grid">
-        <div class="questions-column">
+      <!-- ПЛАН ВОПРОСОВ: одна колонка, без Junior / Middle -->
+      <template
+        v-if="
+          currentTopic.id ===
+            PLAN_TOPIC_ID
+        "
+      >
+        <div class="plan-questions">
           <QuestionColumn
             grade="junior"
             :sections="
@@ -43,28 +35,86 @@
             "
           />
         </div>
+      </template>
 
-        <div class="questions-column">
-          <QuestionColumn
-            grade="middle"
-            :sections="
-              currentTopic
-                .middle
-                .sections
-            "
-            @select-question="
-              question =>
-                emit(
-                  'selectQuestion',
-                  question,
-                )
-            "
-            @edit-question="
-              editQuestion
-            "
-          />
+      <!-- Обычные темы -->
+      <template v-else>
+        <div class="grade-legend">
+          <div
+            class="grade-legend-item"
+          >
+            <span
+              class="
+                legend-badge
+                junior
+              "
+            >
+              Junior
+            </span>
+          </div>
+
+          <div
+            class="grade-legend-item"
+          >
+            <span
+              class="
+                legend-badge
+                middle
+              "
+            >
+              Middle
+            </span>
+          </div>
         </div>
-      </div>
+
+        <div class="questions-grid">
+          <div
+            class="questions-column"
+          >
+            <QuestionColumn
+              grade="junior"
+              :sections="
+                currentTopic
+                  .junior
+                  .sections
+              "
+              @select-question="
+                question =>
+                  emit(
+                    'selectQuestion',
+                    question,
+                  )
+              "
+              @edit-question="
+                editQuestion
+              "
+            />
+          </div>
+
+          <div
+            class="questions-column"
+          >
+            <QuestionColumn
+              grade="middle"
+              :sections="
+                currentTopic
+                  .middle
+                  .sections
+              "
+              @select-question="
+                question =>
+                  emit(
+                    'selectQuestion',
+                    question,
+                  )
+              "
+              @edit-question="
+                editQuestion
+              "
+            />
+          </div>
+        </div>
+      </template>
     </div>
 
     <div
@@ -108,22 +158,7 @@ interface EditQuestionPayload {
   question: Question
 }
 
-const editQuestion = (
-  question: Question,
-) => {
-  if (!currentTopic.value) {
-    return
-  }
-
-  emit(
-    'editQuestion',
-    {
-      topicId:
-        currentTopic.value.id,
-      question,
-    },
-  )
-}
+const PLAN_TOPIC_ID = 24
 
 const emit = defineEmits<{
   selectQuestion: [
@@ -156,6 +191,23 @@ const currentTopic =
         )
     )
   })
+
+const editQuestion = (
+  question: Question,
+) => {
+  if (!currentTopic.value) {
+    return
+  }
+
+  emit(
+    'editQuestion',
+    {
+      topicId:
+        currentTopic.value.id,
+      question,
+    },
+  )
+}
 </script>
 
 <style scoped>
@@ -201,7 +253,8 @@ const currentTopic =
 
 .grade-legend {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -241,14 +294,54 @@ const currentTopic =
   width: 100%;
 }
 
-@media (max-width: 900px) {
+.plan-questions {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.plan-questions :deep(
+  .question-column
+) {
+  gap: 18px;
+}
+
+.plan-questions :deep(
+  .question-section
+) {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+  border:
+    1px solid #e3e8ee;
+}
+
+.plan-questions :deep(
+  .question-row:hover
+) {
+  background:
+    rgba(
+      33,
+      150,
+      243,
+      0.08
+    );
+}
+
+@media (
+  max-width: 900px
+) {
   .main-content {
     padding: 22px;
   }
 
   .questions-grid,
   .grade-legend {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
   }
 }
 </style>
