@@ -16,6 +16,9 @@
         @select-question="
           openQuestion
         "
+        @edit-question="
+          openQuestionEditor
+        "
       />
     </div>
 
@@ -37,6 +40,24 @@
       "
       @close="
         isCreatorOpen = false
+      "
+    />
+
+    <EditQuestionDrawer
+      :is-open="
+        isEditorOpen
+      "
+      :topic-id="
+        editingTopicId
+      "
+      :question="
+        editingQuestion
+      "
+      @close="
+        closeQuestionEditor
+      "
+      @saved="
+        handleQuestionSaved
       "
     />
 
@@ -65,6 +86,9 @@ import AppHeader
 import CreateContentDrawer
   from './components/CreateContentDrawer.vue'
 
+import EditQuestionDrawer
+  from './components/EditQuestionDrawer.vue'
+
 import FavoritesDrawer
   from './components/FavoritesDrawer.vue'
 
@@ -81,19 +105,34 @@ import type {
   Question,
 } from './types/question.ts'
 
+interface EditQuestionPayload {
+  topicId: number
+  question: Question
+}
+
 const isFavoritesOpen =
   ref(false)
 
 const isCreatorOpen =
   ref(false)
 
+const isEditorOpen =
+  ref(false)
+
 const selectedQuestion =
+  ref<Question | null>(null)
+
+const editingTopicId =
+  ref<number | null>(null)
+
+const editingQuestion =
   ref<Question | null>(null)
 
 const openFavorites = () => {
   isCreatorOpen.value =
     false
-
+  isEditorOpen.value =
+    false
   isFavoritesOpen.value =
     true
 }
@@ -101,7 +140,8 @@ const openFavorites = () => {
 const openCreator = () => {
   isFavoritesOpen.value =
     false
-
+  isEditorOpen.value =
+    false
   isCreatorOpen.value =
     true
 }
@@ -121,6 +161,50 @@ const openQuestionFromFavorites = (
 
   selectedQuestion.value =
     question
+}
+
+const openQuestionEditor = (
+  payload: EditQuestionPayload,
+) => {
+  isFavoritesOpen.value =
+    false
+  isCreatorOpen.value =
+    false
+
+  editingTopicId.value =
+    payload.topicId
+
+  editingQuestion.value =
+    payload.question
+
+  isEditorOpen.value =
+    true
+}
+
+const closeQuestionEditor = () => {
+  isEditorOpen.value =
+    false
+
+  editingTopicId.value =
+    null
+
+  editingQuestion.value =
+    null
+}
+
+const handleQuestionSaved = (
+  question: Question,
+) => {
+  editingQuestion.value =
+    question
+
+  if (
+    selectedQuestion.value?.id
+    === question.id
+  ) {
+    selectedQuestion.value =
+      question
+  }
 }
 </script>
 

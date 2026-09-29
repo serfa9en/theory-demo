@@ -6,21 +6,34 @@
         class="modal-overlay"
         @click="handleBackdropClick"
       >
-        <div class="modal-content" @click.stop>
+        <div
+          class="modal-content"
+          @click.stop
+        >
           <div class="modal-header">
             <div class="answer-tabs">
               <button
                 class="answer-tab"
-                :class="{ active: answerMode === 'full' }"
-                @click="answerMode = 'full'"
+                :class="{
+                  active:
+                    answerMode === 'full',
+                }"
+                @click="
+                  answerMode = 'full'
+                "
               >
                 Подробно
               </button>
 
               <button
                 class="answer-tab"
-                :class="{ active: answerMode === 'short' }"
-                @click="answerMode = 'short'"
+                :class="{
+                  active:
+                    answerMode === 'short',
+                }"
+                @click="
+                  answerMode = 'short'
+                "
               >
                 Кратко
               </button>
@@ -61,9 +74,13 @@
             </h3>
 
             <div
-              v-if="answerMode === 'full'"
+              v-if="
+                answerMode === 'full'
+              "
               class="modal-answer"
-              v-html="formattedAnswer"
+              v-html="
+                formattedFullAnswer
+              "
             />
 
             <div
@@ -71,12 +88,16 @@
               class="short-answer"
             >
               <h4>
-                Как можно ответить на собеседовании
+                Как можно ответить
+                на собеседовании
               </h4>
 
-              <p>
-                {{ question.shortAnswer }}
-              </p>
+              <div
+                class="short-answer-content"
+                v-html="
+                  formattedShortAnswer
+                "
+              />
             </div>
           </div>
         </div>
@@ -86,8 +107,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
-import type { Question } from '@/types/question'
+import {
+  computed,
+  ref,
+  watch,
+} from 'vue'
+
+import type {
+  Question,
+} from '../types/question'
 
 const props = defineProps<{
   isOpen: boolean
@@ -98,59 +126,92 @@ const emit = defineEmits<{
   (e: 'close'): void
 }>()
 
-type AnswerMode = 'full' | 'short'
+type AnswerMode =
+  'full'
+  | 'short'
 
-const answerMode = ref<AnswerMode>('full')
+const answerMode =
+  ref<AnswerMode>('full')
 
 const close = () => {
   emit('close')
 }
 
-const handleBackdropClick = (event: MouseEvent) => {
-  if (event.target === event.currentTarget) {
+const handleBackdropClick = (
+  event: MouseEvent,
+) => {
+  if (
+    event.target
+    === event.currentTarget
+  ) {
     close()
   }
 }
 
-const formattedAnswer = computed(() => {
-  if (!props.question) {
-    return ''
-  }
+const escapeHtml = (
+  value: string,
+) => {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+}
 
-  let html = props.question.fullAnswer
+const formatMarkdown = (
+  source: string,
+) => {
+  let html = source
+
+  /**
+   * Сначала сохраняем fenced code blocks,
+   * чтобы Markdown внутри кода не менялся.
+   */
+  const codeBlocks: string[] = []
 
   html = html.replace(
     /```(\w*)\n([\s\S]*?)```/g,
-    (match, lang, code) => {
-      const escapedCode = code
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .trim()
+    (
+      _match,
+      lang: string,
+      code: string,
+    ) => {
+      const index =
+        codeBlocks.length
 
-      return `<pre class="code-block"><code class="code-language-${
-        lang || 'text'
-      }">${escapedCode}</code></pre>`
+      codeBlocks.push(
+        `<pre class="code-block"><code class="code-language-${
+          lang || 'text'
+        }">${
+          escapeHtml(
+            code.trim(),
+          )
+        }</code></pre>`,
+      )
+
+      return `@@CODE_BLOCK_${index}@@`
     },
   )
 
-  html = html.replace(/`([^`]+)`/g, (match, code) => {
-    const escapedCode = code
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-
-    return `<code class="inline-code">${escapedCode}</code>`
-  })
-
+  /**
+   * Inline code.
+   */
   html = html.replace(
-    /\*\*([^*]+)\*\*/g,
-    '<strong>$1</strong>',
+    /`([^`]+)`/g,
+    (
+      _match,
+      code: string,
+    ) => {
+      return (
+        `<code class="inline-code">${
+          escapeHtml(code)
+        }</code>`
+      )
+    },
   )
 
-  html = html.replace(
-    /\*([^*]+)\*/g,
-    '<em>$1</em>',
-  )
-
+  /**
+   * Заголовки.
+   */
   html = html.replace(
     /^### (.+)$/gm,
     '<h4 class="answer-section">$1</h4>',
@@ -161,31 +222,159 @@ const formattedAnswer = computed(() => {
     '<h4 class="answer-section">$1</h4>',
   )
 
+  /**
+   * Жирный и курсив.
+   */
   html = html.replace(
-    /^- (.+)$/gm,
-    '<li class="answer-list-item">$1</li>',
+    /\*\*([^*]+)\*\*/g,
+    '<strong>$1</strong>',
   )
 
   html = html.replace(
-    /^\d+\. (.+)$/gm,
-    '<p class="answer-item">$1</p>',
+    /\*([^*]+)\*/g,
+    '<em>$1</em>',
   )
 
+  /**
+   * Маркированные списки.
+   */
   html = html.replace(
-    /\n\n/g,
-    '</p><p class="answer-paragraph">',
+    /(?:^|\n)((?:- .+(?:\n|$))+)/g,
+    (_match, block: string) => {
+      const items =
+        block
+          .trim()
+          .split('\n')
+          .map(line =>
+            line.replace(
+              /^- /,
+              '',
+            ),
+          )
+          .map(
+            item =>
+              `<li class="answer-list-item">${item}</li>`,
+          )
+          .join('')
+
+      return (
+        `<ul class="answer-list">${items}</ul>`
+      )
+    },
   )
 
-  html = html.replace(/\n/g, '<br>')
+  /**
+   * Нумерованные списки.
+   */
+  html = html.replace(
+    /(?:^|\n)((?:\d+\. .+(?:\n|$))+)/g,
+    (_match, block: string) => {
+      const items =
+        block
+          .trim()
+          .split('\n')
+          .map(line =>
+            line.replace(
+              /^\d+\. /,
+              '',
+            ),
+          )
+          .map(
+            item =>
+              `<li class="answer-list-item">${item}</li>`,
+          )
+          .join('')
+
+      return (
+        `<ol class="answer-list">${items}</ol>`
+      )
+    },
+  )
+
+  /**
+   * Абзацы и переносы.
+   */
+  html = html
+    .split(/\n{2,}/)
+    .map(block => {
+      const trimmed =
+        block.trim()
+
+      if (!trimmed) {
+        return ''
+      }
+
+      if (
+        /^<(h4|pre|ul|ol)/.test(
+          trimmed,
+        )
+        || trimmed.startsWith(
+          '@@CODE_BLOCK_',
+        )
+      ) {
+        return trimmed
+      }
+
+      return (
+        `<p class="answer-paragraph">${
+          trimmed.replace(
+            /\n/g,
+            '<br>',
+          )
+        }</p>`
+      )
+    })
+    .join('')
+
+  /**
+   * Возвращаем блоки кода обратно.
+   */
+  html = html.replace(
+    /@@CODE_BLOCK_(\d+)@@/g,
+    (
+      _match,
+      index: string,
+    ) => {
+      return (
+        codeBlocks[
+          Number(index)
+        ]
+        ?? ''
+      )
+    },
+  )
 
   return html
-})
+}
+
+const formattedFullAnswer =
+  computed(() => {
+    if (!props.question) {
+      return ''
+    }
+
+    return formatMarkdown(
+      props.question.fullAnswer,
+    )
+  })
+
+const formattedShortAnswer =
+  computed(() => {
+    if (!props.question) {
+      return ''
+    }
+
+    return formatMarkdown(
+      props.question.shortAnswer,
+    )
+  })
 
 watch(
   () => props.isOpen,
-  (isOpen) => {
+  isOpen => {
     if (isOpen) {
-      answerMode.value = 'full'
+      answerMode.value =
+        'full'
     }
   },
 )
@@ -198,9 +387,12 @@ watch(
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color:
+    rgba(0, 0, 0, 0.4);
+  backdrop-filter:
+    blur(8px);
+  -webkit-backdrop-filter:
+    blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,7 +402,8 @@ watch(
 }
 
 .modal-content {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color:
+    rgba(255, 255, 255, 0.95);
   border-radius: 16px;
   padding: 32px;
   max-width: 800px;
@@ -218,7 +411,9 @@ watch(
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 20px 60px
+    rgba(0, 0, 0, 0.3);
 }
 
 .modal-header {
@@ -230,34 +425,20 @@ watch(
   z-index: 10;
 }
 
-.modal-short-btn {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background-color 0.2s;
-}
-
-.modal-short-btn:hover {
-  background-color: #45a049;
-}
-
 .modal-close {
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
   border-radius: 8px;
-  transition: background-color 0.2s;
+  transition:
+    background-color 0.2s;
   color: #666;
 }
 
 .modal-close:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color:
+    rgba(0, 0, 0, 0.05);
   color: #333;
 }
 
@@ -271,8 +452,8 @@ watch(
   margin-bottom: 24px;
   font-weight: 700;
   line-height: 1.4;
-  padding-right: 140px; /* ширина блока кнопок */
-  padding-top: 40px;    /* отступ сверху от кнопок */
+  padding-right: 140px;
+  padding-top: 40px;
 }
 
 :deep(.code-block) {
@@ -282,7 +463,11 @@ watch(
   border-radius: 8px;
   overflow-x: auto;
   margin: 16px 0;
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-family:
+    'Consolas',
+    'Monaco',
+    'Courier New',
+    monospace;
   font-size: 14px;
   line-height: 1.6;
   border: 1px solid #333;
@@ -317,9 +502,14 @@ watch(
   color: #d63384;
   padding: 2px 6px;
   border-radius: 4px;
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-family:
+    'Consolas',
+    'Monaco',
+    'Courier New',
+    monospace;
   font-size: 0.9em;
-  border: 1px solid #e0e0e0;
+  border:
+    1px solid #e0e0e0;
 }
 
 :deep(.answer-section) {
@@ -328,16 +518,9 @@ watch(
   margin-top: 24px;
   margin-bottom: 12px;
   font-weight: 600;
-  border-bottom: 2px solid #4caf50;
+  border-bottom:
+    2px solid #4caf50;
   padding-bottom: 8px;
-}
-
-:deep(.answer-item) {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #444;
-  margin-bottom: 12px;
-  padding-left: 8px;
 }
 
 :deep(.answer-paragraph) {
@@ -347,13 +530,16 @@ watch(
   margin-bottom: 12px;
 }
 
+:deep(.answer-list) {
+  margin: 12px 0;
+  padding-left: 24px;
+}
+
 :deep(.answer-list-item) {
   font-size: 16px;
   line-height: 1.8;
   color: #444;
-  margin-left: 20px;
   margin-bottom: 8px;
-  list-style-type: disc;
 }
 
 :deep(strong) {
@@ -376,9 +562,13 @@ watch(
   opacity: 0;
 }
 
-.modal-enter-from .modal-content,
-.modal-leave-to .modal-content {
-  transform: scale(0.9) translateY(20px);
+.modal-enter-from
+.modal-content,
+.modal-leave-to
+.modal-content {
+  transform:
+    scale(0.9)
+    translateY(20px);
   opacity: 0;
 }
 
@@ -388,7 +578,8 @@ watch(
 }
 
 .answer-tab {
-  border: 1px solid #d5d5d5;
+  border:
+    1px solid #d5d5d5;
   background: white;
   padding: 8px 14px;
   border-radius: 8px;
@@ -417,9 +608,18 @@ watch(
   color: #1a1a2e;
 }
 
-.short-answer p {
+.short-answer-content {
   padding: 20px;
   background-color: #f5f8ff;
   border-radius: 10px;
+}
+
+.short-answer-content
+:deep(.answer-paragraph:last-child),
+.short-answer-content
+:deep(.answer-list:last-child),
+.short-answer-content
+:deep(.code-block:last-child) {
+  margin-bottom: 0;
 }
 </style>

@@ -10,17 +10,13 @@
 
       <div class="grade-legend">
         <div class="grade-legend-item">
-          <span
-            class="legend-badge junior"
-          >
+          <span class="legend-badge junior">
             Junior
           </span>
         </div>
 
         <div class="grade-legend-item">
-          <span
-            class="legend-badge middle"
-          >
+          <span class="legend-badge middle">
             Middle
           </span>
         </div>
@@ -42,6 +38,9 @@
                   question,
                 )
             "
+            @edit-question="
+              editQuestion
+            "
           />
         </div>
 
@@ -59,6 +58,9 @@
                   'selectQuestion',
                   question,
                 )
+            "
+            @edit-question="
+              editQuestion
             "
           />
         </div>
@@ -101,9 +103,34 @@ import type {
   Question,
 } from '../types/question.ts'
 
+interface EditQuestionPayload {
+  topicId: number
+  question: Question
+}
+
+const editQuestion = (
+  question: Question,
+) => {
+  if (!currentTopic.value) {
+    return
+  }
+
+  emit(
+    'editQuestion',
+    {
+      topicId:
+        currentTopic.value.id,
+      question,
+    },
+  )
+}
+
 const emit = defineEmits<{
   selectQuestion: [
     question: Question,
+  ]
+  editQuestion: [
+    payload: EditQuestionPayload,
   ]
 }>()
 
@@ -174,8 +201,7 @@ const currentTopic =
 
 .grade-legend {
   display: grid;
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -215,17 +241,14 @@ const currentTopic =
   width: 100%;
 }
 
-@media (
-  max-width: 900px
-) {
+@media (max-width: 900px) {
   .main-content {
     padding: 22px;
   }
 
   .questions-grid,
   .grade-legend {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
   }
 }
 </style>

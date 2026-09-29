@@ -28,12 +28,22 @@ interface TopicAdditions {
   middle: Question[]
 }
 
+interface QuestionOverride {
+  title: string
+  fullAnswer: string
+  shortAnswer: string
+}
+
 interface StoredCustomContent {
-  version: 2
+  version: 3
   customTopics: TopicQuestions[]
   additions: Record<
     string,
     TopicAdditions
+  >
+  overrides: Record<
+    string,
+    QuestionOverride
   >
 }
 
@@ -43,16 +53,22 @@ const emptyAdditions = ():
     middle: [],
   })
 
+function emptyState():
+  StoredCustomContent {
+  return {
+    version: 3,
+    customTopics: [],
+    additions: {},
+    overrides: {},
+  }
+}
+
 function loadCustomContent():
   StoredCustomContent {
   if (
     typeof window === 'undefined'
   ) {
-    return {
-      version: 2,
-      customTopics: [],
-      additions: {},
-    }
+    return emptyState()
   }
 
   try {
@@ -62,25 +78,21 @@ function loadCustomContent():
       )
 
     if (!raw) {
-      return {
-        version: 2,
-        customTopics: [],
-        additions: {},
-      }
+      return emptyState()
     }
 
     const parsed =
       JSON.parse(raw)
 
-    // Совместимость с предыдущей версией,
-    // где в localStorage лежал просто массив
+    // v1: в storage лежал просто массив
     // пользовательских тем.
     if (Array.isArray(parsed)) {
       return {
-        version: 2,
+        version: 3,
         customTopics:
           parsed as TopicQuestions[],
         additions: {},
+        overrides: {},
       }
     }
 
@@ -89,7 +101,7 @@ function loadCustomContent():
       && typeof parsed === 'object'
     ) {
       return {
-        version: 2,
+        version: 3,
         customTopics:
           Array.isArray(
             parsed.customTopics,
@@ -102,19 +114,19 @@ function loadCustomContent():
             === 'object'
             ? parsed.additions
             : {},
+        overrides:
+          parsed.overrides
+          && typeof parsed.overrides
+            === 'object'
+            ? parsed.overrides
+            : {},
       }
     }
   } catch {
-    // Если localStorage повреждён,
-    // приложение просто стартует
-    // с пустыми пользовательскими данными.
+    return emptyState()
   }
 
-  return {
-    version: 2,
-    customTopics: [],
-    additions: {},
-  }
+  return emptyState()
 }
 
 function createTopicId(
@@ -143,15 +155,44 @@ function createQuestionId(
   ].join('-')
 }
 
+function applyOverride(
+  question: Question,
+  overrides: Record<
+    string,
+    QuestionOverride
+  >,
+): Question {
+  const override =
+    overrides[question.id]
+
+  if (!override) {
+    return question
+  }
+
+  return {
+    ...question,
+    ...override,
+  }
+}
+
 function cloneSections(
   sections: QuestionSection[],
+  overrides: Record<
+    string,
+    QuestionOverride
+  >,
 ): QuestionSection[] {
   return sections.map(
     section => ({
       ...section,
-      questions: [
-        ...section.questions,
-      ],
+      questions:
+        section.questions.map(
+          question =>
+            applyOverride(
+              question,
+              overrides,
+            ),
+        ),
     }),
   )
 }
@@ -160,22 +201,20 @@ function withCustomSection(
   sections: QuestionSection[],
   questions: Question[],
 ): QuestionSection[] {
-  const cloned =
-    cloneSections(sections)
-
   if (!questions.length) {
-    return cloned
+    return sections
   }
 
-  cloned.push({
-    id: 'custom-questions',
-    title: 'Мои вопросы',
-    questions: [
-      ...questions,
-    ],
-  })
-
-  return cloned
+  return [
+    ...sections,
+    {
+      id: 'custom-questions',
+      title: 'Мои вопросы',
+      questions: [
+        ...questions,
+      ],
+    },
+  ]
 }
 
 export const useCustomContentStore =
@@ -185,24 +224,11 @@ export const useCustomContentStore =
       const stored =
         loadCustomContent()
 
-      /**
-       * Свои полностью созданные темы.
-       *
-       * Имя `topics` сохранено специально,
-       * чтобы существующие menu.ts / Sidebar
-       * продолжили работать без изменений.
-       */
       const topics =
         ref<TopicQuestions[]>(
           stored.customTopics,
         )
 
-      /**
-       * Вопросы, добавленные пользователем
-       * во встроенные темы.
-       *
-       * Ключ — id встроенной темы.
-       */
       const additions =
         ref<
           Record<
@@ -211,6 +237,16 @@ export const useCustomContentStore =
           >
         >(
           stored.additions,
+        )
+
+      const overrides =
+        ref<
+          Record<
+            string,
+            QuestionOverride
+          >
+        >(
+          stored.overrides,
         )
 
       const hasTopics =
@@ -233,6 +269,14 @@ export const useCustomContentStore =
               topic.id === topicId,
           )
           ?? null
+        )
+      }
+
+      const getTopic = (
+        topicId: number,
+      ) => {
+        return getCustomTopic(
+          topicId,
         )
       }
 
@@ -299,19 +343,6 @@ export const useCustomContentStore =
         topics.value.push(topic)
 
         return topic
-      }
-
-      /**
-       * Старое имя метода сохраняем:
-       * оно возвращает только полностью
-       * пользовательскую тему.
-       */
-      const getTopic = (
-        topicId: number,
-      ) => {
-        return getCustomTopic(
-          topicId,
-        )
       }
 
       const ensureAdditions = (
@@ -398,12 +429,9 @@ export const useCustomContentStore =
         if (
           isBuiltInTopic(topicId)
         ) {
-          const topicAdditions =
-            ensureAdditions(
-              topicId,
-            )
-
-          topicAdditions[grade].push(
+          ensureAdditions(
+            topicId,
+          )[grade].push(
             question,
           )
 
@@ -413,10 +441,165 @@ export const useCustomContentStore =
         return null
       }
 
-      /**
-       * Возвращает тему уже с подмешанными
-       * пользовательскими вопросами.
-       */
+      const updateQuestion = (
+        topicId: number,
+        questionId: string,
+        title: string,
+        fullAnswer: string,
+        shortAnswer: string,
+      ) => {
+        const normalizedTitle =
+          title.trim()
+        const normalizedFull =
+          fullAnswer.trim()
+        const normalizedShort =
+          shortAnswer.trim()
+
+        if (
+          !normalizedTitle
+          || !normalizedFull
+          || !normalizedShort
+        ) {
+          return false
+        }
+
+        const customTopic =
+          getCustomTopic(
+            topicId,
+          )
+
+        if (customTopic) {
+          const grades: Grade[] = [
+            'junior',
+            'middle',
+          ]
+
+          for (
+            const grade
+            of grades
+          ) {
+            for (
+              const section
+              of customTopic[grade]
+                .sections
+            ) {
+              const question =
+                section.questions.find(
+                  item =>
+                    item.id
+                    === questionId,
+                )
+
+              if (question) {
+                question.title =
+                  normalizedTitle
+                question.fullAnswer =
+                  normalizedFull
+                question.shortAnswer =
+                  normalizedShort
+                return true
+              }
+            }
+          }
+        }
+
+        const topicAdditions =
+          additions.value[
+            String(topicId)
+          ]
+
+        if (topicAdditions) {
+          const customQuestion =
+            [
+              ...topicAdditions.junior,
+              ...topicAdditions.middle,
+            ].find(
+              item =>
+                item.id
+                === questionId,
+            )
+
+          if (customQuestion) {
+            customQuestion.title =
+              normalizedTitle
+            customQuestion.fullAnswer =
+              normalizedFull
+            customQuestion.shortAnswer =
+              normalizedShort
+            return true
+          }
+        }
+
+        const builtInTopic =
+          getTopicQuestions(
+            topicId,
+          )
+
+        if (builtInTopic) {
+          const exists =
+            (
+              [
+                ...builtInTopic
+                  .junior
+                  .sections,
+                ...builtInTopic
+                  .middle
+                  .sections,
+              ]
+              .flatMap(
+                section =>
+                  section.questions,
+              )
+              .some(
+                question =>
+                  question.id
+                  === questionId,
+              )
+            )
+
+          if (exists) {
+            overrides.value[
+              questionId
+            ] = {
+              title:
+                normalizedTitle,
+              fullAnswer:
+                normalizedFull,
+              shortAnswer:
+                normalizedShort,
+            }
+
+            return true
+          }
+        }
+
+        return false
+      }
+
+      const resetQuestionOverride = (
+        questionId: string,
+      ) => {
+        if (
+          overrides.value[
+            questionId
+          ]
+        ) {
+          delete overrides.value[
+            questionId
+          ]
+        }
+      }
+
+      const hasOverride = (
+        questionId: string,
+      ) => {
+        return Boolean(
+          overrides.value[
+            questionId
+          ],
+        )
+      }
+
       const getTopicWithCustomQuestions = (
         topicId: number,
       ): TopicQuestions | null => {
@@ -449,9 +632,12 @@ export const useCustomContentStore =
           junior: {
             sections:
               withCustomSection(
-                baseTopic
-                  .junior
-                  .sections,
+                cloneSections(
+                  baseTopic
+                    .junior
+                    .sections,
+                  overrides.value,
+                ),
                 topicAdditions
                   .junior,
               ),
@@ -459,9 +645,12 @@ export const useCustomContentStore =
           middle: {
             sections:
               withCustomSection(
-                baseTopic
-                  .middle
-                  .sections,
+                cloneSections(
+                  baseTopic
+                    .middle
+                    .sections,
+                  overrides.value,
+                ),
                 topicAdditions
                   .middle,
               ),
@@ -469,28 +658,24 @@ export const useCustomContentStore =
         }
       }
 
-      /**
-       * Все темы в одном месте:
-       * встроенные уже с пользовательскими
-       * вопросами + полностью свои темы.
-       */
       const allTopicsWithCustomQuestions =
         computed<
           TopicQuestions[]
         >(() => {
           const mergedBuiltIn =
-            allTopics.map(
-              topic =>
-                getTopicWithCustomQuestions(
-                  topic.id,
-                ),
-            )
-            .filter(
-              (
-                topic,
-              ): topic is TopicQuestions =>
-                topic !== null,
-            )
+            allTopics
+              .map(
+                topic =>
+                  getTopicWithCustomQuestions(
+                    topic.id,
+                  ),
+              )
+              .filter(
+                (
+                  topic,
+                ): topic is TopicQuestions =>
+                  topic !== null,
+              )
 
           return [
             ...mergedBuiltIn,
@@ -535,11 +720,10 @@ export const useCustomContentStore =
           return
         }
 
-        const key =
-          String(topicId)
-
         const topicAdditions =
-          additions.value[key]
+          additions.value[
+            String(topicId)
+          ]
 
         if (!topicAdditions) {
           return
@@ -565,9 +749,6 @@ export const useCustomContentStore =
       const deleteTopic = (
         topicId: number,
       ) => {
-        // Удаляем только пользовательские
-        // темы. Встроенную тему удалить
-        // через этот store нельзя.
         topics.value =
           topics.value.filter(
             topic =>
@@ -579,6 +760,7 @@ export const useCustomContentStore =
         [
           topics,
           additions,
+          overrides,
         ],
         () => {
           if (
@@ -590,11 +772,13 @@ export const useCustomContentStore =
 
           const payload:
             StoredCustomContent = {
-              version: 2,
+              version: 3,
               customTopics:
                 topics.value,
               additions:
                 additions.value,
+              overrides:
+                overrides.value,
             }
 
           window.localStorage.setItem(
@@ -610,6 +794,7 @@ export const useCustomContentStore =
       return {
         topics,
         additions,
+        overrides,
         hasTopics,
         builtInTopics,
         allTopicsWithCustomQuestions,
@@ -620,6 +805,9 @@ export const useCustomContentStore =
         isCustomTopic,
         isBuiltInTopic,
         addQuestion,
+        updateQuestion,
+        resetQuestionOverride,
+        hasOverride,
         deleteQuestion,
         deleteTopic,
       }

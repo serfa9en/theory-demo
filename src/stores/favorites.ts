@@ -183,7 +183,6 @@ export const useFavoritesStore =
                 id =>
                   id !== questionId,
               )
-
           return
         }
 

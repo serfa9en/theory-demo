@@ -18,6 +18,9 @@ const emit = defineEmits<{
   selectQuestion: [
     question: Question,
   ]
+  editQuestion: [
+    question: Question,
+  ]
 }>()
 
 const favoritesStore =
@@ -59,6 +62,38 @@ const favoritesStore =
 
           <button
             type="button"
+            class="edit-button"
+            title="Редактировать"
+            aria-label="Редактировать вопрос"
+            @click.stop="
+              emit(
+                'editQuestion',
+                question,
+              )
+            "
+          >
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 20h9"
+              />
+              <path
+                d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"
+              />
+            </svg>
+          </button>
+
+          <button
+            type="button"
             class="favorite-toggle"
             :class="{
               active:
@@ -89,7 +124,7 @@ const favoritesStore =
                 ? 'Удалить из избранного'
                 : 'Добавить в избранное'
             "
-            @click="
+            @click.stop="
               favoritesStore
                 .toggleFavorite(
                   question.id,
@@ -163,25 +198,22 @@ const favoritesStore =
   min-width: 0;
   border: 0;
   background: transparent;
-
   padding: 7px 8px;
-
   text-align: left;
   font: inherit;
   font-size: 14px;
   line-height: 1.6;
-
   border-radius: 4px;
   cursor: pointer;
 }
 
+.edit-button,
 .favorite-toggle {
   flex: 0 0 34px;
   width: 34px;
   height: 34px;
   border: 0;
   background: transparent;
-  color: #a8adb7;
   border-radius: 7px;
   cursor: pointer;
 
@@ -193,6 +225,27 @@ const favoritesStore =
     color 0.2s,
     background-color 0.2s,
     transform 0.2s;
+}
+
+.edit-button {
+  color: #8c919c;
+  opacity: 0;
+}
+
+.question-row:hover
+.edit-button,
+.edit-button:focus-visible {
+  opacity: 1;
+}
+
+.edit-button:hover {
+  color: #3d7fb1;
+  background: rgba(33, 150, 243, 0.09);
+  transform: scale(1.06);
+}
+
+.favorite-toggle {
+  color: #a8adb7;
 }
 
 .favorite-toggle svg {
@@ -216,12 +269,14 @@ const favoritesStore =
   fill: currentColor;
 }
 
-.question-column.junior .question-row:hover {
+.question-column.junior
+.question-row:hover {
   background: rgba(76, 175, 80, 0.15);
   transform: translateX(4px);
 }
 
-.question-column.middle .question-row:hover {
+.question-column.middle
+.question-row:hover {
   background: rgba(33, 150, 243, 0.15);
   transform: translateX(4px);
 }
