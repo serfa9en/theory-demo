@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `21-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `21-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `21-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `21-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 {
 "id": `21-junior-общее-6`,
@@ -795,7 +795,7 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 \`\`\`
 
 **Для собеседования:** DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
 },
 ],
 },
@@ -810,44 +810,98 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 {
 "id": `21-middle-общее-1`,
 "title": `Как поступить при несогласии с замечаниями? Constructive feedback.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Несогласие на code review
+
+Обсуждайте не человека, а риск/требование/код. Сначала уточните, какую проблему пытается решить комментарий, затем приведите факты: требования, benchmark, style guide, тест или минимальный пример.
+
+**Ключевые моменты:**
+- Не превращайте review в соревнование за правоту.
+- Если есть несколько нормальных решений — договоритесь о командном convention.
+- Для затяжного спора быстрее перейти в короткий call и зафиксировать решение.
+- Эскалируйте только когда затронуты существенные risk/security/architecture вопросы.`,
+"shortAnswer": `Несогласие на code review Обсуждайте не человека, а риск/требование/код.  Сначала уточните, какую проблему пытается решить комментарий, затем приведите факты: требования, benchmark, style guide, тест или минимальный пример.`,
 },
 {
 "id": `21-middle-общее-2`,
 "title": `Автоматизация рутины: SonarQube, Checkstyle, ESLint, Prettier.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Автоматизация review
+
+Статические анализаторы и formatter-ы должны автоматически проверять то, что машина проверяет лучше человека: style, часть bugs/security smells, форматирование и базовые quality gates.
+
+**Ключевые моменты:**
+- ESLint/Checkstyle — статические правила языка/стиля.
+- Prettier — детерминированное форматирование.
+- SonarQube агрегирует quality/security findings и метрики.
+- Автоматизация не заменяет review бизнес-логики и архитектуры.`,
+"shortAnswer": `Автоматизация review Статические анализаторы и formatter-ы должны автоматически проверять то, что машина проверяет лучше человека: style, часть bugs/security smells, форматирование и базовые quality gates.  Ключевые моменты: ESLint/Checkstyle — статические правила языка/стиля.`,
 },
 {
 "id": `21-middle-общее-3`,
 "title": `Метрики: code complexity, cyclomatic complexity, code coverage.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Complexity и coverage
+
+Cyclomatic complexity приблизительно отражает число независимых путей выполнения и растёт с ветвлениями. Code coverage показывает, какая часть кода была выполнена тестами, но не доказывает качество assertions.
+
+**Ключевые моменты:**
+- Высокая сложность — сигнал рассмотреть декомпозицию, а не абсолютный запрет.
+- 100% coverage может сосуществовать с плохими тестами.
+- Смотрите branch coverage и risk-critical paths, а не только line percentage.`,
+"shortAnswer": `Complexity и coverage Cyclomatic complexity приблизительно отражает число независимых путей выполнения и растёт с ветвлениями.  Code coverage показывает, какая часть кода была выполнена тестами, но не доказывает качество assertions.`,
 },
 {
 "id": `21-middle-общее-4`,
 "title": `Виды ревью: security, performance, accessibility, test coverage, documentation, API design, database schema, infrastructure.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Complexity и coverage
+
+Cyclomatic complexity приблизительно отражает число независимых путей выполнения и растёт с ветвлениями. Code coverage показывает, какая часть кода была выполнена тестами, но не доказывает качество assertions.
+
+**Ключевые моменты:**
+- Высокая сложность — сигнал рассмотреть декомпозицию, а не абсолютный запрет.
+- 100% coverage может сосуществовать с плохими тестами.
+- Смотрите branch coverage и risk-critical paths, а не только line percentage.`,
+"shortAnswer": `Complexity и coverage Cyclomatic complexity приблизительно отражает число независимых путей выполнения и растёт с ветвлениями.  Code coverage показывает, какая часть кода была выполнена тестами, но не доказывает качество assertions.`,
 },
 {
 "id": `21-middle-общее-5`,
 "title": `Security best practices, OWASP Top 10.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Security review и OWASP Top 10
+
+Security review ищет классы рисков вроде broken access control, injection, cryptographic failures, insecure design/misconfiguration и vulnerable dependencies. OWASP Top 10 — ориентир по распространённым рискам, а не полный чек-лист безопасности.
+
+**Ключевые моменты:**
+- Проверяйте authorization на server side.
+- Валидируйте input и используйте parameterized queries.
+- Не храните secrets в source/logs.
+- Обновляйте dependencies и включайте SAST/DAST/dependency scanning по риску.`,
+"shortAnswer": `Security review и OWASP Top 10 Security review ищет классы рисков вроде broken access control, injection, cryptographic failures, insecure design/misconfiguration и vulnerable dependencies.  OWASP Top 10 — ориентир по распространённым рискам, а не полный чек-лист безопасности.`,
 },
 {
 "id": `21-middle-общее-6`,
 "title": `Code review anti-patterns, review fatigue, turnaround time.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Code review anti-patterns
+
+Плохие паттерны: огромные PR, вкусовщина без правила, nitpicking вручную вместо lint, задержка review на дни, «LGTM» без чтения, агрессивная коммуникация и попытка перепроектировать весь проект в одном PR.
+
+**Ключевые моменты:**
+- Делайте PR небольшими и сфокусированными.
+- Автоматизируйте mechanical checks.
+- Определите ожидаемый turnaround time.
+- Для сложного изменения приложите context/ADR/скриншоты/план тестирования.`,
+"shortAnswer": `Code review anti-patterns Плохие паттерны: огромные PR, вкусовщина без правила, nitpicking вручную вместо lint, задержка review на дни, «LGTM» без чтения, агрессивная коммуникация и попытка перепроектировать весь проект в одном PR.  Ключевые моменты: Делайте PR небольшими и сфокусированными.`,
 },
 {
 "id": `21-middle-общее-7`,
 "title": `Egoless programming, growth mindset.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Egoless programming и growth mindset
+
+Egoless programming отделяет самооценку разработчика от конкретного решения в коде: любой код можно улучшить, а review — совместная работа над качеством. Growth mindset воспринимает feedback как источник обучения.
+
+**Ключевые моменты:**
+- Критикуйте код/риск, а не автора.
+- Объясняйте «почему», особенно менее опытным коллегам.
+- Умейте менять мнение при появлении данных.
+- Хвалите хорошие решения так же конкретно, как указываете проблемы.`,
+"shortAnswer": `Egoless programming и growth mindset Egoless programming отделяет самооценку разработчика от конкретного решения в коде: любой код можно улучшить, а review — совместная работа над качеством.  Growth mindset воспринимает feedback как источник обучения.`,
 },
 ],
 },

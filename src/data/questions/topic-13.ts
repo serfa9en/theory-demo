@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `13-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `13-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `13-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `13-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 {
 "id": `13-junior-общее-6`,
@@ -795,19 +795,41 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 \`\`\`
 
 **Для собеседования:** DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
 },
 {
 "id": `13-junior-общее-7`,
 "title": `Пользователи, права: GRANT, REVOKE.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Пользователи и права
+
+\`GRANT\` выдаёт привилегии, а \`REVOKE\` отзывает их. В PostgreSQL пользователи и группы представлены ролями; права можно выдавать на database, schema, table, sequence и другие объекты.
+
+**Ключевые моменты:**
+- Следуйте least privilege.
+- Удобно выдавать права групповой роли, а пользователям — membership.
+- Не используйте superuser для приложения.
+
+**Пример:**
+
+\`\`\`sql
+GRANT SELECT, INSERT ON TABLE orders TO app_role;
+REVOKE DELETE ON TABLE orders FROM app_role;
+\`\`\``,
+"shortAnswer": `Пользователи и права GRANT выдаёт привилегии, а REVOKE отзывает их.  В PostgreSQL пользователи и группы представлены ролями; права можно выдавать на database, schema, table, sequence и другие объекты.`,
 },
 {
 "id": `13-junior-общее-8`,
 "title": `Schema, tablespace, sequence, materialized view, enum.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Schema, tablespace, sequence, materialized view, enum
+
+Schema — namespace объектов внутри БД; tablespace определяет физическое размещение объектов; sequence генерирует числовую последовательность; materialized view хранит результат запроса; enum задаёт ограниченный набор значений.
+
+**Ключевые моменты:**
+- Schema помогает разделять объекты и права.
+- Sequence часто используется для идентификаторов.
+- Materialized view нужно refresh-ить.
+- Enum удобен для стабильных наборов, но изменение модели требует миграций.`,
+"shortAnswer": `Schema, tablespace, sequence, materialized view, enum Schema — namespace объектов внутри БД; tablespace определяет физическое размещение объектов; sequence генерирует числовую последовательность; materialized view хранит результат запроса; enum задаёт ограниченный набор значений.  Ключевые моменты: Schema помогает разделять объекты и права.`,
 },
 ],
 },
@@ -822,50 +844,106 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 {
 "id": `13-middle-общее-1`,
 "title": `Индексы в PostgreSQL: B-Tree, Hash, GiN, GiST. Когда какой применять?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Типы индексов PostgreSQL
+
+B-tree — универсальный индекс для равенства, диапазонов и сортировки. Hash ориентирован на равенство. GIN хорошо подходит для многозначных данных (arrays, JSONB, full-text). GiST — обобщённая структура для геоданных, ranges и других операторных классов.
+
+**Ключевые моменты:**
+- Выбирайте тип по операциям, а не только по типу столбца.
+- GIN обычно дороже при записи, но силён при contains/search.
+- Проверяйте конкретный operator class.`,
+"shortAnswer": `Типы индексов PostgreSQL B-tree — универсальный индекс для равенства, диапазонов и сортировки.  Hash ориентирован на равенство.`,
 },
 {
 "id": `13-middle-общее-2`,
 "title": `Partial index, composite index, covering index, index-only scan.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Partial, composite и covering indexes
+
+Partial index индексирует только строки, удовлетворяющие условию. Composite index содержит несколько столбцов. Covering index включает все данные, необходимые типичному запросу, и может позволить index-only scan.
+
+**Ключевые моменты:**
+- Порядок столбцов composite index критичен.
+- Partial index полезен для небольшой «активной» части таблицы.
+- \`INCLUDE\` позволяет добавить столбцы в PostgreSQL без включения их в search key.`,
+"shortAnswer": `Partial, composite и covering indexes Partial index индексирует только строки, удовлетворяющие условию.  Composite index содержит несколько столбцов.`,
 },
 {
 "id": `13-middle-общее-3`,
 "title": `CONCURRENTLY при создании индекса.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## CREATE INDEX CONCURRENTLY
+
+\`CREATE INDEX CONCURRENTLY\` создаёт индекс в PostgreSQL с существенно меньшей блокировкой обычных операций записи, поэтому подходит для production-таблиц.
+
+**Ключевые моменты:**
+- Операция обычно дольше и выполняет несколько проходов.
+- Нельзя запускать внутри обычного transaction block.
+- При ошибке может остаться INVALID index, который нужно удалить/пересоздать.`,
+"shortAnswer": `CREATE INDEX CONCURRENTLY CREATE INDEX CONCURRENTLY создаёт индекс в PostgreSQL с существенно меньшей блокировкой обычных операций записи, поэтому подходит для production-таблиц.  Ключевые моменты: Операция обычно дольше и выполняет несколько проходов.`,
 },
 {
 "id": `13-middle-общее-4`,
 "title": `VACUUM, AUTOVACUUM, dead tuples, table bloat.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## VACUUM и autovacuum
+
+Из-за MVCC UPDATE/DELETE оставляют старые версии строк (dead tuples). VACUUM делает это место повторно используемым и обслуживает visibility/freeze metadata; autovacuum выполняет обслуживание автоматически.
+
+**Ключевые моменты:**
+- Обычный VACUUM не «сжимает» файл таблицы до минимального размера.
+- \`VACUUM FULL\` переписывает таблицу и требует более сильной блокировки.
+- Плохие настройки autovacuum и длинные транзакции могут приводить к bloat.`,
+"shortAnswer": `VACUUM и autovacuum Из-за MVCC UPDATE/DELETE оставляют старые версии строк (dead tuples).  VACUUM делает это место повторно используемым и обслуживает visibility/freeze metadata; autovacuum выполняет обслуживание автоматически.`,
 },
 {
 "id": `13-middle-общее-5`,
 "title": `Connection pooling (PgBouncer).`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## PgBouncer
+
+PgBouncer — лёгкий connection pooler перед PostgreSQL. Он уменьшает число реальных server connections и стоимость их создания.
+
+**Ключевые моменты:**
+- Session pooling закрепляет соединение за клиентом на сессию.
+- Transaction pooling возвращает соединение в pool после каждой транзакции и масштабируется лучше, но несовместим с частью session-level state.
+- Размер pool должен учитывать лимиты PostgreSQL и workload.`,
+"shortAnswer": `PgBouncer PgBouncer — лёгкий connection pooler перед PostgreSQL.  Он уменьшает число реальных server connections и стоимость их создания.`,
 },
 {
 "id": `13-middle-общее-6`,
 "title": `Репликация: logical, physical, streaming, failover, Patroni.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Репликация PostgreSQL
+
+Physical/streaming replication передаёт изменения на уровне WAL и обычно используется для standby. Logical replication передаёт логические изменения выбранных таблиц и удобна для интеграций и некоторых миграций.
+
+**Ключевые моменты:**
+- Failover переключает трафик на реплику при проблеме primary.
+- Patroni автоматизирует HA-оркестрацию PostgreSQL с распределённым consensus store.
+- Репликация не заменяет backup: ошибки пользователя могут реплицироваться.`,
+"shortAnswer": `Репликация PostgreSQL Physical/streaming replication передаёт изменения на уровне WAL и обычно используется для standby.  Logical replication передаёт логические изменения выбранных таблиц и удобна для интеграций и некоторых миграций.`,
 },
 {
 "id": `13-middle-общее-7`,
 "title": `Мониторинг: pg_stat_statements, pgBadger.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Мониторинг PostgreSQL
+
+\`pg_stat_statements\` агрегирует статистику выполнения нормализованных SQL-запросов: calls, total/mean time, rows и др. pgBadger анализирует PostgreSQL logs и строит отчёты.
+
+**Ключевые моменты:**
+- Ищите запросы с большим total time и высокой latency.
+- Сопоставляйте SQL-статистику с CPU, I/O, locks и connection metrics.
+- Для проблемного запроса изучайте \`EXPLAIN (ANALYZE, BUFFERS)\`.`,
+"shortAnswer": `Мониторинг PostgreSQL pg_stat_statements агрегирует статистику выполнения нормализованных SQL-запросов: calls, total/mean time, rows и др.  pgBadger анализирует PostgreSQL logs и строит отчёты.`,
 },
 {
 "id": `13-middle-общее-8`,
 "title": `Partitioning strategies: range, list, hash.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Partitioning: range, list, hash
+
+Declarative partitioning делит таблицу на дочерние partitions по ключу. Range — по диапазонам, List — по перечисленным значениям, Hash — по хэшу ключа.
+
+**Ключевые моменты:**
+- Partition pruning позволяет не читать нерелевантные partitions.
+- Partitioning не является автоматическим ускорителем всех запросов.
+- Продумайте число partitions и операции lifecycle/retention.`,
+"shortAnswer": `Partitioning: range, list, hash Declarative partitioning делит таблицу на дочерние partitions по ключу.  Range — по диапазонам, List — по перечисленным значениям, Hash — по хэшу ключа.`,
 },
 ],
 },

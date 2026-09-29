@@ -64,7 +64,7 @@ uvicorn main:app --reload
 \`\`\`
 
 **Для собеседования:** FastAPI — современный async-фреймворк для API на Python. Быстрее Flask и Django, имеет встроенную валидацию через Pydantic, автоматическую документацию (Swagger/ReDoc). Flask — микрофреймворк для простых проектов. Django — монолитный фреймворк «всё включено» для больших приложений.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `FastAPI — современный async-фреймворк для API на Python. Быстрее Flask и Django, имеет встроенную валидацию через Pydantic, автоматическую документацию (Swagger/ReDoc). Flask — микрофреймворк для простых проектов. Django — монолитный фреймворк «всё включено» для больших приложений.`,
 },
 {
 "id": `9-junior-общее-2`,
@@ -196,7 +196,7 @@ app = FastAPI(docs_url=None, redoc_url=None)
 \`\`\`
 
 **Для собеседования:** Эндпоинты создаются через декораторы \`&#64;app.get\`, \`&#64;app.post\` и т.д. FastAPI автоматически генерирует Swagger UI (\`/docs\`), ReDoc (\`/redoc\`) и OpenAPI схему (\`/openapi.json\`) на основе аннотаций типов и Pydantic-моделей. Docstring функции используется как описание эндпоинта.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Эндпоинты создаются через декораторы &#64;app.get, &#64;app.post и т.д. FastAPI автоматически генерирует Swagger UI (/docs), ReDoc (/redoc) и OpenAPI схему (/openapi.json) на основе аннотаций типов и Pydantic-моделей. Docstring функции используется как описание эндпоинта.`,
 },
 {
 "id": `9-junior-общее-3`,
@@ -353,7 +353,7 @@ user_dict = user.model_dump(exclude_unset=True)
 \`\`\`
 
 **Для собеседования:** Pydantic — библиотека валидации данных на основе типов. Модели наследуются от BaseModel. Валидация через Field (встроенные ограничения) и валидаторы (&#64;field_validator, &#64;model_validator). FastAPI автоматически возвращает 422 ошибку при невалидных данных. Вложенные модели поддерживаются. Для ORM используется \`from_attributes = True\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Pydantic — библиотека валидации данных на основе типов. Модели наследуются от BaseModel. Валидация через Field (встроенные ограничения) и валидаторы (&#64;field_validator, &#64;model_validator). FastAPI автоматически возвращает 422 ошибку при невалидных данных. Вложенные модели поддерживаются. Для ORM используется from_attributes = True.`,
 },
 {
 "id": `9-junior-общее-4`,
@@ -490,7 +490,7 @@ async def get_users(db = Depends(get_async_db)):
 \`\`\`
 
 **Для собеседования:** DI в FastAPI реализован через \`Depends\`. Зависимости могут быть вложенными, с параметрами, глобальными. \`yield\` позволяет выполнять cleanup код. Async endpoint'ы не блокируют event loop при I/O операциях. Sync endpoint'ы запускаются в thread pool автоматически.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DI в FastAPI реализован через Depends. Зависимости могут быть вложенными, с параметрами, глобальными. yield позволяет выполнять cleanup код. Async endpoint'ы не блокируют event loop при I/O операциях. Sync endpoint'ы запускаются в thread pool автоматически.`,
 },
 {
 "id": `9-junior-общее-5`,
@@ -663,7 +663,7 @@ async def update_item(
 3. Body-параметры (Pydantic-модели)
 
 **Для собеседования:** Path-параметры — часть URL (\`/items/&#123;id&#125;\`), валидируются автоматически. Query-параметры — после \`?\` в URL, объявляются как обычные параметры функции. Тело запроса — Pydantic-модель, валидируется автоматически. Можно смешивать все три типа параметров.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Path-параметры — часть URL (/items/&#123;id&#125;), валидируются автоматически. Query-параметры — после ? в URL, объявляются как обычные параметры функции. Тело запроса — Pydantic-модель, валидируется автоматически. Можно смешивать все три типа параметров.`,
 },
 {
 "id": `9-junior-общее-6`,
@@ -813,7 +813,7 @@ app.add_middleware(
 \`\`\`
 
 **Для собеседования:** Response model определяет структуру ответа и фильтрует поля. Статус-коды задаются через \`status_code\` параметр декоратора. HTTPException — для возврата ошибок с кастомным сообщением. Middleware выполняется до/после каждого запроса через \`&#64;app.middleware(&quot;http&quot;)\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Response model определяет структуру ответа и фильтрует поля. Статус-коды задаются через status_code параметр декоратора. HTTPException — для возврата ошибок с кастомным сообщением. Middleware выполняется до/после каждого запроса через &#64;app.middleware(&quot;http&quot;).`,
 },
 {
 "id": `9-junior-общее-7`,
@@ -1003,7 +1003,7 @@ def test_endpoint(client):
 \`\`\`
 
 **Для собеседования:** CORS настраивается через \`CORSMiddleware\` с параметрами \`allow_origins\`, \`allow_methods\`, \`allow_headers\`. Background tasks выполняются после ответа через \`BackgroundTasks.add_task()\`. Тестирование через \`TestClient\` из \`fastapi.testclient\`. Зависимости переопределяются через \`app.dependency_overrides\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `CORS настраивается через CORSMiddleware с параметрами allow_origins, allow_methods, allow_headers. Background tasks выполняются после ответа через BackgroundTasks.add_task(). Тестирование через TestClient из fastapi.testclient. Зависимости переопределяются через app.dependency_overrides.`,
 },
 ],
 },
@@ -1094,7 +1094,7 @@ async def heavy_computation&#40;&#41;&#58;
 \`\`\`
 
 **Для собеседования:** GIL — мьютекс в CPython. Не влияет на I/O-bound задачи, но блокирует CPU-bound многопоточность. Решения: multiprocessing для CPU-bound, asyncio для I/O-bound, C-расширения освобождают GIL.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `GIL — мьютекс в CPython. Не влияет на I/O-bound задачи, но блокирует CPU-bound многопоточность. Решения: multiprocessing для CPU-bound, asyncio для I/O-bound, C-расширения освобождают GIL.`,
 },
 {
 "id": `9-middle-общее-2`,
@@ -1188,7 +1188,7 @@ def get_sync_users&#40;&#41;&#58;
 \`\`\`
 
 **Для собеседования:** asyncio — библиотека для асинхронного программирования на корутинах. Event loop управляет выполнением корутин, переключаясь при await. asyncio.gather запускает корутины параллельно. asyncio.sleep не блокирует event loop, в отличие от time.sleep.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `asyncio — библиотека для асинхронного программирования на корутинах. Event loop управляет выполнением корутин, переключаясь при await. asyncio.gather запускает корутины параллельно. asyncio.sleep не блокирует event loop, в отличие от time.sleep.`,
 },
 {
 "id": `9-middle-общее-3`,
@@ -1295,7 +1295,7 @@ app&#46;dependency_overrides&#91;get_db&#93; &#61; override_get_db
 \`\`\`
 
 **Для собеседования:** Depends анализирует сигнатуру функции через inspect, строит граф зависимостей и рекурсивно их разрешает. yield позволяет выполнять setup/teardown код. Зависимости кэшируются по умолчанию.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Depends анализирует сигнатуру функции через inspect, строит граф зависимостей и рекурсивно их разрешает. yield позволяет выполнять setup/teardown код. Зависимости кэшируются по умолчанию.`,
 },
 {
 "id": `9-middle-общее-4`,
@@ -1392,7 +1392,7 @@ class UserResponse&#40;BaseModel&#41;&#58;
 \`\`\`
 
 **Для собеседования:** SQLAlchemy поддерживает sync и async режимы. Async использует asyncpg и AsyncSession. Зависимости через yield для управления сессией. Отношения через relationship, eager loading через selectinload/joinedload. Pydantic схемы с from_attributes=True для сериализации.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `SQLAlchemy поддерживает sync и async режимы. Async использует asyncpg и AsyncSession. Зависимости через yield для управления сессией. Отношения через relationship, eager loading через selectinload/joinedload. Pydantic схемы с from_attributes=True для сериализации.`,
 },
 {
 "id": `9-middle-общее-5`,
@@ -1474,7 +1474,7 @@ async def read_users_me&#40;current_user&#58; User &#61; Depends&#40;get_current
 \`\`\`
 
 **Для собеседования:** JWT состоит из header, payload, signature. OAuth2 Password Flow: клиент отправляет credentials, получает access_token, использует в заголовке Bearer. Passlib для хэширования паролей, python-jose для JWT.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `JWT состоит из header, payload, signature. OAuth2 Password Flow: клиент отправляет credentials, получает access_token, использует в заголовке Bearer. Passlib для хэширования паролей, python-jose для JWT.`,
 },
 {
 "id": `9-middle-общее-6`,
@@ -1552,7 +1552,7 @@ gunicorn main&#58;app &#45;w 4 &#45;k uvicorn&#46;workers&#46;UvicornWorker &#45
 \`\`\`
 
 **Для собеседования:** WebSocket для real-time связи через websocket.accept() и receive/send. BackgroundTasks для фоновых задач после ответа. Uvicorn — ASGI сервер для разработки, Gunicorn + Uvicorn worker'ы для production.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `WebSocket для real-time связи через websocket.accept() и receive/send. BackgroundTasks для фоновых задач после ответа. Uvicorn — ASGI сервер для разработки, Gunicorn + Uvicorn worker'ы для production.`,
 },
 {
 "id": `9-middle-общее-7`,
@@ -1648,7 +1648,7 @@ app &#61; FastAPI&#40;lifespan&#61;lifespan&#41;
 \`\`\`
 
 **Для собеседования:** pydantic-settings валидирует переменные окружения через BaseSettings. APIRouter модулизирует endpoint'ы с префиксами и тегами. Структура проекта: models, schemas, routers, services, repositories, dependencies. Lifespan для startup/shutdown событий.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `pydantic-settings валидирует переменные окружения через BaseSettings. APIRouter модулизирует endpoint'ы с префиксами и тегами. Структура проекта: models, schemas, routers, services, repositories, dependencies. Lifespan для startup/shutdown событий.`,
 },
 {
 "id": `9-middle-общее-8`,
@@ -1766,7 +1766,7 @@ async def add_process_time_header&#40;request&#58; Request&#44; call_next&#41;&#
 \`\`\`
 
 **Для собеседования:** Request объект даёт доступ к method, url, headers, query_params, cookies. Заголовки через Header(), cookies через Cookie() и Response.set_cookie(). StreamingResponse для потоковой передачи. Rate limiting через slowapi. Lifespan events через asynccontextmanager для startup/shutdown.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Request объект даёт доступ к method, url, headers, query_params, cookies. Заголовки через Header(), cookies через Cookie() и Response.set_cookie(). StreamingResponse для потоковой передачи. Rate limiting через slowapi. Lifespan events через asynccontextmanager для startup/shutdown.`,
 },
 ],
 },

@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `10-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `10-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `10-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `10-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 {
 "id": `10-junior-общее-6`,
@@ -795,7 +795,7 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 \`\`\`
 
 **Для собеседования:** DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
 },
 ],
 },
@@ -837,7 +837,7 @@ for author in authors&#58;
 select_related делает JOIN на уровне SQL &#40;быстро для небольших связанных таблиц&#41;. prefetch_related делает отдельные запросы и джойнит в памяти &#40;необходимо для ManyToMany&#44; чтобы избежать декартова произведения строк&#41;.
 
 **Для собеседования:** select_related использует SQL JOIN для ForeignKey и OneToOne. prefetch_related делает отдельные запросы и соединяет данные в Python для ManyToMany и reverse ForeignKey.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `select_related использует SQL JOIN для ForeignKey и OneToOne. prefetch_related делает отдельные запросы и соединяет данные в Python для ManyToMany и reverse ForeignKey.`,
 },
 {
 "id": `10-middle-общее-2`,
@@ -876,7 +876,7 @@ def create_user_profile&#40;sender&#44; instance&#44; created&#44; &#42;&#42;kwa
 Переопределение метода save&#40;&#41; в модели или использование сервисного слоя &#40;Service Layer pattern&#41; для явного вызова логики.
 
 **Для собеседования:** Signals &#8212; паттерн Observer. Минусы: неявная логика&#44; сложность отладки и тестирования&#44; риск circular imports&#44; блокировка потока. Рекомендуется переопределять save&#40;&#41; или использовать сервисный слой.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Signals &#8212; паттерн Observer. Минусы: неявная логика&#44; сложность отладки и тестирования&#44; риск circular imports&#44; блокировка потока. Рекомендуется переопределять save&#40;&#41; или использовать сервисный слой.`,
 },
 {
 "id": `10-middle-общее-3`,
@@ -928,7 +928,7 @@ users &#61; User&#46;objects&#46;filter&#40;&#126;Q&#40;is_staff&#61;True&#41;&#
 \`\`\`
 
 **Для собеседования:** aggregate &#8212; сводка по всему набору&#44; annotate &#8212; поле для каждого объекта. F&#40;&#41; ссылается на поля БД для атомарных операций. Q&#40;&#41; позволяет делать сложные OR/NOT условия в filter.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `aggregate &#8212; сводка по всему набору&#44; annotate &#8212; поле для каждого объекта. F&#40;&#41; ссылается на поля БД для атомарных операций. Q&#40;&#41; позволяет делать сложные OR/NOT условия в filter.`,
 },
 {
 "id": `10-middle-общее-4`,
@@ -977,7 +977,7 @@ DATABASE_ROUTERS &#61; &#91;&#39;myapp&#46;routers&#46;PrimaryReplicaRouter&#39;
 \`\`\`
 
 **Для собеседования:** transaction.atomic обеспечивает ACID-свойства и откат при ошибках. Database routers позволяют разделять чтение и запись между разными БД через методы db_for_read и db_for_write.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `transaction.atomic обеспечивает ACID-свойства и откат при ошибках. Database routers позволяют разделять чтение и запись между разными БД через методы db_for_read и db_for_write.`,
 },
 {
 "id": `10-middle-общее-5`,
@@ -1029,7 +1029,7 @@ class ArticleListView&#40;LoginRequiredMixin&#44; ListView&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Кастомные поля требуют from_db_value и get_prep_value. Менеджеры меняют базовый QuerySet. Middleware перехватывает request/response. Mixins &#40;напр&#46;&#44; LoginRequiredMixin&#41; добавляют поведение в CBV через множественное наследование.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Кастомные поля требуют from_db_value и get_prep_value. Менеджеры меняют базовый QuerySet. Middleware перехватывает request/response. Mixins &#40;напр&#46;&#44; LoginRequiredMixin&#41; добавляют поведение в CBV через множественное наследование.`,
 },
 {
 "id": `10-middle-общее-6`,
@@ -1078,7 +1078,7 @@ In-memory хранилище. В Django-стеке используется в �
 2. **Cache Backend для Django:** хранит закэшированные страницы и данные благодаря высокой скорости чтения/записи.
 
 **Для собеседования:** cache_page кэширует ответ view. Celery выполняет задачи асинхронно. Task routing распределяет задачи по очередям для разных воркеров. Redis используется как быстрый бэкенд для кэша и брокер для Celery.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `cache_page кэширует ответ view. Celery выполняет задачи асинхронно. Task routing распределяет задачи по очередям для разных воркеров. Redis используется как быстрый бэкенд для кэша и брокер для Celery.`,
 },
 {
 "id": `10-middle-общее-7`,
@@ -1123,7 +1123,7 @@ def list_items&#40;request&#41;&#58;
 **TransactionTestCase** реально очищает таблицы &#40;TRUNCATE&#41; между тестами и позволяет коммитить данные. Работает медленнее&#44; но необходима для тестирования сигналов&#44; миграций и атомарных транзакций.
 
 **Для собеседования:** Channels добавляет WebSocket через ASGI и Consumers. Django Ninja &#8212; быстрая альтернатива DRF на Pydantic. TestCase делает rollback &#40;быстро&#41;&#44; TransactionTestCase делает truncate &#40;медленно&#44; но тестирует реальные транзакции&#41;.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Channels добавляет WebSocket через ASGI и Consumers. Django Ninja &#8212; быстрая альтернатива DRF на Pydantic. TestCase делает rollback &#40;быстро&#41;&#44; TransactionTestCase делает truncate &#40;медленно&#44; но тестирует реальные транзакции&#41;.`,
 },
 ],
 },

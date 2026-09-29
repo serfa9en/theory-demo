@@ -31,7 +31,7 @@ JDK содержит JRE, а JRE содержит JVM. То есть JDK — э�
 - JDK = JRE + компилятор + инструменты (для разработки)
 
 💡 **Для собеседования:** JDK — полный набор для разработки, включает JRE и компилятор. JRE — среда для запуска приложений, включает JVM. JVM — виртуальная машина, которая выполняет байткод и обеспечивает кроссплатформенность Java.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `JDK — полный набор для разработки, включает JRE и компилятор. JRE — среда для запуска приложений, включает JVM. JVM — виртуальная машина, которая выполняет байткод и обеспечивает кроссплатформенность Java.`,
 },
 {
 "id": `8-junior-java-core-2`,
@@ -79,7 +79,7 @@ int b = a;           // unboxing: Integer → int
 - Autoboxing/unboxing — автоматическое преобразование
 
 💡 **Для собеседования:** Примитивы хранят значение в стеке, обёртки — ссылку в куче. Обёртки нужны для коллекций и работы с null. Autoboxing/unboxing — автопреобразование между ними. Примитивы сравниваются через \`==\`, обёртки — через \`.equals()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Примитивы хранят значение в стеке, обёртки — ссылку в куче. Обёртки нужны для коллекций и работы с null. Autoboxing/unboxing — автопреобразование между ними. Примитивы сравниваются через ==, обёртки — через .equals().`,
 },
 {
 "id": `8-junior-java-core-3`,
@@ -136,7 +136,7 @@ String result = sb.toString();  // "Hello World"
 - Для частых изменений используйте StringBuilder
 
 💡 **Для собеседования:** String неизменяем из соображений безопасности, потокобезопасности и хэширования. String Pool экономит память, переиспользуя литералы. \`==\` сравнивает ссылки, \`.equals()\` — содержимое. Для конкатенации в цикле используйте StringBuilder.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `String неизменяем из соображений безопасности, потокобезопасности и хэширования. String Pool экономит память, переиспользуя литералы. == сравнивает ссылки, .equals() — содержимое. Для конкатенации в цикле используйте StringBuilder.`,
 },
 {
 "id": `8-junior-java-core-4`,
@@ -208,7 +208,7 @@ public class Circle extends Shape {
 - Абстракция — выделение главного, игнорирование деталей
 
  **Для собеседования:** ООП — парадигма, основанная на объектах. 4 принципа: инкапсуляция (скрытие данных), наследование (расширение классов), полиморфизм (разное поведение одного интерфейса), абстракция (выделение существенного).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `ООП — парадигма, основанная на объектах. 4 принципа: инкапсуляция (скрытие данных), наследование (расширение классов), полиморфизм (разное поведение одного интерфейса), абстракция (выделение существенного).`,
 },
 {
 "id": `8-junior-java-core-5`,
@@ -304,7 +304,7 @@ public class Bird implements Flyable {
 - Interface — контракт, множественная реализация
 
 💡 **Для собеседования:** Класс — шаблон, объект — экземпляр, конструктор инициализирует объект. Abstract class может иметь реализацию и поля, но только одно наследование. Interface — контракт без состояния, поддерживает множественную реализацию.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Класс — шаблон, объект — экземпляр, конструктор инициализирует объект. Abstract class может иметь реализацию и поля, но только одно наследование. Interface — контракт без состояния, поддерживает множественную реализацию.`,
 },
 {
 "id": `8-junior-java-core-6`,
@@ -391,7 +391,7 @@ public class User {
 - public — везде, protected — пакет + наследники, default — пакет, private — класс
 
  **Для собеседования:** static делает поле/метод общим для всех экземпляров. final запрещает изменение (переменные), переопределение (методы) или наследование (классы). Модификаторы доступа: public, protected, default (package), private — от самого широкого к узкому.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `static делает поле/метод общим для всех экземпляров. final запрещает изменение (переменные), переопределение (методы) или наследование (классы). Модификаторы доступа: public, protected, default (package), private — от самого широкого к узкому.`,
 },
 {
 "id": `8-junior-java-core-7`,
@@ -469,7 +469,7 @@ try (FileReader reader = new FileReader("file.txt")) {
 - try-with-resources — автозакрытие ресурсов
 
 💡 **Для собеседования:** Checked exceptions (IOException) компилятор обязывает обработать, unchecked (RuntimeException) — нет. try-catch-finally обрабатывает исключения, finally выполняется всегда. С Java 7 есть try-with-resources для автозакрытия.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Checked exceptions (IOException) компилятор обязывает обработать, unchecked (RuntimeException) — нет. try-catch-finally обрабатывает исключения, finally выполняется всегда. С Java 7 есть try-with-resources для автозакрытия.`,
 },
 {
 "id": `8-junior-java-core-8`,
@@ -542,7 +542,7 @@ public class User {
 - Два равных объекта должны иметь одинаковый хэш
 
  **Для собеседования:** \`==\` сравнивает ссылки, \`.equals()\` — содержимое. \`hashCode()\` возвращает хэш для хэш-коллекций. Контракт: равные объекты должны иметь равные хэши. Всегда переопределяйте оба метода вместе.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `== сравнивает ссылки, .equals() — содержимое. hashCode() возвращает хэш для хэш-коллекций. Контракт: равные объекты должны иметь равные хэши. Всегда переопределяйте оба метода вместе.`,
 },
 {
 "id": `8-junior-java-core-9`,
@@ -603,7 +603,7 @@ ArrayList — когда чаще чтение по индексу и добав
 - LinkedList — быстрая вставка, медленный доступ
 
 💡 **Для собеседования:** List допускает дубликаты и хранит порядок, Set — без дубликатов. ArrayList основан на массиве (быстрый доступ), LinkedList — на связном списке (быстрая вставка). На практике ArrayList используется чаще.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `List допускает дубликаты и хранит порядок, Set — без дубликатов. ArrayList основан на массиве (быстрый доступ), LinkedList — на связном списке (быстрая вставка). На практике ArrayList используется чаще.`,
 },
 {
 "id": `8-junior-java-core-10`,
@@ -690,7 +690,7 @@ User u = user.orElseThrow(() -> new RuntimeException("Не найден"));
 - Optional — обёртка над возможным null, помогает избежать NPE
 
 💡 **Для собеседования:** HashMap использует хэш-код ключа для определения корзины, при коллизиях — список или дерево. Generics параметризуют типы для типобезопасности. Optional — обёртка над nullable значением, предоставляет методы orElse, map, filter.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `HashMap использует хэш-код ключа для определения корзины, при коллизиях — список или дерево. Generics параметризуют типы для типобезопасности. Optional — обёртка над nullable значением, предоставляет методы orElse, map, filter.`,
 },
 ],
 },
@@ -755,7 +755,7 @@ Spring — это фундамент, Spring Boot — удобный инстр�
 - Convention over configuration
 
  **Для собеседования:** Spring Framework — фреймворк для enterprise-разработки с IoC-контейнером. Spring Boot — надстройка, упрощающая разработку через автоконфигурацию, встроенный сервер и starter-зависимости. Spring Boot следует принципу convention over configuration.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Spring Framework — фреймворк для enterprise-разработки с IoC-контейнером. Spring Boot — надстройка, упрощающая разработку через автоконфигурацию, встроенный сервер и starter-зависимости. Spring Boot следует принципу convention over configuration.`,
 },
 {
 "id": `8-junior-spring-core-2`,
@@ -840,7 +840,7 @@ public class UserService {
 - Constructor Injection даёт неизменяемость и тестируемость
 
 💡 **Для собеседования:** IoC — принцип передачи управления контейнеру, DI — его реализация. Три способа внедрения: через конструктор (рекомендуется), сеттер и поле. Constructor Injection предпочтительнее, так как делает зависимости final и упрощает тестирование.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `IoC — принцип передачи управления контейнеру, DI — его реализация. Три способа внедрения: через конструктор (рекомендуется), сеттер и поле. Constructor Injection предпочтительнее, так как делает зависимости final и упрощает тестирование.`,
 },
 {
 "id": `8-junior-spring-core-3`,
@@ -941,7 +941,7 @@ public class AppConfig {
 - @Configuration + @Bean — для явной конфигурации
 
 💡 **Для собеседования:** @Component — базовая аннотация. @Service, @Repository, @Controller — специализации с семантическим смыслом. @Configuration + @Bean используются для явной регистрации бинов, особенно сторонних классов.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `@Component — базовая аннотация. @Service, @Repository, @Controller — специализации с семантическим смыслом. @Configuration + @Bean используются для явной регистрации бинов, особенно сторонних классов.`,
 },
 {
 "id": `8-junior-spring-core-4`,
@@ -1043,7 +1043,7 @@ public class AppProperties {
 - @Value и @ConfigurationProperties для чтения настроек
 
  **Для собеседования:** Bean — объект под управлением Spring-контейнера. Singleton — один экземпляр, prototype — новый при каждом запросе. application.properties/yml — внешняя конфигурация. Значения читаются через @Value или @ConfigurationProperties.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Bean — объект под управлением Spring-контейнера. Singleton — один экземпляр, prototype — новый при каждом запросе. application.properties/yml — внешняя конфигурация. Значения читаются через @Value или @ConfigurationProperties.`,
 },
 ],
 },
@@ -1132,7 +1132,7 @@ public class UserController {
 - HTTP-методы: GET (чтение), POST (создание), PUT (обновление), DELETE (удаление)
 
 💡 **Для собеседования:** @RestController — комбинация @Controller и @ResponseBody. Используется для REST API, возвращает данные в формате JSON. REST следует принципам: HTTP-методы, stateless, ресурсы через URL.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `@RestController — комбинация @Controller и @ResponseBody. Используется для REST API, возвращает данные в формате JSON. REST следует принципам: HTTP-методы, stateless, ресурсы через URL.`,
 },
 {
 "id": `8-junior-spring-mvc-2`,
@@ -1211,7 +1211,7 @@ DELETE — удаление ресурса, идемпотентный.
 - Идемпотентные методы: GET, PUT, DELETE
 
  **Для собеседования:** Аннотации маппинга связывают HTTP-запросы с методами. @GetMapping для чтения, @PostMapping для создания, @PutMapping для обновления, @DeleteMapping для удаления. GET, PUT, DELETE — идемпотентные методы.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Аннотации маппинга связывают HTTP-запросы с методами. @GetMapping для чтения, @PostMapping для создания, @PutMapping для обновления, @DeleteMapping для удаления. GET, PUT, DELETE — идемпотентные методы.`,
 },
 {
 "id": `8-junior-spring-mvc-3`,
@@ -1308,7 +1308,7 @@ public List<User> search(@ModelAttribute UserFilter filter) {
 - @CookieValue — cookie
 
  **Для собеседования:** @PathVariable извлекает параметры из URL (/users/{id}), @RequestParam — из query-строки (?name=John), @RequestBody — тело запроса (JSON). Для заголовков — @RequestHeader, для cookie — @CookieValue.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `@PathVariable извлекает параметры из URL (/users/{id}), @RequestParam — из query-строки (?name=John), @RequestBody — тело запроса (JSON). Для заголовков — @RequestHeader, для cookie — @CookieValue.`,
 },
 {
 "id": `8-junior-spring-mvc-4`,
@@ -1408,7 +1408,7 @@ public ResponseEntity<User> createUser(@RequestBody User user) {
 - Необходим, когда нужно контролировать статус или заголовки
 
 💡 **Для собеседования:** ResponseEntity — обёртка над HTTP-ответом, позволяет контролировать статус, заголовки и тело. Используется, когда нужно вернуть не-200 статус или кастомные заголовки. Строится через builder-паттерн.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `ResponseEntity — обёртка над HTTP-ответом, позволяет контролировать статус, заголовки и тело. Используется, когда нужно вернуть не-200 статус или кастомные заголовки. Строится через builder-паттерн.`,
 },
 ],
 },
@@ -1469,7 +1469,7 @@ JPA — это как интерфейс в Java (например, List). Hiber
 - JPA как интерфейс, Hibernate как реализация
 
 💡 **Для собеседования:** ORM позволяет работать с БД через объекты. JPA — это спецификация (интерфейс), Hibernate — её реализация. Аналогия: JPA как List, Hibernate как ArrayList. JPA даёт независимость от конкретной реализации.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `ORM позволяет работать с БД через объекты. JPA — это спецификация (интерфейс), Hibernate — её реализация. Аналогия: JPA как List, Hibernate как ArrayList. JPA даёт независимость от конкретной реализации.`,
 },
 {
 "id": `8-junior-jpa-hibernate-2`,
@@ -1562,7 +1562,7 @@ private String name;
 - Обязателен конструктор без параметров
 
 💡 **Для собеседования:** Сущность — класс, отображаемый на таблицу БД. @Entity помечает класс, @Id — первичный ключ, @GeneratedValue — стратегия автогенерации ID (IDENTITY, SEQUENCE, AUTO). @Column настраивает параметры колонки. Обязателен конструктор без параметров.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Сущность — класс, отображаемый на таблицу БД. @Entity помечает класс, @Id — первичный ключ, @GeneratedValue — стратегия автогенерации ID (IDENTITY, SEQUENCE, AUTO). @Column настраивает параметры колонки. Обязателен конструктор без параметров.`,
 },
 {
 "id": `8-junior-jpa-hibernate-3`,
@@ -1665,7 +1665,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 - Поддерживает пагинацию и сортировку
 
  **Для собеседования:** JpaRepository — интерфейс Spring Data JPA с готовыми CRUD-методами (save, findById, findAll, delete). Spring автоматически создаёт реализацию. Можно добавлять свои методы — Spring генерирует SQL по имени метода (findByName, findByAgeGreaterThan и т.д.).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `JpaRepository — интерфейс Spring Data JPA с готовыми CRUD-методами (save, findById, findAll, delete). Spring автоматически создаёт реализацию. Можно добавлять свои методы — Spring генерирует SQL по имени метода (findByName, findByAgeGreaterThan и т.д.).`,
 },
 {
 "id": `8-junior-jpa-hibernate-4`,
@@ -1800,7 +1800,7 @@ private List<Employee> employees;
 - cascade — каскадные операции
 
 💡 **Для собеседования:** @OneToOne — один к одному, @OneToMany/@ManyToOne — один ко многим, @ManyToMany — многие ко многим (с промежуточной таблицей). Fetch: LAZY (по умолчанию для коллекций) или EAGER. Cascade определяет каскадные операции.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `@OneToOne — один к одному, @OneToMany/@ManyToOne — один ко многим, @ManyToMany — многие ко многим (с промежуточной таблицей). Fetch: LAZY (по умолчанию для коллекций) или EAGER. Cascade определяет каскадные операции.`,
 },
 ],
 },
@@ -1880,7 +1880,7 @@ public class UserService {
 - В Spring Security настраивается через SecurityFilterChain
 
 💡 **Для собеседования:** Аутентификация — проверка личности (логин/пароль), авторизация — проверка прав доступа. В Spring Security настраивается через SecurityFilterChain. Роли (ADMIN, USER) и привилегии (READ, WRITE) определяют доступ к ресурсам.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Аутентификация — проверка личности (логин/пароль), авторизация — проверка прав доступа. В Spring Security настраивается через SecurityFilterChain. Роли (ADMIN, USER) и привилегии (READ, WRITE) определяют доступ к ресурсам.`,
 },
 {
 "id": `8-junior-spring-security-2`,
@@ -2001,7 +2001,7 @@ public String getData(@RequestHeader("Authorization") String token) {
 - JWT для REST API, сессии для web-приложений
 
 💡 **Для собеседования:** Spring Security подключается через starter-зависимость. Настраивается через SecurityFilterChain. UserDetailsService загружает пользователей, PasswordEncoder хэширует пароли. Для REST API используется JWT, для web — сессии.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Spring Security подключается через starter-зависимость. Настраивается через SecurityFilterChain. UserDetailsService загружает пользователей, PasswordEncoder хэширует пароли. Для REST API используется JWT, для web — сессии.`,
 },
 ],
 },
@@ -2124,7 +2124,7 @@ HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 \`\`\`
 
 **Для собеседования:** Records — неизменяемые классы для данных с автогенерацией методов. Sealed classes ограничивают наследование. Pattern matching упрощает instanceof и switch. Text Blocks удобны для многострочных строк. Modules дают контроль над зависимостями.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Records — неизменяемые классы для данных с автогенерацией методов. Sealed classes ограничивают наследование. Pattern matching упрощает instanceof и switch. Text Blocks удобны для многострочных строк. Modules дают контроль над зависимостями.`,
 },
 {
 "id": `8-middle-java-core-2`,
@@ -2199,7 +2199,7 @@ Low-latency сборщик для очень больших heap (до 16TB). П
 Или через JMX, JConsole, VisualVM, Java Flight Recorder.
 
 **Для собеседования:** Stack хранит локальные переменные, Heap — объекты (Young/Old поколения), Metaspace — метаданные классов. G1 — сборщик по умолчанию с предсказуемыми паузами. ZGC — low-latency для больших heap с паузами <1ms. Выбор зависит от размера heap и требований к latency.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Stack хранит локальные переменные, Heap — объекты (Young/Old поколения), Metaspace — метаданные классов. G1 — сборщик по умолчанию с предсказуемыми паузами. ZGC — low-latency для больших heap с паузами <1ms. Выбор зависит от размера heap и требований к latency.`,
 },
 {
 "id": `8-middle-java-core-3`,
@@ -2250,7 +2250,7 @@ map.merge("key", 1, Integer::sum);    // атомарное обновление
 HashMap не потокобезопасна, может использоваться в одном потоке. ConcurrentHashMap потокобезопасна, позволяет параллельное чтение и ограниченную параллельную запись. HashMap допускает null ключи и значения, ConcurrentHashMap — нет.
 
 **Для собеседования:** HashMap использует массив + списки/деревья для разрешения коллизий. С Java 8 при 8+ элементах список превращается в дерево. ConcurrentHashMap потокобезопасна через CAS и блокировку по бакету, не допускает null ключи.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `HashMap использует массив + списки/деревья для разрешения коллизий. С Java 8 при 8+ элементах список превращается в дерево. ConcurrentHashMap потокобезопасна через CAS и блокировку по бакету, не допускает null ключи.`,
 },
 {
 "id": `8-middle-java-core-4`,
@@ -2343,7 +2343,7 @@ public class Singleton {
 Без volatile возможна ситуация, когда поток видит частично инициализированный объект из-за reorderings.
 
 **Для собеседования:** JMM определяет видимость изменений между потоками. Happens-before — отношение, гарантирующее видимость. Volatile обеспечивает видимость и упорядоченность, но не атомарность составных операций. Используется для флагов и double-checked locking.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `JMM определяет видимость изменений между потоками. Happens-before — отношение, гарантирующее видимость. Volatile обеспечивает видимость и упорядоченность, но не атомарность составных операций. Используется для флагов и double-checked locking.`,
 },
 {
 "id": `8-middle-java-core-5`,
@@ -2469,7 +2469,7 @@ public CompletableFuture<Dashboard> loadDashboard(Long userId) {
 \`\`\`
 
 **Для собеседования:** CompletableFuture позволяет асинхронно выполнять задачи и компоновать их через thenApply, thenCompose, thenCombine. allOf ждёт все futures, anyOf — первый. Обработка ошибок через exceptionally и handle. Важно выбирать между синхронным и асинхронным выполнением цепочек.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `CompletableFuture позволяет асинхронно выполнять задачи и компоновать их через thenApply, thenCompose, thenCombine. allOf ждёт все futures, anyOf — первый. Обработка ошибок через exceptionally и handle. Важно выбирать между синхронным и асинхронным выполнением цепочек.`,
 },
 ],
 },
@@ -2566,7 +2566,7 @@ BeanFactoryPostProcessor работает с метаданными (BeanDefinit
 BeanFactoryPostProcessor → Instantiation → DI → BeanPostProcessor.before → @PostConstruct → BeanPostProcessor.after → использование → @PreDestroy
 
 **Для собеседования:** Жизненный цикл бина: создание → DI → Aware-интерфейсы → BPP.before → @PostConstruct → BPP.after → использование → @PreDestroy. BeanPostProcessor модифицирует экземпляры бинов, BeanFactoryPostProcessor — метаданные до создания.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Жизненный цикл бина: создание → DI → Aware-интерфейсы → BPP.before → @PostConstruct → BPP.after → использование → @PreDestroy. BeanPostProcessor модифицирует экземпляры бинов, BeanFactoryPostProcessor — метаданные до создания.`,
 },
 {
 "id": `8-middle-spring-core-2`,
@@ -2667,7 +2667,7 @@ public class SingletonService {
 \`\`\`
 
 **Для собеседования:** Singleton — один на контейнер, Prototype — новый при каждом запросе. Request — один на HTTP-запрос, Session — на сессию. Для web-scope нужен proxyMode. Инъекция prototype в singleton требует ObjectProvider или @Lookup.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Singleton — один на контейнер, Prototype — новый при каждом запросе. Request — один на HTTP-запрос, Session — на сессию. Для web-scope нужен proxyMode. Инъекция prototype в singleton требует ObjectProvider или @Lookup.`,
 },
 {
 "id": `8-middle-spring-core-3`,
@@ -2750,7 +2750,7 @@ public class MyAutoConfiguration {
 \`\`\`
 
 **Для собеседования:** @EnableAutoConfiguration сканирует spring.factories или AutoConfiguration.imports. Каждая конфигурация имеет @Conditional аннотации. Бин создаётся только при выполнении условий. Можно отключать через exclude. Порядок контролируется через @AutoConfigureBefore/After.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `@EnableAutoConfiguration сканирует spring.factories или AutoConfiguration.imports. Каждая конфигурация имеет @Conditional аннотации. Бин создаётся только при выполнении условий. Можно отключать через exclude. Порядок контролируется через @AutoConfigureBefore/After.`,
 },
 {
 "id": `8-middle-spring-core-4`,
@@ -2894,7 +2894,7 @@ spring.main.allow-circular-references=true
 \`\`\`
 
 **Для собеседования:** Циклические зависимости решаются через @Lazy, setter injection, @PostConstruct, рефакторинг (выделение общего сервиса), events. Spring использует three-level cache для field/setter injection. Constructor injection вызывает исключение. Лучшее решение — рефакторинг.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Циклические зависимости решаются через @Lazy, setter injection, @PostConstruct, рефакторинг (выделение общего сервиса), events. Spring использует three-level cache для field/setter injection. Constructor injection вызывает исключение. Лучшее решение — рефакторинг.`,
 },
 ],
 },
@@ -2998,7 +2998,7 @@ Filter использует цепочку (chain.doFilter), Interceptor име�
 Filter — для логирования, CORS, сжатия, аутентификации на уровне контейнера. Interceptor — для авторизации, валидации, модификации модели, аудита.
 
 **Для собеседования:** Filter — Servlet API, работает до DispatcherServlet, для всех запросов. HandlerInterceptor — Spring MVC, после DispatcherServlet, имеет доступ к контроллеру. Filter для CORS/логирования, Interceptor для авторизации/валидации.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Filter — Servlet API, работает до DispatcherServlet, для всех запросов. HandlerInterceptor — Spring MVC, после DispatcherServlet, имеет доступ к контроллеру. Filter для CORS/логирования, Interceptor для авторизации/валидации.`,
 },
 {
 "id": `8-middle-spring-mvc-2`,
@@ -3117,7 +3117,7 @@ public class ErrorResponse {
 - \`ConstraintViolationException\` — ошибки валидации на уровне метода
 
 **Для собеседования:** @ExceptionHandler обрабатывает исключения в одном контроллере. @ControllerAdvice — глобально для всех. @RestControllerAdvice возвращает JSON. Порядок: локальный handler → global advice → default resolver. Обрабатываются валидация, невалидный JSON, 404 и т.д.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `@ExceptionHandler обрабатывает исключения в одном контроллере. @ControllerAdvice — глобально для всех. @RestControllerAdvice возвращает JSON. Порядок: локальный handler → global advice → default resolver. Обрабатываются валидация, невалидный JSON, 404 и т.д.`,
 },
 {
 "id": `8-middle-spring-mvc-3`,
@@ -3283,7 +3283,7 @@ spring:
 \`\`\`
 
 **Для собеседования:** Jackson кастомизируется через аннотации (@JsonFormat, @JsonProperty, @JsonIgnore) и кастомные сериализаторы/десериализаторы. @JsonComponent регистрирует глобально. @JsonView для разных представлений. Глобальная настройка через application.yml.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Jackson кастомизируется через аннотации (@JsonFormat, @JsonProperty, @JsonIgnore) и кастомные сериализаторы/десериализаторы. @JsonComponent регистрирует глобально. @JsonView для разных представлений. Глобальная настройка через application.yml.`,
 },
 ],
 },
@@ -3399,7 +3399,7 @@ List<DepartmentDTO> findAllWithEmployeeCount();
 JOIN FETCH — один запрос, но может быть медленным для больших данных. @BatchSize — несколько запросов, но эффективнее при большом N. @EntityGraph — декларативный подход, удобен для Spring Data.
 
 **Для собеседования:** N+1 — 1 запрос для списка + N для связей. Диагностика через логирование SQL и Hibernate Statistics. Решения: JOIN FETCH (один запрос), @EntityGraph (декларативно), @BatchSize (батчинг), Subselect, DTO projection.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `N+1 — 1 запрос для списка + N для связей. Диагностика через логирование SQL и Hibernate Statistics. Решения: JOIN FETCH (один запрос), @EntityGraph (декларативно), @BatchSize (батчинг), Subselect, DTO projection.`,
 },
 {
 "id": `8-middle-jpa-hibernate-2`,
@@ -3479,7 +3479,7 @@ Optional<User> findById(Long id);
 - Использовать DTO projection для сложных запросов
 
 **Для собеседования:** EAGER загружает сразу, LAZY — при обращении. По умолчанию OneToOne/ManyToOne — EAGER, OneToMany/ManyToMany — LAZY. Проблемы: LazyInitializationException, N+1. Решения: @Transactional, JOIN FETCH, EntityGraph, DTO projection.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `EAGER загружает сразу, LAZY — при обращении. По умолчанию OneToOne/ManyToOne — EAGER, OneToMany/ManyToMany — LAZY. Проблемы: LazyInitializationException, N+1. Решения: @Transactional, JOIN FETCH, EntityGraph, DTO projection.`,
 },
 {
 "id": `8-middle-jpa-hibernate-3`,
@@ -3592,7 +3592,7 @@ entityManager.getEntityManagerFactory().getCache().evictDefaultQueryRegion();
 - Маленькие таблицы (оверхед не оправдан)
 
 **Для собеседования:** L1 — кэш сессии, включён по умолчанию. L2 — глобальный кэш, требует настройки. Стратегии: READ_ONLY, READ_WRITE, NONSTRICT_READ_WRITE, TRANSACTIONAL. Query cache кэширует ID. Инвалидация автоматическая при изменениях или ручная через evict().`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `L1 — кэш сессии, включён по умолчанию. L2 — глобальный кэш, требует настройки. Стратегии: READ_ONLY, READ_WRITE, NONSTRICT_READ_WRITE, TRANSACTIONAL. Query cache кэширует ID. Инвалидация автоматическая при изменениях или ручная через evict().`,
 },
 {
 "id": `8-middle-jpa-hibernate-4`,
@@ -3708,7 +3708,7 @@ entityManager.flush();  // все изменения в БД
 Очищает persistence context. Все managed -> detached.
 
 **Для собеседования:** 4 состояния: New (transient), Managed (persistent), Detached, Removed. persist() делает New -> Managed. merge() возвращает managed копию detached. remove() помечает на удаление. flush() синхронизирует с БД.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `4 состояния: New (transient), Managed (persistent), Detached, Removed. persist() делает New -> Managed. merge() возвращает managed копию detached. remove() помечает на удаление. flush() синхронизирует с БД.`,
 },
 {
 "id": `8-middle-jpa-hibernate-5`,
@@ -3855,7 +3855,7 @@ public class UserService {
 \`\`\`
 
 **Для собеседования:** Propagation: REQUIRED (по умолчанию), REQUIRES_NEW (новая транзакция), SUPPORTS, MANDATORY, NOT_SUPPORTED, NEVER, NESTED. Isolation: READ_UNCOMMITTED, READ_COMMITTED, REPEATABLE_READ, SERIALIZABLE. Проблема self-invocation решается через инъекцию себя, ApplicationContext или выделение в отдельный сервис.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Propagation: REQUIRED (по умолчанию), REQUIRES_NEW (новая транзакция), SUPPORTS, MANDATORY, NOT_SUPPORTED, NEVER, NESTED. Isolation: READ_UNCOMMITTED, READ_COMMITTED, REPEATABLE_READ, SERIALIZABLE. Проблема self-invocation решается через инъекцию себя, ApplicationContext или выделение в отдельный сервис.`,
 },
 ],
 },
@@ -3973,7 +3973,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 Порядок важен. Кастомные фильтры добавляются через \`addFilterBefore()\` или \`addFilterAfter()\`.
 
 **Для собеседования:** SecurityFilterChain — цепочка Servlet фильтров. Основные: SecurityContextPersistenceFilter, UsernamePasswordAuthenticationFilter, ExceptionTranslationFilter, FilterSecurityInterceptor. Кастомные фильтры добавляются через addFilterBefore. Порядок определяется через @Order или явно.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `SecurityFilterChain — цепочка Servlet фильтров. Основные: SecurityContextPersistenceFilter, UsernamePasswordAuthenticationFilter, ExceptionTranslationFilter, FilterSecurityInterceptor. Кастомные фильтры добавляются через addFilterBefore. Порядок определяется через @Order или явно.`,
 },
 {
 "id": `8-middle-spring-security-2`,
@@ -4065,7 +4065,7 @@ public AuthResponse refresh(@RequestBody RefreshRequest request) {
 - Валидировать issuer, audience, expiration
 
 **Для собеседования:** Сессионная аутентификация stateful, хранит сессии на сервере, использует cookie. JWT stateless, self-contained, передаётся в header. JWT лучше для микросервисов и мобильных приложений. Refresh token flow: короткий access token + длинный refresh token.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Сессионная аутентификация stateful, хранит сессии на сервере, использует cookie. JWT stateless, self-contained, передаётся в header. JWT лучше для микросервисов и мобильных приложений. Refresh token flow: короткий access token + длинный refresh token.`,
 },
 {
 "id": `8-middle-spring-security-3`,
@@ -4184,7 +4184,7 @@ spring:
 \`\`\`
 
 **Для собеседования:** Authorization Code — для web-приложений с сервером. PKCE — расширение для публичных клиентов (SPA, mobile), защищает от interception. Client Credentials — для machine-to-machine. Implicit устарел. Spring Security OAuth2 Client упрощает интеграцию.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Authorization Code — для web-приложений с сервером. PKCE — расширение для публичных клиентов (SPA, mobile), защищает от interception. Client Credentials — для machine-to-machine. Implicit устарел. Spring Security OAuth2 Client упрощает интеграцию.`,
 },
 {
 "id": `8-middle-spring-security-4`,
@@ -4330,7 +4330,7 @@ Resource Server валидирует токены и защищает API. OAuth
 Приложение может быть одновременно и Resource Server, и OAuth2 Client (например, API, которое также вызывает внешние сервисы).
 
 **Для собеседования:** Resource Server валидирует JWT через jwk-set-uri или issuer-uri. OAuth2 Client получает токены через oauth2Login. Приложение может быть обоими одновременно. @AuthenticationPrincipal Jwt даёт доступ к токену в контроллере.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Resource Server валидирует JWT через jwk-set-uri или issuer-uri. OAuth2 Client получает токены через oauth2Login. Приложение может быть обоими одновременно. @AuthenticationPrincipal Jwt даёт доступ к токену в контроллере.`,
 },
 ],
 },
@@ -4502,7 +4502,7 @@ public class OrderService {
 Consul, Zookeeper, Nacos, Kubernetes Service Discovery.
 
 **Для собеседования:** Spring Cloud Gateway — API Gateway на WebFlux с маршрутизацией и фильтрами. Config Server — централизованная конфигурация (Git). Eureka — service discovery для регистрации микросервисов. RestTemplate с @LoadBalanced использует discovery для резолвинга сервисов.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Spring Cloud Gateway — API Gateway на WebFlux с маршрутизацией и фильтрами. Config Server — централизованная конфигурация (Git). Eureka — service discovery для регистрации микросервисов. RestTemplate с @LoadBalanced использует discovery для резолвинга сервисов.`,
 },
 {
 "id": `8-middle-spring-cloud-2`,
@@ -4658,7 +4658,7 @@ filters:
 \`\`\`
 
 **Для собеседования:** API Gateway маршрутизирует запросы через predicates (Path, Method, Header). Фильтры: built-in (StripPrefix, AddHeader) и кастомные (GlobalFilter). Rate limiting через RequestRateLimiter с Redis. Circuit breaker через Resilience4j.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `API Gateway маршрутизирует запросы через predicates (Path, Method, Header). Фильтры: built-in (StripPrefix, AddHeader) и кастомные (GlobalFilter). Rate limiting через RequestRateLimiter с Redis. Circuit breaker через Resilience4j.`,
 },
 {
 "id": `8-middle-spring-cloud-3`,
@@ -4791,7 +4791,7 @@ Resilience4j интегрируется с Micrometer для метрик (Prome
 \`\`\`
 
 **Для собеседования:** Circuit Breaker имеет 3 состояния: Closed (нормальная работа), Open (fail fast), Half-Open (проверка восстановления). Resilience4j настраивается через slidingWindowSize, failureRateThreshold, waitDurationInOpenState. Дополнительно: Retry, RateLimiter, TimeLimiter, Bulkhead.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Circuit Breaker имеет 3 состояния: Closed (нормальная работа), Open (fail fast), Half-Open (проверка восстановления). Resilience4j настраивается через slidingWindowSize, failureRateThreshold, waitDurationInOpenState. Дополнительно: Retry, RateLimiter, TimeLimiter, Bulkhead.`,
 },
 ],
 },

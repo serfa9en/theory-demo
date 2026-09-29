@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `22-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `22-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `22-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `22-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 ],
 },
@@ -647,32 +647,67 @@ def create_article&#40;request&#41;&#58;
 {
 "id": `22-middle-общее-1`,
 "title": `3-way handshake, алгоритм Нейгла, TCP_NODELAY.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## TCP handshake, Nagle и TCP_NODELAY
+
+TCP-соединение обычно устанавливается обменом SYN → SYN-ACK → ACK. Алгоритм Nagle уменьшает число маленьких сегментов, задерживая часть отправок до ACK/накопления данных. \`TCP_NODELAY\` отключает Nagle, что полезно для некоторых latency-sensitive протоколов.
+
+**Ключевые моменты:**
+- TCP_NODELAY не нужно включать автоматически без измерений.
+- Nagle может плохо взаимодействовать с delayed ACK в чатty протоколах.
+- Handshake согласует начальные sequence numbers и состояние соединения.`,
+"shortAnswer": `TCP handshake, Nagle и TCP_NODELAY TCP-соединение обычно устанавливается обменом SYN → SYN-ACK → ACK.  Алгоритм Nagle уменьшает число маленьких сегментов, задерживая часть отправок до ACK/накопления данных.`,
 },
 {
 "id": `22-middle-общее-2`,
 "title": `Управление перегрузками: window size, slow start, congestion avoidance, fast retransmit, fast recovery.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## TCP congestion control
+
+Receiver window ограничивает отправителя возможностями получателя (flow control), а congestion window — оценкой пропускной способности сети. Slow start быстро увеличивает окно до порога/признаков congestion, после чего рост становится осторожнее.
+
+**Ключевые моменты:**
+- Fast retransmit реагирует на duplicate ACK и повторно отправляет вероятно потерянный segment до timeout.
+- Fast recovery избегает полного возврата к начальному состоянию после отдельных потерь.
+- Конкретные congestion-control algorithms могут отличаться от классической схемы.`,
+"shortAnswer": `TCP congestion control Receiver window ограничивает отправителя возможностями получателя (flow control), а congestion window — оценкой пропускной способности сети.  Slow start быстро увеличивает окно до порога/признаков congestion, после чего рост становится осторожнее.`,
 },
 {
 "id": `22-middle-общее-3`,
 "title": `MTU, fragmentation, TTL, ARP, ICMP, DHCP, BOOTP.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## MTU, fragmentation, TTL, ARP, ICMP, DHCP
+
+MTU — максимальный размер network-layer packet для канала без fragmentation. IP TTL/Hop Limit ограничивает число hops. ARP в IPv4 связывает IP с MAC в локальной сети. ICMP несёт диагностические/control сообщения. DHCP автоматически выдаёт сетевые параметры клиенту.
+
+**Ключевые моменты:**
+- IPv6 использует Neighbor Discovery вместо ARP.
+- Path MTU Discovery помогает избежать fragmentation.
+- BOOTP — более старый протокол, предшественник DHCP.`,
+"shortAnswer": `MTU, fragmentation, TTL, ARP, ICMP, DHCP MTU — максимальный размер network-layer packet для канала без fragmentation.  IP TTL/Hop Limit ограничивает число hops.`,
 },
 {
 "id": `22-middle-общее-4`,
 "title": `TCP keep-alive, half-open, reset, FIN, state machine.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## TCP connection states
+
+Нормальное закрытие TCP использует FIN/ACK в каждом направлении, потому что потоки полудуплексно закрываются независимо. RST аварийно сбрасывает connection. Half-open возникает, когда стороны имеют несовпадающее представление о состоянии соединения.
+
+**Ключевые моменты:**
+- TCP keepalive периодически проверяет долго простаивающее соединение по настройкам ОС.
+- Application-level heartbeat часто даёт более предсказуемое обнаружение проблем.
+- TCP state machine включает LISTEN, SYN_SENT/RECEIVED, ESTABLISHED, FIN_WAIT, CLOSE_WAIT, TIME_WAIT и др.`,
+"shortAnswer": `TCP connection states Нормальное закрытие TCP использует FIN/ACK в каждом направлении, потому что потоки полудуплексно закрываются независимо.  RST аварийно сбрасывает connection.`,
 },
 {
 "id": `22-middle-общее-5`,
 "title": `TIME_WAIT, CLOSE_WAIT, SYN flood, DDoS.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## TIME_WAIT, CLOSE_WAIT, SYN flood и DDoS
+
+\`TIME_WAIT\` обычно остаётся у стороны активного закрытия, чтобы старые сегменты не попали в новое соединение и можно было повторно подтвердить FIN. \`CLOSE_WAIT\` означает: peer прислал FIN, а локальное приложение ещё не закрыло socket.
+
+**Ключевые моменты:**
+- Много CLOSE_WAIT часто указывает на bug/утечку соединений в приложении.
+- SYN flood истощает ресурсы полуоткрытых соединений; защиты включают SYN cookies, rate limiting и upstream mitigation.
+- DDoS шире SYN flood и требует многоуровневой защиты/CDN/scrubbing.`,
+"shortAnswer": `TIME_WAIT, CLOSE_WAIT, SYN flood и DDoS TIME_WAIT обычно остаётся у стороны активного закрытия, чтобы старые сегменты не попали в новое соединение и можно было повторно подтвердить FIN.  CLOSE_WAIT означает: peer прислал FIN, а локальное приложение ещё не закрыло socket.`,
 },
 ],
 },

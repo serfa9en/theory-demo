@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `20-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `20-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `20-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `20-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 {
 "id": `20-junior-общее-6`,
@@ -795,13 +795,21 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 \`\`\`
 
 **Для собеседования:** DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
 },
 {
 "id": `20-junior-общее-7`,
 "title": `tag, branch, remote, origin.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Git: tag, branch, remote, origin
+
+Branch — подвижный указатель на commit; tag обычно фиксирует конкретный commit (например release). Remote — сохранённое имя удалённого repository URL, а \`origin\` — стандартное имя remote, которое \`git clone\` создаёт по умолчанию.
+
+**Ключевые моменты:**
+- \`git branch\` управляет ветками.
+- \`git tag\` создаёт/просматривает теги.
+- \`git remote -v\` показывает remotes.
+- \`origin\` — соглашение, его можно переименовать или иметь несколько remotes.`,
+"shortAnswer": `Git: tag, branch, remote, origin Branch — подвижный указатель на commit; tag обычно фиксирует конкретный commit (например release).  Remote — сохранённое имя удалённого repository URL, а origin — стандартное имя remote, которое git clone создаёт по умолчанию.`,
 },
 ],
 },
@@ -816,44 +824,93 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 {
 "id": `20-middle-общее-1`,
 "title": `merge vs rebase: разница и когда использовать.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Merge vs Rebase
+
+Merge создаёт объединение histories (часто merge commit) и сохраняет исходное ветвление. Rebase переносит commits на новую базу, переписывая их hashes и создавая линейную историю.
+
+**Ключевые моменты:**
+- Не rebase-те опубликованную shared history без договорённости.
+- Merge безопаснее сохраняет реальную topology.
+- Rebase удобен для очистки локальной feature branch перед merge.
+- После rebase push обычно требует \`--force-with-lease\`, а не грубый \`--force\`.`,
+"shortAnswer": `Merge vs Rebase Merge создаёт объединение histories (часто merge commit) и сохраняет исходное ветвление.  Rebase переносит commits на новую базу, переписывая их hashes и создавая линейную историю.`,
 },
 {
 "id": `20-middle-общее-2`,
 "title": `cherry-pick, разрешение сложных конфликтов.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Cherry-pick и конфликты
+
+\`git cherry-pick <commit>\` применяет изменения выбранного commit поверх текущей ветки как новый commit. При конфликте Git останавливается: исправляют файлы, \`git add\`, затем \`git cherry-pick --continue\` или \`--abort\`.
+
+**Ключевые моменты:**
+- Cherry-pick удобен для backport/hotfix, но массовое использование может дублировать history.
+- При сложных конфликтах сначала поймите намерение обеих сторон, а не только добейтесь отсутствия conflict markers.`,
+"shortAnswer": `Cherry-pick и конфликты git cherry-pick <commit> применяет изменения выбранного commit поверх текущей ветки как новый commit.  При конфликте Git останавливается: исправляют файлы, git add, затем git cherry-pick --continue или --abort.`,
 },
 {
 "id": `20-middle-общее-3`,
 "title": `Git Flow vs Trunk-Based Development.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Git Flow vs Trunk-Based Development
+
+Git Flow использует долгоживущие ветки develop/release/hotfix и подходит процессам с формальными release cycles. Trunk-Based Development держит основную ветку всегда интегрируемой и использует короткоживущие branches, частые merges и feature flags.
+
+**Ключевые моменты:**
+- Trunk-based хорошо сочетается с CI/CD.
+- Долгоживущие branches увеличивают integration risk.
+- Выбор зависит от release/process constraints, а не моды.`,
+"shortAnswer": `Git Flow vs Trunk-Based Development Git Flow использует долгоживущие ветки develop/release/hotfix и подходит процессам с формальными release cycles.  Trunk-Based Development держит основную ветку всегда интегрируемой и использует короткоживущие branches, частые merges и feature flags.`,
 },
 {
 "id": `20-middle-общее-4`,
 "title": `Git hooks, pre-commit hooks, conventional commits, semantic versioning.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Git hooks, Conventional Commits, SemVer
+
+Git hooks запускают локальные скрипты на события вроде pre-commit/pre-push. Conventional Commits задаёт формат сообщения (\`feat:\`, \`fix:\` и т.п.), который можно использовать для changelog/release automation. SemVer использует MAJOR.MINOR.PATCH.
+
+**Ключевые моменты:**
+- Локальные hooks не являются security boundary — проверки дублируйте в CI.
+- Breaking change повышает MAJOR, новая backward-compatible feature — MINOR, fix — PATCH.
+- Инструменты типа lint-staged ускоряют pre-commit проверки.`,
+"shortAnswer": `Git hooks, Conventional Commits, SemVer Git hooks запускают локальные скрипты на события вроде pre-commit/pre-push.  Conventional Commits задаёт формат сообщения (feat:, fix: и т.`,
 },
 {
 "id": `20-middle-общее-5`,
 "title": `git bisect, reflog, stash pop, worktree.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## bisect, reflog, stash, worktree
+
+\`git bisect\` бинарным поиском находит commit, внёсший регрессию. \`reflog\` хранит локальную историю перемещения refs и помогает восстановить «потерянный» commit. \`stash\` временно откладывает изменения. \`worktree\` позволяет checkout нескольких веток в разных директориях одного repo.
+
+**Ключевые моменты:**
+- \`stash pop\` применяет и удаляет stash при успехе; \`apply\` не удаляет.
+- Reflog локален и имеет срок хранения.
+- Bisect можно автоматизировать тестовой командой.`,
+"shortAnswer": `bisect, reflog, stash, worktree git bisect бинарным поиском находит commit, внёсший регрессию.  reflog хранит локальную историю перемещения refs и помогает восстановить «потерянный» commit.`,
 },
 {
 "id": `20-middle-общее-6`,
 "title": `submodule, subtree, lfs, sparse checkout, shallow clone.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Submodule, subtree, LFS, sparse/shallow
+
+Submodule хранит ссылку на commit другого repository. Subtree встраивает чужую history/содержимое в основной repo. Git LFS заменяет большие binary files pointer-ами. Sparse checkout получает рабочее дерево частично, shallow clone ограничивает depth истории.
+
+**Ключевые моменты:**
+- Submodule требует явного управления версиями вложенного repo.
+- LFS требует server support/storage quota.
+- Shallow clone полезен CI, но часть history-based операций ограничена.`,
+"shortAnswer": `Submodule, subtree, LFS, sparse/shallow Submodule хранит ссылку на commit другого repository.  Subtree встраивает чужую history/содержимое в основной repo.`,
 },
 {
 "id": `20-middle-общее-7`,
 "title": `blame, log --graph, diff, show, clean, gc, fsck.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Git diagnostics и maintenance
+
+\`git blame\` показывает commit/автора строк, \`log --graph\` визуализирует history, \`diff\` сравнивает изменения, \`show\` показывает объект/commit. \`clean\` удаляет untracked files, \`gc\` оптимизирует repository, \`fsck\` проверяет целостность объектов.
+
+**Ключевые моменты:**
+- \`git clean -n\` сначала показывает, что будет удалено.
+- \`blame\` — инструмент исследования истории, не поиска виноватых.
+- \`reflog\` часто полезнее \`fsck\` для восстановления после ошибочного reset/rebase.`,
+"shortAnswer": `Git diagnostics и maintenance git blame показывает commit/автора строк, log --graph визуализирует history, diff сравнивает изменения, show показывает объект/commit.  clean удаляет untracked files, gc оптимизирует repository, fsck проверяет целостность объектов.`,
 },
 ],
 },

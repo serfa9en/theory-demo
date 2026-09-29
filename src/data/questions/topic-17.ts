@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `17-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `17-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `17-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `17-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 {
 "id": `17-junior-общее-6`,
@@ -795,7 +795,7 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 \`\`\`
 
 **Для собеседования:** DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
 },
 ],
 },
@@ -810,50 +810,119 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 {
 "id": `17-middle-общее-1`,
 "title": `Multi-stage build и уменьшение размера образа.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Multi-stage build
+
+Multi-stage Dockerfile использует несколько \`FROM\`: в build stage устанавливаются компиляторы и зависимости, а в финальный runtime image копируется только готовый artifact. Это уменьшает размер образа и attack surface.
+
+**Ключевые моменты:**
+- Используйте небольшой подходящий runtime base image.
+- Копируйте только необходимые artifacts.
+- Закрепляйте версии и используйте BuildKit cache mounts там, где это уместно.
+
+**Пример:**
+
+\`\`\`dockerfile
+FROM node:22 AS build
+WORKDIR /app
+COPY . .
+RUN npm ci && npm run build
+
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+\`\`\``,
+"shortAnswer": `Multi-stage build Multi-stage Dockerfile использует несколько FROM: в build stage устанавливаются компиляторы и зависимости, а в финальный runtime image копируется только готовый artifact.  Это уменьшает размер образа и attack surface.`,
 },
 {
 "id": `17-middle-общее-2`,
 "title": `Docker networks: Bridge, Host, Overlay. Общение контейнеров.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Docker networks
+
+Bridge — стандартная сеть одного Docker host с изоляцией и DNS по именам контейнеров в user-defined network. Host отключает отдельный network namespace контейнера и использует сеть host. Overlay соединяет контейнеры/сервисы на нескольких Docker hosts (например, Swarm).
+
+**Ключевые моменты:**
+- Для Compose сервисы в одной сети обращаются друг к другу по service name.
+- Публикация порта (\`-p\`) нужна для доступа извне Docker network, а не для общения контейнеров внутри неё.`,
+"shortAnswer": `Docker networks Bridge — стандартная сеть одного Docker host с изоляцией и DNS по именам контейнеров в user-defined network.  Host отключает отдельный network namespace контейнера и использует сеть host.`,
 },
 {
 "id": `17-middle-общее-3`,
 "title": `Volumes vs Bind mounts.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Volumes vs Bind mounts
+
+Volume управляется Docker и хранится в Docker storage; bind mount монтирует конкретный путь host в контейнер.
+
+**Ключевые моменты:**
+- Volumes удобнее и переносимее для persistent application data.
+- Bind mount полезен в development для исходников/configs.
+- Bind mount сильнее связывает контейнер с файловой системой host.
+- Не храните важные данные только в writable container layer.`,
+"shortAnswer": `Volumes vs Bind mounts Volume управляется Docker и хранится в Docker storage; bind mount монтирует конкретный путь host в контейнер.  Ключевые моменты: Volumes удобнее и переносимее для persistent application data.`,
 },
 {
 "id": `17-middle-общее-4`,
 "title": `Docker secrets, Docker Swarm, Kubernetes (container orchestration).`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Secrets и orchestration
+
+Docker secrets предназначены для передачи секретов сервисам Swarm без упаковки секрета в image. Docker Swarm и Kubernetes оркестрируют контейнерные workloads: scheduling, service discovery, rollout, health и масштабирование.
+
+**Ключевые моменты:**
+- Не кладите секреты в Dockerfile/ENV при build, если они попадут в layers/history.
+- В Kubernetes secrets требуют корректной RBAC/encryption strategy.
+- Kubernetes богаче экосистемой и функциональностью, но сложнее в эксплуатации.`,
+"shortAnswer": `Secrets и orchestration Docker secrets предназначены для передачи секретов сервисам Swarm без упаковки секрета в image.  Docker Swarm и Kubernetes оркестрируют контейнерные workloads: scheduling, service discovery, rollout, health и масштабирование.`,
 },
 {
 "id": `17-middle-общее-5`,
 "title": `Docker Hub, private registry, Docker Compose profiles.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Registry и Compose profiles
+
+Registry хранит и раздаёт container images. Docker Hub — публичный/managed registry, private registry ограничивает доступ внутри организации. Compose profiles позволяют включать опциональные сервисы для конкретных режимов запуска.
+
+**Ключевые моменты:**
+- Тег \`latest\` не является гарантией неизменности — в production лучше immutable tags/digests.
+- Настройте scanning, auth и retention.
+- Profiles удобны для debug/admin tooling, которое не нужно всегда.`,
+"shortAnswer": `Registry и Compose profiles Registry хранит и раздаёт container images.  Docker Hub — публичный/managed registry, private registry ограничивает доступ внутри организации.`,
 },
 {
 "id": `17-middle-общее-6`,
 "title": `Healthcheck, restart policies, resource limits.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Healthcheck, restart policy и resource limits
+
+HEALTHCHECK проверяет не просто наличие процесса, а способность контейнера обслуживать работу. Restart policy определяет перезапуск после завершения. CPU/memory limits защищают host и соседние workloads от одного контейнера.
+
+**Ключевые моменты:**
+- Healthcheck должен быть дешёвым и отражать реальную готовность.
+- OOM из-за memory limit нужно наблюдать.
+- Не используйте бесконечный restart как замену устранению root cause.`,
+"shortAnswer": `Healthcheck, restart policy и resource limits HEALTHCHECK проверяет не просто наличие процесса, а способность контейнера обслуживать работу.  Restart policy определяет перезапуск после завершения.`,
 },
 {
 "id": `17-middle-общее-7`,
 "title": `Security: non-root user, image scanning, Docker BuildKit, cache, .dockerignore.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Docker security и build optimization
+
+Запускайте процесс от non-root user, минимизируйте base image и установленные пакеты, сканируйте image и зависимости, не храните secrets в layers. BuildKit улучшает build cache и поддерживает безопасные secret/cache mounts.
+
+**Ключевые моменты:**
+- \`.dockerignore\` уменьшает build context и риск случайно скопировать секреты.
+- Используйте multi-stage build.
+- Закрепляйте base image version/digest по требованиям supply-chain.
+- Rootless Docker снижает часть рисков daemon/container privileges.`,
+"shortAnswer": `Docker security и build optimization Запускайте процесс от non-root user, минимизируйте base image и установленные пакеты, сканируйте image и зависимости, не храните secrets в layers.  BuildKit улучшает build cache и поддерживает безопасные secret/cache mounts.`,
 },
 {
 "id": `17-middle-общее-8`,
 "title": `Docker contexts, Desktop, rootless Docker, Docker in Docker (DinD).`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Docker contexts, Desktop, rootless и DinD
+
+Docker context хранит параметры подключения к конкретному daemon/endpoint. Docker Desktop предоставляет локальную VM/интеграцию для macOS/Windows и dev tools. Rootless mode запускает daemon/containers без root privileges host. DinD запускает Docker daemon внутри контейнера.
+
+**Ключевые моменты:**
+- DinD нужен не всегда: в CI часто безопаснее dedicated builders/BuildKit.
+- Mount docker.sock фактически даёт очень широкие права на host Docker daemon.
+- Выбирайте подход, учитывая isolation и security model.`,
+"shortAnswer": `Docker contexts, Desktop, rootless и DinD Docker context хранит параметры подключения к конкретному daemon/endpoint.  Docker Desktop предоставляет локальную VM/интеграцию для macOS/Windows и dev tools.`,
 },
 ],
 },

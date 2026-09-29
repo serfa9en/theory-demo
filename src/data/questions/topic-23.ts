@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `23-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `23-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `23-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `23-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 {
 "id": `23-junior-общее-6`,
@@ -795,13 +795,20 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 \`\`\`
 
 **Для собеседования:** DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
 },
 {
 "id": `23-junior-общее-7`,
 "title": `HTTPS, CORS, REST.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## HTTPS, CORS и REST
+
+HTTPS — HTTP поверх TLS, обеспечивающий шифрование канала и проверку подлинности сервера сертификатом. CORS — браузерный механизм, который регулирует чтение cross-origin ответов frontend-кодом. REST — архитектурный стиль ресурсного HTTP API.
+
+**Ключевые моменты:**
+- CORS не является механизмом серверной авторизации.
+- TLS защищает транспорт, но не исправляет XSS/SQL injection.
+- REST обычно использует ресурсы, HTTP methods/status codes и stateless requests.`,
+"shortAnswer": `HTTPS, CORS и REST HTTPS — HTTP поверх TLS, обеспечивающий шифрование канала и проверку подлинности сервера сертификатом.  CORS — браузерный механизм, который регулирует чтение cross-origin ответов frontend-кодом.`,
 },
 ],
 },
@@ -816,50 +823,106 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 {
 "id": `23-middle-общее-1`,
 "title": `CORS Preflight (OPTIONS).`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## CORS Preflight
+
+Для некоторых cross-origin запросов браузер сначала отправляет \`OPTIONS\` preflight, чтобы спросить сервер, разрешены ли origin, method и headers. Если ответ содержит подходящие \`Access-Control-Allow-*\`, браузер отправляет основной запрос.
+
+**Ключевые моменты:**
+- Simple requests могут обходиться без preflight.
+- \`Access-Control-Allow-Origin\` должен соответствовать политике сервера.
+- Credentials требуют явного origin и \`Access-Control-Allow-Credentials: true\`.`,
+"shortAnswer": `CORS Preflight Для некоторых cross-origin запросов браузер сначала отправляет OPTIONS preflight, чтобы спросить сервер, разрешены ли origin, method и headers.  Если ответ содержит подходящие Access-Control-Allow-*, браузер отправляет основной запрос.`,
 },
 {
 "id": `23-middle-общее-2`,
 "title": `Кэширование: Cache-Control, ETag, Last-Modified.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## HTTP caching
+
+\`Cache-Control\` задаёт правила freshness/storage (\`max-age\`, \`no-store\`, \`private\`, \`public\` и др.). ETag — validator версии представления; клиент может отправить \`If-None-Match\`. Last-Modified работает с \`If-Modified-Since\` как более простой validator.
+
+**Ключевые моменты:**
+- При валидном кэше сервер может ответить \`304 Not Modified\` без body.
+- Для versioned static assets часто используют долгий \`max-age\` + \`immutable\`.
+- \`no-cache\` означает «проверять перед использованием», а не «никогда не хранить»; для запрета хранения есть \`no-store\`.`,
+"shortAnswer": `HTTP caching Cache-Control задаёт правила freshness/storage (max-age, no-store, private, public и др. ).`,
 },
 {
 "id": `23-middle-общее-3`,
 "title": `Атрибуты Cookie: HttpOnly, Secure, SameSite.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Cookie security attributes
+
+\`HttpOnly\` запрещает JavaScript доступ к cookie, снижая риск кражи через XSS. \`Secure\` отправляет cookie только по HTTPS. \`SameSite\` ограничивает отправку cookie в cross-site контексте и помогает снижать CSRF.
+
+**Ключевые моменты:**
+- \`SameSite=Strict\` наиболее жёсткий, \`Lax\` часто разумный default, \`None\` требует \`Secure\`.
+- Cookie всё равно должен иметь минимальные Domain/Path/Max-Age и server-side validation.`,
+"shortAnswer": `Cookie security attributes HttpOnly запрещает JavaScript доступ к cookie, снижая риск кражи через XSS.  Secure отправляет cookie только по HTTPS.`,
 },
 {
 "id": `23-middle-общее-4`,
 "title": `Защита от XSS и CSRF.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## XSS и CSRF
+
+XSS заставляет страницу выполнить атакующий script/markup в контексте сайта; основная защита — контекстное escaping/encoding, безопасный DOM API, sanitization для разрешённого HTML и CSP как дополнительный слой. CSRF заставляет browser жертвы отправить авторизованный request на другой сайт.
+
+**Ключевые моменты:**
+- Для CSRF используют SameSite cookies, anti-CSRF tokens и проверку Origin/Referer по модели приложения.
+- HttpOnly защищает cookie от чтения JS, но сам не предотвращает XSS.
+- Никогда не вставляйте непроверенный input через \`innerHTML\`/\`v-html\`.`,
+"shortAnswer": `XSS и CSRF XSS заставляет страницу выполнить атакующий script/markup в контексте сайта; основная защита — контекстное escaping/encoding, безопасный DOM API, sanitization для разрешённого HTML и CSP как дополнительный слой.  CSRF заставляет browser жертвы отправить авторизованный request на другой сайт.`,
 },
 {
 "id": `23-middle-общее-5`,
 "title": `HTTPS: TLS handshake, симметричное и асимметричное шифрование, сертификаты, Let's Encrypt, HSTS.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## HTTPS и TLS
+
+TLS handshake согласует версию/шифросuites, проверяет сертификат сервера и создаёт общие session keys. Асимметричная криптография нужна для аутентификации/обмена ключевым материалом, а bulk traffic шифруется быстрыми симметричными алгоритмами.
+
+**Ключевые моменты:**
+- Сертификат связывает public key с доменом через доверенную CA; Let’s Encrypt автоматизирует выдачу сертификатов.
+- HSTS сообщает браузеру использовать HTTPS для домена в течение заданного времени.
+- Современный TLS 1.3 сокращает handshake и убирает устаревшие алгоритмы.`,
+"shortAnswer": `HTTPS и TLS TLS handshake согласует версию/шифросuites, проверяет сертификат сервера и создаёт общие session keys.  Асимметричная криптография нужна для аутентификации/обмена ключевым материалом, а bulk traffic шифруется быстрыми симметричными алгоритмами.`,
 },
 {
 "id": `23-middle-общее-6`,
 "title": `HTTP/2 и HTTP/3 (QUIC): server push, multiplexing, header compression.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## HTTP/2 и HTTP/3
+
+HTTP/2 мультиплексирует несколько streams поверх одного TCP connection и использует HPACK header compression. HTTP/3 переносит HTTP semantics на QUIC поверх UDP; QUIC включает TLS 1.3 и устраняет TCP head-of-line blocking между независимыми streams.
+
+**Ключевые моменты:**
+- HTTP/2 server push существовал как функция протокола, но браузерная поддержка практически ушла; не следует строить современную оптимизацию вокруг него.
+- HTTP/3 использует QPACK для header compression.
+- Оба протокола сохраняют привычные HTTP methods/status/headers на уровне semantics.`,
+"shortAnswer": `HTTP/2 и HTTP/3 HTTP/2 мультиплексирует несколько streams поверх одного TCP connection и использует HPACK header compression.  HTTP/3 переносит HTTP semantics на QUIC поверх UDP; QUIC включает TLS 1.`,
 },
 {
 "id": `23-middle-общее-7`,
 "title": `WebSocket, Server-Sent Events (SSE), long polling.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## WebSocket, SSE и long polling
+
+WebSocket создаёт постоянный двунаправленный канал. SSE держит HTTP response открытым и передаёт события server→client. Long polling держит request до появления события, затем клиент создаёт новый request.
+
+**Ключевые моменты:**
+- WebSocket удобен для частого bidirectional realtime traffic.
+- SSE проще для однонаправленных notifications и автоматически переподключается в EventSource.
+- Long polling работает почти везде, но создаёт больше HTTP overhead.`,
+"shortAnswer": `WebSocket, SSE и long polling WebSocket создаёт постоянный двунаправленный канал.  SSE держит HTTP response открытым и передаёт события server→client.`,
 },
 {
 "id": `23-middle-общее-8`,
 "title": `GraphQL, gRPC, сравнение REST vs GraphQL vs gRPC.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## REST vs GraphQL vs gRPC
+
+REST моделирует ресурсы через HTTP endpoints. GraphQL даёт типизированную query language, где клиент выбирает поля. gRPC использует RPC-контракты (обычно Protocol Buffers) и эффективный бинарный HTTP/2 transport.
+
+**Ключевые моменты:**
+- REST прост и хорошо дружит с HTTP caching/tools.
+- GraphQL снижает over/under-fetching, но требует контроля complexity/caching/auth.
+- gRPC силён во внутренних service-to-service API и streaming, но browser integration отличается от обычного REST.
+- Выбор зависит от клиентов, latency, schema evolution и operational tooling.`,
+"shortAnswer": `REST vs GraphQL vs gRPC REST моделирует ресурсы через HTTP endpoints.  GraphQL даёт типизированную query language, где клиент выбирает поля.`,
 },
 ],
 },

@@ -59,7 +59,7 @@ HTML генерируется **один раз** при сборке проек
 | ISR | Сервер (периодически) | ✅ | Максимальная | ⚠️ |
 
 💡 **Для собеседования:** Nuxt — фреймворк над Vue с файловой маршрутизацией, SSR и автоимпортами. CSR — рендер в браузере (SPA). SSR — рендер на сервере при каждом запросе (SEO). SSG — статическая генерация при сборке. ISR — гибрид: статика с периодическим обновлением.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Nuxt — фреймворк над Vue с файловой маршрутизацией, SSR и автоимпортами. CSR — рендер в браузере (SPA). SSR — рендер на сервере при каждом запросе (SEO). SSG — статическая генерация при сборке. ISR — гибрид: статика с периодическим обновлением.`,
 },
 {
 "id": `5-junior-общее-2`,
@@ -155,7 +155,7 @@ export default defineNuxtConfig({
 - ️ Конфликты имён при большом проекте
 
 💡 **Для собеседования:** Автоимпорты в Nuxt — автоматический импорт компонентов, композаблов, утилит и Vue/Nuxt API без явного \`import\`. Работает через сканирование папок \`components/\`, \`composables/\`, \`utils/\`. Ускоряет разработку и уменьшает boilerplate.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Автоимпорты в Nuxt — автоматический импорт компонентов, композаблов, утилит и Vue/Nuxt API без явного import. Работает через сканирование папок components/, composables/, utils/. Ускоряет разработку и уменьшает boilerplate.`,
 },
 {
 "id": `5-junior-общее-3`,
@@ -273,7 +273,7 @@ definePageMeta({
 \`\`\`
 
 💡 **Для собеседования:** В Nuxt маршруты создаются автоматически из файлов в папке \`pages/\`. Вложенные папки = вложенные маршруты. Динамические параметры — через \`[param]\`. Catch-all — через \`[...slug]\`. Группировка без влияния на URL — через \`(group)\`. Параметры получаются через \`useRoute().params\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `В Nuxt маршруты создаются автоматически из файлов в папке pages/. Вложенные папки = вложенные маршруты. Динамические параметры — через [param]. Catch-all — через [...slug]. Группировка без влияния на URL — через (group). Параметры получаются через useRoute().params.`,
 },
 {
 "id": `5-junior-общее-4`,
@@ -391,7 +391,7 @@ watch(someRef, () => refresh())
 \`\`\`
 
 💡 **Для собеседования:** \`useFetch\` — удобная обёртка для HTTP-запросов (использует \`$fetch\`). \`useAsyncData\` — более гибкий вариант для любой async-логики. Оба поддерживают SSR, кэширование, дедупликацию запросов. Возвращают \`data\`, \`pending\`, \`error\`, \`refresh\`. Первый аргумент \`useAsyncData\` — уникальный ключ для кэша.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `useFetch — удобная обёртка для HTTP-запросов (использует $fetch). useAsyncData — более гибкий вариант для любой async-логики. Оба поддерживают SSR, кэширование, дедупликацию запросов. Возвращают data, pending, error, refresh. Первый аргумент useAsyncData — уникальный ключ для кэша.`,
 },
 {
 "id": `5-junior-общее-5`,
@@ -545,7 +545,7 @@ definePageMeta({
 \`\`\`
 
 💡 **Для собеседования:** \`<NuxtLink>\` — компонент навигации с автопрефетчингом. \`<NuxtPage>\` — точка рендера текущей страницы (аналог \`<router-view>\`). \`<NuxtLayout>\` — для динамического переключения layout'ов. Обычно \`<NuxtPage>\` размещается внутри layout-файла.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `<NuxtLink> — компонент навигации с автопрефетчингом. <NuxtPage> — точка рендера текущей страницы (аналог <router-view>). <NuxtLayout> — для динамического переключения layout'ов. Обычно <NuxtPage> размещается внутри layout-файла.`,
 },
 {
 "id": `5-junior-общее-6`,
@@ -720,7 +720,7 @@ export default defineNuxtRouteMiddleware((to) => {
 \`\`\`
 
 💡 **Для собеседования:** Layout — обёртка для страниц с общей структурой, создаётся в \`layouts/\` и применяется через \`definePageMeta({ layout: 'name' })\`. Middleware — функция перед рендером страницы для проверки условий. Бывает глобальный (\`.global.ts\`) и именованный. Возвращает \`navigateTo()\` для редиректа или \`abortNavigation()\` для отмены.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Layout — обёртка для страниц с общей структурой, создаётся в layouts/ и применяется через definePageMeta({ layout: 'name' }). Middleware — функция перед рендером страницы для проверки условий. Бывает глобальный (.global.ts) и именованный. Возвращает navigateTo() для редиректа или abortNavigation() для отмены.`,
 },
 {
 "id": `5-junior-общее-7`,
@@ -922,7 +922,7 @@ export default defineNuxtConfig({
 \`\`\`
 
 💡 **Для собеседования:** Серверные маршруты создаются в \`server/api/\` через \`defineEventHandler\`. Nuxt использует Nitro-сервер. \`nuxt.config.ts\` — главный конфиг: модули, runtimeConfig, плагины, CSS, настройки сборки. \`runtimeConfig.public\` доступен на клиенте, корневые свойства — только на сервере.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Серверные маршруты создаются в server/api/ через defineEventHandler. Nuxt использует Nitro-сервер. nuxt.config.ts — главный конфиг: модули, runtimeConfig, плагины, CSS, настройки сборки. runtimeConfig.public доступен на клиенте, корневые свойства — только на сервере.`,
 },
 {
 "id": `5-junior-общее-8`,
@@ -1095,7 +1095,7 @@ useSeoMeta({
 \`\`\`
 
 💡 **Для собеседования:** \`useHead\` — универсальный композабл для управления всем \`<head>\` (title, meta, link, script). \`useSeoMeta\` — специализированный для SEO-мета-тегов с удобным синтаксисом (автоматически генерирует \`og:title\`, \`twitter:card\` и т.д.). Оба реактивны.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `useHead — универсальный композабл для управления всем <head> (title, meta, link, script). useSeoMeta — специализированный для SEO-мета-тегов с удобным синтаксисом (автоматически генерирует og:title, twitter:card и т.д.). Оба реактивны.`,
 },
 {
 "id": `5-junior-общее-9`,
@@ -1290,7 +1290,7 @@ runtimeConfig: {
 \`\`\`
 
 💡 **Для собеседования:** Переменные окружения в Nuxt работают через \`runtimeConfig\` в \`nuxt.config.ts\`. Переменные с префиксом \`NUXT_PUBLIC_\` доступны на клиенте, с \`NUXT_\` — только на сервере. Доступ через \`useRuntimeConfig()\`. Значения из \`.env\` переопределяют конфиг. Никогда не храните секреты в \`public\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Переменные окружения в Nuxt работают через runtimeConfig в nuxt.config.ts. Переменные с префиксом NUXT_PUBLIC_ доступны на клиенте, с NUXT_ — только на сервере. Доступ через useRuntimeConfig(). Значения из .env переопределяют конфиг. Никогда не храните секреты в public.`,
 },
 {
 "id": `5-junior-общее-10`,
@@ -1487,7 +1487,7 @@ async function login(credentials) {
 \`\`\`
 
 💡 **Для собеседования:** Ошибки в Nuxt обрабатываются через \`error.vue\`, \`createError()\`, и хуки \`vue:error\`/\`app:error\`. \`useRoute()\` — информация о текущем маршруте. \`useRouter()\` — программная навигация на клиенте. \`navigateTo()\` — универсальная навигация (работает в middleware и SSR). В middleware используйте \`navigateTo\`, а не \`router.push\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Ошибки в Nuxt обрабатываются через error.vue, createError(), и хуки vue:error/app:error. useRoute() — информация о текущем маршруте. useRouter() — программная навигация на клиенте. navigateTo() — универсальная навигация (работает в middleware и SSR). В middleware используйте navigateTo, а не router.push.`,
 },
 ],
 },
@@ -1624,7 +1624,7 @@ if (import.meta.env.SSR) {
 \`\`\`
 
  **Для собеседования:** Гидратация — процесс «оживления» серверного HTML. Hydration mismatch возникает при различиях между серверным и клиентским HTML (браузерные API, случайные значения, localStorage). Решения: \`<ClientOnly>\`, \`<ServerOnly>\`, \`onMounted\`, \`import.meta.env.SSR\`, \`v-show\` вместо \`v-if\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Гидратация — процесс «оживления» серверного HTML. Hydration mismatch возникает при различиях между серверным и клиентским HTML (браузерные API, случайные значения, localStorage). Решения: <ClientOnly>, <ServerOnly>, onMounted, import.meta.env.SSR, v-show вместо v-if.`,
 },
 {
 "id": `5-middle-общее-2`,
@@ -1765,7 +1765,7 @@ const { data } = await useAsyncData('user', () =>
 - \`'defer'\` — ждёт завершения предыдущего
 
 💡 **Для собеседования:** \`useAsyncData\` использует ключ для дедупликации и кэширования. На сервере результат сохраняется в \`nuxtApp.payload.data\` и сериализуется в HTML для гидратации. Опции: \`server\` (выполнять на сервере), \`lazy\` (не блокировать навигацию), \`transform\` (трансформация ответа), \`pick\` (выбор полей), \`dedupe\` (стратегия дедупликации).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `useAsyncData использует ключ для дедупликации и кэширования. На сервере результат сохраняется в nuxtApp.payload.data и сериализуется в HTML для гидратации. Опции: server (выполнять на сервере), lazy (не блокировать навигацию), transform (трансформация ответа), pick (выбор полей), dedupe (стратегия дедупликации).`,
 },
 {
 "id": `5-middle-общее-3`,
@@ -1910,7 +1910,7 @@ await refresh()
 - \`refreshNuxtData(key)\` — обновляет все вызовы с этим ключом (включая другие компоненты)
 
 💡 **Для собеседования:** \`useFetch\` — обёртка над \`useAsyncData\` + \`$fetch\` с HTTP-опциями. \`useLazyFetch\` — не блокирует навигацию (\`lazy: true\`). \`refreshNuxtData(key)\` — глобальное обновление кэша по ключу. \`useAsyncData\` — для любой async-логики, не только HTTP.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `useFetch — обёртка над useAsyncData + $fetch с HTTP-опциями. useLazyFetch — не блокирует навигацию (lazy: true). refreshNuxtData(key) — глобальное обновление кэша по ключу. useAsyncData — для любой async-логики, не только HTTP.`,
 },
 {
 "id": `5-middle-общее-4`,
@@ -2104,7 +2104,7 @@ const analyticsConsent = useCookie('analytics-consent', {
 - Ограничивайте \`maxAge\`
 
 💡 **Для собеседования:** \`$fetch\` — универсальный HTTP-клиент (ofetch), на сервере идёт напрямую в Nitro без сети. \`useRequestFetch\` сохраняет заголовки и cookies исходного запроса. \`useCookie\` — реактивный композабл для cookies с опциями (\`maxAge\`, \`secure\`, \`sameSite\`, \`httpOnly\`).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `$fetch — универсальный HTTP-клиент (ofetch), на сервере идёт напрямую в Nitro без сети. useRequestFetch сохраняет заголовки и cookies исходного запроса. useCookie — реактивный композабл для cookies с опциями (maxAge, secure, sameSite, httpOnly).`,
 },
 {
 "id": `5-middle-общее-5`,
@@ -2300,7 +2300,7 @@ export async function saveSession(sessionId: string, data: any) {
 \`useStorage\` работает **только на сервере**. На клиенте используйте \`localStorage\` или \`useCookie\`.
 
 💡 **Для собеседования:** Nitro — серверный движок Nuxt с поддержкой множества платформ деплоя (Node, Serverless, Edge). \`useStorage\` — универсальный API для работы с хранилищами (memory, fs, Redis, S3). Используется для кэширования, сессий, rate limiting. Настраивается через \`nitro.storage\` в \`nuxt.config.ts\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Nitro — серверный движок Nuxt с поддержкой множества платформ деплоя (Node, Serverless, Edge). useStorage — универсальный API для работы с хранилищами (memory, fs, Redis, S3). Используется для кэширования, сессий, rate limiting. Настраивается через nitro.storage в nuxt.config.ts.`,
 },
 {
 "id": `5-middle-общее-6`,
@@ -2526,7 +2526,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 | Доступ к Vue | Нет | Да (nuxtApp.vueApp) |
 
 💡 **Для собеседования:** Серверные middleware (\`server/middleware/\`) выполняются перед каждым HTTP-запросом (CORS, auth, логирование). Nuxt plugins (\`plugins/\`) инициализируют приложение до создания Vue (регистрация библиотек, хуки). Плагины могут быть client-only (\`.client.ts\`) или server-only (\`.server.ts\`). Доступ к хукам через \`nuxtApp.hook()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Серверные middleware (server/middleware/) выполняются перед каждым HTTP-запросом (CORS, auth, логирование). Nuxt plugins (plugins/) инициализируют приложение до создания Vue (регистрация библиотек, хуки). Плагины могут быть client-only (.client.ts) или server-only (.server.ts). Доступ к хукам через nuxtApp.hook().`,
 },
 {
 "id": `5-middle-общее-7`,
@@ -2759,7 +2759,7 @@ onUnmounted(() => { ... })
 6. \`page:transition:finish\` — анимация перехода завершена
 
 💡 **Для собеседования:** Аутентификация в Nuxt: токен в cookie (\`useCookie\`), стор с \`useState\`, глобальный middleware для проверки, серверный middleware для валидации. Хуки Nuxt: \`app:created\`, \`app:mounted\`, \`page:start\`, \`page:finish\`, \`app:error\`. Доступ через \`nuxtApp.hook()\` в плагинах.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Аутентификация в Nuxt: токен в cookie (useCookie), стор с useState, глобальный middleware для проверки, серверный middleware для валидации. Хуки Nuxt: app:created, app:mounted, page:start, page:finish, app:error. Доступ через nuxtApp.hook() в плагинах.`,
 },
 {
 "id": `5-middle-общее-8`,
@@ -2974,7 +2974,7 @@ export default defineNuxtConfig({
 \`\`\`
 
 💡 **Для собеседования:** Изображения оптимизируются через \`@nuxt/image\` (\`<NuxtImg>\`, \`<NuxtPicture>\`). Кэширование маршрутов — через \`routeRules\` (SWR, ISR, headers). Prerendering генерирует HTML при сборке для указанных маршрутов. Гибридный рендеринг позволяет комбинировать разные стратегии для разных маршрутов.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Изображения оптимизируются через @nuxt/image (<NuxtImg>, <NuxtPicture>). Кэширование маршрутов — через routeRules (SWR, ISR, headers). Prerendering генерирует HTML при сборке для указанных маршрутов. Гибридный рендеринг позволяет комбинировать разные стратегии для разных маршрутов.`,
 },
 {
 "id": `5-middle-общее-9`,
@@ -3205,7 +3205,7 @@ export default defineNuxtConfig({
 - Monorepo с общими компонентами
 
 💡 **Для собеседования:** Hybrid rendering — разные стратегии рендеринга для разных маршрутов через \`routeRules\`. i18n — модуль \`@nuxtjs/i18n\` с файлами переводов и \`useI18n()\`. Nuxt Layers — переиспользование кода между проектами через \`extends\`. Приоритет: основной проект > extends.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Hybrid rendering — разные стратегии рендеринга для разных маршрутов через routeRules. i18n — модуль @nuxtjs/i18n с файлами переводов и useI18n(). Nuxt Layers — переиспользование кода между проектами через extends. Приоритет: основной проект > extends.`,
 },
 {
 "id": `5-middle-общее-10`,
@@ -3426,7 +3426,7 @@ export default defineEventHandler((event) => {
 - Используйте \`Max-Age\` для снижения нагрузки
 
 💡 **Для собеседования:** Core Web Vitals: LCP (крупный контент), INP (взаимодействие), CLS (сдвиги layout). Оптимизация: preload, lazy loading, фиксированные размеры, code splitting. CORS настраивается через server middleware, routeRules или h3 \`handleCors\`. На сервере между своими доменами CORS не нужен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Core Web Vitals: LCP (крупный контент), INP (взаимодействие), CLS (сдвиги layout). Оптимизация: preload, lazy loading, фиксированные размеры, code splitting. CORS настраивается через server middleware, routeRules или h3 handleCors. На сервере между своими доменами CORS не нужен.`,
 },
 ],
 },

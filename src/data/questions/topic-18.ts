@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `18-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `18-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `18-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `18-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 {
 "id": `18-junior-общее-6`,
@@ -795,7 +795,7 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 \`\`\`
 
 **Для собеседования:** DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
 },
 ],
 },
@@ -810,44 +810,95 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 {
 "id": `18-middle-общее-1`,
 "title": `Кэширование зависимостей.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Кэширование dependencies в CI
+
+Dependency cache сохраняет скачанные пакеты/артефакты между запусками pipeline и уменьшает время установки. Cache key должен зависеть от lock-file, OS/runtime и других факторов совместимости.
+
+**Ключевые моменты:**
+- Cache — оптимизация, а не источник истины; pipeline должен уметь восстановиться при cache miss.
+- Не кэшируйте секреты.
+- Различайте dependency cache и build artifacts.`,
+"shortAnswer": `Кэширование dependencies в CI Dependency cache сохраняет скачанные пакеты/артефакты между запусками pipeline и уменьшает время установки.  Cache key должен зависеть от lock-file, OS/runtime и других факторов совместимости.`,
 },
 {
 "id": `18-middle-общее-2`,
 "title": `Стратегии деплоя: Rolling, Blue-Green, Canary.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Rolling, Blue-Green и Canary
+
+Rolling постепенно заменяет экземпляры старой версии. Blue-Green держит две полноценные среды и переключает traffic. Canary сначала отправляет небольшой процент traffic на новую версию и расширяет rollout после проверки.
+
+**Ключевые моменты:**
+- Rolling экономичен, но некоторое время версии сосуществуют.
+- Blue-Green даёт быстрый rollback ценой ресурсов.
+- Canary снижает blast radius, но требует метрик и traffic control.`,
+"shortAnswer": `Rolling, Blue-Green и Canary Rolling постепенно заменяет экземпляры старой версии.  Blue-Green держит две полноценные среды и переключает traffic.`,
 },
 {
 "id": `18-middle-общее-3`,
 "title": `Хранение секретов, GitOps, ArgoCD, Flux.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Secrets и GitOps
+
+GitOps хранит желаемое состояние инфраструктуры/приложений в Git, а agent/controller (например Argo CD или Flux) синхронизирует runtime с репозиторием.
+
+**Ключевые моменты:**
+- Секреты нельзя хранить в Git открытым текстом; используют secret managers или encrypted/sealed secrets.
+- Git history даёт audit trail и rollback желаемого состояния.
+- Разделяйте app config и secret material.`,
+"shortAnswer": `Secrets и GitOps GitOps хранит желаемое состояние инфраструктуры/приложений в Git, а agent/controller (например Argo CD или Flux) синхронизирует runtime с репозиторием.  Ключевые моменты: Секреты нельзя хранить в Git открытым текстом; используют secret managers или encrypted/sealed secrets.`,
 },
 {
 "id": `18-middle-общее-4`,
 "title": `Infrastructure as Code (IaC): Terraform, Ansible, Helm, Kubernetes manifests.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Infrastructure as Code
+
+IaC описывает инфраструктуру декларативным или автоматизированным кодом, чтобы окружения были воспроизводимыми и ревьюились как обычные изменения.
+
+**Ключевые моменты:**
+- Terraform управляет ресурсами providers через state.
+- Ansible чаще применяют для configuration management/procedural automation.
+- Helm шаблонизирует Kubernetes resources.
+- Kubernetes manifests описывают desired state объектов cluster.`,
+"shortAnswer": `Infrastructure as Code IaC описывает инфраструктуру декларативным или автоматизированным кодом, чтобы окружения были воспроизводимыми и ревьюились как обычные изменения.  Ключевые моменты: Terraform управляет ресурсами providers через state.`,
 },
 {
 "id": `18-middle-общее-5`,
 "title": `Deployment strategies, feature flags (LaunchDarkly), progressive delivery, automated rollback.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Feature flags и progressive delivery
+
+Feature flag отделяет deploy кода от release функциональности. Progressive delivery постепенно расширяет аудиторию новой версии/фичи на основе метрик и правил; automated rollback возвращает безопасную версию при деградации.
+
+**Ключевые моменты:**
+- У флагов должен быть owner и срок удаления.
+- Не делайте security boundary только через client-side flag.
+- Rollback должен учитывать миграции данных и backward compatibility.`,
+"shortAnswer": `Feature flags и progressive delivery Feature flag отделяет deploy кода от release функциональности.  Progressive delivery постепенно расширяет аудиторию новой версии/фичи на основе метрик и правил; automated rollback возвращает безопасную версию при деградации.`,
 },
 {
 "id": `18-middle-общее-6`,
 "title": `Pipeline optimization: parallel execution, conditional execution, approval gates, manual/scheduled triggers.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Оптимизация pipeline
+
+Pipeline ускоряют параллельным выполнением независимых jobs, кэшированием, запуском только затронутых проверок и правильным разделением быстрых feedback stages и дорогих stages.
+
+**Ключевые моменты:**
+- Approval gates нужны там, где требуется контроль риска/compliance.
+- Manual/scheduled triggers не должны обходить обязательные security checks.
+- Собирайте метрики duration, queue time, failure rate и flaky jobs.`,
+"shortAnswer": `Оптимизация pipeline Pipeline ускоряют параллельным выполнением независимых jobs, кэшированием, запуском только затронутых проверок и правильным разделением быстрых feedback stages и дорогих stages.  Ключевые моменты: Approval gates нужны там, где требуется контроль риска/compliance.`,
 },
 {
 "id": `18-middle-общее-7`,
 "title": `Pipeline templates, shared libraries, pipeline security.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Pipeline templates и security
+
+Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики. Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.
+
+**Ключевые моменты:**
+- Минимизируйте permissions CI token.
+- Pin сторонние actions/images по доверенным версиям/digest.
+- Не выводите secrets в logs.
+- Разделяйте untrusted PR code и privileged deployment jobs.`,
+"shortAnswer": `Pipeline templates и security Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики.  Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.`,
 },
 ],
 },

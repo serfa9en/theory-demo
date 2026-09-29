@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `16-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `16-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `16-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `16-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 {
 "id": `16-junior-общее-6`,
@@ -795,13 +795,21 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 \`\`\`
 
 **Для собеседования:** DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
 },
 {
 "id": `16-junior-общее-7`,
 "title": `Circuit breaker, retry.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Circuit Breaker и Retry
+
+Retry повторяет временно неудачную операцию, а Circuit Breaker прекращает обращения к явно проблемной зависимости, чтобы не усиливать каскадный сбой.
+
+**Ключевые моменты:**
+- Retry используйте только для ошибок, которые действительно могут исчезнуть.
+- Добавляйте exponential backoff + jitter и лимит попыток.
+- Circuit Breaker обычно имеет Closed/Open/Half-Open состояния.
+- Для неидемпотентных операций повтор требует idempotency strategy.`,
+"shortAnswer": `Circuit Breaker и Retry Retry повторяет временно неудачную операцию, а Circuit Breaker прекращает обращения к явно проблемной зависимости, чтобы не усиливать каскадный сбой.  Ключевые моменты: Retry используйте только для ошибок, которые действительно могут исчезнуть.`,
 },
 ],
 },
@@ -816,56 +824,123 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 {
 "id": `16-middle-общее-1`,
 "title": `Когда переходить на микросервисы?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Когда переходить к микросервисам
+
+Микросервисы оправданы, когда организационные и технические границы домена уже понятны, разные части системы требуют независимого масштабирования/релизов, а команда готова оплачивать сложность distributed systems.
+
+**Ключевые моменты:**
+- Не начинайте с микросервисов только «ради масштабирования».
+- Нужны зрелые CI/CD, observability, ownership, API contracts и эксплуатация.
+- Часто хороший модульный монолит — лучший старт.
+- Граница сервиса должна отражать business capability/bounded context.`,
+"shortAnswer": `Когда переходить к микросервисам Микросервисы оправданы, когда организационные и технические границы домена уже понятны, разные части системы требуют независимого масштабирования/релизов, а команда готова оплачивать сложность distributed systems.  Ключевые моменты: Не начинайте с микросервисов только «ради масштабирования».`,
 },
 {
 "id": `16-middle-общее-2`,
 "title": `Saga pattern: Choreography vs Orchestration.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Saga: Choreography vs Orchestration
+
+Saga разбивает распределённую бизнес-транзакцию на локальные транзакции и компенсирующие действия. Choreography связывает шаги событиями без центрального координатора; Orchestration использует отдельный orchestrator, явно управляющий flow.
+
+**Ключевые моменты:**
+- Choreography проще для коротких flows, но может стать трудно отслеживаемой сетью событий.
+- Orchestration делает процесс явным, но создаёт центральный компонент workflow.
+- Compensation — бизнес-действие, а не технический rollback общей БД.`,
+"shortAnswer": `Saga: Choreography vs Orchestration Saga разбивает распределённую бизнес-транзакцию на локальные транзакции и компенсирующие действия.  Choreography связывает шаги событиями без центрального координатора; Orchestration использует отдельный orchestrator, явно управляющий flow.`,
 },
 {
 "id": `16-middle-общее-3`,
 "title": `Eventual Consistency.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Eventual Consistency
+
+При eventual consistency разные копии/сервисы могут временно видеть разные состояния, но при отсутствии новых изменений система стремится к согласованному результату.
+
+**Ключевые моменты:**
+- Это компромисс ради availability/latency/decoupling.
+- UX должен учитывать временную несогласованность.
+- Нужны idempotency, повторная доставка, reconciliation и наблюдаемость.
+- Для критичных инвариантов иногда требуется сильная согласованность.`,
+"shortAnswer": `Eventual Consistency При eventual consistency разные копии/сервисы могут временно видеть разные состояния, но при отсутствии новых изменений система стремится к согласованному результату.  Ключевые моменты: Это компромисс ради availability/latency/decoupling.`,
 },
 {
 "id": `16-middle-общее-4`,
 "title": `Уровни зрелости REST (Richardson Maturity Model), HATEOAS, версионирование API.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## REST maturity, HATEOAS и versioning
+
+Richardson Maturity Model описывает эволюцию HTTP API: единый endpoint → ресурсы → корректное использование HTTP verbs/status → hypermedia controls (HATEOAS). Это модель зрелости, а не обязательный чек-лист.
+
+**Ключевые моменты:**
+- HATEOAS передаёт клиенту доступные действия ссылками/отношениями.
+- Версионирование бывает в URL, headers/media types; важнее стабильный contract.
+- Старайтесь делать backward-compatible изменения и иметь deprecation policy.`,
+"shortAnswer": `REST maturity, HATEOAS и versioning Richardson Maturity Model описывает эволюцию HTTP API: единый endpoint → ресурсы → корректное использование HTTP verbs/status → hypermedia controls (HATEOAS).  Это модель зрелости, а не обязательный чек-лист.`,
 },
 {
 "id": `16-middle-общее-5`,
 "title": `Kafka: Topic, Partition, Consumer Group, порядок сообщений, Offset, Exactly-once semantics.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Kafka: topic, partition, consumer group, offset, EOS
+
+Topic разбит на partitions. Порядок гарантируется внутри конкретной partition. Consumer group распределяет partitions между consumer так, чтобы одну partition в группе обычно обрабатывал один consumer. Offset — позиция consumer в partition.
+
+**Ключевые моменты:**
+- Ключ сообщения часто выбирает partition и помогает сохранить порядок по сущности.
+- At-least-once требует idempotent processing.
+- Kafka поддерживает idempotent producer и transactions для exactly-once processing в определённых Kafka-to-Kafka сценариях, но «exactly once end-to-end» зависит от всех внешних систем.`,
+"shortAnswer": `Kafka: topic, partition, consumer group, offset, EOS Topic разбит на partitions.  Порядок гарантируется внутри конкретной partition.`,
 },
 {
 "id": `16-middle-общее-6`,
 "title": `Паттерны отказоустойчивости: Retry, Bulkhead, Fallback.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Retry, Bulkhead, Fallback
+
+Retry повторяет временные ошибки; Bulkhead изолирует ресурсы, чтобы проблема одной зависимости не исчерпала всё; Fallback предоставляет деградированный результат при недоступности основного пути.
+
+**Ключевые моменты:**
+- Комбинируйте с timeouts и circuit breaker.
+- Не retry-те validation/permission ошибки.
+- Bulkhead реализуют отдельными pools/queues/limits.
+- Fallback должен быть безопасным и явно наблюдаемым.`,
+"shortAnswer": `Retry, Bulkhead, Fallback Retry повторяет временные ошибки; Bulkhead изолирует ресурсы, чтобы проблема одной зависимости не исчерпала всё; Fallback предоставляет деградированный результат при недоступности основного пути.  Ключевые моменты: Комбинируйте с timeouts и circuit breaker.`,
 },
 {
 "id": `16-middle-общее-7`,
 "title": `Идемпотентность, idempotency keys, outbox pattern, transactional outbox.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Idempotency и Transactional Outbox
+
+Идемпотентная операция даёт тот же бизнес-результат при повторном выполнении. Для HTTP-команд используют idempotency key. Transactional outbox сохраняет бизнес-изменение и событие outbox в одной локальной транзакции, после чего отдельный publisher доставляет событие.
+
+**Ключевые моменты:**
+- Consumer всё равно стоит делать идемпотентным.
+- Outbox решает dual-write проблему между БД и broker.
+- Нужны уникальные ключи/deduplication и стратегия cleanup outbox.`,
+"shortAnswer": `Idempotency и Transactional Outbox Идемпотентная операция даёт тот же бизнес-результат при повторном выполнении.  Для HTTP-команд используют idempotency key.`,
 },
 {
 "id": `16-middle-общее-8`,
 "title": `Distributed tracing, OpenTelemetry, service mesh, Istio.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Distributed tracing, OpenTelemetry и service mesh
+
+Distributed tracing связывает работу одного запроса через несколько сервисов в trace из spans. OpenTelemetry — vendor-neutral набор API/SDK/Collector и соглашений для traces, metrics и logs. Service mesh переносит часть сетевых функций между сервисами в инфраструктурный слой; Istio — один из вариантов.
+
+**Ключевые моменты:**
+- Context propagation переносит trace/span context между процессами.
+- Sampling контролирует стоимость telemetry.
+- Mesh может дать mTLS, traffic policies и telemetry, но добавляет эксплуатационную сложность.`,
+"shortAnswer": `Distributed tracing, OpenTelemetry и service mesh Distributed tracing связывает работу одного запроса через несколько сервисов в trace из spans.  OpenTelemetry — vendor-neutral набор API/SDK/Collector и соглашений для traces, metrics и logs.`,
 },
 {
 "id": `16-middle-общее-9`,
 "title": `Backward compatibility, CQRS.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Backward compatibility и CQRS
+
+Backward compatibility означает, что существующие клиенты продолжают работать после обновления API/событий. CQRS разделяет модели/пути команд (изменений) и запросов (чтения), когда их требования существенно различаются.
+
+**Ключевые моменты:**
+- Добавляйте поля вместо удаления/переименования без миграции.
+- Для событий используйте schema evolution/versioning.
+- CQRS не требует обязательного event sourcing.
+- Не применяйте CQRS там, где обычная CRUD-модель проще и достаточна.`,
+"shortAnswer": `Backward compatibility и CQRS Backward compatibility означает, что существующие клиенты продолжают работать после обновления API/событий.  CQRS разделяет модели/пути команд (изменений) и запросов (чтения), когда их требования существенно различаются.`,
 },
 ],
 },

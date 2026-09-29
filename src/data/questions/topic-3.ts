@@ -69,7 +69,7 @@ TypeScript компилируется в JavaScript, поэтому можно �
 - ️ Нужен этап компиляции
 
 💡 **Для собеседования:** TypeScript — надмножество JavaScript со статической типизацией. Находит ошибки типов на этапе компиляции, улучшает автодополнение в IDE, служит документацией и облегчает рефакторинг. Компилируется в JavaScript.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `TypeScript — надмножество JavaScript со статической типизацией. Находит ошибки типов на этапе компиляции, улучшает автодополнение в IDE, служит документацией и облегчает рефакторинг. Компилируется в JavaScript.`,
 },
 {
 "id": `3-junior-общее-2`,
@@ -176,7 +176,7 @@ let greet: (name: string) => string = (name) => \`Hello, \${name}\`
 - Массивы типизируются через \`Type[]\` или \`Array<Type>\`
 
 💡 **Для собеседования:** Основные типы TypeScript: примитивы (\`string\`, \`number\`, \`boolean\`), специальные (\`any\`, \`unknown\`, \`void\`, \`null\`, \`undefined\`), сложные (массивы \`Type[]\`, объекты \`{ key: Type }\`, функции). \`any\` отключает проверку типов, \`unknown\` требует проверки перед использованием.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Основные типы TypeScript: примитивы (string, number, boolean), специальные (any, unknown, void, null, undefined), сложные (массивы Type[], объекты { key: Type }, функции). any отключает проверку типов, unknown требует проверки перед использованием.`,
 },
 {
 "id": `3-junior-общее-3`,
@@ -304,7 +304,7 @@ function processValue(value: unknown) {
 - \`any\` можно присвоить чему угодно, \`unknown\` — только после проверки типа
 
 💡 **Для собеседования:** \`any\` полностью отключает проверку типов — можно делать что угодно, но это небезопасно. \`unknown\` требует проверки типа перед использованием (через \`typeof\`, \`instanceof\`, \`Array.isArray\`). \`unknown\` безопаснее \`any\`, используйте его для данных из внешних источников и в \`catch\` блоках.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `any полностью отключает проверку типов — можно делать что угодно, но это небезопасно. unknown требует проверки типа перед использованием (через typeof, instanceof, Array.isArray). unknown безопаснее any, используйте его для данных из внешних источников и в catch блоках.`,
 },
 {
 "id": `3-junior-общее-4`,
@@ -482,7 +482,7 @@ type Callback<T> = (data: T) => void
 - Для объектов они практически взаимозаменяемы
 
  **Для собеседования:** \`interface\` и \`type\` описывают структуру данных. \`interface\` поддерживает declaration merging (объединение объявлений с одинаковым именем) и наследование через \`extends\`. \`type\` более гибкий: поддерживает union (\`|\`), intersection (\`&\`), примитивы, кортежи, mapped типы. Для объектов они взаимозаменяемы.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `interface и type описывают структуру данных. interface поддерживает declaration merging (объединение объявлений с одинаковым именем) и наследование через extends. type более гибкий: поддерживает union (|), intersection (&), примитивы, кортежи, mapped типы. Для объектов они взаимозаменяемы.`,
 },
 {
 "id": `3-junior-общее-5`,
@@ -646,7 +646,7 @@ type ListProps<T> = {
 - Используются в функциях, интерфейсах, классах, типах
 
  **Для собеседования:** Дженерики — параметризованные типы, позволяющие создавать переиспользуемые компоненты. Синтаксис: \`<T>\`. TypeScript автоматически выводит тип из аргументов. Можно ограничить через \`extends\`. Используются для функций, интерфейсов, классов. Пример: \`function getFirst<T>(arr: T[]): T\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Дженерики — параметризованные типы, позволяющие создавать переиспользуемые компоненты. Синтаксис: <T>. TypeScript автоматически выводит тип из аргументов. Можно ограничить через extends. Используются для функций, интерфейсов, классов. Пример: function getFirst<T>(arr: T[]): T.`,
 },
 {
 "id": `3-junior-общее-6`,
@@ -855,7 +855,7 @@ type Color = keyof typeof COLORS
 - **Literal types** — типы с конкретными значениями. Пример: \`"up" | "down"\`.
 
  **Для собеседования:** \`enum\` — именованные константы (часто заменяется union types). \`tuple\` — массив фиксированной длины с разными типами (\`[string, number]\`). \`literal types\` — типы с конкретными значениями (\`"up" | "down" | "left"\`), используются для ограничения допустимых значений.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `enum — именованные константы (часто заменяется union types). tuple — массив фиксированной длины с разными типами ([string, number]). literal types — типы с конкретными значениями ("up" | "down" | "left"), используются для ограничения допустимых значений.`,
 },
 {
 "id": `3-junior-общее-7`,
@@ -1060,7 +1060,7 @@ const inter: Intersection = { x: 1, y: 2 }  // ✅ обязательно оба
 - Для union типов нужно проверять тип перед использованием специфичных свойств.
 
 💡 **Для собеседования:** Union types (\`|\`) — значение может быть одним из типов (\`string | number\`). Intersection types (\`&\`) — значение должно соответствовать всем типам одновременно (комбинирование интерфейсов). Union используется для альтернатив, intersection — для расширения типов.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Union types (|) — значение может быть одним из типов (string | number). Intersection types (&) — значение должно соответствовать всем типам одновременно (комбинирование интерфейсов). Union используется для альтернатив, intersection — для расширения типов.`,
 },
 {
 "id": `3-junior-общее-8`,
@@ -1253,7 +1253,7 @@ function handle(result: Success | Error) {
 - После проверки TypeScript сужает тип внутри блока
 
 💡 **Для собеседования:** Type guards — проверки типа в runtime для сужения типа в TypeScript. \`typeof\` — для примитивов, \`instanceof\` — для классов, \`in\` — для свойств объекта. После проверки TypeScript знает точный тип внутри блока. Можно создавать пользовательские guards через \`value is Type\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Type guards — проверки типа в runtime для сужения типа в TypeScript. typeof — для примитивов, instanceof — для классов, in — для свойств объекта. После проверки TypeScript знает точный тип внутри блока. Можно создавать пользовательские guards через value is Type.`,
 },
 {
 "id": `3-junior-общее-9`,
@@ -1423,7 +1423,7 @@ if (element instanceof HTMLInputElement) {
 - Предпочитайте optional chaining (\`?.\`) и type guards
 
 💡 **Для собеседования:** Type assertion (\`as\`) — подсказка TypeScript о типе (например, для DOM-элементов). Non-null assertion (\`!\`) — гарантия, что значение не null/undefined. Оба отключают проверку типов. Более безопасные альтернативы: optional chaining (\`?.\`) и type guards.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Type assertion (as) — подсказка TypeScript о типе (например, для DOM-элементов). Non-null assertion (!) — гарантия, что значение не null/undefined. Оба отключают проверку типов. Более безопасные альтернативы: optional chaining (?.) и type guards.`,
 },
 {
 "id": `3-junior-общее-10`,
@@ -1623,7 +1623,7 @@ const config = settings?.theme?.color ?? "#000000"
 - Часто комбинируются: \`obj?.prop ?? defaultValue\`
 
 💡 **Для собеседования:** Optional chaining (\`?.\`) — безопасный доступ к свойствам вложенных объектов (возвращает \`undefined\` вместо ошибки). Nullish coalescing (\`??\`) — значение по умолчанию только для \`null\`/\`undefined\` (в отличие от \`||\`, который заменяет все falsy значения). Часто комбинируются: \`user?.name ?? "Anonymous"\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Optional chaining (?.) — безопасный доступ к свойствам вложенных объектов (возвращает undefined вместо ошибки). Nullish coalescing (??) — значение по умолчанию только для null/undefined (в отличие от ||, который заменяет все falsy значения). Часто комбинируются: user?.name ?? "Anonymous".`,
 },
 {
 "id": `3-junior-общее-11`,
@@ -1923,7 +1923,7 @@ stringStack.push("hello")
 - Generic классы работают с разными типами
 
 💡 **Для собеседования:** Функции типизируются через параметры (\`name: string\`) и возвращаемый тип (\`: string\`). Классы поддерживают модификаторы (\`public\`, \`private\`, \`protected\`, \`readonly\`), реализацию интерфейсов (\`implements\`), наследование (\`extends\`), абстрактные методы и дженерики.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Функции типизируются через параметры (name: string) и возвращаемый тип (: string). Классы поддерживают модификаторы (public, private, protected, readonly), реализацию интерфейсов (implements), наследование (extends), абстрактные методы и дженерики.`,
 },
 {
 "id": `3-junior-общее-12`,
@@ -2067,7 +2067,7 @@ mutableObj.value = 10  // ✅
 - Защищает от случайных мутаций
 
  **Для собеседования:** \`readonly\` — модификатор, запрещающий изменение свойства после инициализации. Работает в интерфейсах, типах, классах. \`Readonly<T>\` делает все свойства объекта readonly. \`const\` — для переменных, \`readonly\` — для свойств объектов.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `readonly — модификатор, запрещающий изменение свойства после инициализации. Работает в интерфейсах, типах, классах. Readonly<T> делает все свойства объекта readonly. const — для переменных, readonly — для свойств объектов.`,
 },
 {
 "id": `3-junior-общее-13`,
@@ -2298,7 +2298,7 @@ type GreetParams = Parameters<typeof greet>
 - **\`Record<K, V>\`** — объект с ключами K и значениями V
 
 💡 **Для собеседования:** Utility типы для трансформации типов: \`Partial<T>\` (все необязательны), \`Required<T>\` (все обязательны), \`Pick<T, K>\` (выбрать свойства), \`Omit<T, K>\` (исключить свойства), \`Record<K, V>\` (объект с ключами K и значениями V).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Utility типы для трансформации типов: Partial<T> (все необязательны), Required<T> (все обязательны), Pick<T, K> (выбрать свойства), Omit<T, K> (исключить свойства), Record<K, V> (объект с ключами K и значениями V).`,
 },
 {
 "id": `3-junior-общее-14`,
@@ -2584,7 +2584,7 @@ import Button from "@components/Button"
 - \`baseUrl\` + \`paths\` — алиасы импортов
 
 💡 **Для собеседования:** \`tsconfig.json\` — конфигурация TypeScript компилятора. \`strict: true\` включает все строгие проверки (\`strictNullChecks\`, \`noImplicitAny\`, \`strictFunctionTypes\` и др.). Основные опции: \`target\`, \`module\`, \`lib\`, \`outDir\`, \`esModuleInterop\`, \`resolveJsonModule\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `tsconfig.json — конфигурация TypeScript компилятора. strict: true включает все строгие проверки (strictNullChecks, noImplicitAny, strictFunctionTypes и др.). Основные опции: target, module, lib, outDir, esModuleInterop, resolveJsonModule.`,
 },
 {
 "id": `3-junior-общее-15`,
@@ -2805,7 +2805,7 @@ async function loadModule() {
 - **Type-only imports** — импорт только типов (\`import type\`)
 
  **Для собеседования:** Declaration files (\`.d.ts\`) — описания типов для JavaScript библиотек. Используют \`declare module\`, \`declare namespace\`, \`declare function\`. \`@types/*\` пакеты содержат типы для популярных библиотек. Модули в TypeScript поддерживают ES Modules, CommonJS, namespaces. \`import type\` импортирует только типы.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Declaration files (.d.ts) — описания типов для JavaScript библиотек. Используют declare module, declare namespace, declare function. @types/* пакеты содержат типы для популярных библиотек. Модули в TypeScript поддерживают ES Modules, CommonJS, namespaces. import type импортирует только типы.`,
 },
 ],
 },
@@ -3008,7 +3008,7 @@ type UserParams = ConstructorParameters<typeof User>
 - Все построены на conditional types (\`T extends U ? X : Y\`)
 
 💡 **Для собеседования:** \`Exclude\` удаляет типы из union, \`Extract\` оставляет только нужные. \`ReturnType\` и \`Parameters\` извлекают информацию о функции через \`typeof\`. Все utility types построены на conditional types и \`infer\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Exclude удаляет типы из union, Extract оставляет только нужные. ReturnType и Parameters извлекают информацию о функции через typeof. Все utility types построены на conditional types и infer.`,
 },
 {
 "id": `3-middle-общее-2`,
@@ -3227,7 +3227,7 @@ type NumberConfig = PickByType<Config, number>
 - **\`as\` clause** — переименование и фильтрация ключей
 
 💡 **Для собеседования:** Conditional types (\`T extends U ? X : Y\`) выбирают тип по условию, распределяются по union. Mapped types (\`{ [K in keyof T]: ... }\`) преобразуют свойства типа. Комбинируются для создания сложных utility types (DeepReadonly, PickByType).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Conditional types (T extends U ? X : Y) выбирают тип по условию, распределяются по union. Mapped types ({ [K in keyof T]: ... }) преобразуют свойства типа. Комбинируются для создания сложных utility types (DeepReadonly, PickByType).`,
 },
 {
 "id": `3-middle-общее-3`,
@@ -3403,7 +3403,7 @@ type A = Join<["a", "b", "c"]>
 - Можно использовать рекурсию для сложных трансформаций
 
 💡 **Для собеседования:** Template literal types — строковые типы с интерполяцией (\`\` \`\${Color}-\${Size}\` \`\`). Генерируют union всех комбинаций. Встроенные utility (\`Capitalize\`, \`Uppercase\`) трансформируют строки. Поддерживают \`infer\` для парсинга строк и рекурсию для сложных трансформаций.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Template literal types — строковые типы с интерполяцией (\` \${Color}-\${Size} ). Генерируют union всех комбинаций. Встроенные utility (Capitalize, Uppercase) трансформируют строки. Поддерживают infer\` для парсинга строк и рекурсию для сложных трансформаций.`,
 },
 {
 "id": `3-middle-общее-4`,
@@ -3650,7 +3650,7 @@ type Good<T> = T extends infer U ? U : never
 - **\`infer\`** — вывод типа внутри conditional types. Позволяет извлекать типы из сложных структур.
 
 💡 **Для собеседования:** \`keyof\` возвращает union ключей типа, \`typeof\` получает тип значения, \`infer\` выводит тип внутри conditional types. Комбинируются для создания мощных utility types (UnpackPromise, ElementType, FirstParam).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `keyof возвращает union ключей типа, typeof получает тип значения, infer выводит тип внутри conditional types. Комбинируются для создания мощных utility types (UnpackPromise, ElementType, FirstParam).`,
 },
 {
 "id": `3-middle-общее-5`,
@@ -3912,7 +3912,7 @@ type AsyncService = Asyncify<SyncService>
 6. Тестируйте на сложных случаях (union, optional, readonly)
 
 💡 **Для собеседования:** Кастомные utility types создаются через комбинацию mapped types, conditional types, \`keyof\`, \`infer\`. Популярные примеры: DeepPartial, Mutable, Merge, UnionToIntersection. Ключевые паттерны: фильтрация ключей через \`as\`, рекурсия для глубоких трансформаций, \`infer\` для извлечения типов.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Кастомные utility types создаются через комбинацию mapped types, conditional types, keyof, infer. Популярные примеры: DeepPartial, Mutable, Merge, UnionToIntersection. Ключевые паттерны: фильтрация ключей через as, рекурсия для глубоких трансформаций, infer для извлечения типов.`,
 },
 {
 "id": `3-middle-общее-6`,
@@ -4174,7 +4174,7 @@ type B = { x: number } & { y: string }
 - Module augmentation через \`declare module\`
 
 💡 **Для собеседования:** Declaration merging — объединение нескольких объявлений с одинаковым именем. Работает для interfaces, namespaces, enums, functions. Не работает для type aliases. Используется для расширения глобальных типов (Window, NodeJS.ProcessEnv) и библиотек (Express, Vue).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Declaration merging — объединение нескольких объявлений с одинаковым именем. Работает для interfaces, namespaces, enums, functions. Не работает для type aliases. Используется для расширения глобальных типов (Window, NodeJS.ProcessEnv) и библиотек (Express, Vue).`,
 },
 {
 "id": `3-middle-общее-7`,
@@ -4424,7 +4424,7 @@ const obj: Methods & ThisType<{ name: string }> = {
 - В классах \`this\` типизируется автоматически
 
 💡 **Для собеседования:** DOM-события типизируются через встроенные типы (\`MouseEvent\`, \`KeyboardEvent\`). Generic версии (\`MouseEvent<HTMLButtonElement>\`) дают доступ к \`currentTarget\`. \`this\` в функциях типизируется через явный параметр \`this: Type\` или arrow functions.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DOM-события типизируются через встроенные типы (MouseEvent, KeyboardEvent). Generic версии (MouseEvent<HTMLButtonElement>) дают доступ к currentTarget. this в функциях типизируется через явный параметр this: Type или arrow functions.`,
 },
 {
 "id": `3-middle-общее-8`,
@@ -4649,7 +4649,7 @@ const c = { x: 5 } as const satisfies { x: number }
 - \`as const\` полезен для enum-подобных констант
 
 💡 **Для собеседования:** \`satisfies\` (TS 4.9+) проверяет соответствие типу без изменения типа значения. \`as const\` делает значение readonly с литеральными типами. \`satisfies\` решает проблему потери конкретных типов при аннотации. Часто комбинируются: \`as const satisfies Type\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `satisfies (TS 4.9+) проверяет соответствие типу без изменения типа значения. as const делает значение readonly с литеральными типами. satisfies решает проблему потери конкретных типов при аннотации. Часто комбинируются: as const satisfies Type.`,
 },
 {
 "id": `3-middle-общее-9`,
@@ -4885,7 +4885,7 @@ function process(x: any): any
 - Порядок сигнатур: от специфичных к общим
 
 💡 **Для собеседования:** Async функции типизируются через \`Promise<T>\`. Overloads позволяют функции иметь несколько сигнатур. Реализация должна быть совместима со всеми сигнатурами. Порядок важен: от специфичных к общим.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Async функции типизируются через Promise<T>. Overloads позволяют функции иметь несколько сигнатур. Реализация должна быть совместима со всеми сигнатурами. Порядок важен: от специфичных к общим.`,
 },
 {
 "id": `3-middle-общее-10`,
@@ -5119,7 +5119,7 @@ const config = await loadConfig<Config>("/config.json")
 - Для литеральных типов нужен \`as const\`
 
 💡 **Для собеседования:** \`declare\` — объявления для внешнего кода (глобальные переменные, библиотеки). \`declare module\` — типы для библиотек без типов. JSON-импорты требуют \`resolveJsonModule: true\`, TypeScript автоматически выводит типы из структуры JSON.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `declare — объявления для внешнего кода (глобальные переменные, библиотеки). declare module — типы для библиотек без типов. JSON-импорты требуют resolveJsonModule: true, TypeScript автоматически выводит типы из структуры JSON.`,
 },
 {
 "id": `3-middle-общее-11`,
@@ -5313,7 +5313,7 @@ function getUser(): User {
 - \`verbatimModuleSyntax\` строже и требует явных \`import type\`
 
 💡 **Для собеседования:** \`isolatedModules\` гарантирует независимую компиляцию файлов (нужно для Babel, esbuild). \`verbatimModuleSyntax\` (TS 5.0+) требует явного \`import type\` для типов. Обе улучшают совместимость с инструментами и уменьшают размер бандла.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `isolatedModules гарантирует независимую компиляцию файлов (нужно для Babel, esbuild). verbatimModuleSyntax (TS 5.0+) требует явного import type для типов. Обе улучшают совместимость с инструментами и уменьшают размер бандла.`,
 },
 {
 "id": `3-middle-общее-12`,
@@ -5665,7 +5665,7 @@ emit("submit", formData)
 - Event emitters: generic тип с картой событий
 
 💡 **Для собеседования:** Vue компоненты типизируются через \`defineProps<T>\`, \`defineEmits<T>\`. React — через \`React.FC<Props>\` и дженерики. API-ответы — через generic типы (\`ApiResponse<T>\`). Event emitters — через карту событий и generic типы.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Vue компоненты типизируются через defineProps<T>, defineEmits<T>. React — через React.FC<Props> и дженерики. API-ответы — через generic типы (ApiResponse<T>). Event emitters — через карту событий и generic типы.`,
 },
 {
 "id": `3-middle-общее-13`,
@@ -5881,7 +5881,7 @@ const b: void = log("hello")   // ✅
 - **never** — тип для значений, которые никогда не встречаются. Используется для функций, которые не возвращают, и exhaustiveness checking.
 
 💡 **Для собеседования:** Branded types (\`Brand<T, B>\`) создают номинальную типизацию в структурном TypeScript. \`never\` — тип для невозможных значений. Используется для функций, которые не возвращают (\`throw\`, бесконечный цикл), и exhaustiveness checking в switch.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Branded types (Brand<T, B>) создают номинальную типизацию в структурном TypeScript. never — тип для невозможных значений. Используется для функций, которые не возвращают (throw, бесконечный цикл), и exhaustiveness checking в switch.`,
 },
 {
 "id": `3-middle-общее-14`,
@@ -6135,7 +6135,7 @@ function handleResult(result: Result): string {
 - При добавлении нового типа в union TypeScript покажет ошибку
 
 💡 **Для собеседования:** Type narrowing — сужение типа через проверки (\`typeof\`, \`instanceof\`, \`in\`, type guards). Exhaustiveness checking — проверка полноты обработки через \`never\` в \`default\` ветке switch. \`assertNever\` — utility функция, которая выбрасывает ошибку для необработанных случаев.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Type narrowing — сужение типа через проверки (typeof, instanceof, in, type guards). Exhaustiveness checking — проверка полноты обработки через never в default ветке switch. assertNever — utility функция, которая выбрасывает ошибку для необработанных случаев.`,
 },
 {
 "id": `3-middle-общее-15`,
@@ -6484,7 +6484,7 @@ diagnostics.forEach(diagnostic => {
 - Используется для кодогенерации, линтеров, рефакторинга
 
 💡 **Для собеседования:** Discriminated unions — union типы с общим свойством (discriminant) для type narrowing. Общий тип должен быть литеральным. Compiler API — интерфейс для работы с TypeScript кодом (парсинг, анализ, трансформация). Используется для кодогенерации, линтеров, рефакторинга.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Discriminated unions — union типы с общим свойством (discriminant) для type narrowing. Общий тип должен быть литеральным. Compiler API — интерфейс для работы с TypeScript кодом (парсинг, анализ, трансформация). Используется для кодогенерации, линтеров, рефакторинга.`,
 },
 ],
 },

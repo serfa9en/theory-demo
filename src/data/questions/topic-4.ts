@@ -45,7 +45,7 @@ export const topic4Questions: TopicQuestions = {
 - **Redux** — для React (аналогичная концепция)
 
 💡 **Для собеседования:** State management — централизованное хранение данных приложения. Решает проблемы prop drilling и синхронизации состояния между компонентами. Pinia и Vuex — основные решения для Vue.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `State management — централизованное хранение данных приложения. Решает проблемы prop drilling и синхронизации состояния между компонентами. Pinia и Vuex — основные решения для Vue.`,
 },
 {
 "id": `4-junior-общее-2`,
@@ -114,7 +114,7 @@ Pinia имеет Setup Store синтаксис, который работает
 | Devtools | Поддержка | Поддержка + Time Travel |
 
  **Для собеседования:** Pinia — современный преемник Vuex. Отличия: нет мутаций, лучшая TypeScript поддержка, Composition API, меньший размер. С 2022 года — официально рекомендуемый стейт-менеджер для Vue 3.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Pinia — современный преемник Vuex. Отличия: нет мутаций, лучшая TypeScript поддержка, Composition API, меньший размер. С 2022 года — официально рекомендуемый стейт-менеджер для Vue 3.`,
 },
 {
 "id": `4-junior-общее-3`,
@@ -234,7 +234,7 @@ actions: {
 \`\`\`
 
 💡 **Для собеседования:** Store в Pinia создаётся через \`defineStore('id', { state, getters, actions })\`. State — реактивные данные (функция возвращает объект). Getters — вычисляемые свойства (как computed). Actions — методы для изменения state (синхронные и асинхронные).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Store в Pinia создаётся через defineStore('id', { state, getters, actions }). State — реактивные данные (функция возвращает объект). Getters — вычисляемые свойства (как computed). Actions — методы для изменения state (синхронные и асинхронные).`,
 },
 {
 "id": `4-junior-общее-4`,
@@ -356,7 +356,7 @@ export default {
 \`\`\`
 
  **Для собеседования:** Доступ к стору через \`useStore()\` в \`<script setup>\`. Изменять state можно через actions (рекомендуется), напрямую (\`store.count = 5\`) или через \`$patch\`. Для деструктуризации без потери реактивности использовать \`storeToRefs\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Доступ к стору через useStore() в <script setup>. Изменять state можно через actions (рекомендуется), напрямую (store.count = 5) или через $patch. Для деструктуризации без потери реактивности использовать storeToRefs.`,
 },
 {
 "id": `4-junior-общее-5`,
@@ -474,7 +474,7 @@ store.$onAction(({ name, onError }) => {
 | \`$onAction\` | Подписка на вызовы actions |
 
 💡 **Для собеседования:** \`$patch\` — пакетное изменение state. \`$reset\` — сброс к начальным значениям. \`$subscribe\` — подписка на изменения state (для логирования, сохранения). \`$onAction\` — подписка на actions (для обработки ошибок, логирования).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `$patch — пакетное изменение state. $reset — сброс к начальным значениям. $subscribe — подписка на изменения state (для логирования, сохранения). $onAction — подписка на actions (для обработки ошибок, логирования).`,
 },
 {
 "id": `4-junior-общее-6`,
@@ -627,7 +627,7 @@ store.commit('shop/cart/ADD_ITEM', item)
 \`\`\`
 
  **Для собеседования:** Модули в Vuex — способ разбить стор на части. \`namespaced: true\` создаёт пространство имён, предотвращая конфликты. Доступ через \`store.state.moduleName.property\`, \`store.commit('module/action')\`, \`store.dispatch('module/action')\`. В Pinia модули не нужны — каждый стор независим.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модули в Vuex — способ разбить стор на части. namespaced: true создаёт пространство имён, предотвращая конфликты. Доступ через store.state.moduleName.property, store.commit('module/action'), store.dispatch('module/action'). В Pinia модули не нужны — каждый стор независим.`,
 },
 {
 "id": `4-junior-общее-7`,
@@ -793,7 +793,7 @@ export default {
 \`\`\`
 
 💡 **Для собеседования:** Mutation — синхронное изменение state (вызов через \`commit\`). Action — может быть асинхронным, вызывает мутации (вызов через \`dispatch\`). Map-хелперы (\`mapState\`, \`mapGetters\`, \`mapActions\`, \`mapMutations\`) упрощают подключение стора к компонентам. В Pinia мутаций нет, actions меняют state напрямую.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Mutation — синхронное изменение state (вызов через commit). Action — может быть асинхронным, вызывает мутации (вызов через dispatch). Map-хелперы (mapState, mapGetters, mapActions, mapMutations) упрощают подключение стора к компонентам. В Pinia мутаций нет, actions меняют state напрямую.`,
 },
 {
 "id": `4-junior-общее-8`,
@@ -930,7 +930,7 @@ export const useSettingsStore = defineStore('settings', () => {
 **Важно:** Оба стиля можно использовать в одном проекте. Более того, можно мигрировать постепенно — старые сторы в Options style, новые в Setup style.
 
  **Для собеседования:** Pinia поддерживает два стиля: Options API (как Vuex, через \`this\`) и Setup Style (как Composition API, через \`ref\`/\`computed\`). Setup style позволяет использовать композаблы внутри стора. Оба стиля можно смешивать в одном проекте.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Pinia поддерживает два стиля: Options API (как Vuex, через this) и Setup Style (как Composition API, через ref/computed). Setup style позволяет использовать композаблы внутри стора. Оба стиля можно смешивать в одном проекте.`,
 },
 {
 "id": `4-junior-общее-9`,
@@ -1124,7 +1124,7 @@ store.increment() // работает
 \`\`\`
 
 💡 **Для собеседования:** Pinia имеет нативную TypeScript поддержку. State типизируется через интерфейс, getters и actions имеют автоматический вывод типов. \`storeToRefs\` оборачивает свойства стора в \`ref\` при деструктуризации, сохраняя реактивность. Actions можно деструктурировать напрямую.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Pinia имеет нативную TypeScript поддержку. State типизируется через интерфейс, getters и actions имеют автоматический вывод типов. storeToRefs оборачивает свойства стора в ref при деструктуризации, сохраняя реактивность. Actions можно деструктурировать напрямую.`,
 },
 {
 "id": `4-junior-общее-10`,
@@ -1359,7 +1359,7 @@ persist: {
 - Большие объёмы данных (лимит localStorage ~5MB)
 
  **Для собеседования:** Actions в Pinia могут быть async (используют \`async/await\`). Для персистентности state используют \`$subscribe\` + \`localStorage\` вручную или плагин \`pinia-plugin-persistedstate\`. Плагин позволяет выбирать хранилище, конкретные поля и кастомную сериализацию.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Actions в Pinia могут быть async (используют async/await). Для персистентности state используют $subscribe + localStorage вручную или плагин pinia-plugin-persistedstate. Плагин позволяет выбирать хранилище, конкретные поля и кастомную сериализацию.`,
 },
 ],
 },
@@ -1374,68 +1374,216 @@ persist: {
 {
 "id": `4-middle-общее-1`,
 "title": `Как работает реактивность внутри Pinia?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Реактивность в Pinia
+
+Pinia построена поверх реактивности Vue. State в store становится реактивным, getters работают как вычисляемые значения, а actions изменяют состояние обычными присваиваниями. Компоненты, которые читают state/getters, автоматически обновляются при изменениях.
+
+**Ключевые моменты:**
+- В Setup Store обычно используются \`ref\`, \`reactive\` и \`computed\`.
+- При деструктуризации state/getters используют \`storeToRefs()\`, иначе можно потерять реактивную связь.
+- Actions можно вызывать напрямую; отдельного слоя mutations, как во Vuex, нет.
+- Подписки \`$subscribe()\` позволяют наблюдать изменения state.
+
+**Пример:**
+
+\`\`\`ts
+const useCounter = defineStore("counter", () => {
+  const count = ref(0)
+  const double = computed(() => count.value * 2)
+  const increment = () => count.value++
+  return { count, double, increment }
+})
+\`\`\``,
+"shortAnswer": `Реактивность в Pinia Pinia построена поверх реактивности Vue.  State в store становится реактивным, getters работают как вычисляемые значения, а actions изменяют состояние обычными присваиваниями.`,
 },
 {
 "id": `4-middle-общее-2`,
 "title": `Как реализовать персистентность state (pinia-plugin-persistedstate)?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Персистентность Pinia state
+
+Pinia сама по себе не сохраняет state после перезагрузки страницы. Для этого состояние сериализуют в localStorage/sessionStorage либо используют плагин наподобие \`pinia-plugin-persistedstate\`.
+
+**Ключевые моменты:**
+- Сохраняйте только действительно нужные поля: токены и чувствительные данные требуют отдельной оценки безопасности.
+- При SSR доступ к \`window/localStorage\` возможен только на клиенте.
+- Нужно продумать версионирование persisted state и миграции при изменении структуры.
+
+**Пример:**
+
+\`\`\`ts
+export const useSettings = defineStore("settings", {
+  state: () => ({ theme: "light" }),
+  persist: true,
+})
+\`\`\``,
+"shortAnswer": `Персистентность Pinia state Pinia сама по себе не сохраняет state после перезагрузки страницы.  Для этого состояние сериализуют в localStorage/sessionStorage либо используют плагин наподобие pinia-plugin-persistedstate.`,
 },
 {
 "id": `4-middle-общее-3`,
 "title": `Как написать собственный Pinia plugin?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Собственный Pinia plugin
+
+Pinia-плагин — функция, подключаемая через \`pinia.use()\`. Она вызывается для каждого создаваемого store и получает контекст с \`store\`, \`pinia\`, \`app\` и options. Плагин может добавлять свойства, подписки, persistence, логирование или общую инфраструктуру.
+
+**Ключевые моменты:**
+- Возвращённые из plugin свойства добавляются в каждый store.
+- Подписки, созданные плагином, стоит корректно очищать.
+- Для TypeScript дополнительные свойства расширяют через module augmentation.
+
+**Пример:**
+
+\`\`\`ts
+const pinia = createPinia()
+pinia.use(({ store }) => {
+  store.$subscribe((_mutation, state) => {
+    console.log(store.$id, state)
+  })
+})
+\`\`\``,
+"shortAnswer": `Собственный Pinia plugin Pinia-плагин — функция, подключаемая через pinia. use().`,
 },
 {
 "id": `4-middle-общее-4`,
 "title": `Как использовать Pinia вне компонента и работать с SSR?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Pinia вне компонентов и SSR
+
+Внутри \`setup()\` активный экземпляр Pinia определяется автоматически. Вне component setup, особенно при SSR, лучше явно передавать экземпляр Pinia в \`useStore(pinia)\`, чтобы запросы разных пользователей не разделяли состояние.
+
+**Ключевые моменты:**
+- На сервере создавайте новый Pinia для каждого запроса.
+- Не храните server-side store в глобальном singleton.
+- В router guards после установки Pinia можно получать store с явным \`pinia\`.
+
+**Пример:**
+
+\`\`\`ts
+const pinia = createPinia()
+app.use(pinia)
+const user = useUserStore(pinia)
+\`\`\``,
+"shortAnswer": `Pinia вне компонентов и SSR Внутри setup() активный экземпляр Pinia определяется автоматически.  Вне component setup, особенно при SSR, лучше явно передавать экземпляр Pinia в useStore(pinia), чтобы запросы разных пользователей не разделяли состояние.`,
 },
 {
 "id": `4-middle-общее-5`,
 "title": `Что такое acceptHMRUpdate?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## acceptHMRUpdate
+
+\`acceptHMRUpdate()\` помогает store поддерживать Hot Module Replacement: при изменении кода store во время разработки Pinia обновляет его определение без полной перезагрузки страницы и, насколько возможно, сохраняет текущее состояние.
+
+**Ключевые моменты:**
+- Используется только в dev/HMR-коде.
+- Типичный вызов помещают рядом с \`defineStore\`.
+- Это улучшает DX, но не влияет на production runtime.
+
+**Пример:**
+
+\`\`\`ts
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot))
+}
+\`\`\``,
+"shortAnswer": `acceptHMRUpdate acceptHMRUpdate() помогает store поддерживать Hot Module Replacement: при изменении кода store во время разработки Pinia обновляет его определение без полной перезагрузки страницы и, насколько возможно, сохраняет текущее состояние.  Ключевые моменты: Используется только в dev/HMR-коде.`,
 },
 {
 "id": `4-middle-общее-6`,
 "title": `Как организовать структуру сторов в большом проекте (feature-based)?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Структура Pinia stores в большом проекте
+
+В крупном приложении store удобнее группировать по бизнес-фичам, а не складывать все store в одну общую папку без контекста. Store должен владеть состоянием конкретной области и предоставлять понятный публичный API.
+
+**Ключевые моменты:**
+- Не делайте один «god store».
+- Разделяйте server state и чисто UI state.
+- Переиспользуемую логику выносите в composables/services.
+- Избегайте циклических зависимостей между stores.`,
+"shortAnswer": `Структура Pinia stores в большом проекте В крупном приложении store удобнее группировать по бизнес-фичам, а не складывать все store в одну общую папку без контекста.  Store должен владеть состоянием конкретной области и предоставлять понятный публичный API.`,
 },
 {
 "id": `4-middle-общее-7`,
 "title": `Как реализовать «глобальные» getters и обрабатывать ошибки в actions?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Общие getters и обработка ошибок
+
+В Pinia нет специального понятия root getters как во Vuex. Общую вычисляемую логику обычно оформляют отдельным store или composable, а один store может использовать другой внутри getter/action.
+
+**Ключевые моменты:**
+- Ошибки в actions можно пробрасывать вызывающему коду либо нормализовать в одном месте.
+- Для глобального логирования действий используют \`$onAction()\` или plugin.
+- Не скрывайте ошибку без изменения состояния loading/error.
+
+**Пример:**
+
+\`\`\`ts
+async function load() {
+  this.loading = true
+  try { this.data = await api.get() }
+  catch (e) { this.error = normalizeError(e); throw e }
+  finally { this.loading = false }
+}
+\`\`\``,
+"shortAnswer": `Общие getters и обработка ошибок В Pinia нет специального понятия root getters как во Vuex.  Общую вычисляемую логику обычно оформляют отдельным store или composable, а один store может использовать другой внутри getter/action.`,
 },
 {
 "id": `4-middle-общее-8`,
 "title": `Что такое $dispose() и как тестировать Pinia stores (createTestingPinia)?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## $dispose и тестирование stores
+
+\`store.$dispose()\` останавливает effect scope store и удаляет его из реестра Pinia; это полезно для динамически живущих stores и тестов. Для component tests часто применяют \`createTestingPinia\`, который позволяет контролировать actions и начальный state.
+
+**Ключевые моменты:**
+- Для unit-теста самого store можно создать обычный \`createPinia()\` и \`setActivePinia()\`.
+- \`createTestingPinia\` удобен для тестов компонентов, где actions часто стабят.
+- После тестов важно изолировать Pinia между test cases.`,
+"shortAnswer": `$dispose и тестирование stores store. $dispose() останавливает effect scope store и удаляет его из реестра Pinia; это полезно для динамически живущих stores и тестов.`,
 },
 {
 "id": `4-middle-общее-9`,
 "title": `Как интегрировать Pinia с Vue Devtools и реализовать shared state между micro-frontends?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Devtools и shared state между micro-frontends
+
+Pinia интегрируется с Vue Devtools и показывает stores, state и изменения. Для micro-frontends общий Pinia singleton возможен только если части приложения действительно разделяют один Vue runtime и lifecycle; иначе надёжнее синхронизировать состояние через явный контракт.
+
+**Ключевые моменты:**
+- Варианты контракта: события, shared package, URL, browser storage, BroadcastChannel или backend.
+- Не связывайте независимые micro-frontends внутренней структурой чужого store.
+- Версионируйте общий контракт.`,
+"shortAnswer": `Devtools и shared state между micro-frontends Pinia интегрируется с Vue Devtools и показывает stores, state и изменения.  Для micro-frontends общий Pinia singleton возможен только если части приложения действительно разделяют один Vue runtime и lifecycle; иначе надёжнее синхронизировать состояние через явный контракт.`,
 },
 {
 "id": `4-middle-общее-10`,
 "title": `Как мигрировать с Vuex на Pinia? Сравнение производительности.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Миграция Vuex → Pinia
+
+Обычно мигрируют по одному Vuex module: state переносится в state/ref, getters — в getters/computed, actions — в actions/functions, а mutations исчезают, потому что Pinia разрешает изменять state непосредственно или через actions.
+
+**Ключевые моменты:**
+- Сначала перенесите leaf modules с минимумом зависимостей.
+- Замените map helpers на прямой store и \`storeToRefs\`.
+- Pinia обычно даёт меньше boilerplate; реальная производительность чаще зависит от архитектуры и объёма реактивного state, а не от названия библиотеки.`,
+"shortAnswer": `Миграция Vuex → Pinia Обычно мигрируют по одному Vuex module: state переносится в state/ref, getters — в getters/computed, actions — в actions/functions, а mutations исчезают, потому что Pinia разрешает изменять state непосредственно или через actions.  Ключевые моменты: Сначала перенесите leaf modules с минимумом зависимостей.`,
 },
 {
 "id": `4-middle-общее-11`,
 "title": `Как работать с rootState, rootGetters и динамической регистрацией модулей в Vuex?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Общие getters и обработка ошибок
+
+В Pinia нет специального понятия root getters как во Vuex. Общую вычисляемую логику обычно оформляют отдельным store или composable, а один store может использовать другой внутри getter/action.
+
+**Ключевые моменты:**
+- Ошибки в actions можно пробрасывать вызывающему коду либо нормализовать в одном месте.
+- Для глобального логирования действий используют \`$onAction()\` или plugin.
+- Не скрывайте ошибку без изменения состояния loading/error.
+
+**Пример:**
+
+\`\`\`ts
+async function load() {
+  this.loading = true
+  try { this.data = await api.get() }
+  catch (e) { this.error = normalizeError(e); throw e }
+  finally { this.loading = false }
+}
+\`\`\``,
+"shortAnswer": `Общие getters и обработка ошибок В Pinia нет специального понятия root getters как во Vuex.  Общую вычисляемую логику обычно оформляют отдельным store или composable, а один store может использовать другой внутри getter/action.`,
 },
 ],
 },

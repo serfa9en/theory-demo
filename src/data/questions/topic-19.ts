@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `19-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `19-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `19-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `19-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 {
 "id": `19-junior-общее-6`,
@@ -795,7 +795,7 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 \`\`\`
 
 **Для собеседования:** DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
 },
 ],
 },
@@ -810,56 +810,125 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 {
 "id": `19-middle-общее-1`,
 "title": `Metrics vs Logs vs Traces.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Metrics, Logs, Traces
+
+Metrics — агрегированные числовые временные ряды; logs — дискретные записи событий; traces — путь одного запроса через компоненты/сервисы.
+
+**Ключевые моменты:**
+- Metrics хорошо отвечают «есть ли проблема и насколько она массовая».
+- Logs дают подробный контекст событий.
+- Traces показывают где конкретный запрос потратил время/сломался.
+- Общие correlation/trace IDs связывают сигналы.`,
+"shortAnswer": `Metrics, Logs, Traces Metrics — агрегированные числовые временные ряды; logs — дискретные записи событий; traces — путь одного запроса через компоненты/сервисы.  Ключевые моменты: Metrics хорошо отвечают «есть ли проблема и насколько она массовая».`,
 },
 {
 "id": `19-middle-общее-2`,
 "title": `Архитектура Prometheus + Grafana, Pull-модель.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Prometheus + Grafana
+
+Prometheus регулярно scrapes HTTP endpoints с метриками по pull-модели и сохраняет time series. Grafana запрашивает Prometheus и строит dashboards. Alert rules обычно оцениваются Prometheus, а Alertmanager маршрутизирует alerts.
+
+**Ключевые моменты:**
+- Pull упрощает discovery/health наблюдение target-ов.
+- Для short-lived jobs используют специальные паттерны вроде Pushgateway только когда это действительно оправдано.
+- Контролируйте cardinality labels.`,
+"shortAnswer": `Prometheus + Grafana Prometheus регулярно scrapes HTTP endpoints с метриками по pull-модели и сохраняет time series.  Grafana запрашивает Prometheus и строит dashboards.`,
 },
 {
 "id": `19-middle-общее-3`,
 "title": `Какие метрики мониторить для Java?`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Java/JVM metrics
+
+Для Java-приложения важны системные, JVM и бизнес-метрики одновременно.
+
+**Ключевые моменты:**
+- Heap/non-heap usage и allocation rate.
+- GC pause time/frequency.
+- Thread count, blocked/deadlocked threads.
+- CPU, process memory, file descriptors.
+- HTTP RPS/error rate/latency, connection pools, queue depth.
+- Бизнес-SLI: успешные операции, latency критичных flows.`,
+"shortAnswer": `Java/JVM metrics Для Java-приложения важны системные, JVM и бизнес-метрики одновременно.  Ключевые моменты: Heap/non-heap usage и allocation rate.`,
 },
 {
 "id": `19-middle-общее-4`,
 "title": `SLI, SLO, SLA, observability.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## SLI, SLO, SLA и observability
+
+SLI — измеряемый показатель качества (например доля успешных requests). SLO — целевое значение SLI за окно времени. SLA — внешнее соглашение, часто с последствиями при нарушении. Observability — способность понимать внутреннее состояние системы по её сигналам.
+
+**Ключевые моменты:**
+- SLO должен отражать пользовательский опыт.
+- 100% SLO обычно слишком дорого и мешает изменениям.
+- Error budget = допустимая доля неуспеха относительно SLO.`,
+"shortAnswer": `SLI, SLO, SLA и observability SLI — измеряемый показатель качества (например доля успешных requests).  SLO — целевое значение SLI за окно времени.`,
 },
 {
 "id": `19-middle-общее-5`,
 "title": `Distributed tracing: Jaeger, Zipkin, OpenTelemetry.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Distributed tracing
+
+Trace состоит из spans, представляющих операции одного distributed request. Trace context передаётся через сетевые границы. Jaeger/Zipkin — trace backends, OpenTelemetry стандартизирует instrumentation и сбор telemetry.
+
+**Ключевые моменты:**
+- Не забывайте context propagation в async/message flows.
+- Sampling контролирует объём данных.
+- Span attributes/events должны помогать диагностике, но не утекать PII/secrets.`,
+"shortAnswer": `Distributed tracing Trace состоит из spans, представляющих операции одного distributed request.  Trace context передаётся через сетевые границы.`,
 },
 {
 "id": `19-middle-общее-6`,
 "title": `Structured logging, ELK stack, Loki, log aggregation, log rotation.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Structured logging и aggregation
+
+Structured logs записывают поля в машиночитаемом формате (часто JSON), а не только текст. ELK/OpenSearch-подобный стек или Loki централизуют поиск и корреляцию logs.
+
+**Ключевые моменты:**
+- Поля: timestamp, level, service, environment, request/trace ID.
+- Не логируйте пароли/tokens/персональные данные без необходимости.
+- Log rotation/retention защищают диск и бюджет.
+- Cardinality и объём logs также требуют контроля.`,
+"shortAnswer": `Structured logging и aggregation Structured logs записывают поля в машиночитаемом формате (часто JSON), а не только текст.  ELK/OpenSearch-подобный стек или Loki централизуют поиск и корреляцию logs.`,
 },
 {
 "id": `19-middle-общее-7`,
 "title": `Alert routing, grouping, silencing, on-call rotation.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Alert routing и on-call
+
+Alertmanager-подобная система группирует похожие alerts, маршрутизирует их нужной команде, поддерживает inhibit/silence и интеграции с on-call каналами.
+
+**Ключевые моменты:**
+- Alert должен быть actionable.
+- Группировка снижает alert storm.
+- Silence применяют осознанно и ограниченно по времени.
+- У alert должны быть severity, owner и runbook.`,
+"shortAnswer": `Alert routing и on-call Alertmanager-подобная система группирует похожие alerts, маршрутизирует их нужной команде, поддерживает inhibit/silence и интеграции с on-call каналами.  Ключевые моменты: Alert должен быть actionable.`,
 },
 {
 "id": `19-middle-общее-8`,
 "title": `Incident management, post-mortem, error budget.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Incident management и error budget
+
+Incident management включает обнаружение, triage, mitigation, communication и восстановление. После серьёзного инцидента проводят blameless post-mortem: timeline, impact, contributing factors и конкретные action items.
+
+**Ключевые моменты:**
+- Error budget связывает reliability и скорость изменений.
+- Во время incident сначала стабилизируют сервис, затем ищут глубокую причину.
+- Action items должны иметь owner и срок.`,
+"shortAnswer": `Incident management и error budget Incident management включает обнаружение, triage, mitigation, communication и восстановление.  После серьёзного инцидента проводят blameless post-mortem: timeline, impact, contributing factors и конкретные action items.`,
 },
 {
 "id": `19-middle-общее-9`,
 "title": `Availability monitoring, synthetic monitoring.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Availability и synthetic monitoring
+
+Availability monitoring проверяет доступность реальных компонентов/endpoint-ов. Synthetic monitoring регулярно выполняет искусственные проверки или пользовательские сценарии из контролируемых locations.
+
+**Ключевые моменты:**
+- Synthetic checks находят проблему даже при отсутствии реального traffic.
+- Проверяйте не только HTTP 200, но и критический бизнес-результат.
+- Сочетайте с real-user monitoring для реального client experience.`,
+"shortAnswer": `Availability и synthetic monitoring Availability monitoring проверяет доступность реальных компонентов/endpoint-ов.  Synthetic monitoring регулярно выполняет искусственные проверки или пользовательские сценарии из контролируемых locations.`,
 },
 ],
 },

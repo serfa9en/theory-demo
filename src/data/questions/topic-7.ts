@@ -71,7 +71,7 @@ it('пользователь может войти в систему', async ({ 
 - E2E — весь сценарий в браузере, медленно, но максимально реалистично
 
 💡 **Для собеседования:** Три уровня тестирования: Unit (одна функция в изоляции), Integration (взаимодействие модулей), E2E (полный сценарий в браузере). Чем выше уровень — тем медленнее тесты, но тем больше уверенности в работе приложения.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Три уровня тестирования: Unit (одна функция в изоляции), Integration (взаимодействие модулей), E2E (полный сценарий в браузере). Чем выше уровень — тем медленнее тесты, но тем больше уверенности в работе приложения.`,
 },
 {
 "id": `7-junior-основы-2`,
@@ -106,7 +106,7 @@ E2E-тесты хрупкие — они ломаются при изменен�
 - На ключевые пользовательские сценарии (регистрация, оплата) — E2E
 
 💡 **Для собеседования:** Тестовая пирамида — принцип, по которому unit-тестов должно быть больше всего (70%), integration — меньше (20%), E2E — меньше всего (10%). Это даёт быструю обратную связь и стабильность. Обратное соотношение называется «рожок мороженого» и считается антипаттерном.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Тестовая пирамида — принцип, по которому unit-тестов должно быть больше всего (70%), integration — меньше (20%), E2E — меньше всего (10%). Это даёт быструю обратную связь и стабильность. Обратное соотношение называется «рожок мороженого» и считается антипаттерном.`,
 },
 {
 "id": `7-junior-основы-3`,
@@ -186,7 +186,7 @@ expect(items).toHaveLength(3)       // утверждение о длине
 - Assertion — проверка ожидаемого результата
 
 💡 **Для собеседования:** Mock заменяет зависимость и проверяет вызовы. Stub只提供 данные. Spy записывает вызовы реальной функции. Fixture — тестовые данные. Assertion — проверка результата через expect.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Mock заменяет зависимость и проверяет вызовы. Stub只提供 данные. Spy записывает вызовы реальной функции. Fixture — тестовые данные. Assertion — проверка результата через expect.`,
 },
 {
 "id": `7-junior-основы-4`,
@@ -248,7 +248,7 @@ const config = { apiUrl: 'https://api.example.com' }
 - Наличие тестов на граничные случаи и ошибки
 
  **Для собеседования:** Test coverage — процент кода, выполняемого тестами. 100% покрытие не гарантирует качество — можно написать тесты без проверок. Разумная цель — 80-90% для бизнес-логики. Важнее не процент, а покрытие критичных путей и граничных случаев.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Test coverage — процент кода, выполняемого тестами. 100% покрытие не гарантирует качество — можно написать тесты без проверок. Разумная цель — 80-90% для бизнес-логики. Важнее не процент, а покрытие критичных путей и граничных случаев.`,
 },
 {
 "id": `7-junior-основы-5`,
@@ -355,7 +355,7 @@ function double(n) {
 - Red-Green-Refactor — цикл TDD: падающий тест, минимальный код, улучшение
 
 💡 **Для собеседования:** AAA — паттерн структуры теста (Arrange подготовка, Act действие, Assert проверка). Red-Green-Refactor — цикл TDD: сначала падающий тест (Red), потом минимальный рабочий код (Green), потом улучшение (Refactor).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `AAA — паттерн структуры теста (Arrange подготовка, Act действие, Assert проверка). Red-Green-Refactor — цикл TDD: сначала падающий тест (Red), потом минимальный рабочий код (Green), потом улучшение (Refactor).`,
 },
 ],
 },
@@ -435,7 +435,7 @@ Vitest использует \`vi.fn()\`, \`vi.mock()\`, \`vi.spyOn()\` — по�
 - API почти идентичен — миграция с Jest простая
 
 💡 **Для собеседования:** Jest — популярный тестовый фреймворк от Facebook. Vitest — современный аналог от команды Vite, быстрее за счёт esbuild, использует единую конфигурацию с Vite, нативно поддерживает ESM. API совместим с Jest, миграция простая.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Jest — популярный тестовый фреймворк от Facebook. Vitest — современный аналог от команды Vite, быстрее за счёт esbuild, использует единую конфигурацию с Vite, нативно поддерживает ESM. API совместим с Jest, миграция простая.`,
 },
 {
 "id": `7-junior-jest-vitest-2`,
@@ -571,7 +571,7 @@ expect([1, 2]).not.toContain(3)
 - \`.not\` — отрицание
 
 💡 **Для собеседования:** \`describe\` группирует тесты, \`it\`/\`test\` — сам тест, \`expect\` начинает проверку. Matcher'ы: \`toBe\` (строгое равенство), \`toEqual\` (глубокое для объектов), \`toThrow\` (ошибки), \`toContain\` (содержит). Разница \`toBe\` и \`toEqual\`: первый по ссылке, второй по содержимому.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `describe группирует тесты, it/test — сам тест, expect начинает проверку. Matcher'ы: toBe (строгое равенство), toEqual (глубокое для объектов), toThrow (ошибки), toContain (содержит). Разница toBe и toEqual: первый по ссылке, второй по содержимому.`,
 },
 {
 "id": `7-junior-jest-vitest-3`,
@@ -709,7 +709,7 @@ beforeEach(async () => {
 - Поддерживают async/await
 
 💡 **Для собеседования:** Хуки жизненного цикла тестов. \`beforeEach\`/\`afterEach\` выполняются перед/после каждого теста (сброс состояния). \`beforeAll\`/\`afterAll\` — один раз для всей группы (дорогие операции типа подключения к БД).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Хуки жизненного цикла тестов. beforeEach/afterEach выполняются перед/после каждого теста (сброс состояния). beforeAll/afterAll — один раз для всей группы (дорогие операции типа подключения к БД).`,
 },
 {
 "id": `7-junior-jest-vitest-4`,
@@ -833,7 +833,7 @@ it('обрабатывает ошибку сети', async () => {
 - Всегда возвращайте Promise или используйте await
 
 💡 **Для собеседования:** Асинхронный код тестируется через \`async/await\` в тестах. \`resolves\`/\`rejects\` проверяют Promise. \`vi.useFakeTimers()\` контролирует время. Fetch мокается через \`vi.fn()\`. Главное — не забывать \`await\`, иначе тест завершится до получения результата.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Асинхронный код тестируется через async/await в тестах. resolves/rejects проверяют Promise. vi.useFakeTimers() контролирует время. Fetch мокается через vi.fn(). Главное — не забывать await, иначе тест завершится до получения результата.`,
 },
 {
 "id": `7-junior-jest-vitest-5`,
@@ -967,7 +967,7 @@ it('форматирует дату', () => {
 - Inline snapshots хранятся прямо в коде
 
 💡 **Для собеседования:** Snapshot testing сохраняет «снимок» результата и сравнивает с предыдущим при каждом запуске. Обновляется через \`-u\`. Хорош для UI-компонентов и больших объектов. Не заменяет обычные тесты — используйте вместе. Inline snapshots хранятся в коде теста.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Snapshot testing сохраняет «снимок» результата и сравнивает с предыдущим при каждом запуске. Обновляется через -u. Хорош для UI-компонентов и больших объектов. Не заменяет обычные тесты — используйте вместе. Inline snapshots хранятся в коде теста.`,
 },
 ],
 },
@@ -1034,7 +1034,7 @@ Selenium — для legacy-проектов, когда нужна поддер�
 - Selenium — старый, медленный, но поддерживает много языков и браузеров
 
 💡 **Для собеседования:** Playwright — библиотека от Microsoft для E2E-тестирования. Поддерживает Chromium, Firefox, WebKit. Быстрее Selenium (работает через DevTools Protocol, не WebDriver). Мощнее Cypress (несколько вкладок, контекстов). Имеет auto-waiting, trace viewer, codegen.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Playwright — библиотека от Microsoft для E2E-тестирования. Поддерживает Chromium, Firefox, WebKit. Быстрее Selenium (работает через DevTools Protocol, не WebDriver). Мощнее Cypress (несколько вкладок, контекстов). Имеет auto-waiting, trace viewer, codegen.`,
 },
 {
 "id": `7-junior-playwright-2`,
@@ -1164,7 +1164,7 @@ npx playwright codegen https://example.com
 - Codegen записывает тесты автоматически
 
 💡 **Для собеседования:** Playwright поддерживает Chromium, Firefox, WebKit. Установка через \`npm init playwright@latest\`. Первый тест — \`page.goto()\` и \`expect()\`. Запуск через \`npx playwright test\`. Есть codegen для записи тестов и эмуляция мобильных устройств.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Playwright поддерживает Chromium, Firefox, WebKit. Установка через npm init playwright@latest. Первый тест — page.goto() и expect(). Запуск через npx playwright test. Есть codegen для записи тестов и эмуляция мобильных устройств.`,
 },
 {
 "id": `7-junior-playwright-3`,
@@ -1266,7 +1266,7 @@ export default defineConfig({
 - В тестах создаются автоматически через fixtures
 
 💡 **Для собеседования:** Browser — браузер, Context — изолированная среда (как инкогнито), Page — вкладка. Иерархия: Browser → Context → Page. Context даёт изоляцию тестов, разные cookies, настройки. В тестах Playwright создаются автоматически.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Browser — браузер, Context — изолированная среда (как инкогнито), Page — вкладка. Иерархия: Browser → Context → Page. Context даёт изоляцию тестов, разные cookies, настройки. В тестах Playwright создаются автоматически.`,
 },
 {
 "id": `7-junior-playwright-4`,
@@ -1394,7 +1394,7 @@ await expect(page.getByRole('button')).toBeAttached()
 - Приоритет: role > label > text > testid > locator
 
 💡 **Для собеседования:** В Playwright есть несколько способов найти элемент. getByRole — рекомендуется (по ARIA-роли), getByTestId — по data-testid (требует атрибутов), locator — базовый (CSS/XPath). Приоритет: role, label, placeholder, text, testid, locator.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `В Playwright есть несколько способов найти элемент. getByRole — рекомендуется (по ARIA-роли), getByTestId — по data-testid (требует атрибутов), locator — базовый (CSS/XPath). Приоритет: role, label, placeholder, text, testid, locator.`,
 },
 {
 "id": `7-junior-playwright-5`,
@@ -1535,7 +1535,7 @@ await expect(page).toHaveTitle('My App')
 - Таймаут по умолчанию 5 секунд, можно изменить
 
  **Для собеседования:** Auto-waiting — Playwright автоматически ждёт готовности элемента перед действием. \`click\` для клика, \`fill\` для ввода текста, \`type\` для посимвольного ввода. Проверки: \`toBeVisible\`, \`toContainText\`, \`toHaveURL\`. Таймаут по умолчанию 5 секунд.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Auto-waiting — Playwright автоматически ждёт готовности элемента перед действием. click для клика, fill для ввода текста, type для посимвольного ввода. Проверки: toBeVisible, toContainText, toHaveURL. Таймаут по умолчанию 5 секунд.`,
 },
 ],
 },
@@ -1645,7 +1645,7 @@ TDD фокусируется на технической реализации �
 - BDD расширяет TDD, добавляя бизнес-контекст
 
 💡 **Для собеседования:** TDD — разработка через тестирование: сначала тест, потом код (Red-Green-Refactor). BDD — разработка через поведение: тесты в формате Given-When-Then на понятном бизнесу языке. BDD расширяет TDD, добавляя фокус на пользовательских сценариях.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `TDD — разработка через тестирование: сначала тест, потом код (Red-Green-Refactor). BDD — разработка через поведение: тесты в формате Given-When-Then на понятном бизнесу языке. BDD расширяет TDD, добавляя фокус на пользовательских сценариях.`,
 },
 {
 "id": `7-junior-методологии-2`,
@@ -1774,7 +1774,7 @@ it('flaky test', async ({ page }) => {
 - Главное — не игнорировать, а чинить
 
 💡 **Для собеседования:** Flaky tests — нестабильные тесты, которые иногда падают без изменения кода. Причины: зависимость от времени, порядка тестов, асинхронности, сети. Борьба: изоляция тестов, явные ожидания, моки, retry. Главное правило — не игнорировать flaky-тесты.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Flaky tests — нестабильные тесты, которые иногда падают без изменения кода. Причины: зависимость от времени, порядка тестов, асинхронности, сети. Борьба: изоляция тестов, явные ожидания, моки, retry. Главное правило — не игнорировать flaky-тесты.`,
 },
 ],
 },
@@ -1882,7 +1882,7 @@ mockFn.mockRestore()    // восстановить оригинальную ф�
 \`\`\`
 
 **Для собеседования:** Mock-функции заменяют реальные зависимости. \`mockReturnValue\` задаёт фиксированный возврат, \`mockImplementation\` — полную реализацию. Методы \`mock.calls\`, \`mock.results\` хранят историю вызовов. \`mockClear\` сбрасывает историю, \`mockReset\` — всё, \`mockRestore\` — восстанавливает оригинал.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Mock-функции заменяют реальные зависимости. mockReturnValue задаёт фиксированный возврат, mockImplementation — полную реализацию. Методы mock.calls, mock.results хранят историю вызовов. mockClear сбрасывает историю, mockReset — всё, mockRestore — восстанавливает оригинал.`,
 },
 {
 "id": `7-middle-jest-vitest-2`,
@@ -1993,7 +1993,7 @@ jest.mock('./api', async () => {
 - Для динамического мока используйте \`vi.doMock\`
 
 **Для собеседования:** \`vi.mock\` заменяет весь модуль mock-функциями. \`vi.importActual\` получает оригинальный модуль для частичного мока. В Jest аналог — \`jest.mock\` и \`jest.requireActual\`. Мок поднимается наверх файла автоматически (hoisting).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `vi.mock заменяет весь модуль mock-функциями. vi.importActual получает оригинальный модуль для частичного мока. В Jest аналог — jest.mock и jest.requireActual. Мок поднимается наверх файла автоматически (hoisting).`,
 },
 {
 "id": `7-middle-jest-vitest-3`,
@@ -2144,7 +2144,7 @@ spy.mockRestore()
 \`\`\`
 
 **Для собеседования:** Таймеры мокаются через \`vi.useFakeTimers()\` и \`vi.advanceTimersByTime()\`. ES-модули мокаются через \`vi.mock\` (полная замена) или \`vi.spyOn\` (шпионаж за объектом). Для Date используется \`vi.setSystemTime()\`. Альтернатива — dependency injection.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Таймеры мокаются через vi.useFakeTimers() и vi.advanceTimersByTime(). ES-модули мокаются через vi.mock (полная замена) или vi.spyOn (шпионаж за объектом). Для Date используется vi.setSystemTime(). Альтернатива — dependency injection.`,
 },
 {
 "id": `7-middle-jest-vitest-4`,
@@ -2256,7 +2256,7 @@ axios.get.mockResolvedValue({ data: { users: [] } })
 \`\`\`
 
 **Для собеседования:** MSW перехватывает HTTP-запросы на уровне сети через Service Worker (в браузере) или node-сервер (в тестах). Настраивается через \`handlers\` с \`http.get/post\`. Использует \`setupServer\` для тестов и \`setupWorker\` для браузера. Преимущества: реалистичность, независимость от библиотеки запросов.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `MSW перехватывает HTTP-запросы на уровне сети через Service Worker (в браузере) или node-сервер (в тестах). Настраивается через handlers с http.get/post. Использует setupServer для тестов и setupWorker для браузера. Преимущества: реалистичность, независимость от библиотеки запросов.`,
 },
 {
 "id": `7-middle-jest-vitest-5`,
@@ -2432,7 +2432,7 @@ npm run test:coverage     # --coverage
 \`\`\`
 
 **Для собеседования:** Vitest настраивается через \`vitest.config.ts\` (интеграция с Vite). Jest использует \`jest.config.js\` с \`ts-jest\` для TypeScript. Path aliases настраиваются через \`resolve.alias\` (Vitest) или \`moduleNameMapper\` (Jest). Global setup выполняется один раз, setupFiles — перед каждым тестом.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Vitest настраивается через vitest.config.ts (интеграция с Vite). Jest использует jest.config.js с ts-jest для TypeScript. Path aliases настраиваются через resolve.alias (Vitest) или moduleNameMapper (Jest). Global setup выполняется один раз, setupFiles — перед каждым тестом.`,
 },
 ],
 },
@@ -2522,7 +2522,7 @@ const wrapper = mount(Parent, {
 \`\`\`
 
 **Для собеседования:** \`mount\` рендерит компонент со всеми дочерними (полное дерево). \`shallowMount\` рендерит только тестируемый компонент, дочерние заменяются заглушками. \`mount\` для интеграционных тестов, \`shallowMount\` для unit-тестов и скорости.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `mount рендерит компонент со всеми дочерними (полное дерево). shallowMount рендерит только тестируемый компонент, дочерние заменяются заглушками. mount для интеграционных тестов, shallowMount для unit-тестов и скорости.`,
 },
 {
 "id": `7-middle-vue-test-utils-2`,
@@ -2659,7 +2659,7 @@ it('вызывает методы', async () => {
 \`\`\`
 
 **Для собеседования:** Props передаются через опцию \`props\`, проверяются через \`wrapper.props()\`. Emits отслеживаются через \`wrapper.emitted()\`. Slots передаются через опцию \`slots\`. Computed тестируются через \`wrapper.vm.property\`. Watch тестируется через изменение данных и проверку побочных эффектов.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Props передаются через опцию props, проверяются через wrapper.props(). Emits отслеживаются через wrapper.emitted(). Slots передаются через опцию slots. Computed тестируются через wrapper.vm.property. Watch тестируется через изменение данных и проверку побочных эффектов.`,
 },
 {
 "id": `7-middle-vue-test-utils-3`,
@@ -2795,7 +2795,7 @@ expect(store.fetchData).toHaveBeenCalled()
 \`\`\`
 
 **Для собеседования:** Vue Router мокается через \`global.mocks\` ($router, $route) или используется реальный router через \`global.plugins\`. Pinia тестируется через \`createTestingPinia\` с опциями \`initialState\` (начальное состояние), \`stubActions\` (мок actions), \`createSpy\` (функция для spy).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Vue Router мокается через global.mocks ($router, $route) или используется реальный router через global.plugins. Pinia тестируется через createTestingPinia с опциями initialState (начальное состояние), stubActions (мок actions), createSpy (функция для spy).`,
 },
 {
 "id": `7-middle-vue-test-utils-4`,
@@ -2944,7 +2944,7 @@ it('useSearch фильтрует данные', async () => {
 \`\`\`
 
 **Для собеседования:** Provide/inject тестируется через \`global.provide\`. Teleport требует \`attachTo: document.body\` или stubs. Async компоненты тестируются с \`flushPromises()\`. Composables тестируются напрямую как функции, без mount компонента.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Provide/inject тестируется через global.provide. Teleport требует attachTo: document.body или stubs. Async компоненты тестируются с flushPromises(). Composables тестируются напрямую как функции, без mount компонента.`,
 },
 {
 "id": `7-middle-vue-test-utils-5`,
@@ -3094,7 +3094,7 @@ expect(screen.getByText('Count: 1')).toBeInTheDocument()
 - Фокус на пользовательском опыте
 
 **Для собеседования:** Testing Library тестирует поведение, а не реализацию. Использует queries (\`getByRole\`, \`getByText\`, \`findByText\`) для поиска элементов как пользователь. Принцип: тесты должны быть похожи на использование ПО. \`userEvent\` реалистичнее \`fireEvent\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Testing Library тестирует поведение, а не реализацию. Использует queries (getByRole, getByText, findByText) для поиска элементов как пользователь. Принцип: тесты должны быть похожи на использование ПО. userEvent реалистичнее fireEvent.`,
 },
 ],
 },
@@ -3217,7 +3217,7 @@ test('with test data', async ({ testData, page }) => {
 \`\`\`
 
 **Для собеседования:** Browser Context — изолированная среда (cookies, localStorage) внутри браузера. Используется для параллельных тестов и разных пользователей. Fixtures — переиспользуемые setup-функции. Встроенные: \`page\`, \`browser\`, \`context\`. Кастомные создаются через \`base.extend()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Browser Context — изолированная среда (cookies, localStorage) внутри браузера. Используется для параллельных тестов и разных пользователей. Fixtures — переиспользуемые setup-функции. Встроенные: page, browser, context. Кастомные создаются через base.extend().`,
 },
 {
 "id": `7-middle-playwright-2`,
@@ -3346,7 +3346,7 @@ await actor.asks(IsLoggedIn())
 POM проще и популярнее, подходит для большинства проектов. Screenplay более гибкий, но сложнее в реализации. POM организует код по страницам, Screenplay — по действиям.
 
 **Для собеседования:** POM — паттерн, где каждая страница — класс с локаторами и методами. Упрощает поддержку и переиспользование. Screenplay — альтернативный паттерн с акторами, задачами и вопросами. POM проще и популярнее.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `POM — паттерн, где каждая страница — класс с локаторами и методами. Упрощает поддержку и переиспользование. Screenplay — альтернативный паттерн с акторами, задачами и вопросами. POM проще и популярнее.`,
 },
 {
 "id": `7-middle-playwright-3`,
@@ -3487,7 +3487,7 @@ export default defineConfig({
 \`\`\`
 
 **Для собеседования:** Iframe — через \`frameLocator()\`. Диалоги — через событие \`dialog\`. Файлы — \`setInputFiles()\` для загрузки, \`waitForEvent('download')\` для скачивания. Мок сетей — \`page.route()\` с \`fulfill\` (ответ), \`abort\` (блокировка), \`continue\` (модификация).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Iframe — через frameLocator(). Диалоги — через событие dialog. Файлы — setInputFiles() для загрузки, waitForEvent('download') для скачивания. Мок сетей — page.route() с fulfill (ответ), abort (блокировка), continue (модификация).`,
 },
 {
 "id": `7-middle-playwright-4`,
@@ -3640,7 +3640,7 @@ const context = await browser.newContext({
 \`\`\`
 
 **Для собеседования:** Аутентификация тестируется через \`storageState\` (сохранение cookies/localStorage) или через API-логин с установкой cookies. Responsive design — через \`viewport\` в конфиге или \`setViewportSize()\` в тесте. Эмуляция устройств через \`devices\` из Playwright.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Аутентификация тестируется через storageState (сохранение cookies/localStorage) или через API-логин с установкой cookies. Responsive design — через viewport в конфиге или setViewportSize() в тесте. Эмуляция устройств через devices из Playwright.`,
 },
 {
 "id": `7-middle-playwright-5`,
@@ -3788,7 +3788,7 @@ test('test', async ({ page }) => {
 \`\`\`
 
 **Для собеседования:** Trace Viewer — детальная запись теста (скриншоты, DOM, сеть). Reporter'ы: list, html, json, junit. Параллельный запуск через \`workers\` и \`fullyParallel\`. Retry настраивается через \`retries\` в конфиге. Аннотации: \`skip\`, \`fail\`, \`slow\`, \`fixme\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Trace Viewer — детальная запись теста (скриншоты, DOM, сеть). Reporter'ы: list, html, json, junit. Параллельный запуск через workers и fullyParallel. Retry настраивается через retries в конфиге. Аннотации: skip, fail, slow, fixme.`,
 },
 {
 "id": `7-middle-playwright-6`,
@@ -3941,7 +3941,7 @@ const component = await mount(Component, {
 - Изоляция компонентов
 
 **Для собеседования:** Visual regression — сравнение скриншотов через \`toHaveScreenshot\`. Опции: \`maxDiffPixels\`, \`mask\`, \`fullPage\`. Playwright Component Testing (\`@playwright/experimental-ct-vue\`) — тестирование компонентов в реальном браузере через \`mount()\`. Быстрее E2E, поддерживает визуальные тесты.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Visual regression — сравнение скриншотов через toHaveScreenshot. Опции: maxDiffPixels, mask, fullPage. Playwright Component Testing (@playwright/experimental-ct-vue) — тестирование компонентов в реальном браузере через mount(). Быстрее E2E, поддерживает визуальные тесты.`,
 },
 ],
 },
@@ -4053,7 +4053,7 @@ class UserRepositoryTest {
 \`@SpringBootTest\` — полный контекст, медленный, интеграционные тесты. \`@WebMvcTest\` — только контроллеры, быстрый, unit-тесты web-слоя. \`@DataJpaTest\` — только репозитории, встроенная БД, тестирование запросов.
 
 **Для собеседования:** \`@SpringBootTest\` загружает полный контекст для интеграционных тестов. \`@WebMvcTest\` тестирует только контроллеры с MockMvc. \`@DataJpaTest\` тестирует репозитории со встроенной БД (H2). Выбор зависит от уровня тестирования.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `@SpringBootTest загружает полный контекст для интеграционных тестов. @WebMvcTest тестирует только контроллеры с MockMvc. @DataJpaTest тестирует репозитории со встроенной БД (H2). Выбор зависит от уровня тестирования.`,
 },
 {
 "id": `7-middle-бэкенд-java-python-2`,
@@ -4171,7 +4171,7 @@ class UserRepositoryTest {
 - Поддержка PostgreSQL, MySQL, Redis, Kafka, Elasticsearch
 
 **Для собеседования:** MockMvc — тестирование контроллеров без сервера. \`@MockBean\` — mock-бин в Spring контексте. Testcontainers — Docker-контейнеры для интеграционных тестов с реальными БД (PostgreSQL, Redis, Kafka).`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `MockMvc — тестирование контроллеров без сервера. @MockBean — mock-бин в Spring контексте. Testcontainers — Docker-контейнеры для интеграционных тестов с реальными БД (PostgreSQL, Redis, Kafka).`,
 },
 {
 "id": `7-middle-бэкенд-java-python-3`,
@@ -4310,7 +4310,7 @@ def test_multiply(number, multiplier):
 \`\`\`
 
 **Для собеседования:** pytest — популярный тестовый фреймворк Python. Fixtures — функции с тестовыми данными (scope: function, class, module, session). \`@pytest.mark.parametrize\` — запуск теста с разными наборами данных. \`conftest.py\` — общие fixtures.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `pytest — популярный тестовый фреймворк Python. Fixtures — функции с тестовыми данными (scope: function, class, module, session). @pytest.mark.parametrize — запуск теста с разными наборами данных. conftest.py — общие fixtures.`,
 },
 {
 "id": `7-middle-бэкенд-java-python-4`,
@@ -4485,7 +4485,7 @@ def test_invalid_form(self):
 \`\`\`
 
 **Для собеседования:** FastAPI тестируется через \`TestClient\` (синхронно) или \`httpx.AsyncClient\` (асинхронно). Зависимости мокаются через \`dependency_overrides\`. Django использует \`TestCase\` с \`setUp()\`, \`Client\` для views, \`APIClient\` для DRF API. Авторизация через \`client.login()\` или \`force_authenticate()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `FastAPI тестируется через TestClient (синхронно) или httpx.AsyncClient (асинхронно). Зависимости мокаются через dependency_overrides. Django использует TestCase с setUp(), Client для views, APIClient для DRF API. Авторизация через client.login() или force_authenticate().`,
 },
 ],
 },
@@ -4614,7 +4614,7 @@ CMD ["npm", "test"]
 - Интеграция с Jira, Slack
 
 **Для собеседования:** Mutation testing оценивает качество тестов через внесение мутаций в код. Mutation Score — процент убитых мутантов. TestOps — управление тестированием в CI/CD: автоматизация, параллельный запуск, мониторинг метрик, инфраструктура как код.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Mutation testing оценивает качество тестов через внесение мутаций в код. Mutation Score — процент убитых мутантов. TestOps — управление тестированием в CI/CD: автоматизация, параллельный запуск, мониторинг метрик, инфраструктура как код.`,
 },
 {
 "id": `7-middle-общие-темы-2`,
@@ -4830,7 +4830,7 @@ describe('User tests', () => {
 \`\`\`
 
 **Для собеседования:** Тестовые данные организуются через Builders (шаблоны с overrides), Factories (генерация уникальных данных через faker), Fixtures (статические JSON-файлы). Test isolation обеспечивается через: очистку моков (\`clearMocks\`), транзакции с откатом, уникальные данные, отдельные тестовые БД, order-independent тесты.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Тестовые данные организуются через Builders (шаблоны с overrides), Factories (генерация уникальных данных через faker), Fixtures (статические JSON-файлы). Test isolation обеспечивается через: очистку моков (clearMocks), транзакции с откатом, уникальные данные, отдельные тестовые БД, order-independent тесты.`,
 },
 ],
 },

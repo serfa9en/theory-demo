@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `15-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `15-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `15-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `15-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 {
 "id": `15-junior-общее-6`,
@@ -795,7 +795,7 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 \`\`\`
 
 **Для собеседования:** DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
 },
 ],
 },
@@ -810,38 +810,82 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 {
 "id": `15-middle-общее-1`,
 "title": `ClickHouse: партиционирование, сортировка (ORDER BY), primary key, sampling, TTL.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## ClickHouse: partitioning, ORDER BY, primary key, sampling, TTL
+
+В MergeTree-семействе \`ORDER BY\` задаёт физический порядок данных и является главным фактором эффективности data skipping. Primary key задаёт sparse primary index и обычно является префиксом sorting key. \`PARTITION BY\` используют прежде всего для lifecycle/partition pruning, а TTL — для автоматического удаления/перемещения старых данных.
+
+**Ключевые моменты:**
+- Не делайте слишком много мелких partitions.
+- Ставьте в начало ORDER BY поля, по которым часто фильтруют и которые хорошо соответствуют workload.
+- Sampling требует подходящего ключа/схемы и применим для приближённых аналитических запросов.`,
+"shortAnswer": `ClickHouse: partitioning, ORDER BY, primary key, sampling, TTL В MergeTree-семействе ORDER BY задаёт физический порядок данных и является главным фактором эффективности data skipping.  Primary key задаёт sparse primary index и обычно является префиксом sorting key.`,
 },
 {
 "id": `15-middle-общее-2`,
 "title": `Dictionary joins, distributed queries, оптимизация запросов.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## ClickHouse dictionaries и distributed queries
+
+Dictionary хранит внешние справочные данные в оптимизированной форме и может заменить часть JOIN-операций быстрым lookup. Distributed engine маршрутизирует запросы к shards, а затем объединяет частичные результаты.
+
+**Ключевые моменты:**
+- Фильтруйте как можно раньше и читайте только нужные столбцы.
+- Выбирайте JOIN algorithm под размеры таблиц и память.
+- Materialized views могут переносить дорогую работу на ingest time.
+- Следите за количеством прочитанных rows/bytes, а не только за временем.`,
+"shortAnswer": `ClickHouse dictionaries и distributed queries Dictionary хранит внешние справочные данные в оптимизированной форме и может заменить часть JOIN-операций быстрым lookup.  Distributed engine маршрутизирует запросы к shards, а затем объединяет частичные результаты.`,
 },
 {
 "id": `15-middle-общее-3`,
 "title": `Elasticsearch: шарды и реплики, распределение данных.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Elasticsearch shards и replicas
+
+Elasticsearch делит index на primary shards; каждый shard является отдельным Lucene index. Replica — копия primary shard на другом узле, повышающая отказоустойчивость и capacity чтения.
+
+**Ключевые моменты:**
+- Документ принадлежит одному primary shard.
+- Запись сначала обрабатывается primary и реплицируется.
+- Число primary shards задаётся при создании index и требует планирования; replicas можно менять.
+- Слишком много маленьких shards создают overhead.`,
+"shortAnswer": `Elasticsearch shards и replicas Elasticsearch делит index на primary shards; каждый shard является отдельным Lucene index.  Replica — копия primary shard на другом узле, повышающая отказоустойчивость и capacity чтения.`,
 },
 {
 "id": `15-middle-общее-4`,
 "title": `Refresh interval, translog, segment merging, fielddata, doc values.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Refresh, translog, segments, fielddata и doc values
+
+Elasticsearch/Lucene пишет данные в segments. Refresh делает новые изменения доступными поиску; translog помогает durability/recovery; background merges объединяют segments.
+
+**Ключевые моменты:**
+- Увеличение refresh interval может ускорить массовую индексацию ценой свежести поиска.
+- Doc values — column-oriented representation на диске для sorting/aggregations большинства полей.
+- Fielddata для analyzed text может потреблять много heap и обычно избегается в пользу keyword/doc_values.`,
+"shortAnswer": `Refresh, translog, segments, fielddata и doc values Elasticsearch/Lucene пишет данные в segments.  Refresh делает новые изменения доступными поиску; translog помогает durability/recovery; background merges объединяют segments.`,
 },
 {
 "id": `15-middle-общее-5`,
 "title": `Оптимизация индексации: bulk API, reindex API.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Bulk и Reindex
+
+Bulk API объединяет множество index/update/delete операций в один HTTP request и уменьшает сетевой overhead. Reindex копирует документы из source index в destination и применяется для изменения mappings/settings или миграции данных.
+
+**Ключевые моменты:**
+- Подбирайте размер batch экспериментально: слишком большой bulk перегружает heap/queue.
+- Перед reindex заранее создайте destination с нужными mappings/settings.
+- Мониторьте rejected requests, indexing latency и merge pressure.`,
+"shortAnswer": `Bulk и Reindex Bulk API объединяет множество index/update/delete операций в один HTTP request и уменьшает сетевой overhead.  Reindex копирует документы из source index в destination и применяется для изменения mappings/settings или миграции данных.`,
 },
 {
 "id": `15-middle-общее-6`,
 "title": `Index lifecycle management (ILM), index templates, ingest pipelines.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## ILM, index templates и ingest pipelines
+
+Index templates автоматически применяют settings/mappings к новым indices/data streams. Ingest pipeline преобразует документы до индексации. ILM автоматизирует lifecycle индекса: rollover и действия в hot/warm/cold/delete фазах в зависимости от политики.
+
+**Ключевые моменты:**
+- Используйте data streams для типичных time-series/log workloads.
+- Тестируйте mappings до массовой загрузки.
+- Lifecycle должен соответствовать retention и стоимости хранения.`,
+"shortAnswer": `ILM, index templates и ingest pipelines Index templates автоматически применяют settings/mappings к новым indices/data streams.  Ingest pipeline преобразует документы до индексации.`,
 },
 ],
 },

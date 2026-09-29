@@ -80,7 +80,7 @@ def user_list&#40;request&#41;&#58;
 - ORM иногда генерирует неоптимальные SQL-запросы
 
 **Для собеседования:** Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Django — Python-фреймворк «всё включено». Паттерн MTV: Model — данные и БД, Template — HTML-отображение, View — бизнес-логика. Django View аналогичен MVC Controller, Django Template аналогичен MVC View.`,
 },
 {
 "id": `14-junior-общее-2`,
@@ -182,7 +182,7 @@ class ArticleAdmin&#40;admin&#46;ModelAdmin&#41;&#58;
 После запуска сервера админка доступна по адресу \`/admin/\`. Для входа нужен суперпользователь, созданный через \`createsuperuser\`.
 
 **Для собеседования:** Модель — Python-класс, описывающий таблицу БД. Миграции создаются через \`makemigrations\` и применяются через \`migrate\`. Django Admin — встроенная админка, регистрируется через \`@admin.register\` с настройками отображения, фильтрации и поиска.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Модель — Python-класс, описывающий таблицу БД. Миграции создаются через makemigrations и применяются через migrate. Django Admin — встроенная админка, регистрируется через @admin.register с настройками отображения, фильтрации и поиска.`,
 },
 {
 "id": `14-junior-общее-3`,
@@ -325,7 +325,7 @@ Article&#46;objects&#46;filter&#40;is_published&#61;False&#41;&#46;delete&#40;&#
 \`\`\`
 
 **Для собеседования:** \`.all()\` возвращает все объекты (ленивый QuerySet). \`.filter()\` фильтрует по условиям с lookup expressions через \`__\`. \`.get()\` возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `.all() возвращает все объекты (ленивый QuerySet). .filter() фильтрует по условиям с lookup expressions через __. .get() возвращает один объект, вызывает исключения если не найдено или найдено несколько. Методы можно комбинировать в цепочки.`,
 },
 {
 "id": `14-junior-общее-4`,
@@ -465,7 +465,7 @@ HTML-файлы с языком шаблонов Django (DTL).
 Django ищет шаблоны в папке \`templates/\` внутри каждого приложения и в папке \`templates/\` проекта (настраивается в \`TEMPLATES\` в \`settings.py\`).
 
 **Для собеседования:** URL routing через \`path()\` в \`urls.py\` с конвертерами (\`int\`, \`str\`, \`slug\`). Views бывают function-based и class-based. Templates используют DTL с переменными \`&#123;&#123; &#125;&#125;\` и тегами \`&#123;% %&#125;\`. Поддерживается наследование шаблонов через \`extends\` и \`block\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `URL routing через path() в urls.py с конвертерами (int, str, slug). Views бывают function-based и class-based. Templates используют DTL с переменными &#123;&#123; &#125;&#125; и тегами &#123;% %&#125;. Поддерживается наследование шаблонов через extends и block.`,
 },
 {
 "id": `14-junior-общее-5`,
@@ -632,7 +632,7 @@ def create_article&#40;request&#41;&#58;
 \`\`\`
 
 **Для собеседования:** Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через \`form.save()\`.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `Context processors добавляют переменные во все шаблоны. Middleware — цепочка обработчиков запроса/ответа. Forms — валидация пользовательского ввода. ModelForm автоматически создаёт форму из модели с валидацией и сохранением в БД через form.save().`,
 },
 {
 "id": `14-junior-общее-6`,
@@ -795,7 +795,7 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 \`\`\`
 
 **Для собеседования:** DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"shortAnswer": `DRF — toolkit для REST API. Serializer преобразует модели в JSON и обратно. ViewSet объединяет CRUD-операции в один класс. Router автоматически генерирует URL. Аутентификация: Session, Token, JWT (через simplejwt). Permissions контролируют доступ.`,
 },
 ],
 },
@@ -810,56 +810,120 @@ class ArticleViewSet&#40;viewsets&#46;ModelViewSet&#41;&#58;
 {
 "id": `14-middle-общее-1`,
 "title": `Политики вытеснения памяти (eviction policies): LRU, LFU, random, ttl.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Redis eviction policies
+
+При достижении \`maxmemory\` Redis действует согласно eviction policy. \`noeviction\` отказывает новым write-командам, а политики LRU/LFU/random/TTL удаляют ключи по выбранной стратегии.
+
+**Ключевые моменты:**
+- \`allkeys-lru\` — кандидаты из всех ключей по принципу least recently used.
+- \`allkeys-lfu\` — least frequently used.
+- \`volatile-*\` рассматривает ключи с TTL.
+- Политику выбирают исходя из того, является Redis кэшем или источником критичных данных.`,
+"shortAnswer": `Redis eviction policies При достижении maxmemory Redis действует согласно eviction policy.  noeviction отказывает новым write-командам, а политики LRU/LFU/random/TTL удаляют ключи по выбранной стратегии.`,
 },
 {
 "id": `14-middle-общее-2`,
 "title": `Персистентность: RDB vs AOF (плюсы и минусы).`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## RDB vs AOF
+
+RDB периодически создаёт компактный snapshot набора данных. AOF журналирует операции записи и при старте воспроизводит их. Можно использовать один режим, оба или отключить persistence.
+
+**Ключевые моменты:**
+- RDB компактнее и удобен для backup, но между snapshots возможна большая потеря последних изменений.
+- AOF обычно даёт меньший RPO при подходящей fsync-политике, но файл/запись дороже.
+- Выбор зависит от допустимой потери данных и latency.`,
+"shortAnswer": `RDB vs AOF RDB периодически создаёт компактный snapshot набора данных.  AOF журналирует операции записи и при старте воспроизводит их.`,
 },
 {
 "id": `14-middle-общее-3`,
 "title": `Redis Sentinel и Redis Cluster.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Redis Sentinel и Cluster
+
+Sentinel обеспечивает мониторинг и автоматический failover primary/replica для не-шардированного Redis. Redis Cluster одновременно распределяет ключи между узлами и обеспечивает репликацию/failover.
+
+**Ключевые моменты:**
+- Sentinel сам данные не хранит.
+- Cluster разбивает keyspace на 16384 hash slots.
+- Multi-key операции в Cluster проще, если ключи находятся в одном slot (hash tags).`,
+"shortAnswer": `Redis Sentinel и Cluster Sentinel обеспечивает мониторинг и автоматический failover primary/replica для не-шардированного Redis.  Redis Cluster одновременно распределяет ключи между узлами и обеспечивает репликацию/failover.`,
 },
 {
 "id": `14-middle-общее-4`,
 "title": `Шардирование в Redis: hash slots.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Hash slots в Redis Cluster
+
+Redis Cluster делит keyspace на 16384 slots. Slot выбирается по CRC16 ключа modulo 16384 и назначается одному primary-узлу; при масштабировании slots переносятся между nodes.
+
+**Ключевые моменты:**
+- Hash tags \`{...}\` позволяют поместить связанные ключи в один slot.
+- Клиент должен уметь обрабатывать MOVED/ASK redirects.
+- Шардирование повышает ёмкость, но усложняет операции по нескольким ключам.`,
+"shortAnswer": `Hash slots в Redis Cluster Redis Cluster делит keyspace на 16384 slots.  Slot выбирается по CRC16 ключа modulo 16384 и назначается одному primary-узлу; при масштабировании slots переносятся между nodes.`,
 },
 {
 "id": `14-middle-общее-5`,
 "title": `Distributed lock и Redlock.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Distributed lock и Redlock
+
+Простейший корректный lock на одном Redis обычно берут командой \`SET key token NX PX ttl\`, а освобождают только если token всё ещё принадлежит клиенту. Redlock пытается получить lock на большинстве независимых Redis masters в ограниченное время.
+
+**Ключевые моменты:**
+- TTL защищает от вечной блокировки.
+- Удалять lock простым \`DEL\` небезопасно: можно удалить чужой новый lock.
+- Для задач с жёсткими consistency guarantees дополнительно рассматривают fencing tokens и свойства конкретной инфраструктуры.`,
+"shortAnswer": `Distributed lock и Redlock Простейший корректный lock на одном Redis обычно берут командой SET key token NX PX ttl, а освобождают только если token всё ещё принадлежит клиенту.  Redlock пытается получить lock на большинстве независимых Redis masters в ограниченное время.`,
 },
 {
 "id": `14-middle-общее-6`,
 "title": `Redis Streams и consumer groups.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Redis Streams и consumer groups
+
+Redis Stream — append-only структура сообщений с ID. Consumer group позволяет нескольким consumer распределять обработку сообщений, сохраняя информацию о доставленных, но ещё не подтверждённых записях.
+
+**Ключевые моменты:**
+- \`XADD\` добавляет сообщение, \`XREADGROUP\` читает в группе, \`XACK\` подтверждает обработку.
+- Pending Entries List помогает находить зависшие сообщения.
+- Streams подходят для очередей/event processing, но не полностью заменяют специализированный Kafka-подобный брокер во всех сценариях.`,
+"shortAnswer": `Redis Streams и consumer groups Redis Stream — append-only структура сообщений с ID.  Consumer group позволяет нескольким consumer распределять обработку сообщений, сохраняя информацию о доставленных, но ещё не подтверждённых записях.`,
 },
 {
 "id": `14-middle-общее-7`,
 "title": `Транзакции (MULTI/EXEC) и Lua scripts.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## MULTI/EXEC и Lua
+
+\`MULTI\` начинает очередь команд транзакции Redis, \`EXEC\` выполняет её последовательно без interleaving других клиентов. Это не классическая SQL-транзакция с автоматическим rollback. Lua script выполняется атомарно относительно других команд.
+
+**Ключевые моменты:**
+- \`WATCH\` реализует optimistic locking.
+- Ошибка отдельной команды не означает rollback уже выполненных команд EXEC.
+- Lua полезен для атомарной read-modify-write логики, но долгий script блокирует event loop.`,
+"shortAnswer": `MULTI/EXEC и Lua MULTI начинает очередь команд транзакции Redis, EXEC выполняет её последовательно без interleaving других клиентов.  Это не классическая SQL-транзакция с автоматическим rollback.`,
 },
 {
 "id": `14-middle-общее-8`,
 "title": `Оптимизация: pipeline, memory optimization, maxmemory.`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Redis performance и memory
+
+Pipelining отправляет несколько команд без ожидания ответа на каждую и сокращает network round trips. \`maxmemory\` ограничивает используемую память, а eviction policy определяет поведение при достижении лимита.
+
+**Ключевые моменты:**
+- Избегайте огромных ключей и коллекций (big keys).
+- Выбирайте компактные структуры и TTL.
+- Используйте \`SCAN\` вместо блокирующего \`KEYS\` в production.
+- Измеряйте hit rate, latency, evictions и memory fragmentation.`,
+"shortAnswer": `Redis performance и memory Pipelining отправляет несколько команд без ожидания ответа на каждую и сокращает network round trips.  maxmemory ограничивает используемую память, а eviction policy определяет поведение при достижении лимита.`,
 },
 {
 "id": `14-middle-общее-9`,
 "title": `Мониторинг: RedisInsight, Redis Modules (RedisJSON, RediSearch, RedisTimeSeries, RedisGraph).`,
-"fullAnswer": `Подробный ответ пока не добавлен.`,
-"shortAnswer": `Краткий ответ пока не добавлен.`,
+"fullAnswer": `## Redis monitoring и modules
+
+RedisInsight помогает исследовать данные, производительность и конфигурацию. Команды \`INFO\`, \`SLOWLOG\`, latency tools и системные метрики используются для мониторинга. Модули расширяют Redis специализированными структурами и поиском.
+
+**Ключевые моменты:**
+- Следите за memory, evictions, hit rate, connected clients, replication lag, command latency.
+- Названия/доступность модулей зависят от используемой Redis distribution.`,
+"shortAnswer": `Redis monitoring и modules RedisInsight помогает исследовать данные, производительность и конфигурацию.  Команды INFO, SLOWLOG, latency tools и системные метрики используются для мониторинга.`,
 },
 ],
 },
