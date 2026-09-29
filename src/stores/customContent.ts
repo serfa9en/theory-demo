@@ -8,20 +8,51 @@ import {
   defineStore,
 } from 'pinia'
 
+import {
+  allTopics,
+  getTopicQuestions,
+} from '../data/questions'
+
 import type {
   Grade,
   Question,
+  QuestionSection,
   TopicQuestions,
 } from '../types/question'
 
 const STORAGE_KEY =
   'theory-demo:custom-topics'
 
-function loadTopics(): TopicQuestions[] {
+interface TopicAdditions {
+  junior: Question[]
+  middle: Question[]
+}
+
+interface StoredCustomContent {
+  version: 2
+  customTopics: TopicQuestions[]
+  additions: Record<
+    string,
+    TopicAdditions
+  >
+}
+
+const emptyAdditions = ():
+  TopicAdditions => ({
+    junior: [],
+    middle: [],
+  })
+
+function loadCustomContent():
+  StoredCustomContent {
   if (
     typeof window === 'undefined'
   ) {
-    return []
+    return {
+      version: 2,
+      customTopics: [],
+      additions: {},
+    }
   }
 
   try {
@@ -31,18 +62,58 @@ function loadTopics(): TopicQuestions[] {
       )
 
     if (!raw) {
-      return []
+      return {
+        version: 2,
+        customTopics: [],
+        additions: {},
+      }
     }
 
-    const parsed = JSON.parse(raw)
+    const parsed =
+      JSON.parse(raw)
 
-    if (!Array.isArray(parsed)) {
-      return []
+    // Совместимость с предыдущей версией,
+    // где в localStorage лежал просто массив
+    // пользовательских тем.
+    if (Array.isArray(parsed)) {
+      return {
+        version: 2,
+        customTopics:
+          parsed as TopicQuestions[],
+        additions: {},
+      }
     }
 
-    return parsed as TopicQuestions[]
+    if (
+      parsed
+      && typeof parsed === 'object'
+    ) {
+      return {
+        version: 2,
+        customTopics:
+          Array.isArray(
+            parsed.customTopics,
+          )
+            ? parsed.customTopics
+            : [],
+        additions:
+          parsed.additions
+          && typeof parsed.additions
+            === 'object'
+            ? parsed.additions
+            : {},
+      }
+    }
   } catch {
-    return []
+    // Если localStorage повреждён,
+    // приложение просто стартует
+    // с пустыми пользовательскими данными.
+  }
+
+  return {
+    version: 2,
+    customTopics: [],
+    additions: {},
   }
 }
 
@@ -72,19 +143,116 @@ function createQuestionId(
   ].join('-')
 }
 
+function cloneSections(
+  sections: QuestionSection[],
+): QuestionSection[] {
+  return sections.map(
+    section => ({
+      ...section,
+      questions: [
+        ...section.questions,
+      ],
+    }),
+  )
+}
+
+function withCustomSection(
+  sections: QuestionSection[],
+  questions: Question[],
+): QuestionSection[] {
+  const cloned =
+    cloneSections(sections)
+
+  if (!questions.length) {
+    return cloned
+  }
+
+  cloned.push({
+    id: 'custom-questions',
+    title: 'Мои вопросы',
+    questions: [
+      ...questions,
+    ],
+  })
+
+  return cloned
+}
+
 export const useCustomContentStore =
   defineStore(
     'customContent',
     () => {
+      const stored =
+        loadCustomContent()
+
+      /**
+       * Свои полностью созданные темы.
+       *
+       * Имя `topics` сохранено специально,
+       * чтобы существующие menu.ts / Sidebar
+       * продолжили работать без изменений.
+       */
       const topics =
         ref<TopicQuestions[]>(
-          loadTopics(),
+          stored.customTopics,
+        )
+
+      /**
+       * Вопросы, добавленные пользователем
+       * во встроенные темы.
+       *
+       * Ключ — id встроенной темы.
+       */
+      const additions =
+        ref<
+          Record<
+            string,
+            TopicAdditions
+          >
+        >(
+          stored.additions,
         )
 
       const hasTopics =
         computed(
-          () => topics.value.length > 0,
+          () =>
+            topics.value.length > 0,
         )
+
+      const builtInTopics =
+        computed(
+          () => allTopics,
+        )
+
+      const getCustomTopic = (
+        topicId: number,
+      ) => {
+        return (
+          topics.value.find(
+            topic =>
+              topic.id === topicId,
+          )
+          ?? null
+        )
+      }
+
+      const isCustomTopic = (
+        topicId: number,
+      ) => {
+        return (
+          getCustomTopic(topicId)
+          !== null
+        )
+      }
+
+      const isBuiltInTopic = (
+        topicId: number,
+      ) => {
+        return (
+          getTopicQuestions(topicId)
+          !== null
+        )
+      }
 
       const createTopic = (
         title: string,
@@ -104,8 +272,10 @@ export const useCustomContentStore =
         const topic:
           TopicQuestions = {
             id,
-            slug: `custom-topic-${id}`,
-            title: normalizedTitle,
+            slug:
+              `custom-topic-${id}`,
+            title:
+              normalizedTitle,
             junior: {
               sections: [
                 {
@@ -131,16 +301,31 @@ export const useCustomContentStore =
         return topic
       }
 
+      /**
+       * Старое имя метода сохраняем:
+       * оно возвращает только полностью
+       * пользовательскую тему.
+       */
       const getTopic = (
         topicId: number,
       ) => {
-        return (
-          topics.value.find(
-            topic =>
-              topic.id === topicId,
-          )
-          ?? null
+        return getCustomTopic(
+          topicId,
         )
+      }
+
+      const ensureAdditions = (
+        topicId: number,
+      ) => {
+        const key =
+          String(topicId)
+
+        if (!additions.value[key]) {
+          additions.value[key] =
+            emptyAdditions()
+        }
+
+        return additions.value[key]
       }
 
       const addQuestion = (
@@ -150,13 +335,6 @@ export const useCustomContentStore =
         fullAnswer: string,
         shortAnswer: string,
       ): Question | null => {
-        const topic =
-          getTopic(topicId)
-
-        if (!topic) {
-          return null
-        }
-
         const normalizedTitle =
           title.trim()
 
@@ -174,77 +352,222 @@ export const useCustomContentStore =
           return null
         }
 
-        let section =
-          topic[grade].sections[0]
-
-        if (!section) {
-          section = {
-            id: 'общее',
-            title: 'Общее',
-            questions: [],
-          }
-
-          topic[grade].sections.push(
-            section,
-          )
-        }
-
         const question: Question = {
           id:
             createQuestionId(
               topicId,
             ),
-          title: normalizedTitle,
+          title:
+            normalizedTitle,
           fullAnswer:
             normalizedFull,
           shortAnswer:
             normalizedShort,
         }
 
-        section.questions.push(
-          question,
-        )
+        const customTopic =
+          getCustomTopic(
+            topicId,
+          )
 
-        return question
+        if (customTopic) {
+          let section =
+            customTopic[grade]
+              .sections[0]
+
+          if (!section) {
+            section = {
+              id: 'общее',
+              title: 'Общее',
+              questions: [],
+            }
+
+            customTopic[grade]
+              .sections.push(
+                section,
+              )
+          }
+
+          section.questions.push(
+            question,
+          )
+
+          return question
+        }
+
+        if (
+          isBuiltInTopic(topicId)
+        ) {
+          const topicAdditions =
+            ensureAdditions(
+              topicId,
+            )
+
+          topicAdditions[grade].push(
+            question,
+          )
+
+          return question
+        }
+
+        return null
       }
+
+      /**
+       * Возвращает тему уже с подмешанными
+       * пользовательскими вопросами.
+       */
+      const getTopicWithCustomQuestions = (
+        topicId: number,
+      ): TopicQuestions | null => {
+        const customTopic =
+          getCustomTopic(
+            topicId,
+          )
+
+        if (customTopic) {
+          return customTopic
+        }
+
+        const baseTopic =
+          getTopicQuestions(
+            topicId,
+          )
+
+        if (!baseTopic) {
+          return null
+        }
+
+        const topicAdditions =
+          additions.value[
+            String(topicId)
+          ]
+          ?? emptyAdditions()
+
+        return {
+          ...baseTopic,
+          junior: {
+            sections:
+              withCustomSection(
+                baseTopic
+                  .junior
+                  .sections,
+                topicAdditions
+                  .junior,
+              ),
+          },
+          middle: {
+            sections:
+              withCustomSection(
+                baseTopic
+                  .middle
+                  .sections,
+                topicAdditions
+                  .middle,
+              ),
+          },
+        }
+      }
+
+      /**
+       * Все темы в одном месте:
+       * встроенные уже с пользовательскими
+       * вопросами + полностью свои темы.
+       */
+      const allTopicsWithCustomQuestions =
+        computed<
+          TopicQuestions[]
+        >(() => {
+          const mergedBuiltIn =
+            allTopics.map(
+              topic =>
+                getTopicWithCustomQuestions(
+                  topic.id,
+                ),
+            )
+            .filter(
+              (
+                topic,
+              ): topic is TopicQuestions =>
+                topic !== null,
+            )
+
+          return [
+            ...mergedBuiltIn,
+            ...topics.value,
+          ]
+        })
 
       const deleteQuestion = (
         topicId: number,
         questionId: string,
       ) => {
-        const topic =
-          getTopic(topicId)
+        const customTopic =
+          getCustomTopic(
+            topicId,
+          )
 
-        if (!topic) {
+        if (customTopic) {
+          const grades: Grade[] = [
+            'junior',
+            'middle',
+          ]
+
+          for (
+            const grade
+            of grades
+          ) {
+            for (
+              const section
+              of customTopic[grade]
+                .sections
+            ) {
+              section.questions =
+                section.questions
+                  .filter(
+                    question =>
+                      question.id
+                      !== questionId,
+                  )
+            }
+          }
+
           return
         }
 
-        const grades: Grade[] = [
-          'junior',
-          'middle',
-        ]
+        const key =
+          String(topicId)
 
-        for (
-          const grade
-          of grades
-        ) {
-          for (
-            const section
-            of topic[grade].sections
-          ) {
-            section.questions =
-              section.questions.filter(
-                question =>
-                  question.id
-                  !== questionId,
-              )
-          }
+        const topicAdditions =
+          additions.value[key]
+
+        if (!topicAdditions) {
+          return
         }
+
+        topicAdditions.junior =
+          topicAdditions.junior
+            .filter(
+              question =>
+                question.id
+                !== questionId,
+            )
+
+        topicAdditions.middle =
+          topicAdditions.middle
+            .filter(
+              question =>
+                question.id
+                !== questionId,
+            )
       }
 
       const deleteTopic = (
         topicId: number,
       ) => {
+        // Удаляем только пользовательские
+        // темы. Встроенную тему удалить
+        // через этот store нельзя.
         topics.value =
           topics.value.filter(
             topic =>
@@ -253,8 +576,11 @@ export const useCustomContentStore =
       }
 
       watch(
-        topics,
-        value => {
+        [
+          topics,
+          additions,
+        ],
+        () => {
           if (
             typeof window
             === 'undefined'
@@ -262,9 +588,18 @@ export const useCustomContentStore =
             return
           }
 
+          const payload:
+            StoredCustomContent = {
+              version: 2,
+              customTopics:
+                topics.value,
+              additions:
+                additions.value,
+            }
+
           window.localStorage.setItem(
             STORAGE_KEY,
-            JSON.stringify(value),
+            JSON.stringify(payload),
           )
         },
         {
@@ -274,9 +609,16 @@ export const useCustomContentStore =
 
       return {
         topics,
+        additions,
         hasTopics,
+        builtInTopics,
+        allTopicsWithCustomQuestions,
         createTopic,
         getTopic,
+        getCustomTopic,
+        getTopicWithCustomQuestions,
+        isCustomTopic,
+        isBuiltInTopic,
         addQuestion,
         deleteQuestion,
         deleteTopic,

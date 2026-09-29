@@ -9,10 +9,6 @@ import {
 } from 'pinia'
 
 import {
-  allTopics,
-} from '../data/questions'
-
-import {
   useCustomContentStore,
 } from './customContent'
 
@@ -86,13 +82,11 @@ export const useFavoritesStore =
               FavoriteQuestion
             >()
 
-          const topics = [
-            ...allTopics,
-            ...customContentStore
-              .topics,
-          ]
-
-          for (const topic of topics) {
+          for (
+            const topic
+            of customContentStore
+              .allTopicsWithCustomQuestions
+          ) {
             const grades: Grade[] = [
               'junior',
               'middle',
@@ -203,10 +197,11 @@ export const useFavoritesStore =
         questionId: string,
       ) => {
         favoriteIds.value =
-          favoriteIds.value.filter(
-            id =>
-              id !== questionId,
-          )
+          favoriteIds.value
+            .filter(
+              id =>
+                id !== questionId,
+            )
       }
 
       watch(

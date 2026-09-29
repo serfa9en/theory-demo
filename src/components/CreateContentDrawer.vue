@@ -56,6 +56,9 @@ const topicError =
 const questionError =
   ref('')
 
+const successMessage =
+  ref('')
+
 const selectedTopic =
   computed(() => {
     if (
@@ -67,9 +70,24 @@ const selectedTopic =
 
     return (
       customContentStore
-        .getTopic(
+        .getTopicWithCustomQuestions(
           selectedTopicId.value,
         )
+    )
+  })
+
+const builtInTopics =
+  computed(() => {
+    return (
+      customContentStore
+        .builtInTopics
+    )
+  })
+
+const customTopics =
+  computed(() => {
+    return (
+      customContentStore.topics
     )
   })
 
@@ -85,6 +103,7 @@ const resetQuestionForm = () => {
 
 const createTopic = () => {
   topicError.value = ''
+  successMessage.value = ''
 
   const topic =
     customContentStore
@@ -105,10 +124,14 @@ const createTopic = () => {
   menuStore.selectItem(
     topic.id,
   )
+
+  successMessage.value =
+    `Тема «${topic.title}» создана.`
 }
 
 const addQuestion = () => {
   questionError.value = ''
+  successMessage.value = ''
 
   if (
     selectedTopicId.value
@@ -118,6 +141,12 @@ const addQuestion = () => {
       'Сначала выберите тему.'
     return
   }
+
+  const currentTopic =
+    customContentStore
+      .getTopicWithCustomQuestions(
+        selectedTopicId.value,
+      )
 
   const question =
     customContentStore
@@ -135,11 +164,18 @@ const addQuestion = () => {
     return
   }
 
+  const topicTitle =
+    currentTopic?.title
+    ?? 'выбранную тему'
+
   resetQuestionForm()
 
   menuStore.selectItem(
     selectedTopicId.value,
   )
+
+  successMessage.value =
+    `Вопрос добавлен в «${topicTitle}».`
 }
 
 const selectTopic = (
@@ -149,6 +185,11 @@ const selectTopic = (
     topicId
 
   resetQuestionForm()
+  successMessage.value = ''
+
+  menuStore.selectItem(
+    topicId,
+  )
 }
 
 const deleteTopic = (
@@ -162,9 +203,7 @@ const deleteTopic = (
     === topicId
   ) {
     selectedTopicId.value =
-      customContentStore
-        .topics[0]?.id
-      ?? null
+      null
   }
 
   if (
@@ -199,8 +238,9 @@ watch(
         === null
     ) {
       selectedTopicId.value =
-        customContentStore
-          .topics[0]?.id
+        menuStore.selectedItemId
+        ?? builtInTopics.value[0]?.id
+        ?? customTopics.value[0]?.id
         ?? null
     }
   },
@@ -242,7 +282,7 @@ onBeforeUnmount(() => {
             </h2>
 
             <p>
-              Свои темы и вопросы
+              Темы и вопросы
             </p>
           </div>
 
@@ -293,11 +333,170 @@ onBeforeUnmount(() => {
             </p>
           </section>
 
+          <section class="creator-section">
+            <h3>
+              Добавить вопрос
+            </h3>
+
+            <label class="field">
+              <span>
+                Тема
+              </span>
+
+              <select
+                v-model="
+                  selectedTopicId
+                "
+                class="input"
+                @change="
+                  successMessage = ''
+                "
+              >
+                <optgroup
+                  label="Встроенные темы"
+                >
+                  <option
+                    v-for="
+                      topic in
+                        builtInTopics
+                    "
+                    :key="topic.id"
+                    :value="topic.id"
+                  >
+                    {{ topic.title }}
+                  </option>
+                </optgroup>
+
+                <optgroup
+                  v-if="
+                    customTopics.length
+                  "
+                  label="Мои темы"
+                >
+                  <option
+                    v-for="
+                      topic in
+                        customTopics
+                    "
+                    :key="topic.id"
+                    :value="topic.id"
+                  >
+                    {{ topic.title }}
+                  </option>
+                </optgroup>
+              </select>
+            </label>
+
+            <form
+              v-if="selectedTopic"
+              class="question-form"
+              @submit.prevent="
+                addQuestion
+              "
+            >
+              <div class="selected-topic">
+                <span>
+                  Добавляем в:
+                </span>
+
+                <strong>
+                  {{
+                    selectedTopic.title
+                  }}
+                </strong>
+              </div>
+
+              <label class="field">
+                <span>
+                  Уровень
+                </span>
+
+                <select
+                  v-model="
+                    questionGrade
+                  "
+                  class="input"
+                >
+                  <option value="junior">
+                    Junior
+                  </option>
+
+                  <option value="middle">
+                    Middle
+                  </option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>
+                  Вопрос
+                </span>
+
+                <textarea
+                  v-model="
+                    questionTitle
+                  "
+                  class="textarea"
+                  placeholder="Введите вопрос"
+                  rows="3"
+                />
+              </label>
+
+              <label class="field">
+                <span>
+                  Подробный ответ
+                </span>
+
+                <textarea
+                  v-model="
+                    fullAnswer
+                  "
+                  class="textarea full-answer"
+                  placeholder="Подробный ответ. Можно использовать Markdown-разметку."
+                  rows="9"
+                />
+              </label>
+
+              <label class="field">
+                <span>
+                  Краткий ответ
+                </span>
+
+                <textarea
+                  v-model="
+                    shortAnswer
+                  "
+                  class="textarea"
+                  placeholder="Короткий ответ для собеседования"
+                  rows="4"
+                />
+              </label>
+
+              <p
+                v-if="questionError"
+                class="form-error"
+              >
+                {{ questionError }}
+              </p>
+
+              <p
+                v-if="successMessage"
+                class="form-success"
+              >
+                {{ successMessage }}
+              </p>
+
+              <button
+                type="submit"
+                class="primary-button wide"
+              >
+                Добавить вопрос
+              </button>
+            </form>
+          </section>
+
           <section
-            v-if="
-              customContentStore
-                .topics.length
-            "
+            v-if="customTopics.length"
             class="creator-section"
           >
             <h3>
@@ -308,8 +507,7 @@ onBeforeUnmount(() => {
               <div
                 v-for="
                   topic in
-                    customContentStore
-                      .topics
+                    customTopics
                 "
                 :key="topic.id"
                 class="topic-row"
@@ -347,153 +545,6 @@ onBeforeUnmount(() => {
               </div>
             </div>
           </section>
-
-          <section
-            v-if="selectedTopic"
-            class="creator-section"
-          >
-            <div class="section-heading">
-              <div>
-                <h3>
-                  Новый вопрос
-                </h3>
-
-                <p>
-                  {{
-                    selectedTopic.title
-                  }}
-                </p>
-              </div>
-            </div>
-
-            <form
-              class="question-form"
-              @submit.prevent="
-                addQuestion
-              "
-            >
-              <label class="field">
-                <span>
-                  Уровень
-                </span>
-
-                <select
-                  v-model="
-                    questionGrade
-                  "
-                  class="input"
-                >
-                  <option value="junior">
-                    Junior
-                  </option>
-
-                  <option value="middle">
-                    Middle
-                  </option>
-                </select>
-              </label>
-
-              <label class="field">
-                <span>
-                  Вопрос
-                </span>
-
-                <textarea
-                  v-model="
-                    questionTitle
-                  "
-                  class="textarea question-textarea"
-                  placeholder="Введите вопрос"
-                  rows="3"
-                />
-              </label>
-
-              <label class="field">
-                <span>
-                  Подробный ответ
-                </span>
-
-                <textarea
-                  v-model="
-                    fullAnswer
-                  "
-                  class="textarea full-answer"
-                  placeholder="Подробный ответ. Можно использовать Markdown-разметку, как в существующих вопросах."
-                  rows="9"
-                />
-              </label>
-
-              <label class="field">
-                <span>
-                  Краткий ответ
-                </span>
-
-                <textarea
-                  v-model="
-                    shortAnswer
-                  "
-                  class="textarea"
-                  placeholder="Короткий ответ для собеседования"
-                  rows="4"
-                />
-              </label>
-
-              <p
-                v-if="questionError"
-                class="form-error"
-              >
-                {{ questionError }}
-              </p>
-
-              <button
-                type="submit"
-                class="primary-button wide"
-              >
-                Добавить вопрос
-              </button>
-            </form>
-
-            <div class="topic-summary">
-              <span>
-                Junior:
-                {{
-                  selectedTopic
-                    .junior
-                    .sections[0]
-                    ?.questions
-                    .length
-                  ?? 0
-                }}
-              </span>
-
-              <span>
-                Middle:
-                {{
-                  selectedTopic
-                    .middle
-                    .sections[0]
-                    ?.questions
-                    .length
-                  ?? 0
-                }}
-              </span>
-            </div>
-          </section>
-
-          <div
-            v-else
-            class="empty-state"
-          >
-            <h3>
-              Создай первую тему
-            </h3>
-
-            <p>
-              После этого здесь
-              появится форма
-              добавления вопросов.
-            </p>
-          </div>
         </div>
       </aside>
     </Transition>
@@ -507,7 +558,8 @@ onBeforeUnmount(() => {
   z-index: 9000;
   background:
     rgba(16, 24, 40, 0.28);
-  backdrop-filter: blur(2px);
+  backdrop-filter:
+    blur(2px);
 }
 
 .creator-drawer {
@@ -517,7 +569,8 @@ onBeforeUnmount(() => {
   right: 0;
   bottom: 0;
 
-  width: min(540px, 96vw);
+  width:
+    min(540px, 96vw);
   background: #ffffff;
   box-shadow:
     -12px 0 40px
@@ -529,7 +582,8 @@ onBeforeUnmount(() => {
 
 .creator-header {
   min-height: 92px;
-  padding: 22px 24px 18px;
+  padding:
+    22px 24px 18px;
   border-bottom:
     1px solid #edf0f4;
 
@@ -564,16 +618,12 @@ onBeforeUnmount(() => {
   line-height: 1;
 }
 
-.close-button:hover {
-  background: #eceef2;
-  color: #1a1a2e;
-}
-
 .creator-body {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding: 20px 24px 32px;
+  padding:
+    20px 24px 32px;
 }
 
 .creator-section {
@@ -597,16 +647,13 @@ onBeforeUnmount(() => {
 .input,
 .textarea {
   width: 100%;
-  border: 1px solid #d8dde5;
+  border:
+    1px solid #d8dde5;
   border-radius: 9px;
   background: #fff;
   color: #262936;
   font: inherit;
   font-size: 14px;
-
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
 }
 
 .input {
@@ -651,6 +698,54 @@ onBeforeUnmount(() => {
   width: 100%;
 }
 
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.field > span {
+  color: #4d5260;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.question-form {
+  margin-top: 14px;
+}
+
+.selected-topic {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #f2f8ff;
+  color: #52606d;
+  font-size: 13px;
+}
+
+.selected-topic strong {
+  color: #236596;
+}
+
+.full-answer {
+  min-height: 180px;
+}
+
+.form-error {
+  margin:
+    0 0 12px;
+  color: #c23d60;
+  font-size: 13px;
+}
+
+.form-success {
+  margin:
+    0 0 12px;
+  color: #2e7d32;
+  font-size: 13px;
+}
+
 .topic-list {
   display: flex;
   flex-direction: column;
@@ -658,7 +753,8 @@ onBeforeUnmount(() => {
 }
 
 .topic-row {
-  border: 1px solid #e2e6ec;
+  border:
+    1px solid #e2e6ec;
   border-radius: 9px;
   display: flex;
   overflow: hidden;
@@ -695,78 +791,6 @@ onBeforeUnmount(() => {
   color: #cf426e;
 }
 
-.section-heading {
-  margin-bottom: 14px;
-}
-
-.section-heading h3 {
-  margin-bottom: 3px;
-}
-
-.section-heading p {
-  margin: 0;
-  color: #727784;
-  font-size: 13px;
-}
-
-.question-form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.field > span {
-  color: #4d5260;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.full-answer {
-  min-height: 180px;
-}
-
-.form-error {
-  margin: 8px 0 0;
-  color: #c23d60;
-  font-size: 13px;
-}
-
-.topic-summary {
-  margin-top: 14px;
-  display: flex;
-  gap: 10px;
-  color: #6c7280;
-  font-size: 12px;
-}
-
-.topic-summary span {
-  padding: 5px 8px;
-  border-radius: 999px;
-  background: #f2f4f7;
-}
-
-.empty-state {
-  padding: 40px 10px;
-  text-align: center;
-  color: #6f7480;
-}
-
-.empty-state h3 {
-  color: #2d303a;
-  margin-bottom: 8px;
-}
-
-.empty-state p {
-  margin: 0;
-  line-height: 1.5;
-}
-
 .creator-enter-active,
 .creator-leave-active {
   transition:
@@ -790,7 +814,9 @@ onBeforeUnmount(() => {
   opacity: 0;
 }
 
-@media (max-width: 560px) {
+@media (
+  max-width: 560px
+) {
   .topic-form {
     flex-direction: column;
   }

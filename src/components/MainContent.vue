@@ -10,13 +10,17 @@
 
       <div class="grade-legend">
         <div class="grade-legend-item">
-          <span class="legend-badge junior">
+          <span
+            class="legend-badge junior"
+          >
             Junior
           </span>
         </div>
 
         <div class="grade-legend-item">
-          <span class="legend-badge middle">
+          <span
+            class="legend-badge middle"
+          >
             Middle
           </span>
         </div>
@@ -83,12 +87,8 @@ import {
 } from 'vue'
 
 import {
-  getTopicQuestions,
-} from '../data/questions/index.ts'
-
-import {
   useCustomContentStore,
-} from '../stores/customContent'
+} from '../stores/customContent.ts'
 
 import {
   useMenuStore,
@@ -123,9 +123,10 @@ const currentTopic =
     }
 
     return (
-      getTopicQuestions(id)
-      ?? customContentStore
-        .getTopic(id)
+      customContentStore
+        .getTopicWithCustomQuestions(
+          id,
+        )
     )
   })
 </script>
@@ -173,7 +174,8 @@ const currentTopic =
 
 .grade-legend {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -204,7 +206,6 @@ const currentTopic =
       minmax(0, 1fr)
     );
   gap: 24px;
-
   width: 100%;
   align-items: start;
 }
@@ -214,14 +215,17 @@ const currentTopic =
   width: 100%;
 }
 
-@media (max-width: 900px) {
+@media (
+  max-width: 900px
+) {
   .main-content {
     padding: 22px;
   }
 
   .questions-grid,
   .grade-legend {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
   }
 }
 </style>
