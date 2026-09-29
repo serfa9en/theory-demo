@@ -12,12 +12,17 @@ import {
   allTopics,
 } from '../data/questions'
 
+import {
+  useCustomContentStore,
+} from './customContent'
+
 import type {
   Grade,
   Question,
 } from '../types/question'
 
-const STORAGE_KEY = 'theory-demo:favorites'
+const STORAGE_KEY =
+  'theory-demo:favorites'
 
 export interface FavoriteQuestion {
   question: Question
@@ -27,43 +32,11 @@ export interface FavoriteQuestion {
   sectionTitle: string
 }
 
-const questionIndex = new Map<
-  string,
-  FavoriteQuestion
->()
-
-for (const topic of allTopics) {
-  const grades: Grade[] = [
-    'junior',
-    'middle',
-  ]
-
-  for (const grade of grades) {
-    for (
-      const section
-      of topic[grade].sections
-    ) {
-      for (
-        const question
-        of section.questions
-      ) {
-        questionIndex.set(
-          question.id,
-          {
-            question,
-            topicId: topic.id,
-            topicTitle: topic.title,
-            grade,
-            sectionTitle: section.title,
-          },
-        )
-      }
-    }
-  }
-}
-
-function loadFavoriteIds(): string[] {
-  if (typeof window === 'undefined') {
+function loadFavoriteIds():
+  string[] {
+  if (
+    typeof window === 'undefined'
+  ) {
     return []
   }
 
@@ -77,7 +50,8 @@ function loadFavoriteIds(): string[] {
       return []
     }
 
-    const parsed = JSON.parse(value)
+    const parsed =
+      JSON.parse(value)
 
     if (!Array.isArray(parsed)) {
       return []
@@ -85,8 +59,7 @@ function loadFavoriteIds(): string[] {
 
     return parsed.filter(
       (id): id is string =>
-        typeof id === 'string'
-        && questionIndex.has(id),
+        typeof id === 'string',
     )
   } catch {
     return []
@@ -97,10 +70,66 @@ export const useFavoritesStore =
   defineStore(
     'favorites',
     () => {
+      const customContentStore =
+        useCustomContentStore()
+
       const favoriteIds =
         ref<string[]>(
           loadFavoriteIds(),
         )
+
+      const questionIndex =
+        computed(() => {
+          const index =
+            new Map<
+              string,
+              FavoriteQuestion
+            >()
+
+          const topics = [
+            ...allTopics,
+            ...customContentStore
+              .topics,
+          ]
+
+          for (const topic of topics) {
+            const grades: Grade[] = [
+              'junior',
+              'middle',
+            ]
+
+            for (
+              const grade
+              of grades
+            ) {
+              for (
+                const section
+                of topic[grade].sections
+              ) {
+                for (
+                  const question
+                  of section.questions
+                ) {
+                  index.set(
+                    question.id,
+                    {
+                      question,
+                      topicId:
+                        topic.id,
+                      topicTitle:
+                        topic.title,
+                      grade,
+                      sectionTitle:
+                        section.title,
+                    },
+                  )
+                }
+              }
+            }
+          }
+
+          return index
+        })
 
       const favoriteIdSet =
         computed(() => {
@@ -110,48 +139,57 @@ export const useFavoritesStore =
         })
 
       const favoriteQuestions =
-        computed<FavoriteQuestion[]>(
-          () => {
-            return favoriteIds.value
-              .map(id =>
-                questionIndex.get(id),
-              )
-              .filter(
-                (
-                  item,
-                ): item is FavoriteQuestion =>
-                  item !== undefined,
-              )
-          },
-        )
+        computed<
+          FavoriteQuestion[]
+        >(() => {
+          return favoriteIds.value
+            .map(id =>
+              questionIndex.value
+                .get(id),
+            )
+            .filter(
+              (
+                item,
+              ): item is FavoriteQuestion =>
+                item !== undefined,
+            )
+        })
 
       const count =
-        computed(() => {
-          return favoriteIds.value.length
-        })
+        computed(
+          () =>
+            favoriteQuestions.value
+              .length,
+        )
 
       const isFavorite = (
         questionId: string,
       ) => {
-        return favoriteIdSet.value.has(
-          questionId,
-        )
+        return favoriteIdSet.value
+          .has(questionId)
       }
 
       const toggleFavorite = (
         questionId: string,
       ) => {
         if (
-          !questionIndex.has(questionId)
+          !questionIndex.value.has(
+            questionId,
+          )
         ) {
           return
         }
 
-        if (isFavorite(questionId)) {
+        if (
+          isFavorite(questionId)
+        ) {
           favoriteIds.value =
-            favoriteIds.value.filter(
-              id => id !== questionId,
-            )
+            favoriteIds.value
+              .filter(
+                id =>
+                  id !== questionId,
+              )
+
           return
         }
 
@@ -166,7 +204,8 @@ export const useFavoritesStore =
       ) => {
         favoriteIds.value =
           favoriteIds.value.filter(
-            id => id !== questionId,
+            id =>
+              id !== questionId,
           )
       }
 

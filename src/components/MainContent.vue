@@ -26,7 +26,11 @@
         <div class="questions-column">
           <QuestionColumn
             grade="junior"
-            :sections="currentTopic.junior.sections"
+            :sections="
+              currentTopic
+                .junior
+                .sections
+            "
             @select-question="
               question =>
                 emit(
@@ -40,7 +44,11 @@
         <div class="questions-column">
           <QuestionColumn
             grade="middle"
-            :sections="currentTopic.middle.sections"
+            :sections="
+              currentTopic
+                .middle
+                .sections
+            "
             @select-question="
               question =>
                 emit(
@@ -75,18 +83,23 @@ import {
 } from 'vue'
 
 import {
-  useMenuStore,
-} from '../stores/menu'
-
-import QuestionColumn from './QuestionColumn.vue'
+  getTopicQuestions,
+} from '../data/questions/index.ts'
 
 import {
-  getTopicQuestions,
-} from '../data/questions'
+  useCustomContentStore,
+} from '../stores/customContent'
+
+import {
+  useMenuStore,
+} from '../stores/menu.ts'
+
+import QuestionColumn
+  from './QuestionColumn.vue'
 
 import type {
   Question,
-} from '../types/question'
+} from '../types/question.ts'
 
 const emit = defineEmits<{
   selectQuestion: [
@@ -94,18 +107,27 @@ const emit = defineEmits<{
   ]
 }>()
 
-const menuStore = useMenuStore()
+const menuStore =
+  useMenuStore()
 
-const currentTopic = computed(() => {
-  const id =
-    menuStore.selectedItemId
+const customContentStore =
+  useCustomContentStore()
 
-  if (id === null) {
-    return null
-  }
+const currentTopic =
+  computed(() => {
+    const id =
+      menuStore.selectedItemId
 
-  return getTopicQuestions(id)
-})
+    if (id === null) {
+      return null
+    }
+
+    return (
+      getTopicQuestions(id)
+      ?? customContentStore
+        .getTopic(id)
+    )
+  })
 </script>
 
 <style scoped>

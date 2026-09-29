@@ -7,7 +7,12 @@ import {
   defineStore,
 } from 'pinia'
 
-import menuData from '../data/menuItems.json'
+import menuData
+  from '../data/menuItems.json'
+
+import {
+  useCustomContentStore,
+} from './customContent'
 
 import type {
   MenuGroup,
@@ -15,58 +20,104 @@ import type {
 } from '../types/menuItem'
 
 export const useMenuStore =
-  defineStore('menu', () => {
-    const menuGroups =
-      ref<MenuGroup[]>(
-        menuData as MenuGroup[],
-      )
+  defineStore(
+    'menu',
+    () => {
+      const customContentStore =
+        useCustomContentStore()
 
-    const selectedItemId =
-      ref<number | null>(null)
+      const baseMenuGroups =
+        ref<MenuGroup[]>(
+          menuData as MenuGroup[],
+        )
 
-    const selectedItem =
-      computed<MenuItem | null>(() => {
-        if (
-          selectedItemId.value === null
-        ) {
-          return null
-        }
+      const selectedItemId =
+        ref<number | null>(null)
 
-        for (
-          const group
-          of menuGroups.value
-        ) {
-          const item =
-            group.items.find(
-              item =>
-                item.id ===
-                selectedItemId.value,
-            )
+      const menuGroups =
+        computed<MenuGroup[]>(
+          () => {
+            const groups =
+              baseMenuGroups.value
 
-          if (item) {
-            return item
-          }
-        }
+            if (
+              !customContentStore
+                .topics.length
+            ) {
+              return groups
+            }
 
-        return null
-      })
+            const customItems =
+              customContentStore.topics
+                .map<MenuItem>(
+                  topic => ({
+                    id: topic.id,
+                    name: topic.title,
+                    juniorInfo: {},
+                    middleInfo: {},
+                  }),
+                )
 
-    const selectItem = (
-      id: number,
-    ) => {
-      selectedItemId.value = id
-    }
+            return [
+              ...groups,
+              {
+                id: 'custom',
+                title: 'Мои темы',
+                items: customItems,
+              },
+            ]
+          },
+        )
 
-    const clearSelection = () => {
-      selectedItemId.value = null
-    }
+      const selectedItem =
+        computed<MenuItem | null>(
+          () => {
+            if (
+              selectedItemId.value
+              === null
+            ) {
+              return null
+            }
 
-    return {
-      menuGroups,
-      selectedItemId,
-      selectedItem,
+            for (
+              const group
+              of menuGroups.value
+            ) {
+              const item =
+                group.items.find(
+                  item =>
+                    item.id
+                    ===
+                    selectedItemId.value,
+                )
 
-      selectItem,
-      clearSelection,
-    }
-  })
+              if (item) {
+                return item
+              }
+            }
+
+            return null
+          },
+        )
+
+      const selectItem = (
+        id: number,
+      ) => {
+        selectedItemId.value =
+          id
+      }
+
+      const clearSelection = () => {
+        selectedItemId.value =
+          null
+      }
+
+      return {
+        menuGroups,
+        selectedItemId,
+        selectedItem,
+        selectItem,
+        clearSelection,
+      }
+    },
+  )

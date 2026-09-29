@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {
   useFavoritesStore,
-} from '../stores/favorites.ts'
+} from '../stores/favorites'
 
 import type {
   Grade,

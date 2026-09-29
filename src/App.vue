@@ -5,7 +5,10 @@
     <div class="app-main">
       <AppHeader
         @open-favorites="
-          isFavoritesOpen = true
+          openFavorites
+        "
+        @open-creator="
+          openCreator
         "
       />
 
@@ -17,12 +20,23 @@
     </div>
 
     <FavoritesDrawer
-      :is-open="isFavoritesOpen"
+      :is-open="
+        isFavoritesOpen
+      "
       @close="
         isFavoritesOpen = false
       "
       @select-question="
         openQuestionFromFavorites
+      "
+    />
+
+    <CreateContentDrawer
+      :is-open="
+        isCreatorOpen
+      "
+      @close="
+        isCreatorOpen = false
       "
     />
 
@@ -45,21 +59,52 @@ import {
   ref,
 } from 'vue'
 
-import AppHeader from './components/AppHeader.vue'
-import FavoritesDrawer from './components/FavoritesDrawer.vue'
-import MainContent from './components/MainContent.vue'
-import QuestionModal from './components/QuestionModal.vue'
-import Sidebar from './components/Sidebar.vue'
+import AppHeader
+  from './components/AppHeader.vue'
+
+import CreateContentDrawer
+  from './components/CreateContentDrawer.vue'
+
+import FavoritesDrawer
+  from './components/FavoritesDrawer.vue'
+
+import MainContent
+  from './components/MainContent.vue'
+
+import QuestionModal
+  from './components/QuestionModal.vue'
+
+import Sidebar
+  from './components/Sidebar.vue'
 
 import type {
   Question,
-} from './types/question'
+} from './types/question.ts'
 
 const isFavoritesOpen =
   ref(false)
 
+const isCreatorOpen =
+  ref(false)
+
 const selectedQuestion =
   ref<Question | null>(null)
+
+const openFavorites = () => {
+  isCreatorOpen.value =
+    false
+
+  isFavoritesOpen.value =
+    true
+}
+
+const openCreator = () => {
+  isFavoritesOpen.value =
+    false
+
+  isCreatorOpen.value =
+    true
+}
 
 const openQuestion = (
   question: Question,
@@ -100,7 +145,10 @@ body {
   overflow: hidden;
 }
 
-button {
+button,
+input,
+textarea,
+select {
   font-family: inherit;
 }
 
