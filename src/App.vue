@@ -10,6 +10,9 @@
         @open-creator="
           openCreator
         "
+        @search="
+          handleSearch
+        "
       />
 
       <MainContent
@@ -21,6 +24,21 @@
         "
       />
     </div>
+
+    <SearchDrawer
+      :is-open="
+        isSearchOpen
+      "
+      :query="
+        searchQuery
+      "
+      @close="
+        isSearchOpen = false
+      "
+      @select-question="
+        openQuestionFromSearch
+      "
+    />
 
     <FavoritesDrawer
       :is-open="
@@ -98,6 +116,9 @@ import MainContent
 import QuestionModal
   from './components/QuestionModal.vue'
 
+import SearchDrawer
+  from './components/SearchDrawer.vue'
+
 import Sidebar
   from './components/Sidebar.vue'
 
@@ -119,6 +140,12 @@ const isCreatorOpen =
 const isEditorOpen =
   ref(false)
 
+const isSearchOpen =
+  ref(false)
+
+const searchQuery =
+  ref('')
+
 const selectedQuestion =
   ref<Question | null>(null)
 
@@ -128,20 +155,48 @@ const editingTopicId =
 const editingQuestion =
   ref<Question | null>(null)
 
-const openFavorites = () => {
+const closeSidePanels = () => {
+  isFavoritesOpen.value =
+    false
   isCreatorOpen.value =
     false
   isEditorOpen.value =
     false
+  isSearchOpen.value =
+    false
+}
+
+const handleSearch = (
+  query: string,
+) => {
+  searchQuery.value =
+    query
+
+  if (!query.trim()) {
+    isSearchOpen.value =
+      false
+    return
+  }
+
+  isFavoritesOpen.value =
+    false
+  isCreatorOpen.value =
+    false
+  isEditorOpen.value =
+    false
+
+  isSearchOpen.value =
+    true
+}
+
+const openFavorites = () => {
+  closeSidePanels()
   isFavoritesOpen.value =
     true
 }
 
 const openCreator = () => {
-  isFavoritesOpen.value =
-    false
-  isEditorOpen.value =
-    false
+  closeSidePanels()
   isCreatorOpen.value =
     true
 }
@@ -163,13 +218,20 @@ const openQuestionFromFavorites = (
     question
 }
 
+const openQuestionFromSearch = (
+  question: Question,
+) => {
+  isSearchOpen.value =
+    false
+
+  selectedQuestion.value =
+    question
+}
+
 const openQuestionEditor = (
   payload: EditQuestionPayload,
 ) => {
-  isFavoritesOpen.value =
-    false
-  isCreatorOpen.value =
-    false
+  closeSidePanels()
 
   editingTopicId.value =
     payload.topicId

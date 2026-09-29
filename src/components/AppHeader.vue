@@ -1,20 +1,91 @@
 <script setup lang="ts">
 import {
+  ref,
+} from 'vue'
+
+import {
   useFavoritesStore,
 } from '../stores/favorites'
 
-defineEmits<{
+const emit = defineEmits<{
   openFavorites: []
   openCreator: []
+  search: [
+    query: string,
+  ]
 }>()
 
 const favoritesStore =
   useFavoritesStore()
+
+const searchQuery =
+  ref('')
+
+const submitSearch = () => {
+  emit(
+    'search',
+    searchQuery.value,
+  )
+}
+
+const clearSearch = () => {
+  searchQuery.value = ''
+
+  emit(
+    'search',
+    '',
+  )
+}
 </script>
 
 <template>
   <header class="app-header">
-    <div class="header-spacer" />
+    <div class="search-wrapper">
+      <svg
+        class="search-icon"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <circle
+          cx="11"
+          cy="11"
+          r="7"
+        />
+        <line
+          x1="16.65"
+          y1="16.65"
+          x2="21"
+          y2="21"
+        />
+      </svg>
+
+      <input
+        v-model="searchQuery"
+        class="search-input"
+        type="search"
+        placeholder="Поиск по темам, вопросам и ответам..."
+        @input="submitSearch"
+        @keydown.enter.prevent="
+          submitSearch
+        "
+      >
+
+      <button
+        v-if="searchQuery"
+        type="button"
+        class="clear-search"
+        aria-label="Очистить поиск"
+        title="Очистить"
+        @click="clearSearch"
+      >
+        ×
+      </button>
+    </div>
 
     <div class="header-actions">
       <button
@@ -92,21 +163,88 @@ const favoritesStore =
 <style scoped>
 .app-header {
   flex-shrink: 0;
-  height: 64px;
-  padding: 0 28px;
-  background: rgba(255, 255, 255, 0.96);
-  border-bottom: 1px solid #e9eef3;
-  box-shadow: 0 2px 12px rgba(26, 26, 46, 0.05);
+  min-height: 64px;
+  padding: 10px 28px;
+  background:
+    rgba(255, 255, 255, 0.96);
+  border-bottom:
+    1px solid #e9eef3;
+  box-shadow:
+    0 2px 12px
+    rgba(26, 26, 46, 0.05);
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.search-wrapper {
+  flex: 1;
+  max-width: 720px;
+  min-width: 220px;
+  position: relative;
 
   display: flex;
   align-items: center;
 }
 
-.header-spacer {
-  flex: 1;
+.search-icon {
+  position: absolute;
+  left: 13px;
+  color: #8a909c;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 42px;
+  padding:
+    9px 40px 9px 40px;
+  border:
+    1px solid #dce1e8;
+  border-radius: 11px;
+  background: #f8fafc;
+  color: #242733;
+  font: inherit;
+  font-size: 14px;
+
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  background: #fff;
+  border-color: #8fc3ec;
+  box-shadow:
+    0 0 0 3px
+    rgba(33, 150, 243, 0.10);
+}
+
+.clear-search {
+  position: absolute;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #8a909c;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.clear-search:hover {
+  background: #edf0f4;
+  color: #4f5560;
 }
 
 .header-actions {
+  margin-left: auto;
+
   display: flex;
   align-items: center;
   gap: 10px;
@@ -175,5 +313,23 @@ const favoritesStore =
 
   font-size: 12px;
   line-height: 1;
+}
+
+@media (max-width: 850px) {
+  .app-header {
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .search-wrapper {
+    order: 2;
+    flex-basis: 100%;
+    max-width: none;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
 </style>
