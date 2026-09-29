@@ -1564,26 +1564,34 @@ Pinia интегрируется с Vue Devtools и показывает stores,
 {
 "id": `4-middle-общее-11`,
 "title": `Как работать с rootState, rootGetters и динамической регистрацией модулей в Vuex?`,
-"fullAnswer": `## Общие getters и обработка ошибок
+"fullAnswer": `## rootState, rootGetters и динамические модули Vuex
 
-В Pinia нет специального понятия root getters как во Vuex. Общую вычисляемую логику обычно оформляют отдельным store или composable, а один store может использовать другой внутри getter/action.
+В namespaced-модуле Vuex локальный getter/action по умолчанию работает со своим state/getters, а доступ к корневому дереву выполняется через \`rootState\` и \`rootGetters\`. Динамические модули подключаются во время работы приложения через \`store.registerModule()\` и удаляются через \`store.unregisterModule()\`.
 
 **Ключевые моменты:**
-- Ошибки в actions можно пробрасывать вызывающему коду либо нормализовать в одном месте.
-- Для глобального логирования действий используют \`$onAction()\` или plugin.
-- Не скрывайте ошибку без изменения состояния loading/error.
+- Action получает \`rootState\` и \`rootGetters\` в context.
+- Для dispatch/commit в корневое пространство из namespaced-модуля передают \`{ root: true }\`.
+- Динамические модули полезны для lazy-loaded функциональности.
+- При удалении модуля учитывайте его subscriptions и жизненный цикл.
 
 **Пример:**
 
-\`\`\`ts
-async function load() {
-  this.loading = true
-  try { this.data = await api.get() }
-  catch (e) { this.error = normalizeError(e); throw e }
-  finally { this.loading = false }
+\`\`\`js
+const module = {
+  namespaced: true,
+  actions: {
+    save({ rootState, rootGetters, dispatch }) {
+      console.log(rootState.user)
+      console.log(rootGetters["auth/isAdmin"])
+      return dispatch("notifications/push", "saved", { root: true })
+    },
+  },
 }
+
+store.registerModule("feature", module)
+store.unregisterModule("feature")
 \`\`\``,
-"shortAnswer": `Общие getters и обработка ошибок В Pinia нет специального понятия root getters как во Vuex.  Общую вычисляемую логику обычно оформляют отдельным store или composable, а один store может использовать другой внутри getter/action.`,
+"shortAnswer": `rootState, rootGetters и динамические модули Vuex В namespaced-модуле Vuex локальный getter/action по умолчанию работает со своим state/getters, а доступ к корневому дереву выполняется через rootState и rootGetters.  Динамические модули подключаются во время работы приложения через store.`,
 },
 ],
 },

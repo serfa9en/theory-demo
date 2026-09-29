@@ -1,0 +1,3049 @@
+import type { TopicQuestions } from '../../types/question'
+
+export const topic1Questions: TopicQuestions = {
+"id": 1,
+"slug": `topic-1`,
+"title": `HTML, CSS, JavaScript`,
+"junior": {
+"sections": [
+{
+"id": `html`,
+"title": `HTML`,
+"questions": [
+{
+"id": `1-junior-html-1`,
+"title": `Что такое HTML? Структура HTML-документа (<!DOCTYPE>, <html>, <head>, <body>)?`,
+"fullAnswer": `**HTML (HyperText Markup Language)** — это язык разметки для создания веб-страниц. Он описывает структуру контента с помощью тегов.
+
+**Базовая структура:**
+\`\`\`html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заголовок страницы</title>
+</head>
+<body>
+  <!-- Контент страницы -->
+</body>
+</html>
+\`\`\`
+
+**Ключевые моменты:**
+- \`&lt;!DOCTYPE html&gt;\` — объявление типа документа (HTML5)
+- \`&lt;html&gt;\` — корневой элемент
+- \`&lt;head&gt;\` — метаданные (заголовок, кодировка, подключение скриптов)
+- \`&lt;body&gt;\` — видимый контент страницы`,
+"shortAnswer": `HTML (HyperText Markup Language) — это язык разметки для создания веб-страниц.  Он описывает структуру контента с помощью тегов.`,
+},
+{
+"id": `1-junior-html-2`,
+"title": `Чем отличаются блочные и строчные элементы?`,
+"fullAnswer": `**Блочные элементы** занимают всю доступную ширину и начинаются с новой строки. **Строчные элементы** занимают только ширину своего контента и не начинают новую строку.
+
+**Блочные:** \`&lt;div&gt;\`, \`&lt;p&gt;\`, \`&lt;h1&gt;-&lt;h6&gt;\`, \`&lt;ul&gt;\`, \`&lt;li&gt;\`, \`&lt;section&gt;\`, \`&lt;article&gt;\`
+
+**Строчные:** \`&lt;span&gt;\`, \`&lt;a&gt;\`, \`&lt;strong&gt;\`, \`&lt;em&gt;\`, \`&lt;img&gt;\`, \`&lt;input&gt;\`
+
+**Ключевые моменты:**
+- Блочные можно вкладывать в блочные и строчные
+- Строчные можно вкладывать только в строчные (но есть исключения)
+- Через CSS можно менять поведение (\`display: block/inline/inline-block\`)`,
+"shortAnswer": `Блочные элементы занимают всю доступную ширину и начинаются с новой строки.  Строчные элементы занимают только ширину своего контента и не начинают новую строку.`,
+},
+{
+"id": `1-junior-html-3`,
+"title": `Что такое семантические теги (<header>, <nav>, <main>, <section>, <article>, <footer>)?`,
+"fullAnswer": `**Семантические теги** — это теги, которые описывают смысл содержимого, а не только его внешний вид.
+
+**Примеры:**
+- \`&lt;header&gt;\` — шапка страницы/секции
+- \`&lt;nav&gt;\` — навигация
+- \`&lt;main&gt;\` — основное содержимое
+- \`&lt;section&gt;\` — тематическая секция
+- \`&lt;article&gt;\` — самостоятельная статья
+- \`&lt;footer&gt;\` — подвал
+
+**Ключевые моменты:**
+- Улучшают SEO (поисковики лучше понимают структуру)
+- Улучшают доступность (скринридеры правильно интерпретируют)
+- Делают код более читаемым`,
+"shortAnswer": `Семантические теги — это теги, которые описывают смысл содержимого, а не только его внешний вид.`,
+},
+{
+"id": `1-junior-html-4`,
+"title": `Как работают формы (<form>, <input>, <select>)?`,
+"fullAnswer": `**Формы** используются для отправки данных от пользователя на сервер.
+
+**Базовая структура:**
+\`\`\`html
+<form action="/submit" method="POST">
+  <input type="text" name="username" placeholder="Имя">
+  <input type="email" name="email" required>
+  <select name="country">
+    <option value="ru">Россия</option>
+  </select>
+  <textarea name="message"></textarea>
+  <button type="submit">Отправить</button>
+</form>
+\`\`\`
+
+**Типы \`&lt;input&gt;\`:** \`text\`, \`password\` , \`email\` , \`number\` ,  \`date\`, \`checkbox\`, \`radio\` , \`file\` , \`submit\`
+
+**Ключевые моменты:**
+- \`action\`  — URL для отправки данных
+- \`method\` — HTTP метод (GET/POST)
+- \`name\` — имя поля (используется на сервере)
+- \`required\`  — обязательное поле`,
+"shortAnswer": `Как работают формы (<form>, <input>, <select>): Формы используются для отправки данных от пользователя на сервер.`,
+},
+{
+"id": `1-junior-html-5`,
+"title": `Что такое атрибуты id и class? В чём разница?`,
+"fullAnswer": `** \`id\` ** — уникальный идентификатор элемента на странице. Должен быть **один на страницу**.
+
+** \`class\`** — класс элемента. Может использоваться **многократно** для стилизации и выбора через JS.
+
+\`\`\`html
+<div id="header">Уникальный элемент</div>
+<div class="card">Может быть много таких</div>
+<div class="card active">Классов может быть несколько</div>
+\`\`\`
+
+**Ключевые моменты:**
+- \`id\` используется для якорных ссылок (\`#header\`) и в JS (\`getElementById\`)
+-  \`class\` используется для CSS-стилей и группировки элементов
+- В CSS  \`#id\`  имеет больший вес, чем  \`.class\` `,
+"shortAnswer": `id — уникальный идентификатор элемента на странице.  Должен быть один на страницу.`,
+},
+{
+"id": `1-junior-html-6`,
+"title": `Что такое meta-теги? Зачем нужен <meta charset> и <meta viewport>?`,
+"fullAnswer": `** \`meta\` -теги** — это метаданные о документе, которые не отображаются на странице, но используются браузером и поисковиками.
+
+**Важные примеры:**
+\`\`\`html
+<meta charset="UTF-8"> <!-- Кодировка символов -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Адаптивность -->
+<meta name="description" content="Описание сайта"> <!-- Для SEO -->
+<meta name="keywords" content="ключевые, слова"> <!-- Для SEO (устарело) -->
+\`\`\`
+
+**Ключевые моменты:**
+-  \`charset\`  — обязательная кодировка (обычно UTF-8)
+-  \`viewport\`  — критичен для мобильных устройств
+- \`description\`  — отображается в результатах поиска`,
+"shortAnswer": `meta -теги — это метаданные о документе, которые не отображаются на странице, но используются браузером и поисковиками.`,
+},
+],
+},
+{
+"id": `css`,
+"title": `CSS`,
+"questions": [
+{
+"id": `1-junior-css-1`,
+"title": `Что такое Box Model? Из чего состоит (content, padding, border, margin)?`,
+"fullAnswer": `**Box Model (блочная модель)** — это модель, описывающая как рассчитывается размер каждого элемента. Каждый элемент — это прямоугольник, состоящий из 4 частей:
+
+1. **Content** — содержимое (текст, изображения)
+2. **Padding** — внутренний отступ (между контентом и границей)
+3. **Border** — граница
+4. **Margin** — внешний отступ (между элементами)
+
+\`\`\`css
+.box {
+  width: 200px;        /* ширина контента */
+  padding: 20px;       /* внутренний отступ */
+  border: 5px solid;   /* граница */
+  margin: 10px;        /* внешний отступ */
+}
+/* Итоговая ширина: 200 + 20*2 + 5*2 = 250px */
+\`\`\`
+
+**Ключевые моменты:**
+- По умолчанию  \`width\`  задаёт только ширину контента
+- Padding и border добавляются к размеру
+- Margin не входит в размер элемента`,
+"shortAnswer": `Box Model (блочная модель) — это модель, описывающая как рассчитывается размер каждого элемента.`,
+},
+{
+"id": `1-junior-css-2`,
+"title": `Чем отличается box-sizing: content-box от border-box?`,
+"fullAnswer": `** \`box-sizing: content-box\`** (по умолчанию) — \`width\` задаёт только ширину контента. Padding и border добавляются.
+
+** \`box-sizing: border-box\`** — \`width\` задаёт общую ширину элемента, включая padding и border.
+
+\`\`\`css
+/* content-box (по умолчанию) */
+.box1 {
+  width: 200px;
+  padding: 20px;
+  /* Итоговая ширина: 240px */
+}
+
+/* border-box */
+.box2 {
+  box-sizing: border-box;
+  width: 200px;
+  padding: 20px;
+  /* Итоговая ширина: 200px (контент = 160px) */
+}
+\`\`\`
+
+**Ключевые моменты:**
+- \`border-box\` удобнее для вёрстки (легче рассчитывать размеры)
+- Часто применяют глобально: \`* { box-sizing: border-box; }\``,
+"shortAnswer": `box-sizing: content-box (по умолчанию) — width задаёт только ширину контента.  Padding и border добавляются.`,
+},
+{
+"id": `1-junior-css-3`,
+"title": `Какие есть значения position? (static, relative, absolute, fixed, sticky).`,
+"fullAnswer": `**\`position\`** определяет как элемент позиционируется на странице.
+
+- **\`static\`** (по умолчанию) — обычный поток документа
+- **\`relative\`** — смещение относительно своего нормального положения
+- **\`absolute\`** — позиционирование относительно ближайшего позиционированного предка
+- **\`fixed\`** — позиционирование относительно окна браузера (не двигается при скролле)
+- **\`sticky\`** — гибрид relative и fixed (прилипает при скролле)
+
+\`\`\`css
+.relative { position: relative; top: 10px; left: 20px; }
+.absolute { position: absolute; top: 0; right: 0; }
+.fixed { position: fixed; bottom: 0; width: 100%; }
+.sticky { position: sticky; top: 0; }
+\`\`\`
+
+**Ключевые моменты:**
+- \`absolute\` выпадает из потока документа
+- \`fixed\` остаётся на месте при скролле
+- \`sticky\` работает как \`relative\` до определённой позиции, потом как \`fixed\``,
+"shortAnswer": `Какие есть значения position? (static, relative, absolute, fixed, sticky): position определяет как элемент позиционируется на странице.`,
+},
+{
+"id": `1-junior-css-4`,
+"title": `Что такое display: none vs visibility: hidden?`,
+"fullAnswer": `**\`display: none\`** — элемент полностью удаляется из потока документа. Не занимает места, не кликабелен.
+
+**\`visibility: hidden\`** — элемент скрыт, но занимает место в потоке. Не кликабелен.
+
+\`\`\`css
+.hidden1 { display: none; }        /* Элемента как бы нет */
+.hidden2 { visibility: hidden; }   /* Элемент есть, но не виден */
+\`\`\`
+
+**Ключевые моменты:**
+- \`display: none\` — элемент не рендерится вообще
+- \`visibility: hidden\` — элемент рендерится, но невидим
+- Для анимации появления/скрытия лучше \`opacity\` + \`visibility\``,
+"shortAnswer": `display: none — элемент полностью удаляется из потока документа.  Не занимает места, не кликабелен.`,
+},
+{
+"id": `1-junior-css-5`,
+"title": `Как работают псевдоклассы (:hover, :focus) и псевдоэлементы (::before, ::after)?`,
+"fullAnswer": `**Псевдоклассы** ( \`:hover\`, \`:focus\`, \`:nth-child\`) — определяют состояние элемента.
+
+**Псевдоэлементы** ( \`::before\`, \`::after\`) — создают виртуальные элементы внутри/снаружи элемента.
+
+\`\`\`css
+/* Псевдоклассы */
+a:hover { color: red; }           /* При наведении */
+input:focus { border-color: blue; } /* При фокусе */
+li:nth-child(2n) { background: gray; } /* Чётные элементы */
+
+/* Псевдоэлементы */
+.icon::before {
+  content: "★";
+  margin-right: 5px;
+}
+.quote::after {
+  content: "\\201C";
+}
+\`\`\`
+
+**Ключевые моменты:**
+- Псевдоклассы — одно двоеточие ( \`:hover\`)
+- Псевдоэлементы — два двоеточия ( \`::before\`)
+- \`content\` обязателен для \`::before\` и \`::after\``,
+"shortAnswer": `Псевдоклассы ( :hover, :focus, :nth-child) — определяют состояние элемента.  Псевдоэлементы ( ::before, ::after) — создают виртуальные элементы внутри/снаружи элемента.`,
+},
+{
+"id": `1-junior-css-6`,
+"title": `Что такое медиазапросы (@media)?`,
+"fullAnswer": `**Медиазапросы** ( \`@media\`) позволяют применять разные стили для разных устройств/условий (адаптивная вёрстка).
+
+\`\`\`css
+/* Базовые стили (мобильные) */
+.container { width: 100%; }
+
+/* Планшеты (768px и больше) */
+@media (min-width: 768px) {
+  .container { width: 750px; }
+}
+
+/* Десктоп (1024px и больше) */
+@media (min-width: 1024px) {
+  .container { width: 1000px; }
+}
+
+/* Печать */
+@media print {
+  .no-print { display: none; }
+}
+\`\`\`
+
+**Ключевые моменты:**
+- Mobile-first: сначала стили для мобильных, потом \`min-width\`
+- Desktop-first: сначала для десктопа, потом \`max-width\`
+- Популярные breakpoints: 576px, 768px, 992px, 1200px`,
+"shortAnswer": `Медиазапросы ( @media) позволяют применять разные стили для разных устройств/условий (адаптивная вёрстка).`,
+},
+{
+"id": `1-junior-css-7`,
+"title": `Единицы измерения: px, em, rem, %, vw, vh.`,
+"fullAnswer": `**Абсолютные:**
+- **\`px\`** — пиксели (фиксированный размер)
+
+**Относительные:**
+- **\`%\`** — процент от родителя
+- **\`em\`** — относительно размера шрифта родителя
+- **\`rem\`** — относительно размера шрифта root (\`&lt;html&gt;\`)
+- **\`vw\`** — 1% ширины viewport (окна браузера)
+- **\`vh\`** — 1% высоты viewport
+
+\`\`\`css
+.box {
+  width: 50%;        /* 50% от родителя */
+  font-size: 2em;    /* 2x размер шрифта родителя */
+  padding: 1rem;     /* 1x размер шрифта <html> (обычно 16px) */
+  height: 100vh;     /* 100% высоты экрана */
+}
+\`\`\`
+
+**Ключевые моменты:**
+- \`rem\` предсказуемее \`em\` (не зависит от вложенности)
+- \`vw/vh\` для полноэкранных секций
+- \`%\` для адаптивной ширины`,
+"shortAnswer": `Абсолютные: px — пиксели (фиксированный размер) Относительные: % — процент от родителя em — относительно размера шрифта родителя rem — относительно размера шрифта root (&lt;html&gt;) vw — 1% ширины viewport (окна браузера) vh — 1% высоты viewport Ключевые моменты: rem предсказуемее em (не зависит от вложенности) vw/vh для полноэкранных секций % для адаптивной ширины`,
+},
+],
+},
+{
+"id": `javascript`,
+"title": `JavaScript`,
+"questions": [
+{
+"id": `1-junior-javascript-1`,
+"title": `Какие типы данных есть в JavaScript? (Примитивы и ссылочные).`,
+"fullAnswer": `**Примитивные типы (7):**
+- \`string\` — строка
+- \`number\` — число (целые и дробные)
+- \`boolean\` — true/false
+- \`null\` — явное отсутствие значения
+- \`undefined\` — значение не присвоено
+- \`symbol\` — уникальный идентификатор
+- \`bigint\` — большие целые числа
+
+**Ссылочный тип (1):**
+- \`object\` — объект (включая массивы, функции, даты)
+
+\`\`\`javascript
+let str = "hello";        // string
+let num = 42;             // number
+let bool = true;          // boolean
+let empty = null;         // null
+let notDefined;           // undefined
+let sym = Symbol("id");   // symbol
+let big = 9007199254740991n; // bigint
+let obj = { name: "John" }; // object
+let arr = [1, 2, 3];      // object (массив)
+\`\`\`
+
+**Ключевые моменты:**
+- Примитивы хранятся по значению, объекты — по ссылке
+- \`typeof null\` возвращает \`"object"\` (историческая ошибка)
+- \`typeof []\` возвращает \`"object"\` (массив — это объект)`,
+"shortAnswer": `Примитивные типы (7): string — строка number — число (целые и дробные) boolean — true/false null — явное отсутствие значения undefined — значение не присвоено symbol — уникальный идентификатор bigint — большие целые числа Ссылочный тип (1): object — объект (включая массивы, функции, даты) Ключевые моменты: Примитивы хранятся по значению, объекты — по ссылке typeof null возвращает "object" (историческая ошибка) typeof [] возвращает "object" (массив — это объект)`,
+},
+{
+"id": `1-junior-javascript-2`,
+"title": `Чем отличается == от ===? Что такое приведение типов?`,
+"fullAnswer": `**\`==\` (нестрогое сравнение)** — сравнивает значения с приведением типов.
+
+**\`===\` (строгое сравнение)** — сравнивает значения без приведения типов (и тип, и значение).
+
+\`\`\`javascript
+// == приводит типы
+5 == "5"        // true (строка "5" → число 5)
+0 == false      // true (false → 0)
+null == undefined // true (специальное правило)
+
+// === не приводит типы
+5 === "5"       // false (разные типы)
+0 === false     // false
+null === undefined // false
+\`\`\`
+
+**Ключевые моменты:**
+- Всегда используйте \`===\` и \`!==\`
+- \`==\` может привести к неожиданным результатам
+- Исключение: \`obj == null\` для проверки на \`null\` или \`undefined\``,
+"shortAnswer": `== (нестрогое сравнение) — сравнивает значения с приведением типов.  === (строгое сравнение) — сравнивает значения без приведения типов (и тип, и значение).`,
+},
+{
+"id": `1-junior-javascript-3`,
+"title": `Как работают let, const, var? Что такое временная мёртвая зона (TDZ)?`,
+"fullAnswer": `**\`var\`** — устаревший способ. Имеет функциональную область видимости, поднимается (hoisting), можно переобъявлять.
+
+**\`let\`** — современный способ. Блочная область видимости, нельзя переобъявлять в одном блоке, можно изменять значение.
+
+**\`const\`** — как \`let\`, но нельзя переприсваивать значение (но объекты/массивы можно мутировать).
+
+\`\`\`javascript
+// var — функциональная область видимости
+if (true) {
+  var x = 5;
+}
+console.log(x); // 5 (доступна вне блока)
+
+// let — блочная область видимости
+if (true) {
+  let y = 5;
+}
+console.log(y); // ReferenceError
+
+// const — нельзя переприсвоить
+const z = 5;
+z = 10; // TypeError
+
+// Но объекты можно мутировать
+const obj = { a: 1 };
+obj.a = 2; // OK
+obj = {};  // TypeError
+\`\`\`
+
+**Ключевые моменты:**
+- Используйте \`const\` по умолчанию
+- \`let\` — если нужно изменять значение
+- Избегайте \`var\``,
+"shortAnswer": `var — устаревший способ.  Имеет функциональную область видимости, поднимается (hoisting), можно переобъявлять.`,
+},
+{
+"id": `1-junior-javascript-4`,
+"title": `Что такое замыкание (closure)? Приведите пример.`,
+"fullAnswer": `**Замыкание** — это функция, которая «запоминает» переменные из внешней области видимости, даже когда внешняя функция уже завершилась.
+
+\`\`\`javascript
+function createCounter() {
+  let count = 0; // переменная из внешней функции
+  return function() {
+    count++; // внутренняя функция "запоминает" count
+    return count;
+  };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+\`\`\`
+
+**Практическое применение:**
+- Приватные переменные
+- Фабрики функций
+- Мемоизация (кэширование результатов)
+
+**Ключевые моменты:**
+- Внутренняя функция имеет доступ к переменным внешней
+- Переменные «живут» пока есть ссылка на внутреннюю функцию
+- Основа для многих паттернов в JS`,
+"shortAnswer": `Замыкание — это функция, которая «запоминает» переменные из внешней области видимости, даже когда внешняя функция уже завершилась.`,
+},
+{
+"id": `1-junior-javascript-5`,
+"title": `Как работает this? Чем отличаются call, apply, bind?`,
+"fullAnswer": `**\`this\`** — это контекст выполнения функции. Значение зависит от того, **как** вызвана функция, а не где она определена.
+
+**Правила:**
+1. Обычная функция: \`this\` = объект перед точкой (или \`window\`/ \`undefined\`)
+2. Метод объекта: \`this\` = объект
+3. Конструктор: \`this\` = новый объект
+4. Arrow function: \`this\` берётся из внешнего контекста
+
+\`\`\`javascript
+const obj = {
+  name: "John",
+  greet: function() { console.log(this.name); },
+  greetArrow: () => { console.log(this.name); }
+};
+
+obj.greet();       // "John" (this = obj)
+obj.greetArrow();  // undefined (this = window/global)
+
+// call, apply, bind — явное указание this
+function sayHi() { console.log(\`Hi, \${this.name}\`); }
+const user = { name: "Alice" };
+
+sayHi.call(user);      // "Hi, Alice" (немедленный вызов)
+sayHi.apply(user);     // "Hi, Alice" (немедленный вызов)
+const boundSayHi = sayHi.bind(user);
+boundSayHi();          // "Hi, Alice" (создаёт новую функцию)
+\`\`\`
+
+**Разница:**
+- \`call(obj, arg1, arg2)\` — вызывает функцию с \`this = obj\`
+- \`apply(obj, [args])\` — то же, но аргументы массивом
+- \`bind(obj)\` — возвращает новую функцию с привязанным \`this\``,
+"shortAnswer": `this — это контекст выполнения функции.  Значение зависит от того, как вызвана функция, а не где она определена.`,
+},
+{
+"id": `1-junior-javascript-6`,
+"title": `Что такое массив? Основные методы: push, pop, map, filter, reduce.`,
+"fullAnswer": `**Массив** — это упорядоченная коллекция элементов.
+
+**Основные методы:**
+
+**Мутация (изменяют исходный массив):**
+- \`push()\` / \`pop()\` — добавить/удалить в конце
+- \`shift()\` / \`unshift()\` — удалить/добавить в начале
+- \`splice()\` — удалить/вставить элементы
+- \`sort()\` — сортировка
+- \`reverse()\` — реверс
+
+**Не мутируют (возвращают новый массив):**
+- \`map()\` — трансформация каждого элемента
+- \`filter()\` — фильтрация по условию
+- \`reduce()\` — сведение к одному значению
+- \`find()\` — найти первый подходящий элемент
+- \`forEach()\` — перебор (ничего не возвращает)
+
+\`\`\`javascript
+const arr = [1, 2, 3, 4, 5];
+
+// map — удвоить каждое число
+const doubled = arr.map(x => x * 2); // [2, 4, 6, 8, 10]
+
+// filter — только чётные
+const evens = arr.filter(x => x % 2 === 0); // [2, 4]
+
+// reduce — сумма
+const sum = arr.reduce((acc, x) => acc + x, 0); // 15
+
+// find — найти первое число > 3
+const found = arr.find(x => x > 3); // 4
+\`\`\``,
+"shortAnswer": `Что такое массив? Основные методы: push, pop, map, filter, reduce: Массив — это упорядоченная коллекция элементов.`,
+},
+{
+"id": `1-junior-javascript-7`,
+"title": `Что такое объект? Как обращаться к свойствам?`,
+"fullAnswer": `**Объект** — это коллекция пар ключ-значение.
+
+**Создание:**
+\`\`\`javascript
+const user = {
+  name: "John",
+  age: 30,
+  greet: function() { console.log(\`Hi, \${this.name}\`); }
+};
+\`\`\`
+
+**Доступ к свойствам:**
+\`\`\`javascript
+// Точечная нотация
+console.log(user.name);  // "John"
+user.age = 31;
+
+// Скобочная нотация (для динамических ключей)
+console.log(user["name"]);  // "John"
+const key = "age";
+console.log(user[key]);  // 30
+
+// Проверка существования
+console.log("name" in user);  // true
+console.log(user.hasOwnProperty("name"));  // true
+
+// Удаление
+delete user.age;
+\`\`\`
+
+**Ключевые моменты:**
+- Точечная нотация — когда ключ известен
+- Скобочная — когда ключ в переменной или содержит спецсимволы
+- Объекты передаются по ссылке`,
+"shortAnswer": `Что такое объект? Как обращаться к свойствам: Объект — это коллекция пар ключ-значение.`,
+},
+{
+"id": `1-junior-javascript-8`,
+"title": `Разница между Function Declaration, Expression и Arrow Function.`,
+"fullAnswer": `**Function Declaration** — объявление функции. Поднимается (hoisting), можно вызывать до объявления.
+
+**Function Expression** — функция как выражение. Не поднимается, имеет \`this\`.
+
+**Arrow Function** — стрелочная функция. Краткий синтаксис, нет своего \`this\` (берёт из внешнего контекста).
+
+\`\`\`javascript
+// Function Declaration
+function sum(a, b) {
+  return a + b;
+}
+
+// Function Expression
+const sum = function(a, b) {
+  return a + b;
+};
+
+// Arrow Function
+const sum = (a, b) => a + b;
+
+// Если один параметр — скобки не обязательны
+const double = x => x * 2;
+
+// Если нет параметров — пустые скобки
+const greet = () => "Hello";
+\`\`\`
+
+**Ключевые моменты:**
+- Declaration — hoisting, можно использовать везде
+- Expression — нет hoisting, \`this\` = контекст вызова
+- Arrow — нет \`this\`, \`arguments\`, \`super\`; нельзя использовать как конструктор`,
+"shortAnswer": `Function Declaration — объявление функции.  Поднимается (hoisting), можно вызывать до объявления.`,
+},
+{
+"id": `1-junior-javascript-9`,
+"title": `Что такое область видимости (scope)?`,
+"fullAnswer": `**Область видимости** — это контекст, в котором доступны переменные.
+
+**Типы:**
+- **Глобальная** — доступна везде
+- **Функциональная** — внутри функции
+- **Блочная** — внутри \`{}\` (для \`let\`/ \`const\`)
+
+\`\`\`javascript
+let global = "I'm global";
+
+function outer() {
+  let outerVar = "I'm outer";
+  
+  if (true) {
+    let blockVar = "I'm block";
+    var funcVar = "I'm functional";
+    
+    console.log(global);    // OK
+    console.log(outerVar);  // OK
+    console.log(blockVar);  // OK
+  }
+  
+  console.log(blockVar);  // ReferenceError (let — блочная)
+  console.log(funcVar);   // OK (var — функциональная)
+}
+
+console.log(global);    // OK
+console.log(outerVar);  // ReferenceError
+\`\`\`
+
+**Ключевые моменты:**
+- \`var\` — функциональная область видимости
+- \`let\`/ \`const\` — блочная область видимости
+- Вложенные функции видят переменные внешних`,
+"shortAnswer": `Что такое область видимости (scope): Область видимости — это контекст, в котором доступны переменные.`,
+},
+{
+"id": `1-junior-javascript-10`,
+"title": `Что такое undefined и null? В чём разница?`,
+"fullAnswer": `**\`undefined\`** — значение не присвоено. Переменная объявлена, но значение не установлено.
+
+**\`null\`** — явное отсутствие значения. Специальное значение, которое присваивается программистом.
+
+\`\`\`javascript
+let x;              // undefined (не присвоено)
+let y = null;       // null (явно пусто)
+
+console.log(x);     // undefined
+console.log(y);     // null
+
+// typeof
+console.log(typeof undefined);  // "undefined"
+console.log(typeof null);       // "object" (историческая ошибка!)
+
+// Сравнение
+console.log(undefined == null);   // true (специальное правило)
+console.log(undefined === null);  // false (разные типы)
+
+// Преобразование в число
+console.log(Number(undefined));   // NaN
+console.log(Number(null));        // 0
+\`\`\`
+
+**Ключевые моменты:**
+- \`undefined\` — «системное» отсутствие значения
+- \`null\` — «программистское» отсутствие значения
+- Используйте \`null\` для явного обнуления`,
+"shortAnswer": `undefined — значение не присвоено.  Переменная объявлена, но значение не установлено.`,
+},
+{
+"id": `1-junior-javascript-11`,
+"title": `Как работает try...catch...finally?`,
+"fullAnswer": `**\`try...catch\`** — конструкция для обработки ошибок (исключений).
+
+\`\`\`javascript
+try {
+  // Код, который может вызвать ошибку
+  let result = someFunction();
+  console.log(result);
+} catch (error) {
+  // Выполняется, если в try произошла ошибка
+  console.error("Ошибка:", error.message);
+} finally {
+  // Выполняется ВСЕГДА (и при успехе, и при ошибке)
+  console.log("Завершение");
+}
+
+// Пример с генерацией ошибки
+try {
+  throw new Error("Что-то пошло не так");
+} catch (error) {
+  console.log(error.message);  // "Что-то пошло не так"
+}
+\`\`\`
+
+**Ключевые моменты:**
+- \`try\` — блок с потенциально опасным кодом
+- \`catch\` — обработка ошибки (получает объект ошибки)
+- \`finally\` — выполняется всегда (для очистки ресурсов)
+- Можно генерировать свои ошибки через \`throw\``,
+"shortAnswer": `Как работает try...catch...finally: try... catch — конструкция для обработки ошибок (исключений).`,
+},
+{
+"id": `1-junior-javascript-12`,
+"title": `Что такое DOM? Как найти элемент (querySelector)?`,
+"fullAnswer": `**DOM (Document Object Model)** — это программный интерфейс для HTML-документов. Представляет страницу как дерево объектов, которым можно управлять через JavaScript.
+
+**Поиск элементов:**
+\`\`\`javascript
+// По ID (один элемент)
+const header = document.getElementById("header");
+
+// По CSS-селектору (первый найденный)
+const btn = document.querySelector(".btn");
+
+// По CSS-селектору (все найденные)
+const items = document.querySelectorAll(".item");
+
+// Устаревшие методы
+const divs = document.getElementsByTagName("div");
+const buttons = document.getElementsByClassName("btn");
+\`\`\`
+
+**Ключевые моменты:**
+- \`getElementById\` — самый быстрый
+- \`querySelector\` — гибкий (любой CSS-селектор)
+- \`querySelectorAll\` — возвращает NodeList (можно перебирать)`,
+"shortAnswer": `DOM (Document Object Model) — это программный интерфейс для HTML-документов.  Представляет страницу как дерево объектов, которым можно управлять через JavaScript.`,
+},
+{
+"id": `1-junior-javascript-13`,
+"title": `Что такое события? Как повесить обработчик (addEventListener)?`,
+"fullAnswer": `**События** — это сигналы от браузера (клик, нажатие клавиши, загрузка страницы и т.д.).
+
+**Добавление обработчика:**
+\`\`\`javascript
+const button = document.querySelector("#myBtn");
+
+// Способ 1: addEventListener (рекомендуется)
+button.addEventListener("click", function(event) {
+  console.log("Клик!", event);
+});
+
+// Способ 2: свойство onclick (устаревший)
+button.onclick = function() {
+  console.log("Клик!");
+};
+
+// Способ 3: inline (не рекомендуется)
+// <button onclick="handleClick()">Клик</button>
+\`\`\`
+
+**Популярные события:**
+- \`click\`, \`dblclick\` — клик
+- \`mouseover\`, \`mouseout\` — наведение мыши
+- \`keydown\`, \`keyup\` — клавиатура
+- \`submit\` — отправка формы
+- \`load\` — загрузка страницы`,
+"shortAnswer": `События — это сигналы от браузера (клик, нажатие клавиши, загрузка страницы и т. д.`,
+},
+{
+"id": `1-junior-javascript-14`,
+"title": `Что такое всплытие (bubbling) и перехват (capturing)?`,
+"fullAnswer": `**Всплытие (bubbling)** — событие всплывает от целевого элемента к корню документа.
+
+**Перехват (capturing)** — событие спускается от корня к целевому элементу.
+
+\`\`\`html
+<div id="outer">
+  <button id="inner">Клик</button>
+</div>
+\`\`\`
+
+\`\`\`javascript
+// Всплытие (по умолчанию)
+document.getElementById("outer").addEventListener("click", () => {
+  console.log("Outer clicked");
+});
+
+document.getElementById("inner").addEventListener("click", () => {
+  console.log("Inner clicked");
+});
+
+// При клике на button выведется:
+// "Inner clicked" (сначала целевой элемент)
+// "Outer clicked" (потом всплытие)
+
+// Перехват (третий параметр = true)
+document.getElementById("outer").addEventListener("click", () => {
+  console.log("Outer capturing");
+}, true);
+
+// Порядок: "Outer capturing" → "Inner clicked" → "Outer clicked"
+\`\`\`
+
+**Ключевые моменты:**
+- По умолчанию события всплывают
+- \`event.stopPropagation()\` — остановить всплытие
+- Третий параметр \`true\` — включить перехват`,
+"shortAnswer": `Всплытие (bubbling) — событие всплывает от целевого элемента к корню документа.  Перехват (capturing) — событие спускается от корня к целевому элементу.`,
+},
+{
+"id": `1-junior-javascript-15`,
+"title": `Что такое event.preventDefault() и stopPropagation()?`,
+"fullAnswer": `**\`preventDefault()\`** — отменяет стандартное поведение браузера.
+
+**\`stopPropagation()\`** — останавливает всплытие события.
+
+\`\`\`javascript
+// preventDefault — отмена стандартного поведения
+const link = document.querySelector("a");
+link.addEventListener("click", (event) => {
+  event.preventDefault(); // Ссылка не перейдёт
+  console.log("Клик обработан");
+});
+
+const form = document.querySelector("form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); // Форма не отправится
+  console.log("Форма обработана");
+});
+
+// stopPropagation — остановка всплытия
+document.getElementById("inner").addEventListener("click", (event) => {
+  event.stopPropagation(); // Событие не всплывёт до outer
+  console.log("Inner clicked");
+});
+\`\`\`
+
+**Ключевые моменты:**
+- \`preventDefault\` — для отмены действий браузера (переход по ссылке, отправка формы)
+- \`stopPropagation\` — для предотвращения всплытия`,
+"shortAnswer": `preventDefault() — отменяет стандартное поведение браузера.  stopPropagation() — останавливает всплытие события.`,
+},
+{
+"id": `1-junior-javascript-16`,
+"title": `Как сделать HTTP-запрос из браузера? (fetch).`,
+"fullAnswer": `**\`fetch\`** — современный способ делать HTTP-запросы.
+
+\`\`\`javascript
+// GET запрос
+fetch("https://api.example.com/users")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Ошибка сети");
+    }
+    return response.json(); // парсим JSON
+  })
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+// С async/await (современный способ)
+async function getUsers() {
+  try {
+    const response = await fetch("https://api.example.com/users");
+    if (!response.ok) throw new Error("Ошибка сети");
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// POST запрос
+async function createUser(userData) {
+  const response = await fetch("https://api.example.com/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(userData)
+  });
+  return response.json();
+}
+\`\`\`
+
+**Ключевые моменты:**
+- \`fetch\` возвращает Promise
+- \`response.json()\` — парсит JSON
+- Нужно проверять \`response.ok\` (fetch не считает ошибкой 404/500)`,
+"shortAnswer": `fetch — современный способ делать HTTP-запросы.  Ключевые моменты: fetch возвращает Promise response.`,
+},
+{
+"id": `1-junior-javascript-17`,
+"title": `Что такое JSON? Как парсить и сериализовать?`,
+"fullAnswer": `**JSON (JavaScript Object Notation)** — текстовый формат обмена данными.
+
+**Сериализация (объект → строка):**
+\`\`\`javascript
+const user = { name: "John", age: 30 };
+const jsonString = JSON.stringify(user);
+// '{"name":"John","age":30}'
+\`\`\`
+
+**Парсинг (строка → объект):**
+\`\`\`javascript
+const jsonString = '{"name":"John","age":30}';
+const user = JSON.parse(jsonString);
+// { name: "John", age: 30 }
+\`\`\`
+
+**Обработка ошибок:**
+\`\`\`javascript
+try {
+  const data = JSON.parse(invalidJsonString);
+} catch (error) {
+  console.error("Ошибка парсинга JSON:", error);
+}
+\`\`\`
+
+**Ключевые моменты:**
+- JSON — стандарт для API
+- \`JSON.stringify()\` — объект в строку
+- \`JSON.parse()\` — строка в объект
+- JSON не поддерживает функции, undefined, Date (только строки)`,
+"shortAnswer": `JSON (JavaScript Object Notation) — текстовый формат обмена данными.  Сериализация (объект → строка): Парсинг (строка → объект): Обработка ошибок: Ключевые моменты: JSON — стандарт для API JSON.`,
+},
+],
+},
+],
+},
+"middle": {
+"sections": [
+{
+"id": `html-css`,
+"title": `HTML & CSS`,
+"questions": [
+{
+"id": `1-middle-html-css-1`,
+"title": `Что такое специфичность (specificity) селекторов?`,
+"fullAnswer": `**Специфичность** — вес CSS-селектора, определяющий какой стиль применится при конфликте.
+
+**Расчёт специфичности (a, b, c):**
+- **a** — количество ID-селекторов ( \`#id\` )
+- **b** — количество классов, атрибутов, псевдоклассов ( \`.class\` ,  \`[attr]\` ,  \`:hover\` )
+- **c** — количество типов элементов, псевдоэлементов ( \`div\` ,  \`::before\` )
+
+**Примеры:**
+\`\`\`css
+div { }                    /* 0, 0, 1 */
+.class { }                 /* 0, 1, 0 */
+#id { }                    /* 1, 0, 0 */
+div.class { }              /* 0, 1, 1 */
+#id .class div { }         /* 1, 1, 1 */
+\`\`\`
+
+**Приоритет (от высшего к низшему):**
+ 1. \`!important\` 
+ 2. Inline-стили ( \`style="..."\` ) — 1, 0, 0, 0
+ 3. ID — 1, 0, 0
+ 4. Классы, атрибуты, псевдоклассы — 0, 1, 0
+ 5. Элементы, псевдоэлементы — 0, 0, 1
+ 6. Универсальный селектор ( \`&ast;\` ) — 0, 0, 0
+
+\`\`\`css
+.button { color: red; }           /* 0, 1, 0 */
+button.button { color: blue; }    /* 0, 1, 1 — победит */
+#main .button { color: green; }   /* 1, 1, 0 — победит всех */
+\`\`\`
+
+💡 **Для собеседования:** Специфичность — это не «сумма», а «кортеж» (1, 0, 0) > (0, 10, 0). При равной специфичности побеждает последнее правило.`,
+"shortAnswer": `Специфичность — это не «сумма», а «кортеж» (1, 0, 0) > (0, 10, 0). При равной специфичности побеждает последнее правило.`,
+},
+{
+"id": `1-middle-html-css-2`,
+"title": `Контекст наложения (stacking context): как работает z-index?`,
+"fullAnswer": `**Stacking context** — трёхмерная концепция: элементы располагаются по X, Y и Z (глубине).
+
+**Когда создаётся новый stacking context:**
+- \`position: absolute/relative/fixed/sticky\` + \`z-index\` не \`auto\` 
+- \`opacity\` < 1
+- \`transform\` не \`none\` 
+- \`filter\` не \`none\` 
+- \`will-change\` с любым из вышеперечисленных
+- \`flex/grid\` элемент + \`z-index\` не \`auto\` 
+- \`isolation: isolate\` 
+- \`contain: paint/layout/strict/content\` 
+
+**Как работает \`z-index\` :**
+\`\`\`css
+.parent {
+  position: relative;
+  z-index: 1;
+}
+.child1 {
+  position: absolute;
+  z-index: 100;
+}
+.other {
+  position: relative;
+  z-index: 2;
+}
+\`\`\`
+
+**Порядок наложения (от нижнего к верхнему):**
+ 1. Фон и границы root-элемента
+ 2. Блочные потомки в потоке
+ 3. Позиционированные элементы в потоке
+ 4. Плавающие элементы ( \`float\` )
+ 5. Инлайновые элементы
+ 6. Позиционированные элементы с \`z-index: auto\` / \`0\` 
+ 7. Позиционированные элементы с \`z-index\` > 0 (по возрастанию)
+
+💡 **Для собеседования:** \`z-index\` работает только внутри своего stacking context. Нельзя сделать 
+\`z-index: 9999\` внутри родителя с \`z-index: 1\` и ожидать, что он будет выше соседа родителя с \`z-index: 2\` .`,
+"shortAnswer": `z-index работает только внутри своего stacking context. Нельзя сделать`,
+},
+{
+"id": `1-middle-html-css-3`,
+"title": `Flexbox vs CSS Grid: когда что применять?`,
+"fullAnswer": `**Flexbox** — одномерная модель (строка ИЛИ колонка).
+
+**Grid** — двумерная модель (строки И колонки одновременно).
+
+**Flexbox — когда использовать:**
+- Компоненты в одну линию (навигация, кнопки)
+- Выравнивание элементов внутри контейнера
+- Распределение пространства
+- Динамический размер элементов
+
+\`\`\`css
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+\`\`\`
+
+**Grid — когда использовать:**
+- Макет всей страницы
+- Сложные двумерные раскладки
+- Точные строки и колонки
+- Выравнивание по обеим осям
+
+\`\`\`css
+.page {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+\`\`\`
+
+ **Сравнение Flexbox и Grid**
+
+ ** Измерения. ** **Flexbox** работает в одном измерении (только строка или только столбец). **Grid** работает в двух измерениях (одновременно строки и столбцы).
+
+ ** Подход. ** **Flexbox** использует подход «от контента» (content-first), подстраивая макет под содержимое. **Grid** использует подход «от макета» (layout-first), задавая структуру сетки заранее. 
+
+ **Выравнивание. ** Во **Flexbox** выравнивание элементов происходит только по одной оси. В **Grid** выравнивание можно контролировать одновременно по двум осям.
+
+ **Отступы (Gap).** Во **Flexbox** для отступов используется только общее свойство \`gap\`. В **Grid** поддерживаются как общее \`gap\`, так и раздельные \`row-gap\` и \`column-gap\`.
+
+💡 **Для собеседования:** Flexbox — для компонентов и выравнивания. Grid — для общего макета страницы. Часто используются вместе.`,
+"shortAnswer": `Flexbox — для компонентов и выравнивания. Grid — для общего макета страницы. Часто используются вместе.`,
+},
+{
+"id": `1-middle-html-css-4`,
+"title": `Что такое BEM? Альтернативы (CSS Modules, CSS-in-JS).`,
+"fullAnswer": `**BEM (Block, Element, Modifier)** — методология именования CSS-классов.
+
+**Принципы:**
+- **Block** — независимый блок ( \`button\` ,  \`card\` )
+- **Element** — часть блока ( \`button__icon\` ,  \`card__title\` )
+- **Modifier** — вариант/состояние ( \`button--primary\` ,  \`card--active\` )
+
+\`\`\`css
+.card { }
+.card__title { }
+.card__content { }
+.card--featured { }
+.card__title--large { }
+\`\`\`
+
+\`\`\`html
+<div class="card card--featured">
+  <h2 class="card__title card__title--large">Заголовок</h2>
+  <div class="card__content">Контент</div>
+</div>
+\`\`\`
+
+**Плюсы BEM:**
+- Предсказуемые имена
+- Низкая специфичность
+- Лёгкое переиспользование
+
+**Минусы BEM:**
+- Длинные имена классов
+- Нужно договариваться о соглашениях
+
+**Альтернативы:**
+
+**CSS Modules:**
+\`\`\`css
+/* Button.module.css */
+.button { padding: 10px; }
+.primary { background: blue; }
+\`\`\`
+\`\`\`jsx
+import styles from "./Button.module.css";
+<button className={\`\${styles.button} \${styles.primary}\`}>Click</button>
+\`\`\`
+- Автоматическая уникальность имён
+- Локальная область видимости
+
+**CSS-in-JS (styled-components):**
+\`\`\`jsx
+const Button = styled.button
+  padding: 10px;
+  background: \${props => props.primary ? "blue" : "gray"};
+\`;
+<Button primary>Click</Button>
+\`\`\`
+- Динамические стили через props
+- Автоматический vendor-prefixing
+
+**Tailwind CSS:**
+\`\`\`html
+<button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+  Click
+</button>
+\`\`\`
+- Быстрая разработка
+- Нет необходимости придумывать имена
+
+💡 **Для собеседования:** BEM — для больших проектов с vanilla CSS. CSS Modules — для React/Vue. CSS-in-JS — для динамических тем. Tailwind — для быстрого прототипирования.`,
+"shortAnswer": `BEM — для больших проектов с vanilla CSS. CSS Modules — для React/Vue. CSS-in-JS — для динамических тем. Tailwind — для быстрого прототипирования.`,
+},
+{
+"id": `1-middle-html-css-5`,
+"title": `Что такое reflow и repaint? Как оптимизировать рендеринг?`,
+"fullAnswer": `**Critical Rendering Path** — путь браузера от получения HTML до отрисовки пикселей.
+
+**Этапы рендеринга:**
+ 1. **Parse HTML** → DOM Tree
+ 2. **Parse CSS** → CSSOM Tree
+ 3. **Combine** → Render Tree
+ 4. **Layout (Reflow)** — вычисление геометрии
+ 5. **Paint (Repaint)** — отрисовка пикселей
+ 6. **Composite** — сборка слоёв
+
+**Reflow (Layout)** — пересчёт геометрии (позиция, размер). Дорогая операция.
+
+**Repaint** — перерисовка внешнего вида (цвет, фон). Дешевле reflow.
+
+**Composite** — сборка слоёв. Самая дешёвая.
+
+**Что вызывает reflow:**
+- Изменение размеров ( \`width\` ,  \`height\` ,  \`padding\` ,  \`margin\` )
+- Изменение позиции ( \`top\` ,  \`left\` )
+- Добавление/удаление элементов
+- Изменение шрифта
+- Чтение \`offsetWidth\` ,  \`clientHeight\` ,  \`getBoundingClientRect()\` 
+
+**Что вызывает repaint:**
+- Изменение \`color\` ,  \`background\` ,  \`visibility\` 
+- \`box-shadow\` ,  \`border-radius\` 
+- \`outline\` 
+
+**Что НЕ вызывает reflow/repaint:**
+- \`transform\` (translate, scale, rotate)
+- \`opacity\` 
+- \`will-change\` 
+
+**Оптимизация:**
+
+**1. Batch DOM changes:**
+\`\`\`javascript
+// ❌ Плохо — 3 reflow
+element.style.width = "100px";
+element.style.height = "100px";
+element.style.margin = "10px";
+
+// ✅ Хорошо — 1 reflow
+element.style.cssText = "width: 100px; height: 100px; margin: 10px;";
+
+// ✅ Ещё лучше — через класс
+element.classList.add("resized");
+\`\`\`
+
+**2. Избегайте forced synchronous layout:**
+\`\`\`javascript
+// ❌ Плохо
+for (let i = 0; i < elements.length; i++) {
+  elements[i].style.left = element.offsetLeft + 10 + "px";
+}
+
+// ✅ Хорошо
+const lefts = Array.from(elements).map(el => el.offsetLeft);
+elements.forEach((el, i) => {
+  el.style.left = lefts[i] + 10 + "px";
+});
+\`\`\`
+
+**3. Используйте \`transform\` и \`opacity\` для анимаций:**
+\`\`\`css
+/* ❌ Плохо — вызывает reflow */
+.box {
+  transition: left 0.3s;
+}
+.box:hover {
+  left: 100px;
+}
+
+/* ✅ Хорошо — только composite */
+.box {
+  transition: transform 0.3s;
+}
+.box:hover {
+  transform: translateX(100px);
+}
+\`\`\`
+
+**4. Используйте \`will-change\` :**
+\`\`\`css
+.animated {
+  will-change: transform;
+}
+\`\`\`
+
+ **Для собеседования:** Анимации делайте через \`transform\` и \`opacity\` — они работают на GPU и не вызывают reflow.`,
+"shortAnswer": `Анимации делайте через transform и opacity — они работают на GPU и не вызывают reflow.`,
+},
+{
+"id": `1-middle-html-css-6`,
+"title": `Семантическая вёрстка и доступность (a11y): ARIA-атрибуты.`,
+"fullAnswer": `**Семантическая вёрстка** — использование HTML-тегов по их назначению.
+
+**Зачем нужна:**
+- SEO (поисковики лучше понимают структуру)
+- Доступность (скринридеры правильно интерпретируют)
+- Читаемость кода
+
+**Семантические теги:**
+\`\`\`html
+<header>Шапка сайта</header>
+<nav>Навигация</nav>
+<main>Основной контент</main>
+<article>Статья</article>
+<section>Секция</section>
+<aside>Боковая панель</aside>
+<footer>Подвал</footer>
+<figure>Иллюстрация</figure>
+<figcaption>Подпись к иллюстрации</figcaption>
+<time datetime="2024-01-01">1 января 2024</time>
+<details><summary>Подробнее</summary>Скрытый текст</details>
+\`\`\`
+
+**ARIA (Accessible Rich Internet Applications)** — атрибуты для улучшения доступности.
+
+**Категории ARIA:**
+
+**1. Roles (роли):**
+\`\`\`html
+<div role="alert">Важное сообщение</div>
+<div role="tablist">
+  <button role="tab">Вкладка 1</button>
+  <button role="tab">Вкладка 2</button>
+</div>
+<div role="tabpanel">Контент вкладки</div>
+\`\`\`
+
+**2. Properties (свойства):**
+\`\`\`html
+<button aria-label="Закрыть">×</button>
+<input aria-describedby="hint">
+<span id="hint">Введите email</span>
+<img aria-hidden="true" src="decorative.png">
+\`\`\`
+
+**3. States (состояния):**
+\`\`\`html
+<button aria-expanded="true">Меню</button>
+<input aria-invalid="true">
+<div aria-hidden="true">Скрытый контент</div>
+<button aria-disabled="true">Неактивная кнопка</button>
+\`\`\`
+
+**Первое правило ARIA:**
+> Если можно использовать семантический HTML — используйте его.
+
+\`\`\`html
+<!-- ❌ Плохо -->
+<div role="button" tabindex="0">Кнопка</div>
+<!-- ✅ Хорошо -->
+<button>Кнопка</button>
+\`\`\`
+
+**Практические советы:**
+- Всегда добавляйте \`alt\` к изображениям
+- Используйте \`label\` для форм
+- Обеспечьте навигацию с клавиатуры ( \`tabindex\` )
+- Проверяйте контрастность (минимум 4.5:1 для текста)
+- Тестируйте со скринридерами (NVDA, VoiceOver)
+
+💡 **Для собеседования:** ARIA — это последний рубеж. Сначала семантический HTML, потом ARIA только там, где HTML не справляется.`,
+"shortAnswer": `ARIA — это последний рубеж. Сначала семантический HTML, потом ARIA только там, где HTML не справляется.`,
+},
+],
+},
+{
+"id": `javascript`,
+"title": `JavaScript`,
+"questions": [
+{
+"id": `1-middle-javascript-1`,
+"title": `Как работает Event Loop? Чем макротаски отличаются от микротасок?`,
+"fullAnswer": `**Event Loop** — механизм, позволяющий JavaScript выполнять асинхронные операции.
+
+**Цикл работы Event Loop:**
+ 1. Выполнить синхронный код из call stack
+ 2. Проверить очередь **микротасок** — выполнить все до конца
+ 3. Выполнить **одну** макротаску
+ 4. Перерисовать UI (если нужно)
+ 5. Повторить
+
+**Макротаски:**
+- \`setTimeout\` ,  \`setInterval\` 
+- I/O операции
+- UI rendering
+- \`setImmediate\` (Node.js)
+
+**Микротаски:**
+- \`Promise.then/catch/finally\` 
+-  \`queueMicrotask()\`
+-  \`MutationObserver\` 
+- \`process.nextTick\` (Node.js)
+
+\`\`\`javascript
+console.log("1 - синхронный");
+setTimeout(() => console.log("2 - макротаска"), 0);
+Promise.resolve().then(() => console.log("3 - микротаска"));
+queueMicrotask(() => console.log("4 - микротаска"));
+console.log("5 - синхронный");
+// Вывод: 1 → 5 → 3 → 4 → 2
+\`\`\`
+
+**Ключевые моменты:**
+- Микротаски имеют **приоритет** над макротасками
+- Все микротаски выполняются **до** следующей макротаски
+- Если микротаска создаёт новую микротаску — она тоже выполнится
+- UI рендерится **после** микротасок, но **до** следующей макротаски
+
+💡 **Для собеседования:** Бесконечный цикл микротасок может «заморозить» UI, 
+ а \`setTimeout(..., 0)\` не означает «выполнить немедленно».`,
+"shortAnswer": `Бесконечный цикл микротасок может «заморозить» UI,`,
+},
+{
+"id": `1-middle-javascript-2`,
+"title": `Как работает контекст this в разных ситуациях?`,
+"fullAnswer": `** \`this\` ** — контекст выполнения функции. Значение определяется **в момент вызова**.
+
+**Правила определения \`this\` :**
+1. **Глобальный контекст** — \`this\` = \`window\` / \`global\` 
+2. **Обычная функция** — зависит от способа вызова
+3. **Метод объекта** — \`this\` = объект перед точкой
+4. **Конструктор ( \`new\` )** — \`this\` = новый объект
+5. **Arrow function** — \`this\` берётся из внешнего лексического контекста
+6. ** \`call\` / \`apply\` / \`bind\` ** — явное указание \`this\` 
+
+\`\`\`javascript
+console.log(this === window); // true в браузере
+
+const user = {
+  name: "John",
+  greet() { console.log(this.name); }
+};
+user.greet(); // "John"
+
+const greet = user.greet;
+greet(); // undefined
+
+function User(name) {
+  this.name = name;
+}
+const john = new User("John");
+console.log(john.name); // "John"
+
+const user2 = {
+  name: "Alice",
+  greet: () => console.log(this.name),
+  greetDelayed() {
+    setTimeout(() => {
+      console.log(this.name);
+    }, 100);
+  }
+};
+
+function sayHi() { console.log(this.name); }
+sayHi.call({ name: "Bob" }); // "Bob"
+\`\`\`
+
+**Частые ловушки:**
+
+❌ **Callback внутри метода:**
+\`\`\`javascript
+const obj = {
+  name: "John",
+  items: [1, 2, 3],
+  printItems() {
+    this.items.forEach(function(item) {
+      console.log(this.name, item); // this = window!
+    });
+  }
+};
+\`\`\`
+
+✅ **Решение — arrow function:**
+\`\`\`javascript
+printItems() {
+  this.items.forEach((item) => {
+    console.log(this.name, item); // this = obj
+  });
+}
+\`\`\`
+
+💡 **Для собеседования:** Главное правило — \`this\` определяется **как вызвана функция**, а не где она определена. Arrow function — единственное исключение.`,
+"shortAnswer": `Главное правило — this определяется как вызвана функция, а не где она определена. Arrow function — единственное исключение.`,
+},
+{
+"id": `1-middle-javascript-3`,
+"title": `Прототипное наследование: как работает цепочка прототипов?`,
+"fullAnswer": `В JavaScript объекты могут наследовать свойства и методы через **прототипы**.
+
+**Как работает:**
+- У каждого объекта есть скрытое свойство \`[[Prototype]]\` (доступно через \`__proto__\` или \`Object.getPrototypeOf()\` )
+- При обращении к свойству, если его нет в самом объекте, JS ищет в прототипе
+- Поиск идёт по цепочке до \`null\` 
+
+\`\`\`javascript
+const animal = {
+  eats: true,
+  walk() { console.log("Ходит"); }
+};
+
+const rabbit = {
+  jumps: true
+};
+
+Object.setPrototypeOf(rabbit, animal);
+
+console.log(rabbit.eats);   // true
+console.log(rabbit.jumps);  // true
+rabbit.walk();              // "Ходит"
+
+console.log(rabbit.__proto__ === animal);        // true
+console.log(animal.__proto__ === Object.prototype); // true
+console.log(Object.prototype.__proto__ === null);   // true
+\`\`\`
+
+**Создание объектов с прототипом:**
+
+\`\`\`javascript
+// 1. Через Object.create
+const animal = { eats: true };
+const rabbit = Object.create(animal);
+rabbit.jumps = true;
+
+// 2. Через конструктор
+function Animal(name) {
+  this.name = name;
+}
+Animal.prototype.walk = function() {
+  console.log(\`\${this.name} ходит\`);
+};
+const dog = new Animal("Шарик");
+dog.walk(); // "Шарик ходит"
+
+// 3. Через классы
+class Animal {
+  constructor(name) { this.name = name; }
+  walk() { console.log(\`\${this.name} ходит\`); }
+}
+class Rabbit extends Animal {
+  jump() { console.log(\`\${this.name} прыгает\`); }
+}
+const rabbit = new Rabbit("Кроль");
+rabbit.walk(); // из прототипа Animal
+rabbit.jump(); // собственное
+\`\`\`
+
+**Важные методы:**
+- \`Object.getPrototypeOf(obj)\` — получить прототип
+- \`Object.setPrototypeOf(obj, proto)\` — установить прототип
+- \`obj.hasOwnProperty(prop)\` — проверить собственное свойство
+- \`Object.create(proto)\` — создать объект с указанным прототипом
+
+💡 **Для собеседования:** Классы в ES6 — это синтаксический сахар над прототипами. Наследование идёт через цепочку \`[[Prototype]]\` .`,
+"shortAnswer": `Классы в ES6 — это синтаксический сахар над прототипами. Наследование идёт через цепочку [[Prototype]] .`,
+},
+{
+"id": `1-middle-javascript-4`,
+"title": `Как работают Promise? Что такое Promise.all, allSettled, race?`,
+"fullAnswer": `**Promise** — объект, представляющий результат асинхронной операции. Имеет 3 состояния:
+- \`pending\` — ожидание
+- \`fulfilled\` — выполнено успешно
+- \`rejected\` — выполнено с ошибкой
+
+\`\`\`javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (Math.random() > 0.5) {
+      resolve("Успех");
+    } else {
+      reject(new Error("Ошибка"));
+    }
+  }, 1000);
+});
+
+promise
+  .then(result => console.log(result))
+  .catch(error => console.error(error))
+  .finally(() => console.log("Завершено"));
+\`\`\`
+
+**Статические методы:**
+
+** \`Promise.all\` ** — ожидает **все** промисы. Если один отклонён — отклоняется весь.
+\`\`\`javascript
+Promise.all([
+  fetch("/users"),
+  fetch("/posts"),
+  fetch("/comments")
+])
+.then(([users, posts, comments]) => { /* все успешны */ })
+.catch(error => { /* хотя бы один упал */ });
+\`\`\`
+
+** \`Promise.allSettled\` ** — ждёт **все** промисы, независимо от результата.
+\`\`\`javascript
+Promise.allSettled([
+  fetch("/users"),
+  fetch("/posts")
+])
+.then(results => {
+  results.forEach(result => {
+    if (result.status === "fulfilled") {
+      console.log(result.value);
+    } else {
+      console.log(result.reason);
+    }
+  });
+});
+\`\`\`
+
+** \`Promise.race\` ** — возвращает результат **первого** завершённого промиса.
+\`\`\`javascript
+Promise.race([
+  fetch("/api/data"),
+  new Promise((_, reject) => setTimeout(() => reject(new Error("Timeout")), 5000))
+]);
+\`\`\`
+
+** \`Promise.any\` ** (ES2021) — возвращает **первый успешный**.
+\`\`\`javascript
+Promise.any([
+  fetch("https://mirror1.com/data"),
+  fetch("https://mirror2.com/data")
+]);
+\`\`\`
+
+💡 **Для собеседования:** \`all\` — параллельные запросы, где все обязательны. \`allSettled\` — когда нужно получить все результаты. \`race\` — таймауты. \`any\` — отказоустойчивость.`,
+"shortAnswer": `all — параллельные запросы, где все обязательны. allSettled — когда нужно получить все результаты. race — таймауты. any — отказоустойчивость.`,
+},
+{
+"id": `1-middle-javascript-5`,
+"title": `Как работает async/await под капотом?`,
+"fullAnswer": `** \`async/await\` ** — синтаксический сахар над генераторами и промисами. Функция, помеченная \`async\` , **всегда** возвращает Promise.
+
+\`\`\`javascript
+async function getUser() {
+  const response = await fetch("/user");
+  const data = await response.json();
+  return data;
+}
+
+function getUser() {
+  return fetch("/user")
+    .then(response => response.json());
+}
+\`\`\`
+
+**Под капотом:**
+1. \`async\` функция разбивается на части в местах \`await\` 
+2. Каждая часть оборачивается в \`.then()\` 
+3. Код выполняется как state machine
+4. При \`await\` выполнение приостанавливается, управление возвращается в Event Loop
+
+**Обработка ошибок:**
+\`\`\`javascript
+async function loadData() {
+  try {
+    const response = await fetch("/api");
+    if (!response.ok) throw new Error("HTTP error");
+    return await response.json();
+  } catch (error) {
+    console.error("Ошибка:", error);
+  }
+}
+
+async function loadData() {
+  const data = await fetch("/api").catch(error => {
+    console.error(error);
+    return null;
+  });
+  return data;
+}
+\`\`\`
+
+**Частые ошибки:**
+
+❌ **Последовательный await** (медленно):
+\`\`\`javascript
+async function loadAll() {
+  const users = await fetch("/users");
+  const posts = await fetch("/posts");
+  const comments = await fetch("/comments");
+}
+\`\`\`
+
+✅ **Параллельный await** (быстро):
+\`\`\`javascript
+async function loadAll() {
+  const [users, posts, comments] = await Promise.all([
+    fetch("/users"),
+    fetch("/posts"),
+    fetch("/comments")
+  ]);
+}
+\`\`\`
+
+💡 **Для собеседования:** \`await\` не блокирует поток — он приостанавливает только текущую async-функцию. Event Loop продолжает работать.`,
+"shortAnswer": `await не блокирует поток — он приостанавливает только текущую async-функцию. Event Loop продолжает работать.`,
+},
+{
+"id": `1-middle-javascript-6`,
+"title": `Что такое утечки памяти в JS? Как их найти?`,
+"fullAnswer": `**Утечка памяти** — ситуация, когда память выделяется под объекты, но никогда не освобождается.
+
+**Типичные причины утечек:**
+
+**1. Случайные глобальные переменные:**
+\`\`\`javascript
+function leak() {
+  data = "огромная строка"; // забыли let/const → глобальная переменная
+}
+\`\`\`
+
+**2. Забытые таймеры и интервалы:**
+\`\`\`javascript
+function startCounter() {
+  const data = { huge: "..." };
+  setInterval(() => {
+    console.log(data); // data никогда не освободится
+  }, 1000);
+}
+\`\`\`
+
+**3. Замкнутые ссылки (closure):**
+\`\`\`javascript
+function createHandler() {
+  const hugeData = new Array(1000000).fill("x");
+  return () => console.log(hugeData.length);
+}
+const handler = createHandler(); // hugeData в памяти навсегда
+\`\`\`
+
+**4. Забытые слушатели событий:**
+\`\`\`javascript
+function addListener() {
+  const element = document.createElement("div");
+  element.addEventListener("click", () => { /* ... */ });
+  document.body.appendChild(element);
+}
+\`\`\`
+
+**5. Ссылки из DOM:**
+\`\`\`javascript
+const element = document.getElementById("huge");
+const cache = { element };
+// даже если элемент удалён из DOM, он остаётся в cache
+\`\`\`
+
+**6. Обработчики вне компонента:**
+\`\`\`javascript
+export default {
+  mounted() {
+    window.addEventListener("resize", this.handleResize);
+  }
+  // забыли unmounted → утечка
+};
+\`\`\`
+
+**Как найти утечки:**
+
+**1. Chrome DevTools → Memory:**
+- **Heap Snapshot** — снимок памяти
+- **Allocation Timeline** — отслеживание аллокаций
+- **Allocation Instrumentation on Stack** — где выделяется память
+
+**2. Performance Monitor:**
+- Откройте DevTools → More tools → Performance monitor
+- Следите за Node Count, JS Heap Size
+
+**3. Практические советы:**
+- Всегда удаляйте event listeners в \`unmounted\` 
+- Очищайте таймеры ( \`clearInterval\` ,  \`clearTimeout\` )
+- Используйте \`WeakMap\` / \`WeakSet\` для кэшей
+- Избегайте глобальных переменных
+
+💡 **Для собеседования:** Приведите пример из практики: «В Vue-проекте мы забыли убрать \`window.addEventListener('resize')\` в \`onUnmounted\` ».`,
+"shortAnswer": `Приведите пример из практики: «В Vue-проекте мы забыли убрать window.addEventListener('resize') в onUnmounted ».`,
+},
+{
+"id": `1-middle-javascript-7`,
+"title": `Что такое WeakMap и WeakSet?`,
+"fullAnswer": `**WeakMap** и **WeakSet** — «слабые» коллекции, которые не препятствуют сборщику мусора.
+
+ ** Сравнение Map / Set и WeakMap / WeakSet ** 
+
+** Ключи. ** В Map и Set в качестве ключей можно использовать любые значения. В WeakMap и WeakSet ключами могут быть только объекты. 
+
+** Перебираемость. ** Map и Set являются перебираемыми коллекциями — у них есть итераторы. WeakMap и WeakSet не поддерживают перебор элементов. 
+
+**Свойства и методы доступа. ** У Map и Set доступны свойство size, а также методы keys() и values(). У WeakMap и WeakSet ничего из этого нет. 
+
+** Влияние на сборщик мусора (GC). ** Map и Set удерживают сильные ссылки на свои элементы, не давая сборщику мусора их удалить. WeakMap и WeakSet хранят слабые ссылки и не препятствуют сборке мусора — если на объект больше нет других ссылок, он будет удалён вместе с записью в коллекции. 
+
+**WeakMap:**
+\`\`\`javascript
+const weakMap = new WeakMap();
+let obj = { name: "John" };
+weakMap.set(obj, "данные");
+console.log(weakMap.get(obj)); // "данные"
+obj = null;
+// Теперь объект может быть собран GC
+\`\`\`
+
+**WeakSet:**
+\`\`\`javascript
+const weakSet = new WeakSet();
+let obj1 = { id: 1 };
+let obj2 = { id: 2 };
+weakSet.add(obj1);
+weakSet.add(obj2);
+console.log(weakSet.has(obj1)); // true
+obj1 = null;
+\`\`\`
+
+**Практическое применение:**
+
+**1. Приватные данные в классах:**
+\`\`\`javascript
+const privateData = new WeakMap();
+class User {
+  constructor(name, password) {
+    privateData.set(this, { name, password });
+  }
+  getName() {
+    return privateData.get(this).name;
+  }
+}
+const user = new User("John", "secret");
+user.getName(); // "John"
+\`\`\`
+
+**2. Кэширование результатов:**
+\`\`\`javascript
+const cache = new WeakMap();
+function process(obj) {
+  if (!cache.has(obj)) {
+    const result = obj.value * 2;
+    cache.set(obj, result);
+  }
+  return cache.get(obj);
+}
+\`\`\`
+
+**3. Связывание метаданных с DOM-элементами:**
+\`\`\`javascript
+const elementStates = new WeakMap();
+function trackClicks(element) {
+  elementStates.set(element, { clicks: 0 });
+  element.addEventListener("click", () => {
+    const state = elementStates.get(element);
+    state.clicks++;
+  });
+}
+\`\`\`
+
+💡 **Для собеседования:** WeakMap идеален для кэшей и приватных данных, где ключ — объект.`,
+"shortAnswer": `WeakMap идеален для кэшей и приватных данных, где ключ — объект.`,
+},
+{
+"id": `1-middle-javascript-8`,
+"title": `Как работает деструктуризация, spread/rest операторы?`,
+"fullAnswer": `**Деструктуризация** — синтаксис для извлечения значений из массивов/объектов.
+
+**Деструктуризация массива:**
+\`\`\`javascript
+const [a, b, c] = [1, 2, 3];
+console.log(a, b, c); // 1, 2, 3
+
+const [first, , third] = [1, 2, 3];
+console.log(first, third); // 1, 3
+
+const [x = 0, y = 0] = [1];
+console.log(x, y); // 1, 0
+
+const [head, ...tail] = [1, 2, 3, 4];
+console.log(head); // 1
+console.log(tail); // [2, 3, 4]
+
+let a = 1, b = 2;
+[a, b] = [b, a];
+\`\`\`
+
+**Деструктуризация объекта:**
+\`\`\`javascript
+const user = { name: "John", age: 30, city: "NY" };
+
+const { name, age } = user;
+console.log(name, age); // "John", 30
+
+const { name: userName, age: userAge } = user;
+
+const { name, role = "user" } = user;
+
+const { name, ...rest } = user;
+console.log(rest); // { age: 30, city: "NY" }
+
+const user2 = {
+  name: "John",
+  address: { city: "NY", zip: "10001" }
+};
+const { address: { city } } = user2;
+console.log(city); // "NY"
+
+function greet({ name, age }) {
+  console.log(\`Hi \${name}, you are \${age}\`);
+}
+greet({ name: "John", age: 30 });
+\`\`\`
+
+**Spread оператор ( \`...\` )** — раскладывает массив/объект на отдельные элементы.
+\`\`\`javascript
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const combined = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
+
+const copy = [...arr1];
+
+Math.max(...arr1); // 3
+
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+const merged = { ...obj1, ...obj2 }; // { a: 1, b: 3, c: 4 }
+
+const copy = { ...obj1 };
+
+const updated = { ...user, role: "admin" };
+\`\`\`
+
+**Rest оператор ( \`...\` )** — собирает оставшиеся элементы.
+\`\`\`javascript
+function sum(...numbers) {
+  return numbers.reduce((acc, n) => acc + n, 0);
+}
+sum(1, 2, 3, 4); // 10
+
+const [first, ...rest] = [1, 2, 3, 4];
+const { a, ...others } = { a: 1, b: 2, c: 3 };
+\`\`\`
+
+ **Для собеседования:** Spread — для копирования и объединения. Rest — для сбора «остатка». Помните, что spread делает поверхностную копию!`,
+"shortAnswer": `Spread — для копирования и объединения. Rest — для сбора «остатка». Помните, что spread делает поверхностную копию!`,
+},
+{
+"id": `1-middle-javascript-9`,
+"title": `Что такое Symbol и BigInt? Когда использовать?`,
+"fullAnswer": `**Symbol** — уникальный и неизменяемый примитив.
+
+\`\`\`javascript
+const id1 = Symbol("id");
+const id2 = Symbol("id");
+console.log(id1 === id2); // false
+
+const user = {
+  name: "John",
+  [id1]: 123
+};
+console.log(user[id1]); // 123
+
+console.log(Object.keys(user)); // ["name"]
+console.log(JSON.stringify(user)); // {"name":"John"}
+console.log(Object.getOwnPropertySymbols(user)); // [Symbol(id)]
+
+const globalId = Symbol.for("id");
+const sameId = Symbol.for("id");
+console.log(globalId === sameId); // true
+
+class MyArray {
+  [Symbol.iterator]() {
+    let i = 0;
+    return {
+      next: () => ({ done: i >= 3, value: i++ })
+    };
+  }
+}
+\`\`\`
+
+**Когда использовать Symbol:**
+- Уникальные ключи объектов
+- Определение поведения объектов ( \`Symbol.iterator\` ,  \`Symbol.toPrimitive\` )
+- Константы для состояний
+- Избежание конфликтов имён
+
+**BigInt** — примитив для работы с целыми числами произвольной длины.
+\`\`\`javascript
+const big = 9007199254740991n;
+const big2 = BigInt("9007199254740991");
+
+console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+
+const huge = 123456789012345678901234567890n;
+
+console.log(huge + 1n); // OK
+console.log(huge * 2n); // OK
+
+console.log(huge + BigInt(1)); // OK
+console.log(Number(100n)); // 100
+
+console.log(10n / 3n); // 3n
+\`\`\`
+
+**Когда использовать BigInt:**
+- Криптография
+- Высокоточные вычисления
+- Работа с ID из БД (если > 2^53)
+- Финансовые расчёты
+
+💡 **Для собеседования:** Symbol — для уникальных идентификаторов. BigInt — для чисел больше \`Number.MAX_SAFE_INTEGER\` .`,
+"shortAnswer": `Symbol — для уникальных идентификаторов. BigInt — для чисел больше Number.MAX_SAFE_INTEGER .`,
+},
+{
+"id": `1-middle-javascript-10`,
+"title": `Как работает Proxy и Reflect?`,
+"fullAnswer": `**Proxy** — объект, который «обёртывает» другой объект и перехватывает операции.
+
+\`\`\`javascript
+const target = { name: "John", age: 30 };
+const handler = {
+  get(target, prop) {
+    console.log(\`Чтение \${prop}\`);
+    return target[prop];
+  },
+  set(target, prop, value) {
+    console.log(\`Запись \${prop} = \${value}\`);
+    if (prop === "age" && value < 0) {
+      throw new Error("Возраст не может быть отрицательным");
+    }
+    target[prop] = value;
+    return true;
+  },
+  has(target, prop) {
+    console.log(\`Проверка наличия \${prop}\`);
+    return prop in target;
+  }
+};
+
+const proxy = new Proxy(target, handler);
+console.log(proxy.name); // "Чтение name" → "John"
+proxy.age = 25;          // "Запись age = 25"
+proxy.age = -5;          // Error
+console.log("name" in proxy); // "Проверка наличия name" → true
+\`\`\`
+
+**Основные ловушки (traps):**
+- \`get\` — чтение свойства
+- \`set\` — запись свойства
+- \`has\` — оператор \`in\` 
+- \`deleteProperty\` — оператор \`delete\` 
+- \`apply\` — вызов функции
+- \`construct\` — оператор \`new\` 
+- \`ownKeys\` — \`Object.keys()\` 
+
+**Reflect** — встроенный объект для перехвата операций.
+\`\`\`javascript
+const handler = {
+  get(target, prop, receiver) {
+    console.log(\`Чтение \${prop}\`);
+    return Reflect.get(target, prop, receiver);
+  },
+  set(target, prop, value, receiver) {
+    console.log(\`Запись \${prop} = \${value}\`);
+    return Reflect.set(target, prop, value, receiver);
+  }
+};
+\`\`\`
+
+**Зачем нужен Reflect:**
+- Корректная работа с \`this\` (через \`receiver\` )
+- Возвращает boolean для операций
+- Единый API для всех операций
+
+**Практическое применение Proxy:**
+
+**1. Валидация данных:**
+\`\`\`javascript
+function createValidatedObject(validators) {
+  return new Proxy({}, {
+    set(target, prop, value) {
+      if (validators[prop] && !validators[prop](value)) {
+        throw new Error(\`Невалидное значение для \${prop}\`);
+      }
+      target[prop] = value;
+      return true;
+    }
+  });
+}
+
+const user = createValidatedObject({
+  age: v => typeof v === "number" && v > 0,
+  name: v => typeof v === "string" && v.length > 0
+});
+user.age = 25; // OK
+user.age = -5; // Error
+\`\`\`
+
+**2. Доступ по умолчанию:**
+\`\`\`javascript
+const dict = new Proxy({}, {
+  get(target, prop) {
+    return prop in target ? target[prop] : "default";
+  }
+});
+dict.a = 1;
+console.log(dict.a); // 1
+console.log(dict.b); // "default"
+\`\`\`
+
+**3. Negative array indexing:**
+\`\`\`javascript
+function createProxyArray(arr) {
+  return new Proxy(arr, {
+    get(target, prop) {
+      if (typeof prop === "string" && prop.startsWith("-")) {
+        const index = parseInt(prop);
+        return target[target.length + index];
+      }
+      return target[prop];
+    }
+  });
+}
+
+const arr = createProxyArray([1, 2, 3, 4, 5]);
+console.log(arr[-1]); // 5
+console.log(arr[-2]); // 4
+\`\`\`
+
+**4. Реактивность (как во Vue 3):**
+\`\`\`javascript
+function reactive(target) {
+  return new Proxy(target, {
+    get(target, prop) {
+      track(target, prop);
+      const value = target[prop];
+      if (typeof value === "object") {
+        return reactive(value);
+      }
+      return value;
+    },
+    set(target, prop, value) {
+      target[prop] = value;
+      trigger(target, prop);
+      return true;
+    }
+  });
+}
+\`\`\`
+
+💡 **Для собеседования:** Proxy — основа реактивности во Vue 3. Reflect нужен для корректной работы с \`this\` в Proxy.`,
+"shortAnswer": `Proxy — основа реактивности во Vue 3. Reflect нужен для корректной работы с this в Proxy.`,
+},
+{
+"id": `1-middle-javascript-11`,
+"title": `Что такое генераторы (function*) и итераторы?`,
+"fullAnswer": `**Map** — коллекция пар ключ-значение, где ключом может быть **любое значение**.
+
+**Set** — коллекция **уникальных** значений.
+
+**Map vs Object:**
+\`\`\`javascript
+const map = new Map();
+map.set("name", "John");
+map.set(1, "number key");
+map.set(true, "boolean key");
+const objKey = {};
+map.set(objKey, "object key");
+
+console.log(map.get("name"));      // "John"
+console.log(map.get(objKey));      // "object key"
+console.log(map.size);             // 4
+console.log([...map.keys()]);      // ["name", 1, true, {}]
+console.log([...map.values()]);    // ["John", "number key", "boolean key", "object key"]
+
+const obj = {};
+obj["name"] = "John";
+obj[1] = "number key"; // ключ "1"
+obj[true] = "boolean key"; // ключ "true"
+\`\`\`
+
+**Set:**
+\`\`\`javascript
+const set = new Set([1, 2, 3, 2, 1]);
+console.log(set); // Set {1, 2, 3}
+
+set.add(4);
+set.delete(2);
+console.log(set.has(3)); // true
+console.log(set.size);   // 3
+
+const set2 = new Set([NaN, NaN, NaN]);
+console.log(set2.size); // 1
+\`\`\`
+
+**Когда использовать:**
+- **Map** — когда ключи не строки, нужен порядок, важен размер
+- **Set** — когда нужны уникальные значения, быстрые проверки \`has\` 
+- **Object** — простые структуры данных, JSON-сериализация
+- **Array** — упорядоченные данные, дубликаты допустимы
+
+💡 **Для собеседования:** Map сохраняет порядок вставки, имеет O(1) для \`get\` / \`set\` / \`has\` . Set — O(1) для \`has\` , что быстрее \`Array.includes()\` (O(n)).`,
+"shortAnswer": `Map сохраняет порядок вставки, имеет O(1) для get / set / has . Set — O(1) для has , что быстрее Array.includes() (O(n)).`,
+},
+{
+"id": `1-middle-javascript-12`,
+"title": `Как работает Map и Set? Отличия от объектов и массивов.`,
+"fullAnswer": `**Итератор** — объект, который знает, как перебирать последовательность. Имеет метод \`next()\` , возвращающий \`{ value, done }\` .
+
+**Итерируемый объект** — объект, который можно перебирать через \`for...of\` . Имеет метод \`Symbol.iterator\` .
+
+\`\`\`javascript
+const iterator = {
+  current: 0,
+  last: 5,
+  next() {
+    if (this.current < this.last) {
+      return { value: this.current++, done: false };
+    } else {
+      return { value: undefined, done: true };
+    }
+  }
+};
+
+console.log(iterator.next()); // { value: 0, done: false }
+console.log(iterator.next()); // { value: 1, done: false }
+
+const range = {
+  from: 1,
+  to: 5,
+  [Symbol.iterator]() {
+    return {
+      current: this.from,
+      last: this.to,
+      next() {
+        if (this.current <= this.last) {
+          return { value: this.current++, done: false };
+        }
+        return { done: true };
+      }
+    };
+  }
+};
+
+for (let num of range) {
+  console.log(num); // 1, 2, 3, 4, 5
+}
+\`\`\`
+
+**Генератор** — специальная функция, которая может приостанавливать своё выполнение.
+
+\`\`\`javascript
+function* generateSequence(start, end) {
+  for (let i = start; i <= end; i++) {
+    yield i;
+  }
+}
+
+const generator = generateSequence(1, 5);
+console.log(generator.next()); // { value: 1, done: false }
+console.log(generator.next()); // { value: 2, done: false }
+
+for (let num of generateSequence(1, 5)) {
+  console.log(num); // 1, 2, 3, 4, 5
+}
+
+console.log([...generateSequence(1, 5)]); // [1, 2, 3, 4, 5]
+\`\`\`
+
+**Двусторонняя связь:**
+\`\`\`javascript
+function* ask() {
+  const question = yield "Как вас зовут?";
+  console.log(\`Привет, \${question}!\`);
+  const age = yield "Сколько вам лет?";
+  console.log(\`Вам \${age} лет\`);
+}
+
+const gen = ask();
+console.log(gen.next().value);      // "Как вас зовут?"
+console.log(gen.next("John").value); // "Сколько вам лет?"
+gen.next(30);                        // "Вам 30 лет"
+\`\`\`
+
+**Делегирование ( \`yield*\` ):**
+\`\`\`javascript
+function* genA() { yield 1; yield 2; }
+function* genB() { yield 3; yield 4; }
+function* combined() {
+  yield* genA();
+  yield* genB();
+}
+console.log([...combined()]); // [1, 2, 3, 4]
+\`\`\`
+
+**Практическое применение:**
+
+**1. Бесконечные последовательности:**
+\`\`\`javascript
+function* fibonacci() {
+  let [a, b] = [0, 1];
+  while (true) {
+    yield a;
+    [a, b] = [b, a + b];
+  }
+}
+
+const fib = fibonacci();
+console.log(fib.next().value); // 0
+console.log(fib.next().value); // 1
+console.log(fib.next().value); // 1
+console.log(fib.next().value); // 2
+\`\`\`
+
+**2. Асинхронные генераторы:**
+\`\`\`javascript
+async function* fetchPages(url) {
+  let page = 1;
+  while (true) {
+    const response = await fetch(\`\${url}?page=\${page}\`);
+    const data = await response.json();
+    if (data.length === 0) break;
+    yield data;
+    page++;
+  }
+}
+
+for await (const page of fetchPages("/api/users")) {
+  console.log(page);
+}
+\`\`\`
+
+💡 **Для собеседования:** Генераторы — это «ленивые» вычисления. Они генерируют по одному значению. Основа для \`async/await\` и итераторов.`,
+"shortAnswer": `Генераторы — это «ленивые» вычисления. Они генерируют по одному значению. Основа для async/await и итераторов.`,
+},
+{
+"id": `1-middle-javascript-13`,
+"title": `Что такое Intl API для локализации?`,
+"fullAnswer": `**Intl** — встроенный объект для работы с локализацией.
+
+**Форматирование чисел:**
+\`\`\`javascript
+const formatter = new Intl.NumberFormat("ru-RU", {
+  style: "currency",
+  currency: "RUB",
+  minimumFractionDigits: 2
+});
+console.log(formatter.format(1234.5)); // "1 234,50 ₽"
+
+const usdFormatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD"
+});
+console.log(usdFormatter.format(1234.5)); // "$1,234.50"
+
+const percentFormatter = new Intl.NumberFormat("ru-RU", {
+  style: "percent"
+});
+console.log(percentFormatter.format(0.75)); // "75%"
+\`\`\`
+
+**Форматирование дат:**
+\`\`\`javascript
+const date = new Date();
+const ruFormatter = new Intl.DateTimeFormat("ru-RU", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  weekday: "long"
+});
+console.log(ruFormatter.format(date)); // "воскресенье, 27 сентября 2026 г."
+
+const usFormatter = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric"
+});
+console.log(usFormatter.format(date)); // "Sep 27, 2026"
+
+const rtf = new Intl.RelativeTimeFormat("ru-RU", { numeric: "auto" });
+console.log(rtf.format(-1, "day"));   // "вчера"
+console.log(rtf.format(2, "day"));    // "послезавтра"
+console.log(rtf.format(-3, "hour"));  // "3 часа назад"
+\`\`\`
+
+**Сравнение строк:**
+\`\`\`javascript
+const collator = new Intl.Collator("ru-RU");
+const words = ["ёж", "арбуз", "Бор"];
+console.log(words.sort(collator.compare));
+// ["арбуз", "Бор", "ёж"]
+\`\`\`
+
+**Форматирование списков:**
+\`\`\`javascript
+const listFormatter = new Intl.ListFormat("ru-RU", {
+  style: "long",
+  type: "conjunction"
+});
+console.log(listFormatter.format(["Яблоко", "Банан", "Вишня"]));
+// "Яблоко, Банан и Вишня"
+\`\`\`
+
+💡 **Для собеседования:** Intl API — нативное решение для локализации. Не нужно подключать moment.js или date-fns для базового форматирования.`,
+"shortAnswer": `Intl API — нативное решение для локализации. Не нужно подключать moment.js или date-fns для базового форматирования.`,
+},
+{
+"id": `1-middle-javascript-14`,
+"title": `Как работают Web Workers и Service Workers?`,
+"fullAnswer": `### Web Workers
+**Web Workers** — это способ запускать JavaScript в **фоновом потоке**, не блокируя основной поток (UI).
+**Зачем нужны:**
+- Тяжёлые вычисления (парсинг, шифрование, обработка изображений)
+- Обработка больших объёмов данных
+- WebAssembly
+- Фоновые задачи, которые не должны блокировать UI
+**Как работает:**
+**Основной поток (main.js):**
+\`\`\`javascript
+// Создание worker
+const worker = new Worker("worker.js");
+// Отправка данных в worker
+worker.postMessage({
+type: "calculate",
+data: [1, 2, 3, 4, 5]
+});
+// Получение результатов от worker
+worker.onmessage = (event) => {
+console.log("Результат:", event.data);
+};
+worker.onerror = (error) => {
+console.error("Ошибка в worker:", error);
+};
+// Завершение worker
+// worker.terminate();
+\`\`\`
+**Worker (worker.js):**
+\`\`\`javascript
+// Получение данных из основного потока
+self.onmessage = (event) => {
+const { type, data } = event.data;
+if (type === "calculate") {
+// Тяжёлые вычисления
+const result = data.reduce((sum, n) => sum + n * n, 0);
+// Отправка результата обратно
+self.postMessage({ type: "result", data: result });
+}
+};
+\`\`\`
+**Типы Workers:**
+- **Dedicated Worker** — один worker для одного скрипта
+- **Shared Worker** — один worker для нескольких скриптов/вкладок
+- **Service Worker** — прокси между приложением и сетью (см. ниже)
+**Передача данных:**
+\`\`\`javascript
+// Структурированное клонирование (копирование)
+worker.postMessage({ data: [1, 2, 3] });
+// Transferable objects (без копирования, быстро)
+const buffer = new ArrayBuffer(1024);
+worker.postMessage({ buffer }, [buffer]);
+// buffer в основном потоке больше недоступен!
+\`\`\`
+**Ограничения:**
+- ❌ Нет доступа к DOM
+- ❌ Нет доступа к \`window\`, \`document\`
+- ❌ Нет доступа к \`localStorage\`
+- ✅ Можно использовать \`fetch\`, \`setTimeout\`, \`IndexedDB\`
+💡 **Для собеседования:** Workers — для тяжёлых вычислений. Данные передаются через \`postMessage\` (копирование) или Transferable objects (без копирования). Нет доступа к DOM.
+---
+### Service Workers
+**Service Worker** — это скрипт, который работает в фоне и **перехватывает сетевые запросы**. Основа для PWA (Progressive Web Apps).
+**Возможности:**
+- Кеширование ресурсов (офлайн-работа)
+- Фоновая синхронизация
+- Push-уведомления
+- Перехват fetch-запросов
+**Регистрация (main.js):**
+\`\`\`javascript
+if ("serviceWorker" in navigator) {
+navigator.serviceWorker.register("/sw.js")
+.then(reg => console.log("SW зарегистрирован", reg))
+.catch(err => console.error("Ошибка регистрации", err));
+}
+\`\`\`
+**Service Worker (sw.js):**
+\`\`\`javascript
+// Установка — кеширование ресурсов
+self.addEventListener("install", (event) => {
+event.waitUntil(
+caches.open("v1").then(cache => {
+return cache.addAll([
+"/",
+"/index.html",
+"/styles.css",
+"/app.js"
+]);
+})
+);
+});
+// Активация — очистка старых кэшей
+self.addEventListener("activate", (event) => {
+event.waitUntil(
+caches.keys().then(names => {
+return Promise.all(
+names.filter(name => name !== "v1")
+.map(name => caches.delete(name))
+);
+})
+);
+});
+// Перехват запросов
+self.addEventListener("fetch", (event) => {
+event.respondWith(
+caches.match(event.request).then(cached => {
+return cached || fetch(event.request);
+})
+);
+});
+\`\`\`
+**Стратегии кеширования:**
+**1. Cache First (сначала кэш):**
+\`\`\`javascript
+event.respondWith(
+caches.match(event.request).then(cached => {
+return cached || fetch(event.request).then(response => {
+caches.open("v1").then(cache =>
+cache.put(event.request, response.clone())
+);
+return response;
+});
+})
+);
+\`\`\`
+**2. Network First (сначала сеть):**
+\`\`\`javascript
+event.respondWith(
+fetch(event.request).then(response => {
+caches.open("v1").then(cache =>
+cache.put(event.request, response.clone())
+);
+return response;
+}).catch(() => caches.match(event.request))
+);
+\`\`\`
+**3. Stale While Revalidate:**
+\`\`\`javascript
+event.respondWith(
+caches.match(event.request).then(cached => {
+const fetchPromise = fetch(event.request).then(response => {
+caches.open("v1").then(cache =>
+cache.put(event.request, response.clone())
+);
+return response;
+});
+return cached || fetchPromise;
+})
+);
+\`\`\`
+**Lifecycle Service Worker:**
+1. **Register** — регистрация в основном потоке
+2. **Install** — установка, кеширование ресурсов
+3. **Activate** — активация, очистка старых кэшей
+4. **Fetch** — перехват запросов
+5. **Update** — обновление (если файл изменился)
+💡 **Для собеседования:** Service Worker — основа PWA. Работает отдельно от страницы, может кешировать ресурсы для офлайн-работы. Lifecycle: install → activate → fetch. Один SW может обслуживать несколько вкладок.`,
+"shortAnswer": `Workers — для тяжёлых вычислений. Данные передаются через postMessage (копирование) или Transferable objects (без копирования). Нет доступа к DOM.`,
+},
+{
+"id": `1-middle-javascript-15`,
+"title": `Как работает requestAnimationFrame, IntersectionObserver, MutationObserver?`,
+"fullAnswer": `### requestAnimationFrame
+**\`requestAnimationFrame\`** — API для плавных анимаций, синхронизированных с частотой обновления экрана (обычно 60 FPS).
+**Зачем нужен:**
+- Плавные анимации без «дёргания»
+- Автоматическая пауза, когда вкладка неактивна (экономия батареи)
+- Браузер оптимизирует несколько \`rAF\` в один кадр
+**Базовое использование:**
+\`\`\`javascript
+function animate() {
+// Код анимации
+element.style.transform = \`translateX(\${position}px)\`;
+position += 1;
+if (position < 500) {
+requestAnimationFrame(animate); // запрос следующего кадра
+}
+}
+let position = 0;
+requestAnimationFrame(animate);
+\`\`\`
+**Отмена анимации:**
+\`\`\`javascript
+const animationId = requestAnimationFrame(animate);
+cancelAnimationFrame(animationId);
+\`\`\`
+**Пример плавной анимации с easing:**
+\`\`\`javascript
+function smoothAnimation(element, targetX, duration) {
+const startX = element.offsetLeft;
+const startTime = performance.now();
+function step(currentTime) {
+const elapsed = currentTime - startTime;
+const progress = Math.min(elapsed / duration, 1);
+// Easing function (ease-out)
+const easeOut = 1 - Math.pow(1 - progress, 3);
+const currentX = startX + (targetX - startX) * easeOut;
+element.style.transform = \`translateX(\${currentX}px)\`;
+if (progress < 1) {
+requestAnimationFrame(step);
+}
+}
+requestAnimationFrame(step);
+}
+\`\`\`
+**Преимущества перед \`setTimeout\`:**
+- ✅ Синхронизация с частотой экрана
+- ✅ Автоматическая пауза в неактивных вкладках
+- ✅ Браузер оптимизирует несколько \`rAF\` в один кадр
+💡 **Для собеседования:** \`requestAnimationFrame\` — для анимаций. Браузер сам оптимизирует частоту кадров. Не используйте \`setTimeout\` для анимаций.
+---
+### IntersectionObserver
+**IntersectionObserver** — API для отслеживания пересечения элемента с viewport или другим элементом.
+**Зачем нужен:**
+- Lazy loading изображений
+- Infinite scroll
+- Анимации при появлении элемента
+- Отслеживание видимости рекламы
+**Базовое использование:**
+\`\`\`javascript
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+console.log("Элемент виден!");
+entry.target.classList.add("visible");
+} else {
+console.log("Элемент скрыт");
+entry.target.classList.remove("visible");
+}
+});
+}, {
+root: null,           // viewport
+rootMargin: "0px",    // отступы
+threshold: 0.5        // 50% элемента должно быть видно
+});
+// Наблюдаем за элементами
+document.querySelectorAll(".item").forEach(item => {
+observer.observe(item);
+});
+// Прекращение наблюдения
+// observer.unobserve(element);
+// observer.disconnect(); // отключить всех
+\`\`\`
+**Пример: Lazy loading изображений:**
+\`\`\`javascript
+const imageObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const img = entry.target;
+img.src = img.dataset.src; // загружаем реальное изображение
+img.classList.remove("lazy");
+imageObserver.unobserve(img);
+}
+});
+});
+document.querySelectorAll("img.lazy").forEach(img => {
+imageObserver.observe(img);
+});
+\`\`\`
+**Пример: Анимация при появлении:**
+\`\`\`css
+.item {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.5s, transform 0.5s;
+}
+.item.visible {
+opacity: 1;
+transform: translateY(0);
+}
+\`\`\`
+💡 **Для собеседования:** IntersectionObserver заменил костыли с \`scroll\` events. Работает асинхронно, не блокирует main thread. Идеален для lazy loading и анимаций.
+---
+### MutationObserver
+**MutationObserver** — отслеживает изменения в DOM (добавление/удаление узлов, изменение атрибутов, текста).
+**Базовое использование:**
+\`\`\`javascript
+const observer = new MutationObserver((mutations) => {
+mutations.forEach(mutation => {
+console.log("Тип:", mutation.type);
+if (mutation.type === "childList") {
+console.log("Добавлено:", mutation.addedNodes);
+console.log("Удалено:", mutation.removedNodes);
+}
+if (mutation.type === "attributes") {
+console.log("Атрибут:", mutation.attributeName);
+console.log("Старое значение:", mutation.oldValue);
+}
+if (mutation.type === "characterData") {
+console.log("Текст изменён");
+}
+});
+});
+observer.observe(document.querySelector(".container"), {
+childList: true,           // отслеживать добавление/удаление детей
+attributes: true,          // отслеживать изменение атрибутов
+characterData: true,       // отслеживать изменение текста
+subtree: true,             // отслеживать всех потомков
+attributeOldValue: true,   // сохранять старые значения атрибутов
+characterDataOldValue: true
+});
+// Прекращение наблюдения
+// observer.disconnect();
+\`\`\`
+**Применение:**
+- Отслеживание изменений в сторонних библиотеках
+- Реакция на динамическое добавление контента
+- Отладка DOM-изменений
+- Реализация реактивности (как во Vue 2)
+💡 **Для собеседования:** MutationObserver — для отслеживания DOM-изменений. Работает асинхронно, batching изменения в один callback. Используется во Vue 2 для реактивности.`,
+"shortAnswer": `requestAnimationFrame — для анимаций. Браузер сам оптимизирует частоту кадров. Не используйте setTimeout для анимаций.`,
+},
+{
+"id": `1-middle-javascript-16`,
+"title": `Что такое structuredClone и AbortController?`,
+"fullAnswer": `### structuredClone
+**\`structuredClone()\`** — современный способ **глубокого клонирования** объектов (добавлен в 2022 году).
+**Проблема с обычным клонированием:**
+\`\`\`javascript
+// ❌ JSON.parse/stringify — теряет функции, undefined, Date, RegExp, циклические ссылки
+const obj = { date: new Date(), fn: () => {}, undef: undefined };
+const clone = JSON.parse(JSON.stringify(obj));
+// { date: "2024-01-01T..." } — потеряли fn, undef, Date стал строкой
+// ❌ Spread operator — только поверхностное копирование
+const original = { a: 1, b: { c: 2 } };
+const shallow = { ...original };
+shallow.b.c = 999;
+console.log(original.b.c); // 999 — изменили оригинал!
+// ❌ Object.assign — тоже поверхностное
+\`\`\`
+**Решение — structuredClone:**
+\`\`\`javascript
+const original = {
+date: new Date(),
+regex: /test/gi,
+map: new Map([["key", "value"]]),
+set: new Set([1, 2, 3]),
+nested: { deep: { value: 42 } },
+buffer: new ArrayBuffer(8)
+};
+const clone = structuredClone(original);
+clone.nested.deep.value = 999;
+console.log(original.nested.deep.value); // 42 — оригинал не изменился!
+console.log(clone.date instanceof Date); // true
+console.log(clone.map instanceof Map);   // true
+\`\`\`
+**Поддерживаемые типы:**
+- ✅ Все примитивы (кроме Symbol)
+- ✅ Date, RegExp
+- ✅ Array, Object, Map, Set
+- ✅ ArrayBuffer, TypedArray
+- ✅ Blob, File, ImageData
+- ✅ Error
+- ✅ Циклические ссылки
+**Не поддерживается:**
+- ❌ Функции
+- ❌ DOM-узлы
+- ❌ Symbol
+- ❌ Дескрипторы файлов
+💡 **Для собеседования:** \`structuredClone\` — это нативная замена \`JSON.parse(JSON.stringify())\` с поддержкой циклических ссылок и сложных типов. Работает в браузерах с 2022 года и Node.js 17+.
+---
+### AbortController
+**AbortController** — API для **отмены** одной или нескольких асинхронных операций (обычно fetch).
+**Базовое использование:**
+\`\`\`javascript
+// Создание контроллера
+const controller = new AbortController();
+const signal = controller.signal;
+// Передача signal в fetch
+fetch("https://api.example.com/data", { signal })
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => {
+if (error.name === "AbortError") {
+console.log("Запрос отменён");
+} else {
+console.error("Ошибка:", error);
+}
+});
+// Отмена запроса
+controller.abort();
+\`\`\`
+**Применение 1: Отмена при размонтировании компонента (React/Vue):**
+\`\`\`javascript
+// Vue
+export default {
+setup() {
+const controller = new AbortController();
+onMounted(async () => {
+try {
+const response = await fetch("/api/data", {
+signal: controller.signal
+});
+const data = await response.json();
+// ...
+} catch (error) {
+if (error.name !== "AbortError") {
+console.error(error);
+}
+}
+});
+onUnmounted(() => {
+controller.abort(); // отменяем запрос при размонтировании
+});
+}
+};
+\`\`\`
+**Применение 2: Таймаут запроса:**
+\`\`\`javascript
+function fetchWithTimeout(url, timeout = 5000) {
+const controller = new AbortController();
+const timeoutId = setTimeout(() => controller.abort(), timeout);
+return fetch(url, { signal: controller.signal })
+.finally(() => clearTimeout(timeoutId));
+}
+fetchWithTimeout("/api/data", 3000)
+.then(response => response.json())
+.catch(error => {
+if (error.name === "AbortError") {
+console.log("Таймаут");
+}
+});
+\`\`\`
+**Применение 3: Отмена предыдущего запроса (debounce):**
+\`\`\`javascript
+let controller = null;
+async function search(query) {
+// Отменяем предыдущий запрос
+if (controller) {
+controller.abort();
+}
+controller = new AbortController();
+try {
+const response = await fetch(\`/api/search?q=\${query}\`, {
+signal: controller.signal
+});
+const data = await response.json();
+renderResults(data);
+} catch (error) {
+if (error.name !== "AbortError") {
+console.error(error);
+}
+}
+}
+\`\`\`
+💡 **Для собеседования:** AbortController — для отмены fetch. Обязателен для предотвращения race conditions и утечек памяти. Один controller может отменить несколько fetch (передаём один signal в несколько запросов).`,
+"shortAnswer": `structuredClone — это нативная замена JSON.parse(JSON.stringify()) с поддержкой циклических ссылок и сложных типов. Работает в браузерах с 2022 года и Node.js 17+.`,
+},
+{
+"id": `1-middle-javascript-17`,
+"title": `Что такое queueMicrotask, BroadcastChannel, SharedWorker?`,
+"fullAnswer": `### queueMicrotask
+**\`queueMicrotask()\`** — API для явного добавления **микротаски** в очередь. Гарантирует выполнение **после** текущего кода, но **до** рендеринга и макротасок.
+\`\`\`javascript
+console.log("1 - синхронный");
+queueMicrotask(() => {
+console.log("2 - микротаска");
+});
+setTimeout(() => {
+console.log("3 - макротаска");
+}, 0);
+console.log("4 - синхронный");
+// Вывод: 1 → 4 → 2 → 3
+\`\`\`
+**Когда использовать:**
+- Нужно выполнить код после завершения текущей операции
+- Нужно гарантировать порядок до следующего рендера
+- Замена \`Promise.resolve().then(...)\` — более читаемо
+**Пример: Batch-обновления (как во Vue 3):**
+\`\`\`javascript
+const updates = [];
+function scheduleUpdate(callback) {
+updates.push(callback);
+if (updates.length === 1) {
+queueMicrotask(() => {
+updates.forEach(cb => cb());
+updates.length = 0;
+});
+}
+}
+// Все вызовы в одном тике выполнятся вместе
+scheduleUpdate(() => console.log("Update 1"));
+scheduleUpdate(() => console.log("Update 2"));
+scheduleUpdate(() => console.log("Update 3"));
+// Все выполнится в одной микротаске
+\`\`\`
+💡 **Для собеседования:** \`queueMicrotask\` — это более семантичный способ, чем \`Promise.resolve().then()\`. Используется во Vue 3 для batch-обновлений DOM.
+---
+### BroadcastChannel
+**BroadcastChannel** — API для обмена сообщениями между **вкладками/окнами** одного происхождения.
+**Базовое использование:**
+\`\`\`javascript
+// Вкладка 1
+const channel = new BroadcastChannel("my_channel");
+channel.postMessage({ type: "update", data: "new data" });
+// Вкладка 2
+const channel = new BroadcastChannel("my_channel");
+channel.onmessage = (event) => {
+console.log("Получено:", event.data);
+};
+// Закрытие канала
+// channel.close();
+\`\`\`
+**Применение:**
+- Синхронизация состояния между вкладками
+- Logout из всех вкладок при logout в одной
+- Обновление UI при изменении данных в другой вкладке
+**Пример: Синхронизация logout:**
+\`\`\`javascript
+// В любой вкладке при logout
+const channel = new BroadcastChannel("auth");
+channel.postMessage({ type: "logout" });
+// В других вкладках
+const channel = new BroadcastChannel("auth");
+channel.onmessage = (event) => {
+if (event.data.type === "logout") {
+localStorage.removeItem("token");
+window.location.href = "/login";
+}
+};
+\`\`\`
+💡 **Для собеседования:** BroadcastChannel — для простой синхронизации между вкладками. Работает только между вкладками одного происхождения (same-origin).
+---
+### SharedWorker
+**SharedWorker** — worker, который может использоваться **несколькими вкладками/скриптами**.
+**Основной скрипт:**
+\`\`\`javascript
+const worker = new SharedWorker("shared-worker.js");
+worker.port.onmessage = (event) => {
+console.log("Ответ от SharedWorker:", event.data);
+};
+worker.port.postMessage("Привет от вкладки 1");
+worker.port.start(); // обязательно вызвать start()
+\`\`\`
+**SharedWorker (shared-worker.js):**
+\`\`\`javascript
+const ports = [];
+self.onconnect = (event) => {
+const port = event.ports[0];
+ports.push(port);
+port.onmessage = (event) => {
+// Broadcast сообщение всем подключённым вкладкам
+ports.forEach(p => {
+if (p !== port) {
+p.postMessage(\`Получено от другой вкладки: \${event.data}\`);
+}
+});
+};
+port.start();
+};
+\`\`\`
+**Сравнение с BroadcastChannel:**
+| Характеристика | BroadcastChannel | SharedWorker |
+|----------------|------------------|--------------|
+| Сложность | Простой | Сложнее |
+| Производительность | Ниже | Выше |
+| Логика | Нет | Можно выполнять код |
+| Поддержка | Все современные браузеры | Все современные браузеры |
+💡 **Для собеседования:** SharedWorker — когда нужна общая логика/состояние между вкладками. BroadcastChannel — для простой синхронизации сообщений.`,
+"shortAnswer": `queueMicrotask — это более семантичный способ, чем Promise.resolve().then(). Используется во Vue 3 для batch-обновлений DOM.`,
+},
+{
+"id": `1-middle-javascript-18`,
+"title": `Как работает crypto API в браузере?`,
+"fullAnswer": `**Web Crypto API** — встроенный API для **криптографических операций**.
+### Генерация случайных чисел
+\`\`\`javascript
+// Криптостойкий random (для токенов, паролей)
+const array = new Uint8Array(16);
+crypto.getRandomValues(array);
+console.log(array); // случайные байты
+// Преобразование в hex
+const hex = Array.from(array)
+.map(b => b.toString(16).padStart(2, "0"))
+.join("");
+console.log(hex); // "a1b2c3d4..."
+// ⚠️ НЕ используйте Math.random() для криптографии!
+\`\`\`
+### Хеширование
+\`\`\`javascript
+async function sha256(message) {
+const msgBuffer = new TextEncoder().encode(message);
+const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+const hashArray = Array.from(new Uint8Array(hashBuffer));
+return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+}
+const hash = await sha256("password");
+console.log(hash); // "5e884898da..."
+\`\`\`
+### Симметричное шифрование (AES-GCM)
+\`\`\`javascript
+async function encrypt(data, key) {
+const iv = crypto.getRandomValues(new Uint8Array(12));
+const encoded = new TextEncoder().encode(data);
+const encrypted = await crypto.subtle.encrypt(
+{ name: "AES-GCM", iv },
+key,
+encoded
+);
+return { iv, encrypted: new Uint8Array(encrypted) };
+}
+async function decrypt(encryptedData, key) {
+const decrypted = await crypto.subtle.decrypt(
+{ name: "AES-GCM", iv: encryptedData.iv },
+key,
+encryptedData.encrypted
+);
+return new TextDecoder().decode(decrypted);
+}
+// Генерация ключа
+const key = await crypto.subtle.generateKey(
+{ name: "AES-GCM", length: 256 },
+true, // extractable
+["encrypt", "decrypt"]
+);
+\`\`\`
+### Асимметричное шифрование (RSA)
+\`\`\`javascript
+// Генерация пары ключей
+const keyPair = await crypto.subtle.generateKey(
+{
+name: "RSA-OAEP",
+modulusLength: 2048,
+publicExponent: new Uint8Array([1, 0, 1]),
+hash: "SHA-256"
+},
+true,
+["encrypt", "decrypt"]
+);
+// Шифрование
+const encrypted = await crypto.subtle.encrypt(
+{ name: "RSA-OAEP" },
+keyPair.publicKey,
+new TextEncoder().encode("secret message")
+);
+// Дешифрование
+const decrypted = await crypto.subtle.decrypt(
+{ name: "RSA-OAEP" },
+keyPair.privateKey,
+encrypted
+);
+\`\`\`
+### Подпись данных
+\`\`\`javascript
+// Генерация ключей для подписи
+const keyPair = await crypto.subtle.generateKey(
+{ name: "ECDSA", namedCurve: "P-256" },
+true,
+["sign", "verify"]
+);
+// Подпись
+const data = new TextEncoder().encode("message");
+const signature = await crypto.subtle.sign(
+{ name: "ECDSA", hash: "SHA-256" },
+keyPair.privateKey,
+data
+);
+// Проверка подписи
+const isValid = await crypto.subtle.verify(
+{ name: "ECDSA", hash: "SHA-256" },
+keyPair.publicKey,
+signature,
+data
+);
+console.log(isValid); // true
+\`\`\`
+**Поддерживаемые алгоритмы:**
+- **Симметричные:** AES-CBC, AES-CTR, AES-GCM
+- **Асимметричные:** RSA-OAEP, RSA-PSS
+- **Подпись:** ECDSA, RSA-PSS
+- **Хеширование:** SHA-1, SHA-256, SHA-384, SHA-512
+- **Key derivation:** HKDF, PBKDF2
+💡 **Для собеседования:** Web Crypto API — нативная криптография в браузере. Используйте \`crypto.getRandomValues()\` вместо \`Math.random()\` для токенов. Поддерживает AES, RSA, ECDSA, SHA. Все операции асинхронные (возвращают Promise).`,
+"shortAnswer": `Web Crypto API — нативная криптография в браузере. Используйте crypto.getRandomValues() вместо Math.random() для токенов. Поддерживает AES, RSA, ECDSA, SHA. Все операции асинхронные (возвращают Promise).`,
+},
+],
+},
+],
+},
+}

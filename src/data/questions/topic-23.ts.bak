@@ -1,0 +1,117 @@
+import type { TopicQuestions } from '../../types/question'
+
+export const topic23Questions: TopicQuestions = {
+"id": 23,
+"slug": `topic-23`,
+"title": `HTTP`,
+"junior": {
+"sections": [
+{
+"id": `общее`,
+"title": `Общее`,
+"questions": [
+{
+"id": `23-junior-общее-1`,
+"title": `HTTP-запрос и ответ: из чего состоят.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-junior-общее-2`,
+"title": `HTTP-методы.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-junior-общее-3`,
+"title": `Группы кодов ответа: 2xx, 3xx, 4xx, 5xx.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-junior-общее-4`,
+"title": `200 OK, 201 Created, 204 No Content, 400, 401, 403, 404, 500.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-junior-общее-5`,
+"title": `URL, заголовки HTTP, Content-Type, Accept, Authorization.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-junior-общее-6`,
+"title": `Cookie, LocalStorage, SessionStorage, сессия.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-junior-общее-7`,
+"title": `HTTPS, CORS, REST.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+],
+},
+],
+},
+"middle": {
+"sections": [
+{
+"id": `общее`,
+"title": `Общее`,
+"questions": [
+{
+"id": `23-middle-общее-1`,
+"title": `CORS Preflight (OPTIONS).`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-middle-общее-2`,
+"title": `Кэширование: Cache-Control, ETag, Last-Modified.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-middle-общее-3`,
+"title": `Атрибуты Cookie: HttpOnly, Secure, SameSite.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-middle-общее-4`,
+"title": `Защита от XSS и CSRF.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-middle-общее-5`,
+"title": `HTTPS: TLS handshake, симметричное и асимметричное шифрование, сертификаты, Let's Encrypt, HSTS.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-middle-общее-6`,
+"title": `HTTP/2 и HTTP/3 (QUIC): server push, multiplexing, header compression.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-middle-общее-7`,
+"title": `WebSocket, Server-Sent Events (SSE), long polling.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `23-middle-общее-8`,
+"title": `GraphQL, gRPC, сравнение REST vs GraphQL vs gRPC.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+],
+},
+],
+},
+}

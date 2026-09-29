@@ -1,0 +1,204 @@
+import type { TopicQuestions } from '../../types/question'
+
+export const topic18Questions: TopicQuestions = {
+"id": 18,
+"slug": `topic-18`,
+"title": `CI/CD`,
+"junior": {
+"sections": [
+{
+"id": `общее`,
+"title": `Общее`,
+"questions": [
+{
+"id": `18-junior-общее-1`,
+"title": `CI (Continuous Integration) и CD (Continuous Delivery/Deployment).`,
+"fullAnswer": `## Pipeline templates и security
+
+Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики. Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.
+
+**Ключевые моменты:**
+- Минимизируйте permissions CI token.
+- Pin сторонние actions/images по доверенным версиям/digest.
+- Не выводите secrets в logs.
+- Разделяйте untrusted PR code и privileged deployment jobs.`,
+"shortAnswer": `Pipeline templates и security Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики.  Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.`,
+},
+{
+"id": `18-junior-общее-2`,
+"title": `Что такое пайплайн и из каких шагов он состоит?`,
+"fullAnswer": `## Pipeline templates и security
+
+Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики. Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.
+
+**Ключевые моменты:**
+- Минимизируйте permissions CI token.
+- Pin сторонние actions/images по доверенным версиям/digest.
+- Не выводите secrets в logs.
+- Разделяйте untrusted PR code и privileged deployment jobs.`,
+"shortAnswer": `Pipeline templates и security Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики.  Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.`,
+},
+{
+"id": `18-junior-общее-3`,
+"title": `Jenkins, GitHub Actions.`,
+"fullAnswer": `## Pipeline templates и security
+
+Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики. Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.
+
+**Ключевые моменты:**
+- Минимизируйте permissions CI token.
+- Pin сторонние actions/images по доверенным версиям/digest.
+- Не выводите secrets в logs.
+- Разделяйте untrusted PR code и privileged deployment jobs.`,
+"shortAnswer": `Pipeline templates и security Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики.  Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.`,
+},
+{
+"id": `18-junior-общее-4`,
+"title": `Артефакт сборки, runner/agent, workflow/job/step.`,
+"fullAnswer": `## Pipeline templates и security
+
+Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики. Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.
+
+**Ключевые моменты:**
+- Минимизируйте permissions CI token.
+- Pin сторонние actions/images по доверенным версиям/digest.
+- Не выводите secrets в logs.
+- Разделяйте untrusted PR code и privileged deployment jobs.`,
+"shortAnswer": `Pipeline templates и security Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики.  Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.`,
+},
+{
+"id": `18-junior-общее-5`,
+"title": `Trigger, matrix build, environment, secrets, artifact, cache, workspace.`,
+"fullAnswer": `## Pipeline templates и security
+
+Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики. Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.
+
+**Ключевые моменты:**
+- Минимизируйте permissions CI token.
+- Pin сторонние actions/images по доверенным версиям/digest.
+- Не выводите secrets в logs.
+- Разделяйте untrusted PR code и privileged deployment jobs.`,
+"shortAnswer": `Pipeline templates и security Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики.  Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.`,
+},
+{
+"id": `18-junior-общее-6`,
+"title": `Pipeline as code, Jenkinsfile, GitHub Actions YAML.`,
+"fullAnswer": `## Pipeline templates и security
+
+Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики. Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.
+
+**Ключевые моменты:**
+- Минимизируйте permissions CI token.
+- Pin сторонние actions/images по доверенным версиям/digest.
+- Не выводите secrets в logs.
+- Разделяйте untrusted PR code и privileged deployment jobs.`,
+"shortAnswer": `Pipeline templates и security Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики.  Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.`,
+},
+],
+},
+],
+},
+"middle": {
+"sections": [
+{
+"id": `общее`,
+"title": `Общее`,
+"questions": [
+{
+"id": `18-middle-общее-1`,
+"title": `Кэширование зависимостей.`,
+"fullAnswer": `## Кэширование dependencies в CI
+
+Dependency cache сохраняет скачанные пакеты/артефакты между запусками pipeline и уменьшает время установки. Cache key должен зависеть от lock-file, OS/runtime и других факторов совместимости.
+
+**Ключевые моменты:**
+- Cache — оптимизация, а не источник истины; pipeline должен уметь восстановиться при cache miss.
+- Не кэшируйте секреты.
+- Различайте dependency cache и build artifacts.`,
+"shortAnswer": `Кэширование dependencies в CI Dependency cache сохраняет скачанные пакеты/артефакты между запусками pipeline и уменьшает время установки.  Cache key должен зависеть от lock-file, OS/runtime и других факторов совместимости.`,
+},
+{
+"id": `18-middle-общее-2`,
+"title": `Стратегии деплоя: Rolling, Blue-Green, Canary.`,
+"fullAnswer": `## Rolling, Blue-Green и Canary
+
+Rolling постепенно заменяет экземпляры старой версии. Blue-Green держит две полноценные среды и переключает traffic. Canary сначала отправляет небольшой процент traffic на новую версию и расширяет rollout после проверки.
+
+**Ключевые моменты:**
+- Rolling экономичен, но некоторое время версии сосуществуют.
+- Blue-Green даёт быстрый rollback ценой ресурсов.
+- Canary снижает blast radius, но требует метрик и traffic control.`,
+"shortAnswer": `Rolling, Blue-Green и Canary Rolling постепенно заменяет экземпляры старой версии.  Blue-Green держит две полноценные среды и переключает traffic.`,
+},
+{
+"id": `18-middle-общее-3`,
+"title": `Хранение секретов, GitOps, ArgoCD, Flux.`,
+"fullAnswer": `## Secrets и GitOps
+
+GitOps хранит желаемое состояние инфраструктуры/приложений в Git, а agent/controller (например Argo CD или Flux) синхронизирует runtime с репозиторием.
+
+**Ключевые моменты:**
+- Секреты нельзя хранить в Git открытым текстом; используют secret managers или encrypted/sealed secrets.
+- Git history даёт audit trail и rollback желаемого состояния.
+- Разделяйте app config и secret material.`,
+"shortAnswer": `Secrets и GitOps GitOps хранит желаемое состояние инфраструктуры/приложений в Git, а agent/controller (например Argo CD или Flux) синхронизирует runtime с репозиторием.  Ключевые моменты: Секреты нельзя хранить в Git открытым текстом; используют secret managers или encrypted/sealed secrets.`,
+},
+{
+"id": `18-middle-общее-4`,
+"title": `Infrastructure as Code (IaC): Terraform, Ansible, Helm, Kubernetes manifests.`,
+"fullAnswer": `## Infrastructure as Code
+
+IaC описывает инфраструктуру декларативным или автоматизированным кодом, чтобы окружения были воспроизводимыми и ревьюились как обычные изменения.
+
+**Ключевые моменты:**
+- Terraform управляет ресурсами providers через state.
+- Ansible чаще применяют для configuration management/procedural automation.
+- Helm шаблонизирует Kubernetes resources.
+- Kubernetes manifests описывают desired state объектов cluster.`,
+"shortAnswer": `Infrastructure as Code IaC описывает инфраструктуру декларативным или автоматизированным кодом, чтобы окружения были воспроизводимыми и ревьюились как обычные изменения.  Ключевые моменты: Terraform управляет ресурсами providers через state.`,
+},
+{
+"id": `18-middle-общее-5`,
+"title": `Deployment strategies, feature flags (LaunchDarkly), progressive delivery, automated rollback.`,
+"fullAnswer": `## Feature flags и progressive delivery
+
+Feature flag отделяет deploy кода от release функциональности. Progressive delivery постепенно расширяет аудиторию новой версии/фичи на основе метрик и правил; automated rollback возвращает безопасную версию при деградации.
+
+**Ключевые моменты:**
+- У флагов должен быть owner и срок удаления.
+- Не делайте security boundary только через client-side flag.
+- Rollback должен учитывать миграции данных и backward compatibility.`,
+"shortAnswer": `Feature flags и progressive delivery Feature flag отделяет deploy кода от release функциональности.  Progressive delivery постепенно расширяет аудиторию новой версии/фичи на основе метрик и правил; automated rollback возвращает безопасную версию при деградации.`,
+},
+{
+"id": `18-middle-общее-6`,
+"title": `Pipeline optimization: parallel execution, conditional execution, approval gates, manual/scheduled triggers.`,
+"fullAnswer": `## Оптимизация pipeline
+
+Pipeline ускоряют параллельным выполнением независимых jobs, кэшированием, запуском только затронутых проверок и правильным разделением быстрых feedback stages и дорогих stages.
+
+**Ключевые моменты:**
+- Approval gates нужны там, где требуется контроль риска/compliance.
+- Manual/scheduled triggers не должны обходить обязательные security checks.
+- Собирайте метрики duration, queue time, failure rate и flaky jobs.`,
+"shortAnswer": `Оптимизация pipeline Pipeline ускоряют параллельным выполнением независимых jobs, кэшированием, запуском только затронутых проверок и правильным разделением быстрых feedback stages и дорогих stages.  Ключевые моменты: Approval gates нужны там, где требуется контроль риска/compliance.`,
+},
+{
+"id": `18-middle-общее-7`,
+"title": `Pipeline templates, shared libraries, pipeline security.`,
+"fullAnswer": `## Pipeline templates и security
+
+Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики. Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.
+
+**Ключевые моменты:**
+- Минимизируйте permissions CI token.
+- Pin сторонние actions/images по доверенным версиям/digest.
+- Не выводите secrets в logs.
+- Разделяйте untrusted PR code и privileged deployment jobs.`,
+"shortAnswer": `Pipeline templates и security Templates/shared libraries уменьшают копирование CI-конфигурации и централизуют стандартные build/test/deploy практики.  Их нужно версионировать, потому что изменение общей библиотеки способно затронуть много проектов.`,
+},
+],
+},
+],
+},
+}

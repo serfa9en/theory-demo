@@ -1,0 +1,111 @@
+import type { TopicQuestions } from '../../types/question'
+
+export const topic20Questions: TopicQuestions = {
+"id": 20,
+"slug": `topic-20`,
+"title": `Git`,
+"junior": {
+"sections": [
+{
+"id": `общее`,
+"title": `Общее`,
+"questions": [
+{
+"id": `20-junior-общее-1`,
+"title": `Git vs GitHub. Репозиторий.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-junior-общее-2`,
+"title": `Команды: init, clone, add, commit, status, log.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-junior-общее-3`,
+"title": `Ветки: создание, переключение, push, pull, fetch.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-junior-общее-4`,
+"title": `.gitignore, stash, merge-конфликт.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-junior-общее-5`,
+"title": `Pull Request / Merge Request.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-junior-общее-6`,
+"title": `checkout, switch, restore, reset, revert.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-junior-общее-7`,
+"title": `tag, branch, remote, origin.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+],
+},
+],
+},
+"middle": {
+"sections": [
+{
+"id": `общее`,
+"title": `Общее`,
+"questions": [
+{
+"id": `20-middle-общее-1`,
+"title": `merge vs rebase: разница и когда использовать.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-middle-общее-2`,
+"title": `cherry-pick, разрешение сложных конфликтов.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-middle-общее-3`,
+"title": `Git Flow vs Trunk-Based Development.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-middle-общее-4`,
+"title": `Git hooks, pre-commit hooks, conventional commits, semantic versioning.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-middle-общее-5`,
+"title": `git bisect, reflog, stash pop, worktree.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-middle-общее-6`,
+"title": `submodule, subtree, lfs, sparse checkout, shallow clone.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `20-middle-общее-7`,
+"title": `blame, log --graph, diff, show, clean, gc, fsck.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+],
+},
+],
+},
+}

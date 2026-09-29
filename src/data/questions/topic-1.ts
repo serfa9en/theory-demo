@@ -35,7 +35,7 @@ export const topic1Questions: TopicQuestions = {
 - \`&lt;html&gt;\` — корневой элемент
 - \`&lt;head&gt;\` — метаданные (заголовок, кодировка, подключение скриптов)
 - \`&lt;body&gt;\` — видимый контент страницы`,
-"shortAnswer": `HTML — язык разметки для создания веб-страниц. Базовая структура: \`<!DOCTYPE html>\`, \`<html>\`, \`<head>\` (метаданные), \`<body>\` (контент).`,
+"shortAnswer": `HTML (HyperText Markup Language) — это язык разметки для создания веб-страниц.  Он описывает структуру контента с помощью тегов.`,
 },
 {
 "id": `1-junior-html-2`,
@@ -50,7 +50,7 @@ export const topic1Questions: TopicQuestions = {
 - Блочные можно вкладывать в блочные и строчные
 - Строчные можно вкладывать только в строчные (но есть исключения)
 - Через CSS можно менять поведение (\`display: block/inline/inline-block\`)`,
-"shortAnswer": `Блочные (\`<div>\`, \`<p>\`) занимают всю ширину и начинаются с новой строки. Строчные (\`<span>\`, \`<a>\`) — только ширину контента. Через CSS можно менять поведение.`,
+"shortAnswer": `Блочные элементы занимают всю доступную ширину и начинаются с новой строки.  Строчные элементы занимают только ширину своего контента и не начинают новую строку.`,
 },
 {
 "id": `1-junior-html-3`,
@@ -69,7 +69,7 @@ export const topic1Questions: TopicQuestions = {
 - Улучшают SEO (поисковики лучше понимают структуру)
 - Улучшают доступность (скринридеры правильно интерпретируют)
 - Делают код более читаемым`,
-"shortAnswer": `Семантические теги (\`<header>\`, \`<nav>\`, \`<main>\`, \`<section>\`, \`<article>\`, \`<footer>\`) описывают смысл контента. Улучшают SEO и доступность.`,
+"shortAnswer": `Семантические теги — это теги, которые описывают смысл содержимого, а не только его внешний вид.`,
 },
 {
 "id": `1-junior-html-4`,
@@ -96,7 +96,7 @@ export const topic1Questions: TopicQuestions = {
 - \`method\` — HTTP метод (GET/POST)
 - \`name\` — имя поля (используется на сервере)
 - \`required\`  — обязательное поле`,
-"shortAnswer": `Формы (\`<form>\`) отправляют данные на сервер. Типы \`<input>\`: text, password, email, number, date, checkbox, radio, file, submit. Атрибуты: action, method, name, required.`,
+"shortAnswer": `Как работают формы (<form>, <input>, <select>): Формы используются для отправки данных от пользователя на сервер.`,
 },
 {
 "id": `1-junior-html-5`,
@@ -115,7 +115,7 @@ export const topic1Questions: TopicQuestions = {
 - \`id\` используется для якорных ссылок (\`#header\`) и в JS (\`getElementById\`)
 -  \`class\` используется для CSS-стилей и группировки элементов
 - В CSS  \`#id\`  имеет больший вес, чем  \`.class\` `,
-"shortAnswer": `\`id\` — уникальный идентификатор (один на страницу). \`class\` — класс элемента (многократно). В CSS \`#id\` имеет больший вес, чем \`.class\`.`,
+"shortAnswer": `id — уникальный идентификатор элемента на странице.  Должен быть один на страницу.`,
 },
 {
 "id": `1-junior-html-6`,
@@ -134,7 +134,7 @@ export const topic1Questions: TopicQuestions = {
 -  \`charset\`  — обязательная кодировка (обычно UTF-8)
 -  \`viewport\`  — критичен для мобильных устройств
 - \`description\`  — отображается в результатах поиска`,
-"shortAnswer": `Meta-теги — метаданные страницы. \`<meta charset>\` — кодировка (UTF-8). \`<meta viewport>\` — адаптивность для мобильных. \`<meta description>\` — для SEO.`,
+"shortAnswer": `meta -теги — это метаданные о документе, которые не отображаются на странице, но используются браузером и поисковиками.`,
 },
 ],
 },
@@ -166,7 +166,7 @@ export const topic1Questions: TopicQuestions = {
 - По умолчанию  \`width\`  задаёт только ширину контента
 - Padding и border добавляются к размеру
 - Margin не входит в размер элемента`,
-"shortAnswer": `Box Model: Content + Padding + Border + Margin. По умолчанию \`width\` задаёт только ширину контента. Padding и border добавляются к размеру.`,
+"shortAnswer": `Box Model (блочная модель) — это модель, описывающая как рассчитывается размер каждого элемента.`,
 },
 {
 "id": `1-junior-css-2`,
@@ -195,7 +195,7 @@ export const topic1Questions: TopicQuestions = {
 **Ключевые моменты:**
 - \`border-box\` удобнее для вёрстки (легче рассчитывать размеры)
 - Часто применяют глобально: \`* { box-sizing: border-box; }\``,
-"shortAnswer": `\`content-box\` (по умолчанию): \`width\` = только контент. \`border-box\`: \`width\` = контент + padding + border. Удобнее для вёрстки.`,
+"shortAnswer": `box-sizing: content-box (по умолчанию) — width задаёт только ширину контента.  Padding и border добавляются.`,
 },
 {
 "id": `1-junior-css-3`,
@@ -219,7 +219,7 @@ export const topic1Questions: TopicQuestions = {
 - \`absolute\` выпадает из потока документа
 - \`fixed\` остаётся на месте при скролле
 - \`sticky\` работает как \`relative\` до определённой позиции, потом как \`fixed\``,
-"shortAnswer": `\`static\` — обычный поток. \`relative\` — смещение от нормы. \`absolute\` — относительно позиционированного предка. \`fixed\` — относительно окна. \`sticky\` — прилипает при скролле.`,
+"shortAnswer": `Какие есть значения position? (static, relative, absolute, fixed, sticky): position определяет как элемент позиционируется на странице.`,
 },
 {
 "id": `1-junior-css-4`,
@@ -237,7 +237,7 @@ export const topic1Questions: TopicQuestions = {
 - \`display: none\` — элемент не рендерится вообще
 - \`visibility: hidden\` — элемент рендерится, но невидим
 - Для анимации появления/скрытия лучше \`opacity\` + \`visibility\``,
-"shortAnswer": `\`display: none\` — элемент удаляется из потока, не занимает места. \`visibility: hidden\` — скрыт, но занимает место. Для анимации лучше \`opacity\` + \`visibility\`.`,
+"shortAnswer": `display: none — элемент полностью удаляется из потока документа.  Не занимает места, не кликабелен.`,
 },
 {
 "id": `1-junior-css-5`,
@@ -266,7 +266,7 @@ li:nth-child(2n) { background: gray; } /* Чётные элементы */
 - Псевдоклассы — одно двоеточие ( \`:hover\`)
 - Псевдоэлементы — два двоеточия ( \`::before\`)
 - \`content\` обязателен для \`::before\` и \`::after\``,
-"shortAnswer": `Псевдоклассы (\`:hover\`, \`:focus\`) — состояние элемента. Псевдоэлементы (\`::before\`, \`::after\`) — виртуальные элементы. \`content\` обязателен для \`::before\` и \`::after\`.`,
+"shortAnswer": `Псевдоклассы ( :hover, :focus, :nth-child) — определяют состояние элемента.  Псевдоэлементы ( ::before, ::after) — создают виртуальные элементы внутри/снаружи элемента.`,
 },
 {
 "id": `1-junior-css-6`,
@@ -297,7 +297,7 @@ li:nth-child(2n) { background: gray; } /* Чётные элементы */
 - Mobile-first: сначала стили для мобильных, потом \`min-width\`
 - Desktop-first: сначала для десктопа, потом \`max-width\`
 - Популярные breakpoints: 576px, 768px, 992px, 1200px`,
-"shortAnswer": `Медиазапросы (\`@media\`) — разные стили для разных устройств. Mobile-first: \`min-width\`. Desktop-first: \`max-width\`. Breakpoints: 576px, 768px, 992px, 1200px.`,
+"shortAnswer": `Медиазапросы ( @media) позволяют применять разные стили для разных устройств/условий (адаптивная вёрстка).`,
 },
 {
 "id": `1-junior-css-7`,
@@ -325,7 +325,7 @@ li:nth-child(2n) { background: gray; } /* Чётные элементы */
 - \`rem\` предсказуемее \`em\` (не зависит от вложенности)
 - \`vw/vh\` для полноэкранных секций
 - \`%\` для адаптивной ширины`,
-"shortAnswer": `\`px\` — пиксели. \`%\` — от родителя. \`em\` — от шрифта родителя. \`rem\` — от шрифта root. \`vw/vh\` — 1% ширины/высоты viewport.`,
+"shortAnswer": `Абсолютные: px — пиксели (фиксированный размер) Относительные: % — процент от родителя em — относительно размера шрифта родителя rem — относительно размера шрифта root (&lt;html&gt;) vw — 1% ширины viewport (окна браузера) vh — 1% высоты viewport Ключевые моменты: rem предсказуемее em (не зависит от вложенности) vw/vh для полноэкранных секций % для адаптивной ширины`,
 },
 ],
 },
@@ -364,7 +364,7 @@ let arr = [1, 2, 3];      // object (массив)
 - Примитивы хранятся по значению, объекты — по ссылке
 - \`typeof null\` возвращает \`"object"\` (историческая ошибка)
 - \`typeof []\` возвращает \`"object"\` (массив — это объект)`,
-"shortAnswer": `Примитивы (7): string, number, boolean, null, undefined, symbol, bigint. Ссылочный (1): object. Примитивы по значению, объекты по ссылке.`,
+"shortAnswer": `Примитивные типы (7): string — строка number — число (целые и дробные) boolean — true/false null — явное отсутствие значения undefined — значение не присвоено symbol — уникальный идентификатор bigint — большие целые числа Ссылочный тип (1): object — объект (включая массивы, функции, даты) Ключевые моменты: Примитивы хранятся по значению, объекты — по ссылке typeof null возвращает "object" (историческая ошибка) typeof [] возвращает "object" (массив — это объект)`,
 },
 {
 "id": `1-junior-javascript-2`,
@@ -389,7 +389,7 @@ null === undefined // false
 - Всегда используйте \`===\` и \`!==\`
 - \`==\` может привести к неожиданным результатам
 - Исключение: \`obj == null\` для проверки на \`null\` или \`undefined\``,
-"shortAnswer": `\`==\` — нестрогое сравнение (с приведением типов). \`===\` — строгое (без приведения). Всегда используйте \`===\`. Исключение: \`obj == null\`.`,
+"shortAnswer": `== (нестрогое сравнение) — сравнивает значения с приведением типов.  === (строгое сравнение) — сравнивает значения без приведения типов (и тип, и значение).`,
 },
 {
 "id": `1-junior-javascript-3`,
@@ -427,7 +427,7 @@ obj = {};  // TypeError
 - Используйте \`const\` по умолчанию
 - \`let\` — если нужно изменять значение
 - Избегайте \`var\``,
-"shortAnswer": `\`var\` — устаревший, функциональная область видимости. \`let\` — блочная, можно изменять. \`const\` — блочная, нельзя переприсваивать. Используйте \`const\` по умолчанию.`,
+"shortAnswer": `var — устаревший способ.  Имеет функциональную область видимости, поднимается (hoisting), можно переобъявлять.`,
 },
 {
 "id": `1-junior-javascript-4`,
@@ -458,7 +458,7 @@ console.log(counter()); // 3
 - Внутренняя функция имеет доступ к переменным внешней
 - Переменные «живут» пока есть ссылка на внутреннюю функцию
 - Основа для многих паттернов в JS`,
-"shortAnswer": `Замыкание — функция запоминает переменные из внешней области видимости. Применяется для приватных переменных, фабрик функций, мемоизации.`,
+"shortAnswer": `Замыкание — это функция, которая «запоминает» переменные из внешней области видимости, даже когда внешняя функция уже завершилась.`,
 },
 {
 "id": `1-junior-javascript-5`,
@@ -495,7 +495,7 @@ boundSayHi();          // "Hi, Alice" (создаёт новую функцию)
 - \`call(obj, arg1, arg2)\` — вызывает функцию с \`this = obj\`
 - \`apply(obj, [args])\` — то же, но аргументы массивом
 - \`bind(obj)\` — возвращает новую функцию с привязанным \`this\``,
-"shortAnswer": `\`this\` — контекст выполнения. Зависит от вызова: метод объекта = объект, конструктор = новый объект, arrow function = из внешнего контекста. \`call/apply\` — немедленный вызов, \`bind\` — новая функция.`,
+"shortAnswer": `this — это контекст выполнения функции.  Значение зависит от того, как вызвана функция, а не где она определена.`,
 },
 {
 "id": `1-junior-javascript-6`,
@@ -533,7 +533,7 @@ const sum = arr.reduce((acc, x) => acc + x, 0); // 15
 // find — найти первое число > 3
 const found = arr.find(x => x > 3); // 4
 \`\`\``,
-"shortAnswer": `Массив — упорядоченная коллекция. Мутация: push, pop, shift, unshift, splice, sort, reverse. Не мутируют: map, filter, reduce, find, forEach.`,
+"shortAnswer": `Что такое массив? Основные методы: push, pop, map, filter, reduce: Массив — это упорядоченная коллекция элементов.`,
 },
 {
 "id": `1-junior-javascript-7`,
@@ -572,7 +572,7 @@ delete user.age;
 - Точечная нотация — когда ключ известен
 - Скобочная — когда ключ в переменной или содержит спецсимволы
 - Объекты передаются по ссылке`,
-"shortAnswer": `Объект — коллекция пар ключ-значение. Доступ: точечная нотация (\`obj.key\`) или скобочная (\`obj['key']\`). Объекты передаются по ссылке.`,
+"shortAnswer": `Что такое объект? Как обращаться к свойствам: Объект — это коллекция пар ключ-значение.`,
 },
 {
 "id": `1-junior-javascript-8`,
@@ -608,7 +608,7 @@ const greet = () => "Hello";
 - Declaration — hoisting, можно использовать везде
 - Expression — нет hoisting, \`this\` = контекст вызова
 - Arrow — нет \`this\`, \`arguments\`, \`super\`; нельзя использовать как конструктор`,
-"shortAnswer": `Declaration — hoisting. Expression — нет hoisting, есть \`this\`. Arrow — нет \`this\`, \`arguments\`, \`super\`. Краткий синтаксис.`,
+"shortAnswer": `Function Declaration — объявление функции.  Поднимается (hoisting), можно вызывать до объявления.`,
 },
 {
 "id": `1-junior-javascript-9`,
@@ -647,7 +647,7 @@ console.log(outerVar);  // ReferenceError
 - \`var\` — функциональная область видимости
 - \`let\`/ \`const\` — блочная область видимости
 - Вложенные функции видят переменные внешних`,
-"shortAnswer": `Область видимости: глобальная (везде), функциональная (внутри функции), блочная (внутри \`{}\` для \`let\`/\`const\`).`,
+"shortAnswer": `Что такое область видимости (scope): Область видимости — это контекст, в котором доступны переменные.`,
 },
 {
 "id": `1-junior-javascript-10`,
@@ -680,7 +680,7 @@ console.log(Number(null));        // 0
 - \`undefined\` — «системное» отсутствие значения
 - \`null\` — «программистское» отсутствие значения
 - Используйте \`null\` для явного обнуления`,
-"shortAnswer": `\`undefined\` — значение не присвоено (системное). \`null\` — явное отсутствие значения (программистское). \`typeof null\` = \`"object"\` (ошибка).`,
+"shortAnswer": `undefined — значение не присвоено.  Переменная объявлена, но значение не установлено.`,
 },
 {
 "id": `1-junior-javascript-11`,
@@ -713,7 +713,7 @@ try {
 - \`catch\` — обработка ошибки (получает объект ошибки)
 - \`finally\` — выполняется всегда (для очистки ресурсов)
 - Можно генерировать свои ошибки через \`throw\``,
-"shortAnswer": `\`try\` — опасный код. \`catch\` — обработка ошибки. \`finally\` — выполняется всегда. \`throw\` — генерация ошибки.`,
+"shortAnswer": `Как работает try...catch...finally: try... catch — конструкция для обработки ошибок (исключений).`,
 },
 {
 "id": `1-junior-javascript-12`,
@@ -740,7 +740,7 @@ const buttons = document.getElementsByClassName("btn");
 - \`getElementById\` — самый быстрый
 - \`querySelector\` — гибкий (любой CSS-селектор)
 - \`querySelectorAll\` — возвращает NodeList (можно перебирать)`,
-"shortAnswer": `DOM — интерфейс для HTML. Поиск: \`getElementById\` (быстрый), \`querySelector\` (гибкий), \`querySelectorAll\` (все элементы).`,
+"shortAnswer": `DOM (Document Object Model) — это программный интерфейс для HTML-документов.  Представляет страницу как дерево объектов, которым можно управлять через JavaScript.`,
 },
 {
 "id": `1-junior-javascript-13`,
@@ -771,7 +771,7 @@ button.onclick = function() {
 - \`keydown\`, \`keyup\` — клавиатура
 - \`submit\` — отправка формы
 - \`load\` — загрузка страницы`,
-"shortAnswer": `События — сигналы от браузера. \`addEventListener\` — рекомендуемый способ. Популярные: click, mouseover, keydown, submit, load.`,
+"shortAnswer": `События — это сигналы от браузера (клик, нажатие клавиши, загрузка страницы и т. д.`,
 },
 {
 "id": `1-junior-javascript-14`,
@@ -812,7 +812,7 @@ document.getElementById("outer").addEventListener("click", () => {
 - По умолчанию события всплывают
 - \`event.stopPropagation()\` — остановить всплытие
 - Третий параметр \`true\` — включить перехват`,
-"shortAnswer": `Всплытие (bubbling) — от целевого элемента к корню. Перехват (capturing) — от корня к целевому. \`stopPropagation()\` — остановить всплытие.`,
+"shortAnswer": `Всплытие (bubbling) — событие всплывает от целевого элемента к корню документа.  Перехват (capturing) — событие спускается от корня к целевому элементу.`,
 },
 {
 "id": `1-junior-javascript-15`,
@@ -845,7 +845,7 @@ document.getElementById("inner").addEventListener("click", (event) => {
 **Ключевые моменты:**
 - \`preventDefault\` — для отмены действий браузера (переход по ссылке, отправка формы)
 - \`stopPropagation\` — для предотвращения всплытия`,
-"shortAnswer": `\`preventDefault()\` — отмена стандартного поведения (переход по ссылке, отправка формы). \`stopPropagation()\` — остановка всплытия.`,
+"shortAnswer": `preventDefault() — отменяет стандартное поведение браузера.  stopPropagation() — останавливает всплытие события.`,
 },
 {
 "id": `1-junior-javascript-16`,
@@ -893,7 +893,7 @@ async function createUser(userData) {
 - \`fetch\` возвращает Promise
 - \`response.json()\` — парсит JSON
 - Нужно проверять \`response.ok\` (fetch не считает ошибкой 404/500)`,
-"shortAnswer": `\`fetch\` — HTTP-запросы. Возвращает Promise. \`response.json()\` — парсит JSON. Проверяйте \`response.ok\` (fetch не считает 404/500 ошибкой).`,
+"shortAnswer": `fetch — современный способ делать HTTP-запросы.  Ключевые моменты: fetch возвращает Promise response.`,
 },
 {
 "id": `1-junior-javascript-17`,
@@ -928,7 +928,7 @@ try {
 - \`JSON.stringify()\` — объект в строку
 - \`JSON.parse()\` — строка в объект
 - JSON не поддерживает функции, undefined, Date (только строки)`,
-"shortAnswer": `JSON — формат обмена данными. \`JSON.stringify()\` — объект в строку. \`JSON.parse()\` — строка в объект. Не поддерживает функции, undefined, Date.`,
+"shortAnswer": `JSON (JavaScript Object Notation) — текстовый формат обмена данными.  Сериализация (объект → строка): Парсинг (строка → объект): Обработка ошибок: Ключевые моменты: JSON — стандарт для API JSON.`,
 },
 ],
 },
@@ -974,7 +974,7 @@ button.button { color: blue; }    /* 0, 1, 1 — победит */
 \`\`\`
 
 💡 **Для собеседования:** Специфичность — это не «сумма», а «кортеж» (1, 0, 0) > (0, 10, 0). При равной специфичности побеждает последнее правило.`,
-"shortAnswer": `Специфичность: универсальный \`*\` (0,0,0), теги (0,0,1), классы/псевдоклассы (0,1,0), ID (1,0,0), inline (1,0,0,0), \`!important\` — переопределяет всё.`,
+"shortAnswer": `Специфичность — это не «сумма», а «кортеж» (1, 0, 0) > (0, 10, 0). При равной специфичности побеждает последнее правило.`,
 },
 {
 "id": `1-middle-html-css-2`,
@@ -1018,7 +1018,7 @@ button.button { color: blue; }    /* 0, 1, 1 — победит */
 
 💡 **Для собеседования:** \`z-index\` работает только внутри своего stacking context. Нельзя сделать 
 \`z-index: 9999\` внутри родителя с \`z-index: 1\` и ожидать, что он будет выше соседа родителя с \`z-index: 2\` .`,
-"shortAnswer": `z-index работает только для позиционированных элементов. Контекст наложения создаётся: \`position\` + \`z-index\`, \`opacity < 1\`, \`transform\`, \`filter\`.`,
+"shortAnswer": `z-index работает только внутри своего stacking context. Нельзя сделать`,
 },
 {
 "id": `1-middle-html-css-3`,
@@ -1082,7 +1082,7 @@ button.button { color: blue; }    /* 0, 1, 1 — победит */
  **Отступы (Gap).** Во **Flexbox** для отступов используется только общее свойство \`gap\`. В **Grid** поддерживаются как общее \`gap\`, так и раздельные \`row-gap\` и \`column-gap\`.
 
 💡 **Для собеседования:** Flexbox — для компонентов и выравнивания. Grid — для общего макета страницы. Часто используются вместе.`,
-"shortAnswer": `Flexbox — одномерная раскладка (строка ИЛИ колонка). CSS Grid — двумерная (строки И колонки). Flexbox для компонентов, Grid для макетов.`,
+"shortAnswer": `Flexbox — для компонентов и выравнивания. Grid — для общего макета страницы. Часто используются вместе.`,
 },
 {
 "id": `1-middle-html-css-4`,
@@ -1154,7 +1154,7 @@ const Button = styled.button
 - Нет необходимости придумывать имена
 
 💡 **Для собеседования:** BEM — для больших проектов с vanilla CSS. CSS Modules — для React/Vue. CSS-in-JS — для динамических тем. Tailwind — для быстрого прототипирования.`,
-"shortAnswer": `BEM: Block (\`.card\`), Element (\`.card__title\`), Modifier (\`.card--large\`). Альтернативы: CSS Modules (изоляция стилей), CSS-in-JS (динамические стили).`,
+"shortAnswer": `BEM — для больших проектов с vanilla CSS. CSS Modules — для React/Vue. CSS-in-JS — для динамических тем. Tailwind — для быстрого прототипирования.`,
 },
 {
 "id": `1-middle-html-css-5`,
@@ -1249,7 +1249,7 @@ elements.forEach((el, i) => {
 \`\`\`
 
  **Для собеседования:** Анимации делайте через \`transform\` и \`opacity\` — они работают на GPU и не вызывают reflow.`,
-"shortAnswer": `Reflow — пересчёт позиций/размеров. Repaint — перерисовка без изменения макета. Оптимизация: \`transform\` и \`opacity\` для анимаций, батчинг изменений DOM.`,
+"shortAnswer": `Анимации делайте через transform и opacity — они работают на GPU и не вызывают reflow.`,
 },
 {
 "id": `1-middle-html-css-6`,
@@ -1324,7 +1324,7 @@ elements.forEach((el, i) => {
 - Тестируйте со скринридерами (NVDA, VoiceOver)
 
 💡 **Для собеседования:** ARIA — это последний рубеж. Сначала семантический HTML, потом ARIA только там, где HTML не справляется.`,
-"shortAnswer": `Доступность (a11y): семантические теги + ARIA-атрибуты. \`aria-label\` — когда нет видимого текста. \`aria-live\` — для динамического контента. Сначала семантика, потом ARIA.`,
+"shortAnswer": `ARIA — это последний рубеж. Сначала семантический HTML, потом ARIA только там, где HTML не справляется.`,
 },
 ],
 },
@@ -1373,7 +1373,7 @@ console.log("5 - синхронный");
 
 💡 **Для собеседования:** Бесконечный цикл микротасок может «заморозить» UI, 
  а \`setTimeout(..., 0)\` не означает «выполнить немедленно».`,
-"shortAnswer": `Event Loop: Call Stack → Microtask Queue (Promise) → Macrotask Queue (setTimeout). Микротаски выполняются перед макротасками.`,
+"shortAnswer": `Бесконечный цикл микротасок может «заморозить» UI,`,
 },
 {
 "id": `1-middle-javascript-2`,
@@ -1445,7 +1445,7 @@ printItems() {
 \`\`\`
 
 💡 **Для собеседования:** Главное правило — \`this\` определяется **как вызвана функция**, а не где она определена. Arrow function — единственное исключение.`,
-"shortAnswer": `\`this\` определяется в момент вызова: метод объекта = объект, конструктор = новый объект, call/apply/bind = явно указанный, arrow function = из внешнего контекста.`,
+"shortAnswer": `Главное правило — this определяется как вызвана функция, а не где она определена. Arrow function — единственное исключение.`,
 },
 {
 "id": `1-middle-javascript-3`,
@@ -1516,7 +1516,7 @@ rabbit.jump(); // собственное
 - \`Object.create(proto)\` — создать объект с указанным прототипом
 
 💡 **Для собеседования:** Классы в ES6 — это синтаксический сахар над прототипами. Наследование идёт через цепочку \`[[Prototype]]\` .`,
-"shortAnswer": `Прототипное наследование: каждый объект имеет \`[[Prototype]]\`. При обращении к свойству JS ищет в объекте, затем в прототипе. Цепочка заканчивается на \`Object.prototype\`.`,
+"shortAnswer": `Классы в ES6 — это синтаксический сахар над прототипами. Наследование идёт через цепочку [[Prototype]] .`,
 },
 {
 "id": `1-middle-javascript-4`,
@@ -1590,7 +1590,7 @@ Promise.any([
 \`\`\`
 
 💡 **Для собеседования:** \`all\` — параллельные запросы, где все обязательны. \`allSettled\` — когда нужно получить все результаты. \`race\` — таймауты. \`any\` — отказоустойчивость.`,
-"shortAnswer": `Promise: pending → fulfilled/rejected. \`all\` — ждёт все (ошибка если один упал). \`allSettled\` — ждёт все (статус каждого). \`race\` — первый завершившийся. \`any\` — первый успешный.`,
+"shortAnswer": `all — параллельные запросы, где все обязательны. allSettled — когда нужно получить все результаты. race — таймауты. any — отказоустойчивость.`,
 },
 {
 "id": `1-middle-javascript-5`,
@@ -1660,7 +1660,7 @@ async function loadAll() {
 \`\`\`
 
 💡 **Для собеседования:** \`await\` не блокирует поток — он приостанавливает только текущую async-функцию. Event Loop продолжает работать.`,
-"shortAnswer": `\`async/await\` — синтаксический сахар над Promise. \`async\` функция возвращает Promise. \`await\` приостанавливает выполнение. Ошибки ловятся через \`try/catch\`.`,
+"shortAnswer": `await не блокирует поток — он приостанавливает только текущую async-функцию. Event Loop продолжает работать.`,
 },
 {
 "id": `1-middle-javascript-6`,
@@ -1739,7 +1739,7 @@ export default {
 - Избегайте глобальных переменных
 
 💡 **Для собеседования:** Приведите пример из практики: «В Vue-проекте мы забыли убрать \`window.addEventListener('resize')\` в \`onUnmounted\` ».`,
-"shortAnswer": `Утечки памяти: глобальные переменные, неочищенные таймеры, замыкания, DOM-элементы вне DOM. Поиск: Chrome DevTools → Memory → Heap Snapshot.`,
+"shortAnswer": `Приведите пример из практики: «В Vue-проекте мы забыли убрать window.addEventListener('resize') в onUnmounted ».`,
 },
 {
 "id": `1-middle-javascript-7`,
@@ -1819,7 +1819,7 @@ function trackClicks(element) {
 \`\`\`
 
 💡 **Для собеседования:** WeakMap идеален для кэшей и приватных данных, где ключ — объект.`,
-"shortAnswer": `WeakMap/WeakSet — коллекции со слабыми ссылками. Не препятствуют сборке мусора. Ключи/значения — только объекты. Нет итерации и свойства \`size\`.`,
+"shortAnswer": `WeakMap идеален для кэшей и приватных данных, где ключ — объект.`,
 },
 {
 "id": `1-middle-javascript-8`,
@@ -1903,7 +1903,7 @@ const { a, ...others } = { a: 1, b: 2, c: 3 };
 \`\`\`
 
  **Для собеседования:** Spread — для копирования и объединения. Rest — для сбора «остатка». Помните, что spread делает поверхностную копию!`,
-"shortAnswer": `Деструктуризация — извлечение значений. Spread (\`...\`) — расширение. Rest (\`...\`) — сбор остатка. Деструктуризация не мутирует исходный объект.`,
+"shortAnswer": `Spread — для копирования и объединения. Rest — для сбора «остатка». Помните, что spread делает поверхностную копию!`,
 },
 {
 "id": `1-middle-javascript-9`,
@@ -1970,7 +1970,7 @@ console.log(10n / 3n); // 3n
 - Финансовые расчёты
 
 💡 **Для собеседования:** Symbol — для уникальных идентификаторов. BigInt — для чисел больше \`Number.MAX_SAFE_INTEGER\` .`,
-"shortAnswer": `Symbol — уникальный примитив (уникальные ключи объектов). BigInt — целые числа произвольной точности (больше \`Number.MAX_SAFE_INTEGER\`).`,
+"shortAnswer": `Symbol — для уникальных идентификаторов. BigInt — для чисел больше Number.MAX_SAFE_INTEGER .`,
 },
 {
 "id": `1-middle-javascript-10`,
@@ -2110,189 +2110,58 @@ function reactive(target) {
 \`\`\`
 
 💡 **Для собеседования:** Proxy — основа реактивности во Vue 3. Reflect нужен для корректной работы с \`this\` в Proxy.`,
-"shortAnswer": `Proxy — перехватывает операции над объектом (get, set, delete). Reflect — встроенный объект с методами для работы с объектами. Vue 3 использует Proxy для реактивности.`,
+"shortAnswer": `Proxy — основа реактивности во Vue 3. Reflect нужен для корректной работы с this в Proxy.`,
 },
 {
 "id": `1-middle-javascript-11`,
 "title": `Что такое генераторы (function*) и итераторы?`,
-"fullAnswer": `**Map** — коллекция пар ключ-значение, где ключом может быть **любое значение**.
+"fullAnswer": `## Генераторы и итераторы
 
-**Set** — коллекция **уникальных** значений.
+Итератор — объект с методом \`next()\`, который возвращает \`{ value, done }\`. Итерируемый объект предоставляет \`Symbol.iterator\`. Генератор (\`function*\`) — удобный способ создать итератор: он приостанавливает выполнение на \`yield\` и продолжает с того же места при следующем \`next()\`.
 
-**Map vs Object:**
-\`\`\`javascript
-const map = new Map();
-map.set("name", "John");
-map.set(1, "number key");
-map.set(true, "boolean key");
-const objKey = {};
-map.set(objKey, "object key");
+**Ключевые моменты:**
+- \`for...of\` работает с итерируемыми объектами.
+- Генератор одновременно является итератором и итерируемым объектом.
+- \`yield\` возвращает очередное значение, а \`return\` завершает генератор.
 
-console.log(map.get("name"));      // "John"
-console.log(map.get(objKey));      // "object key"
-console.log(map.size);             // 4
-console.log([...map.keys()]);      // ["name", 1, true, {}]
-console.log([...map.values()]);    // ["John", "number key", "boolean key", "object key"]
+**Пример:**
 
-const obj = {};
-obj["name"] = "John";
-obj[1] = "number key"; // ключ "1"
-obj[true] = "boolean key"; // ключ "true"
-\`\`\`
+\`\`\`js
+function* ids() {
+  yield 1
+  yield 2
+}
 
-**Set:**
-\`\`\`javascript
-const set = new Set([1, 2, 3, 2, 1]);
-console.log(set); // Set {1, 2, 3}
-
-set.add(4);
-set.delete(2);
-console.log(set.has(3)); // true
-console.log(set.size);   // 3
-
-const set2 = new Set([NaN, NaN, NaN]);
-console.log(set2.size); // 1
-\`\`\`
-
-**Когда использовать:**
-- **Map** — когда ключи не строки, нужен порядок, важен размер
-- **Set** — когда нужны уникальные значения, быстрые проверки \`has\` 
-- **Object** — простые структуры данных, JSON-сериализация
-- **Array** — упорядоченные данные, дубликаты допустимы
-
-💡 **Для собеседования:** Map сохраняет порядок вставки, имеет O(1) для \`get\` / \`set\` / \`has\` . Set — O(1) для \`has\` , что быстрее \`Array.includes()\` (O(n)).`,
-"shortAnswer": `Генератор (\`function*\`) — функция, которая может приостанавливать выполнение (\`yield\`). Итератор — объект с методом \`next()\`. Генераторы — итерируемые объекты.`,
+const it = ids()
+console.log(it.next()) // { value: 1, done: false }
+console.log(it.next()) // { value: 2, done: false }
+console.log(it.next()) // { value: undefined, done: true }
+\`\`\``,
+"shortAnswer": `Генераторы и итераторы Итератор — объект с методом next(), который возвращает { value, done }.  Итерируемый объект предоставляет Symbol.`,
 },
 {
 "id": `1-middle-javascript-12`,
 "title": `Как работает Map и Set? Отличия от объектов и массивов.`,
-"fullAnswer": `**Итератор** — объект, который знает, как перебирать последовательность. Имеет метод \`next()\` , возвращающий \`{ value, done }\` .
+"fullAnswer": `## Map и Set
 
-**Итерируемый объект** — объект, который можно перебирать через \`for...of\` . Имеет метод \`Symbol.iterator\` .
+\`Map\` хранит пары ключ-значение и допускает ключи любого типа. \`Set\` хранит только уникальные значения. В отличие от обычного объекта, Map не приводит ключи к строкам и имеет предсказуемый API для размера и перебора.
 
-\`\`\`javascript
-const iterator = {
-  current: 0,
-  last: 5,
-  next() {
-    if (this.current < this.last) {
-      return { value: this.current++, done: false };
-    } else {
-      return { value: undefined, done: true };
-    }
-  }
-};
+**Ключевые моменты:**
+- \`Map\`: \`set\`, \`get\`, \`has\`, \`delete\`, \`size\`.
+- \`Set\`: \`add\`, \`has\`, \`delete\`, \`size\`.
+- Обе коллекции сохраняют порядок вставки при итерации.
+- Для сериализации в JSON их обычно преобразуют в массив/объект вручную.
 
-console.log(iterator.next()); // { value: 0, done: false }
-console.log(iterator.next()); // { value: 1, done: false }
+**Пример:**
 
-const range = {
-  from: 1,
-  to: 5,
-  [Symbol.iterator]() {
-    return {
-      current: this.from,
-      last: this.to,
-      next() {
-        if (this.current <= this.last) {
-          return { value: this.current++, done: false };
-        }
-        return { done: true };
-      }
-    };
-  }
-};
+\`\`\`js
+const map = new Map([[1, "one"]])
+map.set({ id: 1 }, "object key")
 
-for (let num of range) {
-  console.log(num); // 1, 2, 3, 4, 5
-}
-\`\`\`
-
-**Генератор** — специальная функция, которая может приостанавливать своё выполнение.
-
-\`\`\`javascript
-function* generateSequence(start, end) {
-  for (let i = start; i <= end; i++) {
-    yield i;
-  }
-}
-
-const generator = generateSequence(1, 5);
-console.log(generator.next()); // { value: 1, done: false }
-console.log(generator.next()); // { value: 2, done: false }
-
-for (let num of generateSequence(1, 5)) {
-  console.log(num); // 1, 2, 3, 4, 5
-}
-
-console.log([...generateSequence(1, 5)]); // [1, 2, 3, 4, 5]
-\`\`\`
-
-**Двусторонняя связь:**
-\`\`\`javascript
-function* ask() {
-  const question = yield "Как вас зовут?";
-  console.log(\`Привет, \${question}!\`);
-  const age = yield "Сколько вам лет?";
-  console.log(\`Вам \${age} лет\`);
-}
-
-const gen = ask();
-console.log(gen.next().value);      // "Как вас зовут?"
-console.log(gen.next("John").value); // "Сколько вам лет?"
-gen.next(30);                        // "Вам 30 лет"
-\`\`\`
-
-**Делегирование ( \`yield*\` ):**
-\`\`\`javascript
-function* genA() { yield 1; yield 2; }
-function* genB() { yield 3; yield 4; }
-function* combined() {
-  yield* genA();
-  yield* genB();
-}
-console.log([...combined()]); // [1, 2, 3, 4]
-\`\`\`
-
-**Практическое применение:**
-
-**1. Бесконечные последовательности:**
-\`\`\`javascript
-function* fibonacci() {
-  let [a, b] = [0, 1];
-  while (true) {
-    yield a;
-    [a, b] = [b, a + b];
-  }
-}
-
-const fib = fibonacci();
-console.log(fib.next().value); // 0
-console.log(fib.next().value); // 1
-console.log(fib.next().value); // 1
-console.log(fib.next().value); // 2
-\`\`\`
-
-**2. Асинхронные генераторы:**
-\`\`\`javascript
-async function* fetchPages(url) {
-  let page = 1;
-  while (true) {
-    const response = await fetch(\`\${url}?page=\${page}\`);
-    const data = await response.json();
-    if (data.length === 0) break;
-    yield data;
-    page++;
-  }
-}
-
-for await (const page of fetchPages("/api/users")) {
-  console.log(page);
-}
-\`\`\`
-
-💡 **Для собеседования:** Генераторы — это «ленивые» вычисления. Они генерируют по одному значению. Основа для \`async/await\` и итераторов.`,
-"shortAnswer": `Map — коллекция пар ключ-значение (ключи любого типа). Set — коллекция уникальных значений. Отличия от объектов: ключи любого типа, есть \`size\`, итерируемые.`,
+const set = new Set([1, 1, 2, 3])
+console.log([...set]) // [1, 2, 3]
+\`\`\``,
+"shortAnswer": `Map и Set Map хранит пары ключ-значение и допускает ключи любого типа.  Set хранит только уникальные значения.`,
 },
 {
 "id": `1-middle-javascript-13`,
@@ -2363,7 +2232,7 @@ console.log(listFormatter.format(["Яблоко", "Банан", "Вишня"]));
 \`\`\`
 
 💡 **Для собеседования:** Intl API — нативное решение для локализации. Не нужно подключать moment.js или date-fns для базового форматирования.`,
-"shortAnswer": `Intl API — интернационализация. \`DateTimeFormat\` — даты. \`NumberFormat\` — числа и валюты. \`Collator\` — сравнение строк. \`RelativeTimeFormat\` — относительное время.`,
+"shortAnswer": `Intl API — нативное решение для локализации. Не нужно подключать moment.js или date-fns для базового форматирования.`,
 },
 {
 "id": `1-middle-javascript-14`,
@@ -2524,7 +2393,7 @@ return cached || fetchPromise;
 4. **Fetch** — перехват запросов
 5. **Update** — обновление (если файл изменился)
 💡 **Для собеседования:** Service Worker — основа PWA. Работает отдельно от страницы, может кешировать ресурсы для офлайн-работы. Lifecycle: install → activate → fetch. Один SW может обслуживать несколько вкладок.`,
-"shortAnswer": `Web Workers — фоновые потоки для тяжёлых вычислений без блокировки UI. Нет доступа к DOM. Обмен данными через \`postMessage\`.`,
+"shortAnswer": `Workers — для тяжёлых вычислений. Данные передаются через postMessage (копирование) или Transferable objects (без копирования). Нет доступа к DOM.`,
 },
 {
 "id": `1-middle-javascript-15`,
@@ -2677,7 +2546,7 @@ characterDataOldValue: true
 - Отладка DOM-изменений
 - Реализация реактивности (как во Vue 2)
 💡 **Для собеседования:** MutationObserver — для отслеживания DOM-изменений. Работает асинхронно, batching изменения в один callback. Используется во Vue 2 для реактивности.`,
-"shortAnswer": `Service Worker — скрипт в фоне для кэширования, push-уведомлений, офлайн-работы. Работает только по HTTPS. Перехватывает сетевые запросы.`,
+"shortAnswer": `requestAnimationFrame — для анимаций. Браузер сам оптимизирует частоту кадров. Не используйте setTimeout для анимаций.`,
 },
 {
 "id": `1-middle-javascript-16`,
@@ -2813,7 +2682,7 @@ console.error(error);
 }
 \`\`\`
 💡 **Для собеседования:** AbortController — для отмены fetch. Обязателен для предотвращения race conditions и утечек памяти. Один controller может отменить несколько fetch (передаём один signal в несколько запросов).`,
-"shortAnswer": `\`requestAnimationFrame\` — анимации синхронно с частотой экрана (60 FPS). Лучше \`setTimeout\` для анимаций. Callback получает timestamp.`,
+"shortAnswer": `structuredClone — это нативная замена JSON.parse(JSON.stringify()) с поддержкой циклических ссылок и сложных типов. Работает в браузерах с 2022 года и Node.js 17+.`,
 },
 {
 "id": `1-middle-javascript-17`,
@@ -2926,7 +2795,7 @@ port.start();
 | Логика | Нет | Можно выполнять код |
 | Поддержка | Все современные браузеры | Все современные браузеры |
 💡 **Для собеседования:** SharedWorker — когда нужна общая логика/состояние между вкладками. BroadcastChannel — для простой синхронизации сообщений.`,
-"shortAnswer": `IntersectionObserver — отслеживание видимости элемента в viewport. Производительнее \`scroll\` event. Применяется для lazy loading, бесконечной прокрутки.`,
+"shortAnswer": `queueMicrotask — это более семантичный способ, чем Promise.resolve().then(). Используется во Vue 3 для batch-обновлений DOM.`,
 },
 {
 "id": `1-middle-javascript-18`,
@@ -3040,7 +2909,7 @@ console.log(isValid); // true
 - **Хеширование:** SHA-1, SHA-256, SHA-384, SHA-512
 - **Key derivation:** HKDF, PBKDF2
 💡 **Для собеседования:** Web Crypto API — нативная криптография в браузере. Используйте \`crypto.getRandomValues()\` вместо \`Math.random()\` для токенов. Поддерживает AES, RSA, ECDSA, SHA. Все операции асинхронные (возвращают Promise).`,
-"shortAnswer": `ResizeObserver — изменение размеров элементов. MutationObserver — изменения в DOM. Оба асинхронны (батчат изменения).`,
+"shortAnswer": `Web Crypto API — нативная криптография в браузере. Используйте crypto.getRandomValues() вместо Math.random() для токенов. Поддерживает AES, RSA, ECDSA, SHA. Все операции асинхронные (возвращают Promise).`,
 },
 ],
 },

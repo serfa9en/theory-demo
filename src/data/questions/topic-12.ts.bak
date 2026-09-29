@@ -1,0 +1,153 @@
+import type { TopicQuestions } from '../../types/question'
+
+export const topic12Questions: TopicQuestions = {
+"id": 12,
+"slug": `topic-12`,
+"title": `SQL`,
+"junior": {
+"sections": [
+{
+"id": `общее`,
+"title": `Общее`,
+"questions": [
+{
+"id": `12-junior-общее-1`,
+"title": `Реляционная БД: таблица, строка, столбец, PK, FK.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-junior-общее-2`,
+"title": `SELECT, INSERT, UPDATE, DELETE.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-junior-общее-3`,
+"title": `WHERE, ORDER BY, LIMIT, GROUP BY, HAVING.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-junior-общее-4`,
+"title": `JOIN: INNER, LEFT, RIGHT, FULL. Подзапросы.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-junior-общее-5`,
+"title": `Агрегатные функции: COUNT, SUM, AVG, MIN, MAX.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-junior-общее-6`,
+"title": `DISTINCT, UNION, NULL.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-junior-общее-7`,
+"title": `Индексы: плюсы и минусы.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-junior-общее-8`,
+"title": `Транзакции: BEGIN, COMMIT, ROLLBACK.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-junior-общее-9`,
+"title": `Нормализация: 1NF, 2NF, 3NF.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-junior-общее-10`,
+"title": `DDL, DML, DCL. DELETE vs TRUNCATE vs DROP.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-junior-общее-11`,
+"title": `VIEW, CASE, COALESCE, EXISTS, IN vs EXISTS, window functions.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+],
+},
+],
+},
+"middle": {
+"sections": [
+{
+"id": `общее`,
+"title": `Общее`,
+"questions": [
+{
+"id": `12-middle-общее-1`,
+"title": `ACID и уровни изоляции транзакций.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-middle-общее-2`,
+"title": `Аномалии: Dirty Read, Non-repeatable Read, Phantom Read.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-middle-общее-3`,
+"title": `MVCC, EXPLAIN ANALYZE, чтение плана запроса.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-middle-общее-4`,
+"title": `Seq Scan vs Index Scan.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-middle-общее-5`,
+"title": `Партиционирование, шардирование, репликация (Master-Slave, Master-Master).`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-middle-общее-6`,
+"title": `Материализованные представления, CTE (Common Table Expressions), рекурсивные CTE.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-middle-общее-7`,
+"title": `Lateral join, full-text search, JSON/JSONB типы.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-middle-общее-8`,
+"title": `Триггеры, stored procedures, курсоры.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-middle-общее-9`,
+"title": `Deadlock: что это и как бороться.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `12-middle-общее-10`,
+"title": `Connection pooling, query optimization.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+],
+},
+],
+},
+}

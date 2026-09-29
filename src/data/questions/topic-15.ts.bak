@@ -1,0 +1,99 @@
+import type { TopicQuestions } from '../../types/question'
+
+export const topic15Questions: TopicQuestions = {
+"id": 15,
+"slug": `topic-15`,
+"title": `ClickHouse / Elasticsearch`,
+"junior": {
+"sections": [
+{
+"id": `общее`,
+"title": `Общее`,
+"questions": [
+{
+"id": `15-junior-общее-1`,
+"title": `ClickHouse: что это и для каких задач? Колоночная vs строковая СУБД.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `15-junior-общее-2`,
+"title": `Elasticsearch: полнотекстовый поиск, inverted index.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `15-junior-общее-3`,
+"title": `Document, index, mapping, query DSL.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `15-junior-общее-4`,
+"title": `Queries: match, term, range. Aggregation.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `15-junior-общее-5`,
+"title": `Экосистема ELK: Kibana, Logstash, Beats.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `15-junior-общее-6`,
+"title": `ClickHouse: MergeTree, ReplicatedMergeTree, Distributed engine, Materialized View, dictionary.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+],
+},
+],
+},
+"middle": {
+"sections": [
+{
+"id": `общее`,
+"title": `Общее`,
+"questions": [
+{
+"id": `15-middle-общее-1`,
+"title": `ClickHouse: партиционирование, сортировка (ORDER BY), primary key, sampling, TTL.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `15-middle-общее-2`,
+"title": `Dictionary joins, distributed queries, оптимизация запросов.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `15-middle-общее-3`,
+"title": `Elasticsearch: шарды и реплики, распределение данных.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `15-middle-общее-4`,
+"title": `Refresh interval, translog, segment merging, fielddata, doc values.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `15-middle-общее-5`,
+"title": `Оптимизация индексации: bulk API, reindex API.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+{
+"id": `15-middle-общее-6`,
+"title": `Index lifecycle management (ILM), index templates, ingest pipelines.`,
+"fullAnswer": `Подробный ответ пока не добавлен.`,
+"shortAnswer": `Краткий ответ пока не добавлен.`,
+},
+],
+},
+],
+},
+}
